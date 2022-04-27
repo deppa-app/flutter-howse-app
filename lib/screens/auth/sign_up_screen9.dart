@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/auth/sign_up_screen7.dart';
+import 'package:howse_app/screens/auth/sign_up_screen10.dart';
+
 
 
 import 'package:howse_app/utils/dimensions.dart';
@@ -8,17 +9,16 @@ import 'package:howse_app/widgets/back_widget.dart';
 
 import '../../widgets/secondary_button_widget.dart';
 
-class SignUpScreen6 extends StatefulWidget {
-  const SignUpScreen6({Key key}) : super(key: key);
+class SignUpScreen9 extends StatefulWidget {
+  const SignUpScreen9({Key key}) : super(key: key);
 
   @override
-  _SignUpScreen6State createState() => _SignUpScreen6State();
+  _SignUpScreen9State createState() => _SignUpScreen9State();
 }
 
-class _SignUpScreen6State extends State<SignUpScreen6> {
+class _SignUpScreen9State extends State<SignUpScreen9> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
 
 
   @override
@@ -43,7 +43,7 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
               Text(
-                "Foto Rostro",
+                "Tarjeta de crédito",
                  style: TextStyle(
                  color: Colors.grey,
                  fontSize: Dimensions.largeTextSize,
@@ -52,22 +52,13 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
                 textAlign: TextAlign.center,
                 ),
               SecondaryButtonWidget(
-                  title: "Validar",
+                  title: "Guardar",
                     onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const SignUpScreen7()));
+                    (context) => const SignUpScreen10()));
                   },
                 ),
               const SizedBox(height: Dimensions.heightSize * 2,),
-              Text(
-                "¿Instrucciones para tomar las fotografías?",
-                 style: TextStyle(
-                 color: Colors.grey,
-                 fontSize: Dimensions.largeTextSize,
-                  fontWeight: FontWeight.bold
-                ),
-                textAlign: TextAlign.center,
-                ),
             ],
           ),
         ),
@@ -93,7 +84,7 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(
-                      "Verificación de identidad",
+                      "Método de pago",
                        style: TextStyle(
                        color: Colors.black,
                         fontSize: Dimensions.extraLargeTextSize * 1.5,

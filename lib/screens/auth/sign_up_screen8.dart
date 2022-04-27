@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/auth/sign_up_screen7.dart';
+import 'package:howse_app/screens/auth/sign_up_screen9.dart';
 
 
 import 'package:howse_app/utils/dimensions.dart';
@@ -18,16 +18,6 @@ class SignUpScreen8 extends StatefulWidget {
 class _SignUpScreen8State extends State<SignUpScreen8> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-  TextEditingController firstNameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-
-  bool checkedValue = false;
 
 
   @override
@@ -64,7 +54,7 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                   title: "Validar",
                     onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const SignUpScreen7()));
+                    (context) => const SignUpScreen9()));
                   },
                 ),
               const SizedBox(height: Dimensions.heightSize * 2,),

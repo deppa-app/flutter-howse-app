@@ -19,16 +19,6 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  TextEditingController firstNameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-
-  bool checkedValue = false;
-
   @override
   void initState() {
 
