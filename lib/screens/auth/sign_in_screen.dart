@@ -1,4 +1,5 @@
 //import 'package:flutter/cupertino.dart';
+import 'package:howse_app/screens/auth/terms_and_conditions.dart';
 import 'package:howse_app/widgets/circle_button_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -239,25 +240,25 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   alreadyHaveAccountWidget(BuildContext context) {
-    return Row(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          Strings.ifYouHaveNoAccount,
+          "Al continuar, declaro haber leído y aceptado los",
           style: CustomStyle.textStyle,
         ),
         GestureDetector(
-          child: Text(
-            Strings.signUp.toUpperCase(),
-            style: const TextStyle(
+          child: const Text(
+            "Términos y condiciones",
+            style: TextStyle(
                 color: CustomColor.primaryColor,
                 fontWeight: FontWeight.bold,
               decoration: TextDecoration.underline
             ),
           ),
           onTap: () {
-            /*Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                SignUpScreen()));*/
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                const TermsAndConditions()));
           },
         )
       ],

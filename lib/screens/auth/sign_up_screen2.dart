@@ -21,17 +21,8 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  TextEditingController firstNameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
+
   TextEditingController phoneController = TextEditingController();
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
-
-
-
-
 
   @override
   void initState() {

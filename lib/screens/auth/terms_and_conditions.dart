@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/auth/sign_up_screen7.dart';
+import 'package:howse_app/screens/auth/sign_in_screen.dart';
+
 
 
 import 'package:howse_app/utils/dimensions.dart';
@@ -8,17 +9,16 @@ import 'package:howse_app/widgets/back_widget.dart';
 
 import '../../widgets/secondary_button_widget.dart';
 
-class SignUpScreen6 extends StatefulWidget {
-  const SignUpScreen6({Key key}) : super(key: key);
+class TermsAndConditions extends StatefulWidget {
+  const TermsAndConditions({Key key}) : super(key: key);
 
   @override
-  _SignUpScreen6State createState() => _SignUpScreen6State();
+  _TermsAndConditionsState createState() => _TermsAndConditionsState();
 }
 
-class _SignUpScreen6State extends State<SignUpScreen6> {
+class _TermsAndConditionsState extends State<TermsAndConditions> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
 
 
   @override
@@ -39,35 +39,9 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: Strings.createAnAccount),
+              const BackWidget(title: "Atrás"),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
-              Text(
-                "Foto Rostro",
-                 style: TextStyle(
-                 color: Colors.grey,
-                 fontSize: Dimensions.largeTextSize,
-                  fontWeight: FontWeight.bold
-                ),
-                textAlign: TextAlign.center,
-                ),
-              SecondaryButtonWidget(
-                  title: "Validar",
-                    onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const SignUpScreen7()));
-                  },
-                ),
-              const SizedBox(height: Dimensions.heightSize * 2,),
-              Text(
-                "¿Instrucciones para tomar las fotografías?",
-                 style: TextStyle(
-                 color: Colors.grey,
-                 fontSize: Dimensions.largeTextSize,
-                  fontWeight: FontWeight.bold
-                ),
-                textAlign: TextAlign.center,
-                ),
             ],
           ),
         ),
@@ -93,7 +67,7 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(
-                      "Verificación de identidad",
+                      "Términos y Condiciones",
                        style: TextStyle(
                        color: Colors.black,
                         fontSize: Dimensions.extraLargeTextSize * 1.5,

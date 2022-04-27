@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/auth/sign_up_screen7.dart';
+import 'package:howse_app/screens/auth/sign_in_screen.dart';
+
 
 
 import 'package:howse_app/utils/dimensions.dart';
@@ -8,18 +9,16 @@ import 'package:howse_app/widgets/back_widget.dart';
 
 import '../../widgets/secondary_button_widget.dart';
 
-class SignUpScreen6 extends StatefulWidget {
-  const SignUpScreen6({Key key}) : super(key: key);
+class SignUpScreen10 extends StatefulWidget {
+  const SignUpScreen10({Key key}) : super(key: key);
 
   @override
-  _SignUpScreen6State createState() => _SignUpScreen6State();
+  _SignUpScreen10State createState() => _SignUpScreen10State();
 }
 
-class _SignUpScreen6State extends State<SignUpScreen6> {
+class _SignUpScreen10State extends State<SignUpScreen10> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-
 
   @override
   void initState() {
@@ -43,7 +42,7 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
               Text(
-                "Foto Rostro",
+                "Haz finalizado el registro. Tu cuenta está en proceso de validación",
                  style: TextStyle(
                  color: Colors.grey,
                  fontSize: Dimensions.largeTextSize,
@@ -52,22 +51,13 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
                 textAlign: TextAlign.center,
                 ),
               SecondaryButtonWidget(
-                  title: "Validar",
+                  title: "Entendido",
                     onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const SignUpScreen7()));
+                    (context) => const SignInScreen()));
                   },
                 ),
               const SizedBox(height: Dimensions.heightSize * 2,),
-              Text(
-                "¿Instrucciones para tomar las fotografías?",
-                 style: TextStyle(
-                 color: Colors.grey,
-                 fontSize: Dimensions.largeTextSize,
-                  fontWeight: FontWeight.bold
-                ),
-                textAlign: TextAlign.center,
-                ),
             ],
           ),
         ),
@@ -93,7 +83,7 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(
-                      "Verificación de identidad",
+                      "¡Felicidades!",
                        style: TextStyle(
                        color: Colors.black,
                         fontSize: Dimensions.extraLargeTextSize * 1.5,
