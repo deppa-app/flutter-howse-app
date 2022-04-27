@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:howse_app/utils/dimensions.dart';
 
 class DrawerHeaderWidget extends StatelessWidget {
+  const DrawerHeaderWidget({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +16,7 @@ class DrawerHeaderWidget extends StatelessWidget {
             width: 70,
           ),
           Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                   top: Dimensions.heightSize * 1,
                   bottom: Dimensions.heightSize,
                   left: (Dimensions.widthSize * 6)),
@@ -28,7 +30,7 @@ class DrawerHeaderWidget extends StatelessWidget {
                 ),
                 subtitle: Text(
                   Strings.demoEmail,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: CustomColor.blueColor,
                   ),
                 ),

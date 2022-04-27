@@ -4,6 +4,8 @@ import 'dart:async';
 import 'package:howse_app/screens/onboard/on_board_screen.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key key}) : super(key: key);
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -14,15 +16,15 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
+
     super.initState();
 
     Timer(
-        Duration(
+        const Duration(
             seconds: 3
         ),
             () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>
-            OnBoardScreen()
+            const OnBoardScreen()
         ))
     );
   }

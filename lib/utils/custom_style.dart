@@ -1,39 +1,39 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'custom_color.dart';
 import 'dimensions.dart';
 
 class CustomStyle {
-  static var textLuft = TextStyle(
+  static const textLuft = TextStyle(
       color: CustomColor.blueColor, fontSize: 18, fontWeight: FontWeight.w500);
   static var textStyle = TextStyle(
       color: CustomColor.blueColor, fontSize: Dimensions.defaultTextSize);
-  static var textStyle2 = TextStyle(
+  static const textStyle2 = TextStyle(
       color: CustomColor.blueColor, fontSize: 15, fontWeight: FontWeight.w500);
-  static var textStyleTitle = TextStyle(
+  static const textStyleTitle = TextStyle(
       color: CustomColor.blueColor, fontSize: 15, fontWeight: FontWeight.w500);
-  static var textStyleBig = TextStyle(
+  static const textStyleBig = TextStyle(
       color: CustomColor.blueColor, fontSize: 22, fontWeight: FontWeight.w500);
 
-  static var textStyleNormalPrimary = TextStyle(
+  static const textStyleNormalPrimary = TextStyle(
       color: CustomColor.primaryColor,
       fontSize: 18,
       fontWeight: FontWeight.w500);
 
-  static var textStyleNormalPrimary2 = TextStyle(
+  static const textStyleNormalPrimary2 = TextStyle(
       color: CustomColor.primaryColor,
       fontSize: 22,
       fontWeight: FontWeight.w500);
 
-  static var textStyleNormalOrange = TextStyle(
+  static const textStyleNormalOrange = TextStyle(
       color: CustomColor.orangeColor,
       fontSize: 22,
       fontWeight: FontWeight.w500);
 
-  static var textStyleNormalRed = TextStyle(
+  static const textStyleNormalRed = TextStyle(
       color: CustomColor.redColor, fontSize: 22, fontWeight: FontWeight.w500);
 
-  static var textStyleBigPrimary = TextStyle(
+  static const textStyleBigPrimary = TextStyle(
       color: CustomColor.primaryColor,
       fontSize: 22,
       fontWeight: FontWeight.w500);
@@ -46,11 +46,11 @@ class CustomStyle {
 
   static var mediumTextGray =
       TextStyle(color: Colors.grey.withOpacity(0.5), fontSize: 30);
-  static var bigTextblack =
+  static const bigTextblack =
       TextStyle(color: CustomColor.colorBlack, fontSize: 50);
-  static var mediumTextblack =
+  static const mediumTextblack =
       TextStyle(color: CustomColor.colorBlack, fontSize: 30);
-  static var normalTextGray =
+  static const normalTextGray =
       TextStyle(color: CustomColor.colorBlack, fontSize: 16);
   static var listStyle = TextStyle(
     color: Colors.white,
@@ -62,15 +62,15 @@ class CustomStyle {
 
   static var focusBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(Dimensions.radius),
-    borderSide: BorderSide(color: Colors.transparent),
+    borderSide: const BorderSide(color: Colors.transparent),
   );
 
   static var focusErrorBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(Dimensions.radius),
-    borderSide: BorderSide(color: Colors.transparent),
+    borderSide: const BorderSide(color: Colors.transparent),
   );
 
-  static var focusBorder2 = OutlineInputBorder(
+  static const focusBorder2 = OutlineInputBorder(
     borderRadius: BorderRadius.only(
       topLeft: Radius.circular(Dimensions.radius),
       bottomLeft: Radius.circular(Dimensions.radius),
@@ -78,7 +78,7 @@ class CustomStyle {
     borderSide: BorderSide(color: Colors.transparent),
   );
 
-  static var focusErrorBorder2 = OutlineInputBorder(
+  static const focusErrorBorder2 = OutlineInputBorder(
     borderRadius: BorderRadius.only(
       topLeft: Radius.circular(Dimensions.radius),
       bottomLeft: Radius.circular(Dimensions.radius),

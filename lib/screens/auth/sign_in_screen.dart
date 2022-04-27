@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:howse_app/widgets/circle_button_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +12,8 @@ import 'package:howse_app/widgets/back_widget.dart';
 //import 'package:howse_app/auth/forgot_password_screen.dart';
 
 class SignInScreen extends StatefulWidget {
+  const SignInScreen({Key key}) : super(key: key);
+
   @override
   _SignInScreenState createState() => _SignInScreenState();
 }
@@ -35,7 +37,7 @@ class _SignInScreenState extends State<SignInScreen> {
           //width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: ListView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             children: [
               BackWidget(title: Strings.signInAccount,),
               bodyWidget(context)
@@ -53,15 +55,15 @@ class _SignInScreenState extends State<SignInScreen> {
         children: [
           headingWidget(context),
           inputFiledWidget(context),
-          SizedBox(height: Dimensions.heightSize),
+          const SizedBox(height: Dimensions.heightSize),
           rememberForgotWidget(context),
-          SizedBox(height: Dimensions.heightSize * 2),
+          const SizedBox(height: Dimensions.heightSize * 2),
           signInButtonWidget(context),
-          SizedBox(height: Dimensions.heightSize * 2),
+          const SizedBox(height: Dimensions.heightSize * 2),
           orSignInWidget(context),
-          SizedBox(height: Dimensions.heightSize * 2),
+          const SizedBox(height: Dimensions.heightSize * 2),
           alreadyHaveAccountWidget(context),
-          SizedBox(height: Dimensions.heightSize * 2),
+          const SizedBox(height: Dimensions.heightSize * 2),
         ],
       ),
     );
@@ -104,12 +106,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 },
                 decoration: InputDecoration(
                     hintText: Strings.demoEmail,
-                    contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                    contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                     labelStyle: CustomStyle.textStyle,
                     filled: true,
                     fillColor: Colors.white,
                     hintStyle: CustomStyle.textStyle,
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.mail_outline,
                       color: CustomColor.primaryColor,
                     )
@@ -128,12 +130,12 @@ class _SignInScreenState extends State<SignInScreen> {
                 },
                 decoration: InputDecoration(
                   hintText: Strings.typePassword,
-                  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                   labelStyle: CustomStyle.textStyle,
                   filled: true,
                   fillColor: Colors.white,
                   hintStyle: CustomStyle.textStyle,
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.lock_outline,
                     color: CustomColor.primaryColor,
                   ),
@@ -144,11 +146,11 @@ class _SignInScreenState extends State<SignInScreen> {
                       });
                     },
                     icon: _toggleVisibility
-                        ? Icon(
+                        ? const Icon(
                       Icons.visibility_off,
                       color: CustomColor.primaryColor,
                     )
-                        : Icon(
+                        : const Icon(
                       Icons.visibility,
                       color: CustomColor.primaryColor,
                     ),
@@ -156,7 +158,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 obscureText: _toggleVisibility,
               ),
-              SizedBox(height: Dimensions.heightSize),
+              const SizedBox(height: Dimensions.heightSize),
             ],
           ),
         )
@@ -194,7 +196,7 @@ class _SignInScreenState extends State<SignInScreen> {
     return Padding(
       padding: const EdgeInsets.only(left: Dimensions.marginSize, right: Dimensions.marginSize),
       child: CircleButtonWidget(
-        icon: Icon(
+        icon: const Icon(
           Icons.arrow_forward,
           color: CustomColor.primaryColor,
         ),
@@ -209,7 +211,7 @@ class _SignInScreenState extends State<SignInScreen> {
   orSignInWidget(BuildContext context) {
     return Column(
       children: [
-        Text(
+        const Text(
           'Or'
         ),
         Row(
@@ -223,7 +225,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
               },
             ),
-            SizedBox(width: Dimensions.widthSize,),
+            const SizedBox(width: Dimensions.widthSize,),
             CircleButtonWidget(
               icon: Image.asset('assets/images/icon/google.png'),
               onTap: () {
@@ -247,7 +249,7 @@ class _SignInScreenState extends State<SignInScreen> {
         GestureDetector(
           child: Text(
             Strings.signUp.toUpperCase(),
-            style: TextStyle(
+            style: const TextStyle(
                 color: CustomColor.primaryColor,
                 fontWeight: FontWeight.bold,
               decoration: TextDecoration.underline
@@ -270,7 +272,7 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
       child: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
             color: Colors.black
         ),
       ),

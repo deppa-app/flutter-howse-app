@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/sign_in_screen.dart';
-//import 'package:howse_app/screens/auth/sign_up_screen.dart';
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
+import '../auth/pass_sign_up_screen.dart';
 import 'data.dart';
 import 'package:howse_app/widgets/primary_button_widget.dart';
 import 'package:howse_app/widgets/secondary_button_widget.dart';
 
 class OnBoardScreen extends StatefulWidget {
+  const OnBoardScreen({Key key}) : super(key: key);
+
   @override
   _OnBoardScreenState createState() => _OnBoardScreenState();
 }
@@ -74,7 +76,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
-                                SizedBox(height: Dimensions.heightSize * 2,),
+                                const SizedBox(height: Dimensions.heightSize * 2,),
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       left: Dimensions.marginSize,
@@ -91,7 +93,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: Dimensions.heightSize * 4),
+                            const SizedBox(height: Dimensions.heightSize * 4),
                             Container(
                               width: MediaQuery.of(context).size.width,
                               child: Align(
@@ -127,16 +129,16 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                         SecondaryButtonWidget(
                                           title: Strings.createAnAccount,
                                           onTap: () {
-                                            //Navigator.of(context).push(MaterialPageRoute(builder:
-                                           // (context) => SignUpScreen()));
+                                            Navigator.of(context).push(MaterialPageRoute(builder:
+                                           (context) => const PassSignUpScreen()));
                                           },
                                         ),
-                                        SizedBox(height: Dimensions.heightSize,),
+                                        const SizedBox(height: Dimensions.heightSize,),
                                         PrimaryButtonWidget(
                                           title: Strings.signInAccount,
                                           onTap: () {
                                             Navigator.of(context).push(MaterialPageRoute(builder:
-                                                (context) => SignInScreen()));
+                                                (context) => const SignInScreen()));
                                           },
                                         )
                                       ],
@@ -153,22 +155,22 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                         SecondaryButtonWidget(
                                           title: Strings.createAnAccount,
                                           onTap: () {
-                                            //Navigator.of(context).push(MaterialPageRoute(builder:
-                                           // (context) => SignUpScreen()));
+                                            Navigator.of(context).push(MaterialPageRoute(builder:
+                                            (context) => const PassSignUpScreen()));
                                           },
                                         ),
-                                        SizedBox(height: Dimensions.heightSize,),
+                                        const SizedBox(height: Dimensions.heightSize,),
                                         PrimaryButtonWidget(
                                           title: Strings.signInAccount,
                                           onTap: () {
                                             Navigator.of(context).push(MaterialPageRoute(builder:
-                                                (context) => SignInScreen()));
+                                                (context) => const SignInScreen()));
                                           },
                                         )
                                       ],
                                     ),
                             ) : Container(),
-                            SizedBox(height: Dimensions.heightSize),
+                            const SizedBox(height: Dimensions.heightSize),
                           ],
                         ),
                       ),
