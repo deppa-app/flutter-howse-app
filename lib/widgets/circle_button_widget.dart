@@ -15,7 +15,7 @@ class CircleButtonWidget extends StatelessWidget {
         height: 50,
         width: 50,
         decoration: BoxDecoration(
-          border: Border(
+          border: const Border(
             left: BorderSide.none
           ),
           color: CustomColor.whiteColor,
@@ -25,7 +25,7 @@ class CircleButtonWidget extends StatelessWidget {
               color: CustomColor.greyColor.withOpacity(0.4),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(0, 0), // changes position of shadow
+              offset: const Offset(0, 0), // changes position of shadow
             ),
           ],
         ),

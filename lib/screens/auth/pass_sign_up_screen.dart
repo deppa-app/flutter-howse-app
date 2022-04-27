@@ -1,32 +1,26 @@
-/*import 'package:flutter/material.dart';
-import 'package:howse_app/screens/auth/sign_in_screen.dart';
-//import 'package:howse_app/screens/auth/sign_up_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:howse_app/screens/auth/sign_up_screen1.dart';
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/widgets/primary_button_widget.dart';
+//import 'package:howse_app/widgets/primary_button_widget.dart';
 import 'package:howse_app/widgets/secondary_button_widget.dart';
 
-class OnBoardScreen extends StatefulWidget {
+class PassSignUpScreen extends StatefulWidget {
+  const PassSignUpScreen({Key key}) : super(key: key);
+
   @override
-  _OnBoardScreenState createState() => _OnBoardScreenState();
+  _PassSignUpScreenState createState() => _PassSignUpScreenState();
 }
 
-class _OnBoardScreenState extends State<OnBoardScreen> {
-  int totalPages = OnBoardingItems.loadOnboardItem().length;
-
+class _PassSignUpScreenState extends State<PassSignUpScreen> {
+  
   @override
   Widget build(BuildContext context) {
+
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: PageView.builder(
-          itemCount: totalPages,
-            itemBuilder: (context, index){
-            OnBoardingItem oi = OnBoardingItems.loadOnboardItem()[index];
-              return Container(
+    return Scaffold(
+      body:Container(
                 width: width,
                 height: height,
                 child: Stack(
@@ -64,7 +58,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                       left: Dimensions.marginSize,
                                       right: Dimensions.marginSize),
                                   child: Text(
-                                    oi.title,
+                                    "página de transición",
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontSize: Dimensions.extraLargeTextSize * 1.5,
@@ -73,13 +67,13 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                     textAlign: TextAlign.center,
                                   ),
                                 ),
-                                SizedBox(height: Dimensions.heightSize * 2,),
+                                const SizedBox(height: Dimensions.heightSize * 2,),
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       left: Dimensions.marginSize,
                                       right: Dimensions.marginSize),
                                   child: Text(
-                                    oi.subTitle,
+                                    "Howse",
                                     style: TextStyle(
                                         color: Colors.grey,
                                         fontSize: Dimensions.largeTextSize,
@@ -90,59 +84,8 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: Dimensions.heightSize * 4),
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: index != (totalPages - 1) ? Padding(
-                                  padding: const EdgeInsets.only(left: 40.0),
-                                  child: Container(
-                                    width: 110.0,
-                                    height: 40.0,
-                                    child: ListView.builder(
-                                      itemCount: totalPages,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.horizontal,
-                                      itemBuilder: (context, i){
-                                        return Padding(
-                                          padding: const EdgeInsets.only(right: 10.0),
-                                          child: Text(
-                                              (i + 1).toString(),
-                                            style: TextStyle(
-                                              color: index == i ? Colors.black :
-                                              Colors.black.withOpacity(0.5),
-                                              fontSize: Dimensions.largeTextSize,
-                                              fontWeight: index == i ? FontWeight.bold : FontWeight.normal
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  ),
-                                )
-                                    : Column(
-                                      children: [
-                                        SecondaryButtonWidget(
-                                          title: Strings.createAnAccount,
-                                          onTap: () {
-                                            //Navigator.of(context).push(MaterialPageRoute(builder:
-                                           // (context) => SignUpScreen()));
-                                          },
-                                        ),
-                                        SizedBox(height: Dimensions.heightSize,),
-                                        PrimaryButtonWidget(
-                                          title: Strings.signInAccount,
-                                          onTap: () {
-                                            Navigator.of(context).push(MaterialPageRoute(builder:
-                                                (context) => SignInScreen()));
-                                          },
-                                        )
-                                      ],
-                                    ),
-                              ),
-                            ),
-                            index != (totalPages - 1) ? Padding(
+                            const SizedBox(height: Dimensions.heightSize * 4),
+                            Padding(
                               padding: const EdgeInsets.only(
                                 left: Dimensions.marginSize,
                                 right: Dimensions.marginSize,
@@ -152,32 +95,31 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                         SecondaryButtonWidget(
                                           title: Strings.createAnAccount,
                                           onTap: () {
-                                            //Navigator.of(context).push(MaterialPageRoute(builder:
-                                           // (context) => SignUpScreen()));
+                                            Navigator.of(context).push(MaterialPageRoute(builder:
+                                            (context) => const SignUpScreen1()));
                                           },
                                         ),
-                                        SizedBox(height: Dimensions.heightSize,),
-                                        PrimaryButtonWidget(
-                                          title: Strings.signInAccount,
-                                          onTap: () {
-                                            Navigator.of(context).push(MaterialPageRoute(builder:
-                                                (context) => SignInScreen()));
-                                          },
-                                        )
+                                        const SizedBox(height: Dimensions.heightSize,),
+                                        Text(
+                                    "¿No recibiste el código?",
+                                    style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: Dimensions.largeTextSize,
+                                      fontWeight: FontWeight.bold
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
                                       ],
                                     ),
-                            ) : Container(),
-                            SizedBox(height: Dimensions.heightSize),
+                            ) ,
+                            const SizedBox(height: Dimensions.heightSize),
                           ],
                         ),
-                      ),
+                      )
                     )
                   ],
                 )
-              );
-            }),
-      ),
-    );
+              )
+            );
   }
 }
-*/

@@ -5,7 +5,7 @@ import 'package:howse_app/utils/dimensions.dart';
 class FilterChipWidget extends StatefulWidget {
   final String chipName;
 
-  FilterChipWidget({Key key, this.chipName}) : super(key: key);
+  const FilterChipWidget({Key key, this.chipName}) : super(key: key);
 
   @override
   _FilterChipWidgetState createState() => _FilterChipWidgetState();

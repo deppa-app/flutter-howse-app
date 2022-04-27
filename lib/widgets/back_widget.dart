@@ -21,7 +21,7 @@ class _BackWidgetState extends State<BackWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           GestureDetector(
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back_ios,
               color: CustomColor.accentColor,
               size: 20,
@@ -30,7 +30,7 @@ class _BackWidgetState extends State<BackWidget> {
               Navigator.of(context).pop();
             },
           ),
-          SizedBox(
+          const SizedBox(
             width: Dimensions.widthSize * 2,
           ),
           Text(
