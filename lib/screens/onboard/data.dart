@@ -18,11 +18,6 @@ class OnBoardingItems {
         subTitle: Strings.subTitle1,
       ),
       OnBoardingItem(
-          title: Strings.title2,
-        image: 'assets/images/onboard/2.png',
-        subTitle: Strings.subTitle2,
-      ),
-      OnBoardingItem(
           title: Strings.title3,
           image: 'assets/images/onboard/3.png',
         subTitle: Strings.subTitle3,
