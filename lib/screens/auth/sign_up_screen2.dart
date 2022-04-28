@@ -7,7 +7,6 @@ import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 
-
 import '../../widgets/secondary_button_widget.dart';
 
 class SignUpScreen2 extends StatefulWidget {
@@ -18,19 +17,15 @@ class SignUpScreen2 extends StatefulWidget {
 }
 
 class _SignUpScreen2State extends State<SignUpScreen2> {
-
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
 
   TextEditingController phoneController = TextEditingController();
 
   @override
   void initState() {
-
     super.initState();
-
-
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -43,17 +38,31 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: Strings.createAnAccount),
-              const SizedBox(height: Dimensions.heightSize * 2,),
+              BackWidget(title: ""),
+              const SizedBox(
+                height: Dimensions.heightSize * 2,
+              ),
               inputFieldWidget(context),
-              SecondaryButtonWidget(
-                  title: "Siguiente",
-                    onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const SignUpScreen3()));
-                  },
+              const SizedBox(height: 70.00),
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 50.00,
+                  right: 50.00,
                 ),
-              const SizedBox(height: Dimensions.heightSize * 2,),
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: SecondaryButtonWidget(
+                    title: "Siguiente",
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const SignUpScreen3()));
+                    },
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: Dimensions.heightSize * 2,
+              ),
             ],
           ),
         ),
@@ -61,76 +70,111 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
     );
   }
 
-
-
   inputFieldWidget(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        left: Dimensions.marginSize,
-        right: Dimensions.marginSize,
-      ),
-      child: Form(
-          key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                 padding: const EdgeInsets.only(
-                    left: Dimensions.marginSize,
-                    right: Dimensions.marginSize),
-                    child: Text(
-                      "Phone number",
-                       style: TextStyle(
-                       color: Colors.black,
-                        fontSize: Dimensions.extraLargeTextSize * 1.5,
-                        fontWeight: FontWeight.bold
-                       ),
-                         textAlign: TextAlign.center,
-                       ),
-                        ),
-              const SizedBox(height: Dimensions.heightSize * 2,),                  
-              Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        _titleData(Strings.phoneNumber),
-                        TextFormField(
-                          style: CustomStyle.textStyle,
-                          controller: phoneController,
-                          keyboardType: TextInputType.emailAddress,
-                          validator: (String value){
-                            if(value.isEmpty){
-                              return Strings.pleaseFillOutTheField;
-                            }else{
-                              return null;
-                            }
-                          },
-                          decoration: InputDecoration(
-                              hintText: Strings.demoPhoneNumber,
-                              contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                              labelStyle: CustomStyle.textStyle,
-                              filled: true,
-                              fillColor: Colors.white,
-                              hintStyle: CustomStyle.textStyle,
-                              prefixIcon: const Icon(
-                                Icons.person_outline,
-                                color: CustomColor.primaryColor,
-                              )
-                          ),
-                        ),
-                      ],
+        padding: const EdgeInsets.only(
+          left: Dimensions.marginSize,
+          right: Dimensions.marginSize,
+        ),
+        child: Form(
+            key: formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: Dimensions.marginSize,
+                      right: Dimensions.marginSize),
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      left: 50.00,
+                      right: 50.00,
+                    ),
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: Text(
+                        "Numero de teledono celular",
+                        style: TextStyle(
+                            color: CustomColor.primaryColor,
+                            fontSize: 22.00,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.start,
+                      ),
                     ),
                   ),
-                  const SizedBox(width: Dimensions.widthSize * 2,),
-            
-            ],
-          )
-          ],
-        )
-      )
-    );
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 20.00,
+                    left: 50.00,
+                    right: 50.00,
+                  ),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Text(
+                      "Ingresar tu numero telefonico para validar tu dispositivo",
+                      style: TextStyle(
+                        color: CustomColor.primaryColor,
+                        fontSize: 16.00,
+                      ),
+                      textAlign: TextAlign.justify,
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: Dimensions.heightSize * 2,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 20.00,
+                              left: 30.00,
+                              right: 30.00,
+                            ),
+                            child: Align(
+                              alignment: Alignment.topCenter,
+                              child: TextFormField(
+                                style: CustomStyle.textStyle,
+                                controller: phoneController,
+                                keyboardType: TextInputType.emailAddress,
+                                validator: (String value) {
+                                  if (value.isEmpty) {
+                                    return Strings.pleaseFillOutTheField;
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                                decoration: InputDecoration(
+                                    hintText: "Escribe tu telefono personal",
+                                    contentPadding: const EdgeInsets.symmetric(
+                                        vertical: 10.0, horizontal: 10.0),
+                                    labelStyle: CustomStyle.textStyle,
+                                    filled: true,
+                                    fillColor: Colors.white,
+                                    border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(5.0)),
+                                        borderSide: const BorderSide(
+                                            color: CustomColor.primaryColor)),
+                                    hintStyle: CustomStyle.hintTextStyle),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      width: Dimensions.widthSize * 2,
+                    ),
+                  ],
+                )
+              ],
+            )));
   }
 
   _titleData(String title) {
@@ -141,11 +185,8 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
       ),
       child: Text(
         title,
-        style: const TextStyle(
-            color: Colors.black
-        ),
+        style: const TextStyle(color: Colors.black),
       ),
     );
   }
-
 }
