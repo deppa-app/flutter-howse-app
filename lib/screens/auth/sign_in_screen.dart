@@ -20,7 +20,6 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
-
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController emailController = TextEditingController();
@@ -40,7 +39,9 @@ class _SignInScreenState extends State<SignInScreen> {
           child: ListView(
             physics: const BouncingScrollPhysics(),
             children: [
-              BackWidget(title: Strings.signInAccount,),
+              BackWidget(
+                title: Strings.signInAccount,
+              ),
               bodyWidget(context)
             ],
           ),
@@ -72,12 +73,8 @@ class _SignInScreenState extends State<SignInScreen> {
 
   headingWidget(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-          top: Dimensions.heightSize * 2
-      ),
-      child: Image.asset(
-        'assets/images/hegga_logo_2a.png'
-      ),
+      padding: const EdgeInsets.only(top: Dimensions.heightSize * 2),
+      child: Image.asset('assets/images/hegga_logo_2a.png'),
     );
   }
 
@@ -88,8 +85,7 @@ class _SignInScreenState extends State<SignInScreen> {
           padding: const EdgeInsets.only(
               top: Dimensions.heightSize * 2,
               left: Dimensions.marginSize,
-              right: Dimensions.marginSize
-          ),
+              right: Dimensions.marginSize),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -98,16 +94,17 @@ class _SignInScreenState extends State<SignInScreen> {
                 style: CustomStyle.textStyle,
                 controller: emailController,
                 keyboardType: TextInputType.emailAddress,
-                validator: (String value){
-                  if(value.isEmpty){
+                validator: (String value) {
+                  if (value.isEmpty) {
                     return Strings.pleaseFillOutTheField;
-                  }else{
+                  } else {
                     return null;
                   }
                 },
                 decoration: InputDecoration(
                     hintText: Strings.demoEmail,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10.0, horizontal: 10.0),
                     labelStyle: CustomStyle.textStyle,
                     filled: true,
                     fillColor: Colors.white,
@@ -115,23 +112,23 @@ class _SignInScreenState extends State<SignInScreen> {
                     prefixIcon: const Icon(
                       Icons.mail_outline,
                       color: CustomColor.primaryColor,
-                    )
-                ),
+                    )),
               ),
               _titleData(Strings.password),
               TextFormField(
                 style: CustomStyle.textStyle,
                 controller: passwordController,
-                validator: (String value){
-                  if(value.isEmpty){
+                validator: (String value) {
+                  if (value.isEmpty) {
                     return Strings.pleaseFillOutTheField;
-                  }else{
+                  } else {
                     return null;
                   }
                 },
                 decoration: InputDecoration(
                   hintText: Strings.typePassword,
-                  contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                  contentPadding: const EdgeInsets.symmetric(
+                      vertical: 10.0, horizontal: 10.0),
                   labelStyle: CustomStyle.textStyle,
                   filled: true,
                   fillColor: Colors.white,
@@ -148,13 +145,13 @@ class _SignInScreenState extends State<SignInScreen> {
                     },
                     icon: _toggleVisibility
                         ? const Icon(
-                      Icons.visibility_off,
-                      color: CustomColor.primaryColor,
-                    )
+                            Icons.visibility_off,
+                            color: CustomColor.primaryColor,
+                          )
                         : const Icon(
-                      Icons.visibility,
-                      color: CustomColor.primaryColor,
-                    ),
+                            Icons.visibility,
+                            color: CustomColor.primaryColor,
+                          ),
                   ),
                 ),
                 obscureText: _toggleVisibility,
@@ -162,8 +159,7 @@ class _SignInScreenState extends State<SignInScreen> {
               const SizedBox(height: Dimensions.heightSize),
             ],
           ),
-        )
-    );
+        ));
   }
 
   rememberForgotWidget(BuildContext context) {
@@ -177,7 +173,7 @@ class _SignInScreenState extends State<SignInScreen> {
               style: CustomStyle.textStyle,
             ),
             onTap: () {
-             /* Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen
+              /* Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen
                 ()));*/
             },
           ),
@@ -189,17 +185,18 @@ class _SignInScreenState extends State<SignInScreen> {
           checkedValue = newValue;
         });
       },
-      controlAffinity: ListTileControlAffinity.leading,  //  <-- leading Checkbox
+      controlAffinity: ListTileControlAffinity.leading, //  <-- leading Checkbox
     );
   }
 
   signInButtonWidget(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: Dimensions.marginSize, right: Dimensions.marginSize),
+      padding: const EdgeInsets.only(
+          left: Dimensions.marginSize, right: Dimensions.marginSize),
       child: CircleButtonWidget(
         icon: const Icon(
           Icons.arrow_forward,
-          color: CustomColor.primaryColor,
+          color: CustomColor.whiteColor,
         ),
         onTap: () {
           /*Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
@@ -212,26 +209,20 @@ class _SignInScreenState extends State<SignInScreen> {
   orSignInWidget(BuildContext context) {
     return Column(
       children: [
-        const Text(
-          'Or'
-        ),
+        const Text('Or'),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleButtonWidget(
-              icon: Image.asset(
-                  'assets/images/icon/facebook.png'
-              ),
-              onTap: () {
-
-              },
+              icon: Image.asset('assets/images/icon/facebook.png'),
+              onTap: () {},
             ),
-            const SizedBox(width: Dimensions.widthSize,),
+            const SizedBox(
+              width: Dimensions.widthSize,
+            ),
             CircleButtonWidget(
               icon: Image.asset('assets/images/icon/google.png'),
-              onTap: () {
-
-              },
+              onTap: () {},
             ),
           ],
         ),
@@ -253,12 +244,11 @@ class _SignInScreenState extends State<SignInScreen> {
             style: TextStyle(
                 color: CustomColor.primaryColor,
                 fontWeight: FontWeight.bold,
-              decoration: TextDecoration.underline
-            ),
+                decoration: TextDecoration.underline),
           ),
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                const TermsAndConditions()));
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const TermsAndConditions()));
           },
         )
       ],
@@ -273,11 +263,8 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
       child: Text(
         title,
-        style: const TextStyle(
-            color: Colors.black
-        ),
+        style: const TextStyle(color: Colors.black),
       ),
     );
   }
-
 }

@@ -11,28 +11,22 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-  final List<Color> colors = <Color>[Colors.red, Colors.blue,Colors.amber];
+  final List<Color> colors = <Color>[Colors.red, Colors.blue, Colors.amber];
 
   @override
   void initState() {
-
     super.initState();
 
     Timer(
-        const Duration(
-            seconds: 3
-        ),
-            () => Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) =>
-            const OnBoardScreen()
-        ))
-    );
+        const Duration(seconds: 3),
+        () => Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => const OnBoardScreen())));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColor.primaryColor,
+      backgroundColor: CustomColor.whiteColor,
       body: Center(
         child: Image.asset(
           'assets/images/hegga_logo_2a.png',

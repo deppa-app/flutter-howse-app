@@ -22,7 +22,8 @@ class Strings {
   static String recoverPasswordText = 'Recuperar contraseña';
   static String recoveryMail = 'email@gmail.com';
   static String sendBtn = 'Enviar';
-  static String passwordRecoveryMessage ='Se enviara su contraseña de recuperación a su email registrado';
+  static String passwordRecoveryMessage =
+      'Se enviara su contraseña de recuperación a su email registrado';
   static String returnBtn =
       'Volver'; // variable compartida (search_bluetooth, BOTON VOLVER)
 
@@ -52,18 +53,18 @@ class Strings {
   static String btn2 = 'Español';
 
   //onBoard screen
-  static const String title1 = 'Browse all the Category';
-  static const String title2 = 'Amazing Discounts & Offers';
-  static const String title3 = 'Delivery in 30 min';
-  static const String title4 = 'Welcome to Our Howse';
+  static const String title1 = 'Hola -1';
+  static const String title2 = 'Hola -2';
+  static const String title3 = 'Hola -3';
+  static const String title4 = 'Hola -4';
   static const String subTitle1 =
-      'Contrary to popular belief, Lorem Ipsum is not simply rand';
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s';
   static const String subTitle2 =
-      'Contrary to popular belief, Lorem Ipsum is not simply rand';
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s';
   static const String subTitle3 =
-      'Contrary to popular belief, Lorem Ipsum is not simply rand';
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s';
   static const String subTitle4 =
-      'Contrary to popular belief, Lorem Ipsum is not simply rand';
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s';
   static String skip = 'Skip';
   static String getStarted = 'Get Started';
 
@@ -73,11 +74,11 @@ class Strings {
   static String introSubTitle =
       'I’m not superstitious, but I am a little stitious.';
   static String signIn = 'Sign In';
-  static String createAnAccount = 'Create an account';
+  static String createAnAccount = 'Crear Cuenta';
 
   //sign in screen
 
-  static String signInAccount = 'Sign In Account';
+  static String signInAccount = 'Iniciar sesión';
   static String password = 'Contraseña';
   static String typePassword = 'Escriba contraseña';
   static String pleaseFillOutTheField = 'Please Fill Out The Field';

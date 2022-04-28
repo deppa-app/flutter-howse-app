@@ -6,7 +6,8 @@ class PrimaryButtonWidget extends StatelessWidget {
   final String title;
   final GestureTapCallback onTap;
 
-  const PrimaryButtonWidget({Key key, this.title, this.onTap}) : super(key: key);
+  const PrimaryButtonWidget({Key key, this.title, this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,17 +16,16 @@ class PrimaryButtonWidget extends StatelessWidget {
         height: Dimensions.buttonHeight,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-            color: CustomColor.primaryColor,
-            borderRadius: BorderRadius.circular(Dimensions.radius)
-        ),
+            color: Colors.white,
+            border: Border.all(color: CustomColor.greyColor),
+            borderRadius: BorderRadius.circular(Dimensions.radius)),
         child: Center(
           child: Text(
             title,
             style: TextStyle(
-                color: Colors.white,
+                color: CustomColor.primaryColor,
                 fontSize: Dimensions.largeTextSize,
-                fontWeight: FontWeight.bold
-            ),
+                fontWeight: FontWeight.bold),
           ),
         ),
       ),
