@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
-//import 'package:howse_app/screens/auth/sign_in_screen.dart';
+import 'package:howse_app/screens/servicesAviable/successful_hiring.dart';
 
 
 
 import 'package:howse_app/utils/dimensions.dart';
-//import 'package:howse_app/utils/strings.dart';
+import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 
-//import '../../widgets/secondary_button_widget.dart';
+import '../../widgets/secondary_button_widget.dart';
 
-class TermsAndConditions extends StatefulWidget {
-  const TermsAndConditions({Key key}) : super(key: key);
+class Plumbing extends StatefulWidget {
+  const Plumbing({Key key}) : super(key: key);
 
   @override
-  _TermsAndConditionsState createState() => _TermsAndConditionsState();
+  _PlumbingState createState() => _PlumbingState();
 }
 
-class _TermsAndConditionsState extends State<TermsAndConditions> {
+class _PlumbingState extends State<Plumbing> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
 
   @override
   void initState() {
@@ -39,9 +38,26 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              const BackWidget(title: "Atrás"),
+              BackWidget(title: Strings.createAnAccount),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
+              Text(
+                "Servicio de plomería",
+                 style: TextStyle(
+                 color: Colors.grey,
+                 fontSize: Dimensions.largeTextSize,
+                  fontWeight: FontWeight.bold
+                ),
+                textAlign: TextAlign.center,
+                ),
+              SecondaryButtonWidget(
+                  title: "Contratar",
+                    onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder:
+                    (context) => const SuccessfulHiring()));
+                  },
+                ),
+              const SizedBox(height: Dimensions.heightSize * 2,),
             ],
           ),
         ),
@@ -67,7 +83,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(
-                      "Términos y Condiciones",
+                      "Servicio de gasfitería",
                        style: TextStyle(
                        color: Colors.black,
                         fontSize: Dimensions.extraLargeTextSize * 1.5,

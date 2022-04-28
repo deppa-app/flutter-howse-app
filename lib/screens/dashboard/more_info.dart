@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
-//import 'package:howse_app/screens/auth/sign_in_screen.dart';
-
 
 
 import 'package:howse_app/utils/dimensions.dart';
-//import 'package:howse_app/utils/strings.dart';
+import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 
-//import '../../widgets/secondary_button_widget.dart';
 
-class TermsAndConditions extends StatefulWidget {
-  const TermsAndConditions({Key key}) : super(key: key);
+
+class MoreInfo extends StatefulWidget {
+  const MoreInfo({Key key}) : super(key: key);
 
   @override
-  _TermsAndConditionsState createState() => _TermsAndConditionsState();
+  _MoreInfoState createState() => _MoreInfoState();
 }
 
-class _TermsAndConditionsState extends State<TermsAndConditions> {
+class _MoreInfoState extends State<MoreInfo> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
 
   @override
   void initState() {
@@ -39,9 +36,19 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              const BackWidget(title: "Atrás"),
+              const BackWidget(title: ""),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
+              Text(
+                "Departamentos disponibles",
+                 style: TextStyle(
+                 color: Colors.grey,
+                 fontSize: Dimensions.largeTextSize,
+                  fontWeight: FontWeight.bold
+                ),
+                textAlign: TextAlign.center,
+                ),
+
             ],
           ),
         ),
@@ -67,7 +74,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(
-                      "Términos y Condiciones",
+                      "Reversar visita departamentos cercanos a ti",
                        style: TextStyle(
                        color: Colors.black,
                         fontSize: Dimensions.extraLargeTextSize * 1.5,

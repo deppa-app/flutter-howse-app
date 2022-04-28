@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
-//import 'package:howse_app/screens/auth/sign_in_screen.dart';
+import 'package:howse_app/screens/dashboard/home_screen.dart';
 
 
 
 import 'package:howse_app/utils/dimensions.dart';
-//import 'package:howse_app/utils/strings.dart';
+import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 
-//import '../../widgets/secondary_button_widget.dart';
+import '../../widgets/secondary_button_widget.dart';
 
-class TermsAndConditions extends StatefulWidget {
-  const TermsAndConditions({Key key}) : super(key: key);
+class SuccessfulHiring extends StatefulWidget {
+  const SuccessfulHiring({Key key}) : super(key: key);
 
   @override
-  _TermsAndConditionsState createState() => _TermsAndConditionsState();
+  _SuccessfulHiringState createState() => _SuccessfulHiringState();
 }
 
-class _TermsAndConditionsState extends State<TermsAndConditions> {
+class _SuccessfulHiringState extends State<SuccessfulHiring> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
 
   @override
   void initState() {
@@ -39,9 +38,26 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              const BackWidget(title: "Atrás"),
+              BackWidget(title: Strings.createAnAccount),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
+              Text(
+                "Haz realizado con éxito su contratación",
+                 style: TextStyle(
+                 color: Colors.grey,
+                 fontSize: Dimensions.largeTextSize,
+                  fontWeight: FontWeight.bold
+                ),
+                textAlign: TextAlign.center,
+                ),
+              SecondaryButtonWidget(
+                  title: "Volver a Home",
+                    onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder:
+                    (context) => const HomeScreen()));
+                  },
+                ),
+              const SizedBox(height: Dimensions.heightSize * 2,),
             ],
           ),
         ),
@@ -67,7 +83,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(
-                      "Términos y Condiciones",
+                      "¡Felicidades!",
                        style: TextStyle(
                        color: Colors.black,
                         fontSize: Dimensions.extraLargeTextSize * 1.5,

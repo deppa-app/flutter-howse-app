@@ -8,6 +8,8 @@ import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/widgets/back_widget.dart';
+
+import '../dashboard/home_screen.dart';
 //import 'package:howse_app/auth/sign_up_screen.dart';
 //import 'package:howse_app/utils/dashboard_screen.dart';
 //import 'package:howse_app/auth/forgot_password_screen.dart';
@@ -199,8 +201,8 @@ class _SignInScreenState extends State<SignInScreen> {
           color: CustomColor.whiteColor,
         ),
         onTap: () {
-          /*Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-              DashboardScreen()));*/
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+              const HomeScreen()));
         },
       ),
     );
