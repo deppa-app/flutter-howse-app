@@ -3,11 +3,7 @@
 import 'package:flutter/cupertino.dart';
 
 class CustomColor {
-<<<<<<< HEAD
   static const Color primaryColor = Color(0xFF5E7FB1);
-=======
-  static const Color primaryColor = Color(0xFF7ED321);
->>>>>>> main
   static const Color secondaryColor = Color(0xFFDEFFE4);
   static const Color settingColor = Color(0xFFE0F1E4);
   static const Color accentColor = Color(0xFF2C3066);
@@ -18,11 +14,7 @@ class CustomColor {
   static const Color greenColor = Color(0xFF03A60F);
   static const Color greenLightColor = Color(0xFFD8EEDC);
   static const Color blueColor = Color(0xFF2C3066);
-<<<<<<< HEAD
   static const Color whiteColor = Color(0xFFf6f3ed);
-=======
-  static const Color whiteColor = Color(0xFFFFFFFF);
->>>>>>> main
   static const Color colorBlack = Color(0xFF313131);
   static const Color orangeColor = Color(0xFFFF8000);
 
