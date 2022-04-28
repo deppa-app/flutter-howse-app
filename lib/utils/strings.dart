@@ -22,8 +22,12 @@ class Strings {
   static String recoverPasswordText = 'Recuperar contraseña';
   static String recoveryMail = 'email@gmail.com';
   static String sendBtn = 'Enviar';
+<<<<<<< HEAD
   static String passwordRecoveryMessage =
       'Se enviara su contraseña de recuperación a su email registrado';
+=======
+  static String passwordRecoveryMessage ='Se enviara su contraseña de recuperación a su email registrado';
+>>>>>>> main
   static String returnBtn =
       'Volver'; // variable compartida (search_bluetooth, BOTON VOLVER)
 
@@ -53,6 +57,7 @@ class Strings {
   static String btn2 = 'Español';
 
   //onBoard screen
+<<<<<<< HEAD
   static const String title1 = 'Hola -1';
   static const String title2 = 'Hola -2';
   static const String title3 = 'Hola -3';
@@ -65,6 +70,20 @@ class Strings {
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s';
   static const String subTitle4 =
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s';
+=======
+  static const String title1 = 'Browse all the Category';
+  static const String title2 = 'Amazing Discounts & Offers';
+  static const String title3 = 'Delivery in 30 min';
+  static const String title4 = 'Welcome to Our Howse';
+  static const String subTitle1 =
+      'Contrary to popular belief, Lorem Ipsum is not simply rand';
+  static const String subTitle2 =
+      'Contrary to popular belief, Lorem Ipsum is not simply rand';
+  static const String subTitle3 =
+      'Contrary to popular belief, Lorem Ipsum is not simply rand';
+  static const String subTitle4 =
+      'Contrary to popular belief, Lorem Ipsum is not simply rand';
+>>>>>>> main
   static String skip = 'Skip';
   static String getStarted = 'Get Started';
 
@@ -74,11 +93,19 @@ class Strings {
   static String introSubTitle =
       'I’m not superstitious, but I am a little stitious.';
   static String signIn = 'Sign In';
+<<<<<<< HEAD
   static String createAnAccount = 'Crear Cuenta';
 
   //sign in screen
 
   static String signInAccount = 'Iniciar sesión';
+=======
+  static String createAnAccount = 'Create an account';
+
+  //sign in screen
+
+  static String signInAccount = 'Sign In Account';
+>>>>>>> main
   static String password = 'Contraseña';
   static String typePassword = 'Escriba contraseña';
   static String pleaseFillOutTheField = 'Please Fill Out The Field';

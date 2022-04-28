@@ -20,6 +20,10 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController emailController = TextEditingController();
@@ -39,9 +43,13 @@ class _SignInScreenState extends State<SignInScreen> {
           child: ListView(
             physics: const BouncingScrollPhysics(),
             children: [
+<<<<<<< HEAD
               BackWidget(
                 title: Strings.signInAccount,
               ),
+=======
+              BackWidget(title: Strings.signInAccount,),
+>>>>>>> main
               bodyWidget(context)
             ],
           ),
@@ -73,8 +81,17 @@ class _SignInScreenState extends State<SignInScreen> {
 
   headingWidget(BuildContext context) {
     return Padding(
+<<<<<<< HEAD
       padding: const EdgeInsets.only(top: Dimensions.heightSize * 2),
       child: Image.asset('assets/images/hegga_logo_2a.png'),
+=======
+      padding: const EdgeInsets.only(
+          top: Dimensions.heightSize * 2
+      ),
+      child: Image.asset(
+        'assets/images/hegga_logo_2a.png'
+      ),
+>>>>>>> main
     );
   }
 
@@ -85,7 +102,12 @@ class _SignInScreenState extends State<SignInScreen> {
           padding: const EdgeInsets.only(
               top: Dimensions.heightSize * 2,
               left: Dimensions.marginSize,
+<<<<<<< HEAD
               right: Dimensions.marginSize),
+=======
+              right: Dimensions.marginSize
+          ),
+>>>>>>> main
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -94,17 +116,28 @@ class _SignInScreenState extends State<SignInScreen> {
                 style: CustomStyle.textStyle,
                 controller: emailController,
                 keyboardType: TextInputType.emailAddress,
+<<<<<<< HEAD
                 validator: (String value) {
                   if (value.isEmpty) {
                     return Strings.pleaseFillOutTheField;
                   } else {
+=======
+                validator: (String value){
+                  if(value.isEmpty){
+                    return Strings.pleaseFillOutTheField;
+                  }else{
+>>>>>>> main
                     return null;
                   }
                 },
                 decoration: InputDecoration(
                     hintText: Strings.demoEmail,
+<<<<<<< HEAD
                     contentPadding: const EdgeInsets.symmetric(
                         vertical: 10.0, horizontal: 10.0),
+=======
+                    contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+>>>>>>> main
                     labelStyle: CustomStyle.textStyle,
                     filled: true,
                     fillColor: Colors.white,
@@ -112,23 +145,39 @@ class _SignInScreenState extends State<SignInScreen> {
                     prefixIcon: const Icon(
                       Icons.mail_outline,
                       color: CustomColor.primaryColor,
+<<<<<<< HEAD
                     )),
+=======
+                    )
+                ),
+>>>>>>> main
               ),
               _titleData(Strings.password),
               TextFormField(
                 style: CustomStyle.textStyle,
                 controller: passwordController,
+<<<<<<< HEAD
                 validator: (String value) {
                   if (value.isEmpty) {
                     return Strings.pleaseFillOutTheField;
                   } else {
+=======
+                validator: (String value){
+                  if(value.isEmpty){
+                    return Strings.pleaseFillOutTheField;
+                  }else{
+>>>>>>> main
                     return null;
                   }
                 },
                 decoration: InputDecoration(
                   hintText: Strings.typePassword,
+<<<<<<< HEAD
                   contentPadding: const EdgeInsets.symmetric(
                       vertical: 10.0, horizontal: 10.0),
+=======
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+>>>>>>> main
                   labelStyle: CustomStyle.textStyle,
                   filled: true,
                   fillColor: Colors.white,
@@ -145,6 +194,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     },
                     icon: _toggleVisibility
                         ? const Icon(
+<<<<<<< HEAD
                             Icons.visibility_off,
                             color: CustomColor.primaryColor,
                           )
@@ -152,6 +202,15 @@ class _SignInScreenState extends State<SignInScreen> {
                             Icons.visibility,
                             color: CustomColor.primaryColor,
                           ),
+=======
+                      Icons.visibility_off,
+                      color: CustomColor.primaryColor,
+                    )
+                        : const Icon(
+                      Icons.visibility,
+                      color: CustomColor.primaryColor,
+                    ),
+>>>>>>> main
                   ),
                 ),
                 obscureText: _toggleVisibility,
@@ -159,7 +218,12 @@ class _SignInScreenState extends State<SignInScreen> {
               const SizedBox(height: Dimensions.heightSize),
             ],
           ),
+<<<<<<< HEAD
         ));
+=======
+        )
+    );
+>>>>>>> main
   }
 
   rememberForgotWidget(BuildContext context) {
@@ -173,7 +237,11 @@ class _SignInScreenState extends State<SignInScreen> {
               style: CustomStyle.textStyle,
             ),
             onTap: () {
+<<<<<<< HEAD
               /* Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen
+=======
+             /* Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen
+>>>>>>> main
                 ()));*/
             },
           ),
@@ -185,18 +253,30 @@ class _SignInScreenState extends State<SignInScreen> {
           checkedValue = newValue;
         });
       },
+<<<<<<< HEAD
       controlAffinity: ListTileControlAffinity.leading, //  <-- leading Checkbox
+=======
+      controlAffinity: ListTileControlAffinity.leading,  //  <-- leading Checkbox
+>>>>>>> main
     );
   }
 
   signInButtonWidget(BuildContext context) {
     return Padding(
+<<<<<<< HEAD
       padding: const EdgeInsets.only(
           left: Dimensions.marginSize, right: Dimensions.marginSize),
       child: CircleButtonWidget(
         icon: const Icon(
           Icons.arrow_forward,
           color: CustomColor.whiteColor,
+=======
+      padding: const EdgeInsets.only(left: Dimensions.marginSize, right: Dimensions.marginSize),
+      child: CircleButtonWidget(
+        icon: const Icon(
+          Icons.arrow_forward,
+          color: CustomColor.primaryColor,
+>>>>>>> main
         ),
         onTap: () {
           /*Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
@@ -209,11 +289,18 @@ class _SignInScreenState extends State<SignInScreen> {
   orSignInWidget(BuildContext context) {
     return Column(
       children: [
+<<<<<<< HEAD
         const Text('Or'),
+=======
+        const Text(
+          'Or'
+        ),
+>>>>>>> main
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleButtonWidget(
+<<<<<<< HEAD
               icon: Image.asset('assets/images/icon/facebook.png'),
               onTap: () {},
             ),
@@ -223,6 +310,21 @@ class _SignInScreenState extends State<SignInScreen> {
             CircleButtonWidget(
               icon: Image.asset('assets/images/icon/google.png'),
               onTap: () {},
+=======
+              icon: Image.asset(
+                  'assets/images/icon/facebook.png'
+              ),
+              onTap: () {
+
+              },
+            ),
+            const SizedBox(width: Dimensions.widthSize,),
+            CircleButtonWidget(
+              icon: Image.asset('assets/images/icon/google.png'),
+              onTap: () {
+
+              },
+>>>>>>> main
             ),
           ],
         ),
@@ -244,11 +346,20 @@ class _SignInScreenState extends State<SignInScreen> {
             style: TextStyle(
                 color: CustomColor.primaryColor,
                 fontWeight: FontWeight.bold,
+<<<<<<< HEAD
                 decoration: TextDecoration.underline),
           ),
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => const TermsAndConditions()));
+=======
+              decoration: TextDecoration.underline
+            ),
+          ),
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                const TermsAndConditions()));
+>>>>>>> main
           },
         )
       ],
@@ -263,8 +374,18 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
       child: Text(
         title,
+<<<<<<< HEAD
         style: const TextStyle(color: Colors.black),
       ),
     );
   }
+=======
+        style: const TextStyle(
+            color: Colors.black
+        ),
+      ),
+    );
+  }
+
+>>>>>>> main
 }
