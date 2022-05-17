@@ -10,6 +10,7 @@ import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 
 import '../dashboard/home_screen.dart';
+import '../splash_screen.dart';
 //import 'package:howse_app/auth/sign_up_screen.dart';
 //import 'package:howse_app/utils/dashboard_screen.dart';
 //import 'package:howse_app/auth/forgot_password_screen.dart';
@@ -41,9 +42,24 @@ class _SignInScreenState extends State<SignInScreen> {
           child: ListView(
             physics: const BouncingScrollPhysics(),
             children: [
-              BackWidget(
-                title: Strings.signInAccount,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  new InkWell(
+                    child: new Text(
+                      Strings.createAnAccount,
+                      style: DefaultTextStyle.of(context).style.apply(
+                      fontSizeFactor: 0.6, 
+                      color: CustomColor.primaryColor, 
+                      decoration: TextDecoration.none),
+                    ),
+                    onTap: () => SplashScreen()
+                ),
+                  
+                ],
               ),
+              
+
               bodyWidget(context)
             ],
           ),
@@ -75,8 +91,10 @@ class _SignInScreenState extends State<SignInScreen> {
 
   headingWidget(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: Dimensions.heightSize * 2),
-      child: Image.asset('assets/images/hegga_logo_2a.png'),
+      padding: const EdgeInsets.only(top: 100),
+      child: Text(Strings.signInAccount, style:  const TextStyle(fontSize: 45, color: CustomColor.primaryColor), ),
+      
+      //child: Image.asset('assets/images/hegga_logo_2a.png'),
     );
   }
 
