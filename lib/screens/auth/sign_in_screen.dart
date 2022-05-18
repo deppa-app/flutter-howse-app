@@ -72,7 +72,7 @@ class _SignInScreenState extends State<SignInScreen> {
         children: [
           headingWidget(context),
           inputFiledWidget(context),
-          const SizedBox(height: Dimensions.heightSize),
+          const SizedBox(height: Dimensions.heightSize * 6),
           rememberForgotWidget(context),
           const SizedBox(height: Dimensions.heightSize * 2),
           signInButtonWidget(context),
@@ -101,12 +101,12 @@ class _SignInScreenState extends State<SignInScreen> {
         child: Padding(
           padding: const EdgeInsets.only(
               top: Dimensions.heightSize * 2,
-              left: Dimensions.marginSize,
-              right: Dimensions.marginSize),
+              left: Dimensions.marginSize * 11,
+              right: Dimensions.marginSize * 11),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _titleData(Strings.email),
+              const SizedBox(height:40),
               TextFormField(
                 style: CustomStyle.textStyle,
                 controller: emailController,
@@ -119,9 +119,12 @@ class _SignInScreenState extends State<SignInScreen> {
                   }
                 },
                 decoration: InputDecoration(
-                    hintText: Strings.demoEmail,
+                    border: const  OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                    ),
+                    hintText: Strings.emailLogin,
                     contentPadding: const EdgeInsets.symmetric(
-                        vertical: 10.0, horizontal: 10.0),
+                        vertical: 20.0, horizontal: 10.0),
                     labelStyle: CustomStyle.textStyle,
                     filled: true,
                     fillColor: Colors.white,
@@ -131,7 +134,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       color: CustomColor.primaryColor,
                     )),
               ),
-              _titleData(Strings.password),
+              const SizedBox(height: 80),
               TextFormField(
                 style: CustomStyle.textStyle,
                 controller: passwordController,
@@ -143,9 +146,12 @@ class _SignInScreenState extends State<SignInScreen> {
                   }
                 },
                 decoration: InputDecoration(
+                  border: const  OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(5))
+                    ),
                   hintText: Strings.typePassword,
                   contentPadding: const EdgeInsets.symmetric(
-                      vertical: 10.0, horizontal: 10.0),
+                      vertical: 20.0, horizontal: 10.0),
                   labelStyle: CustomStyle.textStyle,
                   filled: true,
                   fillColor: Colors.white,
@@ -180,30 +186,40 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   rememberForgotWidget(BuildContext context) {
-    return CheckboxListTile(
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          GestureDetector(
-            child: Text(
-              Strings.forgotPassword,
-              style: CustomStyle.textStyle,
-            ),
-            onTap: () {
-              /* Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen
-                ()));*/
-            },
-          ),
-        ],
+    return GestureDetector(
+      child: Text(
+        Strings.forgotPassword,
+        style: CustomStyle.textStyle,
       ),
-      value: checkedValue,
-      onChanged: (newValue) {
-        setState(() {
-          checkedValue = newValue;
-        });
-      },
-      controlAffinity: ListTileControlAffinity.leading, //  <-- leading Checkbox
+      onTap: (){
+        /* Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen
+        //             ()));*/
+      } ,
     );
+    // CheckboxListTile(
+    //   title: Row(
+    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    //     children: [
+    //       GestureDetector(
+    //         child: Text(
+    //           Strings.forgotPassword,
+    //           style: CustomStyle.textStyle,
+    //         ),
+    //         onTap: () {
+    //           /* Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen
+    //             ()));*/
+    //         },
+    //       ),
+    //     ],
+    //   ),
+    //   value: checkedValue,
+    //   onChanged: (newValue) {
+    //     setState(() {
+    //       checkedValue = newValue;
+    //     });
+    //   },
+    //   controlAffinity: ListTileControlAffinity.leading, //  <-- leading Checkbox
+    // );
   }
 
   signInButtonWidget(BuildContext context) {

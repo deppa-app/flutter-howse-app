@@ -14,7 +14,7 @@ class Strings {
   static String passwordText = 'Contraseña';
   static String passwordLogin = 'Escriba contraseña';
   static String accessBtn = 'Acceder';
-  static String forgotPassword = 'Olvidaste tu contraseña ?';
+  static String forgotPassword = '¿Olvidaste tu contraseña?';
   static String failedAttempts1 = 'Quedan ';
   static String failedAttempts2 = ' intentos antes de bloquear su sesión';
 
