@@ -45,21 +45,18 @@ class _SignInScreenState extends State<SignInScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  new InkWell(
-                    child: new Text(
+                  GestureDetector(
+                    child: Text(
                       Strings.createAnAccount,
                       style: DefaultTextStyle.of(context).style.apply(
-                      fontSizeFactor: 0.6, 
-                      color: CustomColor.primaryColor, 
-                      decoration: TextDecoration.none),
+                        fontSizeFactor: 0.6, 
+                        color: CustomColor.primaryColor, 
+                        decoration: TextDecoration.none),
                     ),
-                    onTap: () => SplashScreen()
-                ),
-                  
+                    onTap: () => const SplashScreen()
+                  ),                  
                 ],
               ),
-              
-
               bodyWidget(context)
             ],
           ),
