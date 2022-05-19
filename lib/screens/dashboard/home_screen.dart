@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:howse_app/screens/dashboard/booking.dart';
 import 'package:howse_app/screens/servicesAviable/cleaning.dart';
 import 'package:howse_app/screens/servicesAviable/removals.dart';
 
@@ -147,8 +148,8 @@ class _HomeScreenState extends State<HomeScreen> {
               SecondaryButtonWidget(
                   title: "Reseva visita ahora",
                     onTap: () {
-                    /*Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const SignUpScreen10()));*/
+                    Navigator.of(context).push(MaterialPageRoute(builder:
+                    (context) => const Booking()));
                   },
                 ),
                 PrimaryButtonWidget(
