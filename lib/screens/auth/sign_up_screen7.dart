@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/sign_up_screen8.dart';
 
 
+
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/widgets/back_widget.dart';
@@ -9,6 +10,8 @@ import 'package:howse_app/widgets/back_widget.dart';
 import '../../utils/custom_color.dart';
 import '../../utils/custom_style.dart';
 import '../../widgets/secondary_button_widget.dart';
+
+
 
 class SignUpScreen7 extends StatefulWidget {
   const SignUpScreen7({Key key}) : super(key: key);
@@ -282,3 +285,4 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
 
 
 }
+

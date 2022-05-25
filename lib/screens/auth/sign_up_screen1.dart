@@ -7,6 +7,7 @@ import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 import 'package:howse_app/widgets/circle_button_widget.dart';
+//import 'package:howse_app/widgets/text_form_field_w1.dart';
 
 import '../../widgets/secondary_button_widget.dart';
 
@@ -46,11 +47,15 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
 
   @override
   Widget build(BuildContext context) {
+
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
     return SafeArea(
       child: Scaffold(
         body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          width: width,
+          height: height,
           color: Colors.white,
           child: ListView(
             physics: const BouncingScrollPhysics(),
@@ -61,9 +66,9 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                 height: Dimensions.heightSize * 2,
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                  left: 90.00,
-                  right: 90.00,
+                padding: EdgeInsets.only(
+                  left: width * 0.15,
+                  right: width * 0.15,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -71,17 +76,17 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                     "Informacion basica para crear tu cuenta",
                     style: TextStyle(
                         color: CustomColor.primaryColor,
-                        fontSize: 22.00,
+                        fontSize: 26,
                         fontWeight: FontWeight.bold),
                     textAlign: TextAlign.start,
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(
-                  top: 20.00,
-                  left: 50.00,
-                  right: 50.00,
+                padding: EdgeInsets.only(
+                  top: height * 0.05,
+                  left: width * 0.12,
+                  right: width * 0.12,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -89,19 +94,51 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                     "Ingresar tu informacion para crear tu cuenta",
                     style: TextStyle(
                       color: CustomColor.primaryColor,
-                      fontSize: 16.00,
+                      fontSize: 16,
                     ),
-                    textAlign: TextAlign.justify,
+                    textAlign: TextAlign.start,
                   ),
                 ),
               ),
-              inputFieldWidget(context),
-              termsCheckBoxWidget(context),
-              const SizedBox(height: 70.00),
+              Column(
+                children: [
+                  //TextFormFieldW1(text: "Escribe tu correo", color: CustomColor.primaryColor, dataController: emailController,),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: width * 0.12,
+                      right: width * 0.12
+                      ),
+                    child: inputFieldWidget(context),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: height * 0.02,
+                      right: width * 0.15
+                    ),
+                    child: Text('La contraseña debe incluir:',
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: CustomColor.primaryColor,
+                      fontWeight: FontWeight.bold
+
+                    ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: width *  0.09,
+                    ),
+                    child: termsCheckBoxWidget(context),
+                  ),
+                  
+                ],
+              ),
+              
+              SizedBox(height: height * 0.05),
               Padding(
-                padding: const EdgeInsets.only(
-                  left: 50.00,
-                  right: 50.00,
+                padding: EdgeInsets.only(
+                  left: width * 0.12,
+                  right: width * 0.12,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -129,21 +166,19 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
   }
 
   inputFieldWidget(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        left: Dimensions.marginSize,
-        right: Dimensions.marginSize,
-      ),
-      child: Form(
+
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
+    return  Form(
           key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(
+                padding: EdgeInsets.only(
                   top: 20.00,
-                  left: 30.00,
-                  right: 30.00,
+                  
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -177,14 +212,12 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               Padding(
                 padding: const EdgeInsets.only(
                   top: 20.00,
-                  left: 30.00,
-                  right: 30.00,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
                   child: TextFormField(
                     style: CustomStyle.textStyle,
-                    controller: emailController,
+                    controller: usernameController,
                     keyboardType: TextInputType.emailAddress,
                     validator: (String value) {
                       if (value.isEmpty) {
@@ -212,8 +245,6 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               Padding(
                 padding: const EdgeInsets.only(
                   top: 20.00,
-                  left: 30.00,
-                  right: 30.00,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -247,8 +278,6 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               Padding(
                 padding: const EdgeInsets.only(
                   top: 20.00,
-                  left: 30.00,
-                  right: 30.00,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -281,8 +310,8 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               ),
               const SizedBox(height: Dimensions.heightSize),
             ],
-          )),
-    );
+          ));
+    
   }
 
   termsCheckBoxWidget(BuildContext context) {

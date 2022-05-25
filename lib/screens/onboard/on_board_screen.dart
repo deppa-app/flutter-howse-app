@@ -23,17 +23,15 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
 
-    return SafeArea(
+    return  SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
         body: PageView.builder(
             itemCount: totalPages,
             itemBuilder: (context, index) {
               OnBoardingItem oi = OnBoardingItems.loadOnboardItem()[index];
-              return SizedBox(
-                  width: width,
-                  height: height,
-                  child: Stack(
+              return SingleChildScrollView(
+                child: Column(
                     children: [
                       Positioned(
                         top: 30,
@@ -44,7 +42,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                             left: Dimensions.marginSize * 1.5,
                             right: Dimensions.marginSize * 1.5,
                           ),
-                          child: Column(
+                          child:  Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Column(
@@ -201,13 +199,16 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                   : Container(),
                               const SizedBox(height: Dimensions.heightSize),
                             ],
-                          ),
+                          ))
                         ),
-                      )
+                      
                     ],
                   ));
             }),
       ),
     );
+    
+    
+    
   }
 }
