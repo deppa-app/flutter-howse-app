@@ -6,6 +6,7 @@ import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 
+import '../../utils/custom_color.dart';
 import '../../widgets/secondary_button_widget.dart';
 
 class SignUpScreen6 extends StatefulWidget {
@@ -29,6 +30,9 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
   }
   @override
   Widget build(BuildContext context) {
+
+    final width = MediaQuery.of(context).size.width;
+
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -42,22 +46,40 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
               BackWidget(title: Strings.createAnAccount),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
-              Text(
-                "Foto Rostro",
-                 style: TextStyle(
-                 color: Colors.grey,
-                 fontSize: Dimensions.largeTextSize,
-                  fontWeight: FontWeight.bold
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [ 
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: width * 0.05
+                    ),
+                    child: Icon(Icons.person_outline_rounded, size: 50, ),
+                  ),
+                  Text(
+                    " Tomar foto facial",
+                     style: TextStyle(
+                     color: Colors.grey,
+                     fontSize: Dimensions.largeTextSize,
+                      fontWeight: FontWeight.bold
+                    ),
+                    textAlign: TextAlign.start,
+                    ),
+                ],
+              ),
+              SizedBox(height: 340,),
+              Padding(
+                padding: EdgeInsets.only(
+                  left: width * 0.1,
+                  right: width * 0.1,
                 ),
-                textAlign: TextAlign.center,
-                ),
-              SecondaryButtonWidget(
-                  title: "Validar",
-                    onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const SignUpScreen7()));
-                  },
-                ),
+                child: SecondaryButtonWidget(
+                    title: "Validar",
+                      onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder:
+                      (context) => const SignUpScreen7()));
+                    },
+                  ),
+              ),
               const SizedBox(height: Dimensions.heightSize * 2,),
               Text(
                 "¿Instrucciones para tomar las fotografías?",
@@ -76,12 +98,14 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
   }
 
 
+ inputFieldWidget(BuildContext context) {
 
-  inputFieldWidget(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Padding(
-      padding: const EdgeInsets.only(
-        left: Dimensions.marginSize,
-        right: Dimensions.marginSize,
+      padding: EdgeInsets.only(
+        left: width * 0.02,
+        right: width * 0.02,
       ),
       child: Form(
           key: formKey,
@@ -89,20 +113,48 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                 padding: const EdgeInsets.only(
-                    left: Dimensions.marginSize,
-                    right: Dimensions.marginSize),
+                 padding: EdgeInsets.only(
+                    left: width * 0.2,
+                    right: width * 0.2),
                     child: Text(
-                      "Verificación de identidad",
+                      "Verificación de identidad real",
                        style: TextStyle(
-                       color: Colors.black,
-                        fontSize: Dimensions.extraLargeTextSize * 1.5,
+                       color: CustomColor.primaryColor,
+                        fontSize: 26,
                         fontWeight: FontWeight.bold
                        ),
                          textAlign: TextAlign.center,
                        ),
-                        ),
-              const SizedBox(height: Dimensions.heightSize * 2,),                  
+                ),
+              const SizedBox(height: Dimensions.heightSize * 2,),  
+              Padding(
+                 padding: const EdgeInsets.only(
+                    left: Dimensions.marginSize,
+                    right: Dimensions.marginSize),
+                    child: Text(
+                      "Situa tu teléfono celular al frente de tu rostro, evitar elementos extra (gorro, cubre boca, etc)",
+                       style: TextStyle(
+                       color: CustomColor.primaryColor,
+                        fontSize: 16,
+                       ),
+                         textAlign: TextAlign.start,
+                      ),
+                ),  
+                Padding(
+                 padding: EdgeInsets.only(
+                    top: height * 0.016,
+                    left: Dimensions.marginSize,
+                    right: Dimensions.marginSize),
+                    child: Text(
+                      "Sube tu cedula de identidad",
+                       style: TextStyle(
+                       color: CustomColor.primaryColor,
+                        fontSize: Dimensions.extraSmallTextSize * 1.8,
+                        fontWeight: FontWeight.bold
+                       ),
+                         textAlign: TextAlign.start,
+                      ),
+                ),               
               
           ],
         )

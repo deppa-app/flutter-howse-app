@@ -1,4 +1,5 @@
 //import 'package:flutter/cupertino.dart';
+import 'package:howse_app/screens/auth/pass_sign_up_screen.dart';
 import 'package:howse_app/screens/auth/terms_and_conditions.dart';
 import 'package:howse_app/widgets/circle_button_widget.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 
+import '../../widgets/secondary_button_widget.dart';
 import '../dashboard/home_screen.dart';
 import '../splash_screen.dart';
 //import 'package:howse_app/auth/sign_up_screen.dart';
@@ -30,35 +32,52 @@ class _SignInScreenState extends State<SignInScreen> {
 
   bool _toggleVisibility = true;
   bool checkedValue = false;
+  
 
   @override
   Widget build(BuildContext context) {
+
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: Container(
-          //width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: ListView(
-            physics: const BouncingScrollPhysics(),
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  GestureDetector(
-                    child: Text(
-                      Strings.createAnAccount,
-                      style: DefaultTextStyle.of(context).style.apply(
-                        fontSizeFactor: 0.6, 
-                        color: CustomColor.primaryColor, 
-                        decoration: TextDecoration.none),
-                    ),
-                    onTap: () => const SplashScreen()
-                  ),                  
-                ],
-              ),
-              bodyWidget(context)
-            ],
+        body: SingleChildScrollView(
+          child: Container(
+            //width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    GestureDetector(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          top: height * 0.03, 
+                          right: width * 0.05),
+                        child: Text(
+                          Strings.createAnAccount,
+                          style: DefaultTextStyle.of(context).style.apply(
+                            fontSizeFactor: 0.4, 
+                            color: CustomColor.primaryColor, 
+                            decoration: TextDecoration.none),
+                        ),
+                      ),
+                      onTap: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const PassSignUpScreen()));
+                        },
+                    ),                  
+                  ],
+                ),
+                bodyWidget(context)
+              ],
+            ),
           ),
         ),
       ),
@@ -66,47 +85,58 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   bodyWidget(BuildContext context) {
+
+    final height = MediaQuery.of(context).size.height;
+
     return SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           headingWidget(context),
           inputFiledWidget(context),
-          const SizedBox(height: Dimensions.heightSize * 6),
+          SizedBox(height: height * 0.05),
           rememberForgotWidget(context),
-          const SizedBox(height: Dimensions.heightSize * 2),
+          SizedBox(height: height * 0.04),
           signInButtonWidget(context),
-          const SizedBox(height: Dimensions.heightSize * 2),
+          SizedBox(height: height * 0.04),
           orSignInWidget(context),
-          const SizedBox(height: Dimensions.heightSize * 2),
+          SizedBox(height: height * 0.04),
           alreadyHaveAccountWidget(context),
-          const SizedBox(height: Dimensions.heightSize * 2),
+          SizedBox(height: height * 0.02),
         ],
       ),
     );
   }
 
   headingWidget(BuildContext context) {
+    
+     final height = MediaQuery.of(context).size.height;
+
     return Padding(
-      padding: const EdgeInsets.only(top: 100),
-      child: Text(Strings.signInAccount, style:  const TextStyle(fontSize: 45, color: CustomColor.primaryColor), ),
+      
+      padding: EdgeInsets.only(top: height * 0.09),
+      child: Text(Strings.signInAccount, style:  const TextStyle(fontSize: 27, color: CustomColor.primaryColor,fontWeight: FontWeight.bold ), ),
       
       //child: Image.asset('assets/images/hegga_logo_2a.png'),
     );
   }
 
   inputFiledWidget(BuildContext context) {
+
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    
     return Form(
         key: formKey,
         child: Padding(
-          padding: const EdgeInsets.only(
-              top: Dimensions.heightSize * 2,
-              left: Dimensions.marginSize * 11,
-              right: Dimensions.marginSize * 11),
+          padding: EdgeInsets.only(
+              top: height * 0.02,
+              left: width * 0.11,
+              right: width * 0.11),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height:40),
+              SizedBox(height: width * 0.04),
               TextFormField(
                 style: CustomStyle.textStyle,
                 controller: emailController,
@@ -123,8 +153,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(5))
                     ),
                     hintText: Strings.emailLogin,
-                    contentPadding: const EdgeInsets.symmetric(
-                        vertical: 20.0, horizontal: 10.0),
+                    contentPadding: EdgeInsets.symmetric(
+                        vertical: height * 0.02, horizontal: width * 0.01),
                     labelStyle: CustomStyle.textStyle,
                     filled: true,
                     fillColor: Colors.white,
@@ -134,7 +164,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       color: CustomColor.primaryColor,
                     )),
               ),
-              const SizedBox(height: 80),
+              SizedBox(height: height * 0.08),
               TextFormField(
                 style: CustomStyle.textStyle,
                 controller: passwordController,
@@ -150,8 +180,8 @@ class _SignInScreenState extends State<SignInScreen> {
                       borderRadius: BorderRadius.all(Radius.circular(5))
                     ),
                   hintText: Strings.typePassword,
-                  contentPadding: const EdgeInsets.symmetric(
-                      vertical: 20.0, horizontal: 10.0),
+                  contentPadding: EdgeInsets.symmetric(
+                      vertical: height * 0.02, horizontal: width * 0.01),
                   labelStyle: CustomStyle.textStyle,
                   filled: true,
                   fillColor: Colors.white,
@@ -179,7 +209,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 obscureText: _toggleVisibility,
               ),
-              const SizedBox(height: Dimensions.heightSize),
+              SizedBox(height: height * 0.02),
             ],
           ),
         ));
@@ -223,14 +253,18 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   signInButtonWidget(BuildContext context) {
+    
+    final width = MediaQuery.of(context).size.width;
+
     return Padding(
-      padding: const EdgeInsets.only(
-          left: Dimensions.marginSize, right: Dimensions.marginSize),
-      child: CircleButtonWidget(
-        icon: const Icon(
-          Icons.arrow_forward,
-          color: CustomColor.whiteColor,
-        ),
+      padding: EdgeInsets.only(
+          left: width * 0.08, right: width * 0.08),
+      child: SecondaryButtonWidget(
+        title: 'Iniciar Sesión',
+        // icon: const Icon(
+        //   Icons.arrow_forward,
+        //   color: CustomColor.whiteColor,
+        // ),
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
               const HomeScreen()));
@@ -240,24 +274,38 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   orSignInWidget(BuildContext context) {
+    
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+
     return Column(
       children: [
         const Text('Or'),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleButtonWidget(
-              icon: Image.asset('assets/images/icon/facebook.png'),
-              onTap: () {},
-            ),
-            const SizedBox(
-              width: Dimensions.widthSize,
-            ),
-            CircleButtonWidget(
-              icon: Image.asset('assets/images/icon/google.png'),
-              onTap: () {},
-            ),
-          ],
+        Padding(
+          padding: EdgeInsets.only(top: height * 0.04),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleButtonWidget(
+                icon: Image.asset('assets/images/icon/facebook.png'),
+                onTap: () {},
+              ),
+               SizedBox(
+                width: width * 0.05,
+              ),
+              CircleButtonWidget(
+                icon: Image.asset('assets/images/icon/facebook.png'),
+                onTap: () {},
+              ),
+              SizedBox(
+                width: width * 0.05,
+              ),
+              CircleButtonWidget(
+                icon: Image.asset('assets/images/icon/google.png'),
+                onTap: () {},
+              ),
+            ],
+          ),
         ),
       ],
     );
@@ -289,10 +337,13 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   _titleData(String title) {
+
+    final height = MediaQuery.of(context).size.height;
+
     return Padding(
-      padding: const EdgeInsets.only(
-        bottom: Dimensions.heightSize * 0.5,
-        top: Dimensions.heightSize,
+      padding: EdgeInsets.only(
+        bottom: height * 0.005,
+        top: height * 0.1,
       ),
       child: Text(
         title,

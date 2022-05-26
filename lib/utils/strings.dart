@@ -18,7 +18,7 @@ class Strings {
   static String failedAttempts1 = 'Quedan ';
   static String failedAttempts2 = ' intentos antes de bloquear su sesión';
 
-  //forgot_password_screen
+   //forgot_password_screen
   static String recoverPasswordText = 'Recuperar contraseña';
   static String recoveryMail = 'email@gmail.com';
   static String sendBtn = 'Enviar';

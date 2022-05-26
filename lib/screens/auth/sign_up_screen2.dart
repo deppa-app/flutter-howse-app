@@ -21,6 +21,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
 
   TextEditingController phoneController = TextEditingController();
 
+
   @override
   void initState() {
     super.initState();
@@ -28,26 +29,30 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
 
   @override
   Widget build(BuildContext context) {
+
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
     return SafeArea(
       child: Scaffold(
         body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          width: width,
+          height: height,
           color: Colors.white,
           child: ListView(
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
               BackWidget(title: ""),
-              const SizedBox(
-                height: Dimensions.heightSize * 2,
+              SizedBox(
+                height: height * 0.02,
               ),
               inputFieldWidget(context),
-              const SizedBox(height: 70.00),
+              SizedBox(height: height * 0.35),
               Padding(
-                padding: const EdgeInsets.only(
-                  left: 50.00,
-                  right: 50.00,
+                padding: EdgeInsets.only(
+                  left: width * 0.05,
+                  right: width * 0.05,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -60,8 +65,8 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: Dimensions.heightSize * 2,
+              SizedBox(
+                height: height * 0.02,
               ),
             ],
           ),
@@ -71,10 +76,14 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
   }
 
   inputFieldWidget(BuildContext context) {
+
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
     return Padding(
-        padding: const EdgeInsets.only(
-          left: Dimensions.marginSize,
-          right: Dimensions.marginSize,
+        padding: EdgeInsets.only(
+          left: width * 0.01,
+          right: width * 0.01,
         ),
         child: Form(
             key: formKey,
@@ -82,32 +91,28 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                      left: Dimensions.marginSize,
-                      right: Dimensions.marginSize),
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      left: 50.00,
-                      right: 50.00,
+                    padding: EdgeInsets.only(
+                      left: width * 0.1,
+                      right: width * 0.1,
                     ),
                     child: Align(
                       alignment: Alignment.topCenter,
                       child: Text(
-                        "Numero de teledono celular",
+                        "Número de telefono celular",
                         style: TextStyle(
                             color: CustomColor.primaryColor,
-                            fontSize: 22.00,
+                            fontSize: 26,
                             fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.start,
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
-                ),
+                
                 Padding(
-                  padding: const EdgeInsets.only(
-                    top: 20.00,
-                    left: 50.00,
-                    right: 50.00,
+                  padding: EdgeInsets.only(
+                    top: height * 0.05,
+                    left: width * 0.12,
+                    right: width * 0.1,
                   ),
                   child: Align(
                     alignment: Alignment.topCenter,
@@ -115,14 +120,14 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                       "Ingresar tu numero telefonico para validar tu dispositivo",
                       style: TextStyle(
                         color: CustomColor.primaryColor,
-                        fontSize: 16.00,
+                        fontSize: 16,
                       ),
-                      textAlign: TextAlign.justify,
+                      textAlign: TextAlign.start,
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: Dimensions.heightSize * 2,
+                SizedBox(
+                  height: height * 0.02,
                 ),
                 Row(
                   children: [
@@ -131,13 +136,13 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(
-                              top: 20.00,
-                              left: 30.00,
-                              right: 30.00,
+                            padding: EdgeInsets.only(
+                              top: height * 0.05,
+                              left: width * 0.12,
+                              right: width * 0.1,
                             ),
                             child: Align(
-                              alignment: Alignment.topCenter,
+                              alignment: Alignment.center,
                               child: TextFormField(
                                 style: CustomStyle.textStyle,
                                 controller: phoneController,
@@ -151,7 +156,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                                 },
                                 decoration: InputDecoration(
                                     hintText: "Escribe tu telefono personal",
-                                    contentPadding: const EdgeInsets.symmetric(
+                                    contentPadding: EdgeInsets.symmetric(
                                         vertical: 10.0, horizontal: 10.0),
                                     labelStyle: CustomStyle.textStyle,
                                     filled: true,
@@ -168,8 +173,8 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      width: Dimensions.widthSize * 2,
+                    SizedBox(
+                      width: width * 0.02,
                     ),
                   ],
                 )
@@ -178,10 +183,13 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
   }
 
   _titleData(String title) {
+
+    var height = MediaQuery.of(context).size.height;
+
     return Padding(
-      padding: const EdgeInsets.only(
-        bottom: Dimensions.heightSize * 0.1,
-        top: Dimensions.heightSize,
+      padding: EdgeInsets.only(
+        bottom: height * 0.001,
+        top: height * 0.01,
       ),
       child: Text(
         title,

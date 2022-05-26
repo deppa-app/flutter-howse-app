@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/sign_up_screen4.dart';
+import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/widgets/back_widget.dart';
@@ -25,11 +26,15 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
   }
   @override
   Widget build(BuildContext context) {
+
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+
     return SafeArea(
       child: Scaffold(
         body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+          width: width,
+          height: height,
           color: Colors.white,
           child: ListView(
             physics: const BouncingScrollPhysics(),
@@ -38,19 +43,28 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
               BackWidget(title: Strings.createAnAccount),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
-              SecondaryButtonWidget(
+              SizedBox(height: height * 0.4 ,),// TODO: Cambiar por widget código seguridad.
+              Padding(
+                padding: EdgeInsets.only(
+                  top: height * 0.06,
+                  left: width * 0.05,
+                  right: width * 0.05,
+                ),
+                child: SecondaryButtonWidget(
                   title: "Validar",
                     onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(builder:
                     (context) => const SignUpScreen4()));
                   },
                 ),
+                ),
+              
               const SizedBox(height: Dimensions.heightSize * 2,),
               Text(
                 "¿No recibiste el código?",
                  style: TextStyle(
                  color: Colors.grey,
-                 fontSize: Dimensions.largeTextSize,
+                 fontSize: 16,
                   fontWeight: FontWeight.bold
                 ),
                 textAlign: TextAlign.center,
@@ -65,31 +79,48 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
 
 
   inputFieldWidget(BuildContext context) {
+
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+
     return Padding(
-      padding: const EdgeInsets.only(
-        left: Dimensions.marginSize,
-        right: Dimensions.marginSize,
+      padding: EdgeInsets.only(
+        left: width * 0.05,
+        right: width * 0.05,
       ),
       child: Form(
           key: formKey,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                 padding: const EdgeInsets.only(
-                    left: Dimensions.marginSize,
-                    right: Dimensions.marginSize),
+                 padding: EdgeInsets.only(
+                    left: width * 0.05,
+                    right: width * 0.05),
                     child: Text(
-                      "Código de validación",
+                      "Confirma tu número de teléfono",
                        style: TextStyle(
-                       color: Colors.black,
-                        fontSize: Dimensions.extraLargeTextSize * 1.5,
+                       color: CustomColor.primaryColor,
+                        fontSize: 26,
                         fontWeight: FontWeight.bold
                        ),
                          textAlign: TextAlign.center,
                        ),
-                        ),
-              const SizedBox(height: Dimensions.heightSize * 2,),                  
+               ),
+              SizedBox(height: height * 0.02,),  
+              Padding(padding: EdgeInsets.only(
+                left: width * 0.05,
+                right: width * 0.01
+                
+              ),
+              child: const Text('Ingresa el código de 4 dígitos que Howse acaba de enviar a tu número teléfonico.',
+              textAlign: TextAlign.start,
+              style: TextStyle(
+                fontSize: 16 ,
+                color: CustomColor.primaryColor,
+              ),),
+              ),
+                              
               
           ],
         )

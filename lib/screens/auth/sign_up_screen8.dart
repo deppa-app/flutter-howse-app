@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/sign_up_screen9.dart';
+import 'package:howse_app/utils/custom_color.dart';
 
 
 import 'package:howse_app/utils/dimensions.dart';
@@ -41,15 +42,34 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
               BackWidget(title: Strings.createAnAccount),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
-              Text(
-                "Tarjeta de crédito",
-                 style: TextStyle(
-                 color: Colors.grey,
-                 fontSize: Dimensions.largeTextSize,
-                  fontWeight: FontWeight.bold
+              Padding(
+                padding: EdgeInsets.only(
+                  right: MediaQuery.of(context).size.width * 0.43
                 ),
-                textAlign: TextAlign.center,
-                ),
+                child: const Text.rich(
+                    TextSpan(
+                      children: [
+                        WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: 
+                        Icon(
+                          Icons.arrow_right_rounded,
+                          color: CustomColor.primaryColor,
+                          size: 100,
+                          )),
+                        TextSpan(
+                          text: 'Método de pago',
+                          )
+                      ]
+                    ),
+                    style: TextStyle(
+                    color: CustomColor.electricVioletColor,
+                    fontSize: 16,
+                      fontWeight: FontWeight.bold
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+              ),
               SecondaryButtonWidget(
                   title: "Validar",
                     onTap: () {
@@ -85,8 +105,8 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                     child: Text(
                       "Elige tu método de pago",
                        style: TextStyle(
-                       color: Colors.black,
-                        fontSize: Dimensions.extraLargeTextSize * 1.5,
+                       color: CustomColor.primaryColor,
+                        fontSize: 26,
                         fontWeight: FontWeight.bold
                        ),
                          textAlign: TextAlign.center,

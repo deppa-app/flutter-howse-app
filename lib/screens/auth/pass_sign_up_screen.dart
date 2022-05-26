@@ -24,104 +24,113 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
         body: SizedBox(
             width: width,
             height: height,
-            child: Stack(
-              children: [
-                const BackWidget(title: ""),
-                Positioned(
-                    top: 50,
-                    right: -10,
-                    left: -10,
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        left: Dimensions.marginSize * 1.5,
-                        right: Dimensions.marginSize * 1.5,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Column(
-                            children: [
-                              Text(
-                                "Unete al cambio de la comodidad",
-                                style: TextStyle(
-                                    color: CustomColor.primaryColor,
-                                    fontSize: 22.00,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.center,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  top: 20.00,
-                                  left: 50.00,
-                                  right: 50.00,
-                                ),
-                                child: Align(
-                                  alignment: Alignment.topCenter,
-                                  child: Text(
-                                    "Antes de comenzar tu registro, te pediremos que tengas a mano tu documento de identidad vigente.",
-                                    style: TextStyle(
-                                      color: CustomColor.primaryColor,
-                                      fontSize: 16.00,
-                                    ),
-                                    textAlign: TextAlign.justify,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                  top: Dimensions.topHeight,
-                                  left: Dimensions.marginSize,
-                                  right: Dimensions.marginSize,
-                                ),
-                                child: Align(
-                                  alignment: Alignment.topCenter,
-                                  child: Image.asset(
-                                    'assets/images/lorem-image.png',
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: Dimensions.heightSize * 2,
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: Dimensions.heightSize * 4),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              left: Dimensions.marginSize,
-                              right: Dimensions.marginSize,
-                            ),
-                            child: Column(
+            child: SingleChildScrollView(
+              child: Padding(
+                        padding: EdgeInsets.only(
+                          left: width * 0.05,
+                          right: width * 0.05,
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
                               children: [
-                                SecondaryButtonWidget(
-                                  title: "Ir al registro",
-                                  onTap: () {
-                                    Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const SignUpScreen1()));
-                                  },
+                                Container(
+                                  padding: EdgeInsets.only(
+                                    top: height * 0.12                                  
+                                    ),
+                                  child: Text(
+                                    "Únete al cambio de la comodidad",
+                                    style: TextStyle(
+                                        color: CustomColor.primaryColor,
+                                        fontSize: 26,
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.center,
+                                  ),
                                 ),
-                                const SizedBox(
-                                  height: Dimensions.heightSize,
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: 20.00,
+                                    left: width * 0.1 ,
+                                    right: width * 0.1,
+                                  ),
+                                  child: Align(
+                                    alignment: Alignment.topCenter,
+                                    child: Container(
+                                      padding: EdgeInsets.only(
+                                        left: width * 0.02,
+                                        right: width * 0.02,
+                                        top: height * 0.02
+                                      ),
+                                      child: Text(
+                                        "Antes de comenzar tu registro, te pediremos que tengas a mano tu documento de identidad vigente.",
+                                        style: TextStyle(
+                                          color: CustomColor.primaryColor,
+                                          fontSize: 16.00,
+                                        ),
+                                        textAlign: TextAlign.justify,
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                                const Text(
-                                  "¿No recibiste el código?",
-                                  style: TextStyle(
-                                      color: CustomColor.primaryColor,
-                                      fontSize: 12.00,
-                                      fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.left,
+                                Padding(
+                                  padding: EdgeInsets.only(
+                                    top: height * 0.05,
+                                    left: width * 0.02,
+                                    right: width * 0.02 ,
+                                  ),
+                                  child: Align(
+                                    alignment: Alignment.topCenter,
+                                    child: Image.asset(
+                                      'assets/images/lorem-image.png',
+                                      fit: BoxFit.fill,
+                                      height: height * 0.5,
+                                      width: width * 0.7,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: height * 0.05,
                                 ),
                               ],
                             ),
-                          ),
-                          const SizedBox(height: Dimensions.heightSize),
-                        ],
+                            //const SizedBox(height: Dimensions.heightSize * 4),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                left: width * 0.05,
+                                right: width * 0.05 ,
+                              ),
+                              child: Column(
+                                children: [
+                                  SecondaryButtonWidget(
+                                    title: "Ir al registro",
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const SignUpScreen1()));
+                                    },
+                                  ),
+                                  const SizedBox(
+                                    height: Dimensions.heightSize,
+                                  ),
+                                  const Text(
+                                    "¿No recibiste el código?",
+                                    style: TextStyle(
+                                        color: CustomColor.primaryColor,
+                                        fontSize: 12.00,
+                                        fontWeight: FontWeight.bold),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const SizedBox(height: Dimensions.heightSize),
+                          ],
+                        ),
                       ),
-                    ))
-              ],
-            )));
+            ))
+              
+            );
   }
 }
