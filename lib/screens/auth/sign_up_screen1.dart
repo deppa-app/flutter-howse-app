@@ -30,7 +30,9 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
   TextEditingController confirmPasswordController = TextEditingController();
 
   bool _toggleVisibility = true;
-  bool checkedValue = false;
+  bool checkedValue1 = false;
+  bool checkedValue2 = false;
+  bool checkedValue3 = false;
 
   String selectedCounty = 'United States';
   //Country _selected;
@@ -61,22 +63,29 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              const BackWidget(title: ""),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  BackWidget(title: ""),
+                  //Se debe agregar la barra de carga en este apartado
+                ],
+              ),
               const SizedBox(
-                height: Dimensions.heightSize * 2,
+                height: Dimensions.heightSize * 5,
               ),
               Padding(
                 padding: EdgeInsets.only(
                   left: width * 0.15,
                   right: width * 0.15,
                 ),
-                child: Align(
+                child: const Align(
                   alignment: Alignment.topCenter,
                   child: Text(
-                    "Informacion basica para crear tu cuenta",
+                    "Informacion básica para crear tu cuenta",
                     style: TextStyle(
                         color: CustomColor.primaryColor,
                         fontSize: 26,
+                        height: 2.0,
                         fontWeight: FontWeight.bold),
                     textAlign: TextAlign.start,
                   ),
@@ -84,17 +93,18 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  top: height * 0.05,
+                  top: height * 0.03,
                   left: width * 0.12,
                   right: width * 0.12,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
                   child: Text(
-                    "Ingresar tu informacion para crear tu cuenta",
+                    "Ingresar tu información para crear tu cuenta",
                     style: TextStyle(
                       color: CustomColor.primaryColor,
                       fontSize: 16,
+                      height: 2.0,
                     ),
                     textAlign: TextAlign.start,
                   ),
@@ -173,11 +183,12 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
     return  Form(
           key: formKey,
           child: Column(
+
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsets.only(
-                  top: 20.00,
+                  top: 30.00,
                   
                 ),
                 child: Align(
@@ -211,7 +222,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 20.00,
+                  top: 30.00,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -244,7 +255,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 20.00,
+                  top: 30.00,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -277,7 +288,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                  top: 20.00,
+                  top: 30.00,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -333,10 +344,10 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                 ),
                 textAlign: TextAlign.justify,
               ),
-              value: checkedValue,
+              value: checkedValue1,
               onChanged: (newValue) {
                 setState(() {
-                  checkedValue = newValue;
+                  checkedValue1 = newValue;
                 });
               },
               controlAffinity:
@@ -361,10 +372,10 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                 ),
                 textAlign: TextAlign.justify,
               ),
-              value: checkedValue,
+              value: checkedValue2,
               onChanged: (newValue) {
                 setState(() {
-                  checkedValue = newValue;
+                  checkedValue2 = newValue;
                 });
               },
               controlAffinity:
@@ -389,10 +400,10 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                 ),
                 textAlign: TextAlign.justify,
               ),
-              value: checkedValue,
+              value: checkedValue3,
               onChanged: (newValue) {
                 setState(() {
-                  checkedValue = newValue;
+                  checkedValue3 = newValue;
                 });
               },
               controlAffinity:
