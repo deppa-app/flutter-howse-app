@@ -23,7 +23,7 @@ class _BackWidgetState extends State<BackWidget> {
           GestureDetector(
             child: const Icon(
               Icons.arrow_back_ios,
-              color: CustomColor.accentColor,
+              color: CustomColor.primaryColor,
               size: 20,
             ),
             onTap: () {
