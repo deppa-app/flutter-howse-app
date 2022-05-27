@@ -42,22 +42,23 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
               BackWidget(title: Strings.createAnAccount),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
-              Padding(
-                padding: EdgeInsets.only(
-                  right: MediaQuery.of(context).size.width * 0.43
-                ),
-                child: const Text.rich(
+
+              Text.rich(
                     TextSpan(
                       children: [
                         WidgetSpan(
                           alignment: PlaceholderAlignment.middle,
-                          child: 
-                        Icon(
-                          Icons.arrow_right_rounded,
-                          color: CustomColor.primaryColor,
-                          size: 100,
-                          )),
-                        TextSpan(
+                          child:  Stack(
+                              children: const [
+                                Icon(
+                              Icons.arrow_right_rounded,
+                              color: CustomColor.primaryColor,
+                              size: 80,
+                              ),
+                              ]
+                            ),
+                          ),
+                        const TextSpan(
                           text: 'Método de pago',
                           )
                       ]
@@ -69,14 +70,184 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                     ),
                     textAlign: TextAlign.start,
                   ),
-              ),
-              SecondaryButtonWidget(
-                  title: "Validar",
-                    onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const SignUpScreen9()));
-                  },
+              
+              
+              Padding(
+                padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.1
                 ),
+                child: const Text.rich(
+                    TextSpan(
+                      children: [
+                        WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: 
+                        Icon(
+                          Icons.credit_card_rounded,
+                          color: CustomColor.primaryColor,
+                          size: 35,
+                          )),
+                        TextSpan(
+                          text: 'Tarjeta de credito',
+                          )
+                      ]
+                    ),
+                    style: TextStyle(
+                    color: CustomColor.electricVioletColor,
+                    fontSize: 16,
+                      fontWeight: FontWeight.bold
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+              ),
+              Divider(
+                indent: 50,
+                endIndent: 50,
+                thickness: 1,
+                color: Colors.grey,
+                ),
+
+                const ListTile(
+                      title: Text.rich(TextSpan(
+                      children: [
+                        WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: 
+                        Icon(
+                          Icons.credit_card_rounded,
+                          color: CustomColor.primaryColor,
+                          size: 35,
+                          )),
+                        TextSpan(
+                          text: 'Credito/Visa',
+                          ),
+                          WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: 
+                          Icon(
+                            Icons.keyboard_arrow_right,
+                            color: CustomColor.primaryColor,
+                            size: 35,
+                          )),
+                        ]
+                      ),
+                      ),
+                      leading: Icon(Icons.circle,
+                      size: 20,
+                      color: Colors.grey,
+                      ),
+                  ),
+
+                const ListTile(
+                      title: Text.rich(TextSpan(
+                      children: [
+                        WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: 
+                        Icon(
+                          Icons.credit_card_rounded,
+                          color: CustomColor.primaryColor,
+                          size: 35,
+                          )),
+                        TextSpan(
+                          text: 'Credito/Visa',
+                          ),
+                          WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: 
+                          Icon(
+                            Icons.keyboard_arrow_right,
+                            color: CustomColor.primaryColor,
+                            size: 35,
+                          )),
+                        ]
+                      ),
+                      ),
+                      leading: Icon(Icons.circle_rounded,
+                      size: 20,
+                      color: Colors.grey,
+                      ),
+                  ),
+                  Padding(
+                padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.1
+                ),
+                child: const Text.rich(
+                    TextSpan(
+                      children: [
+                        WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: 
+                        Icon(
+                          Icons.credit_card_rounded,
+                          color: CustomColor.primaryColor,
+                          size: 35,
+                          )),
+                        TextSpan(
+                          text: 'Opción prepago',
+                          )
+                      ]
+                    ),
+                    style: TextStyle(
+                    color: CustomColor.electricVioletColor,
+                    fontSize: 16,
+                      fontWeight: FontWeight.bold
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+              ),
+              Divider(
+                indent: 50,
+                endIndent: 50,
+                thickness: 1,
+                color: Colors.grey,
+                ),
+                 const ListTile(
+                      title: Text.rich(TextSpan(
+                      children: [
+                        WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: 
+                        Icon(
+                          Icons.credit_card_rounded,
+                          color: CustomColor.primaryColor,
+                          size: 35,
+                          )),
+                        TextSpan(
+                          text: 'No tengo tarjeta de credito',
+                          ),
+                          WidgetSpan(
+                          alignment: PlaceholderAlignment.middle,
+                          child: 
+                          Icon(
+                            Icons.keyboard_arrow_right,
+                            color: CustomColor.primaryColor,
+                            size: 35,
+                          )),
+                        ]
+                      ),
+                      ),
+                      leading: Icon(Icons.circle_rounded,
+                      size: 20,
+                      color: Colors.grey,
+                      ),
+                  ),
+
+                  
+                
+              Padding(
+                padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.1,
+                  right: MediaQuery.of(context).size.width * 0.1
+                ),
+                child: SecondaryButtonWidget(
+                    title: "Validar",
+                      onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder:
+                      (context) => const SignUpScreen9()));
+                    },
+                  ),
+              ),
               const SizedBox(height: Dimensions.heightSize * 2,),
             ],
           ),

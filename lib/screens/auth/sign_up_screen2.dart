@@ -95,7 +95,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                       left: width * 0.1,
                       right: width * 0.1,
                     ),
-                    child: Align(
+                    child: const Align(
                       alignment: Alignment.topCenter,
                       child: Text(
                         "Número de telefono celular",
@@ -114,7 +114,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                     left: width * 0.12,
                     right: width * 0.1,
                   ),
-                  child: Align(
+                  child: const Align(
                     alignment: Alignment.topCenter,
                     child: Text(
                       "Ingresar tu numero telefonico para validar tu dispositivo",
