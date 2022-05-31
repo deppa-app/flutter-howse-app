@@ -48,6 +48,7 @@ class TextFormFieldW1 extends StatelessWidget{
                         if(value.isEmpty ){
                           return Strings.pleaseFillOutTheField;
                         }
+                        return ''; //agreagado para eliminar error de consola
                       },
                       decoration: InputDecoration(
                         hintText: text,
@@ -56,10 +57,10 @@ class TextFormFieldW1 extends StatelessWidget{
                         labelStyle: CustomStyle.textStyle,
                         filled: true,
                         fillColor: Colors.white,
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                                 color: CustomColor.primaryColor)),
                         hintStyle: CustomStyle.hintTextStyle),
                     ),

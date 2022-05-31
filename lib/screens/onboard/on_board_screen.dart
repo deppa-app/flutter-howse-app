@@ -34,7 +34,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
             width: double.infinity,
             height: 600,
             child: Swiper(
-              itemCount: 3,
+              itemCount: totalPages,
               layout: SwiperLayout.DEFAULT,
               itemWidth: width,
               itemHeight: 550,

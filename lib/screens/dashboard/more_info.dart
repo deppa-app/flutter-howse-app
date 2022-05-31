@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 
 import 'package:howse_app/utils/dimensions.dart';
-import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 
 

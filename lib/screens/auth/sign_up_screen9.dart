@@ -124,11 +124,11 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
               ),             
              // const SizedBox(height: 0,),
 
-              Icon(Icons.credit_card,
+              const Icon(Icons.credit_card,
               size: 150,
               ),
 
-              Divider(
+              const Divider(
                 color: Colors.grey,
                 indent: 30,
                 endIndent: 30,
@@ -193,7 +193,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                     ),
                   ),
 
-                SizedBox(width: 20,),
+                const SizedBox(width: 20,),
 
                 Expanded(
                   child: Column(
@@ -241,7 +241,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Por favor! Confirma tu correo e inscribe tu \n tarjeta',
+                    const Text('Por favor! Confirma tu correo e inscribe tu \n tarjeta',
                     textAlign: TextAlign.justify,
                     ),
                     CheckboxListTile(

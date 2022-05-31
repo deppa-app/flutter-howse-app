@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/sign_up_screen3.dart';
 
 import 'package:howse_app/utils/custom_color.dart';
-import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/widgets/back_widget.dart';
@@ -43,7 +42,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: ""),
+              const BackWidget(title: ""),
               SizedBox(
                 height: height * 0.02,
               ),
@@ -156,15 +155,15 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                                 },
                                 decoration: InputDecoration(
                                     hintText: "Escribe tu telefono personal",
-                                    contentPadding: EdgeInsets.symmetric(
+                                    contentPadding: const EdgeInsets.symmetric(
                                         vertical: 10.0, horizontal: 10.0),
                                     labelStyle: CustomStyle.textStyle,
                                     filled: true,
                                     fillColor: Colors.white,
-                                    border: OutlineInputBorder(
+                                    border: const OutlineInputBorder(
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(5.0)),
-                                        borderSide: const BorderSide(
+                                        borderSide: BorderSide(
                                             color: CustomColor.primaryColor)),
                                     hintStyle: CustomStyle.hintTextStyle),
                               ),

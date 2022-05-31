@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/auth/sign_in_screen.dart';
 import 'package:howse_app/screens/dashboard/booking_pin.dart';
 
 

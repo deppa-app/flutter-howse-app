@@ -60,7 +60,7 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                 ),
               
               const SizedBox(height: Dimensions.heightSize * 2,),
-              Text(
+              const Text(
                 "¿No recibiste el código?",
                  style: TextStyle(
                  color: Colors.grey,
@@ -97,7 +97,7 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                  padding: EdgeInsets.only(
                     left: width * 0.05,
                     right: width * 0.05),
-                    child: Text(
+                    child: const Text(
                       "Confirma tu número de teléfono",
                        style: TextStyle(
                        color: CustomColor.primaryColor,

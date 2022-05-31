@@ -97,7 +97,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                   left: width * 0.12,
                   right: width * 0.12,
                 ),
-                child: Align(
+                child: const Align(
                   alignment: Alignment.topCenter,
                   child: Text(
                     "Ingresar tu información para crear tu cuenta",
@@ -125,7 +125,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                       top: height * 0.02,
                       right: width * 0.15
                     ),
-                    child: Text('La contraseña debe incluir:',
+                    child: const Text('La contraseña debe incluir:',
                     style: TextStyle(
                       fontSize: 16,
                       color: CustomColor.primaryColor,
@@ -177,8 +177,6 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
 
   inputFieldWidget(BuildContext context) {
 
-    final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
 
     return  Form(
           key: formKey,
@@ -187,7 +185,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   top: 30.00,
                   
                 ),
@@ -211,10 +209,10 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                         labelStyle: CustomStyle.textStyle,
                         filled: true,
                         fillColor: Colors.white,
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                                 color: CustomColor.primaryColor)),
                         hintStyle: CustomStyle.hintTextStyle),
                   ),
@@ -244,10 +242,10 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                         labelStyle: CustomStyle.textStyle,
                         filled: true,
                         fillColor: Colors.white,
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                                 color: CustomColor.primaryColor)),
                         hintStyle: CustomStyle.hintTextStyle),
                   ),
@@ -277,10 +275,10 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                         labelStyle: CustomStyle.textStyle,
                         filled: true,
                         fillColor: Colors.white,
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                                 color: CustomColor.primaryColor)),
                         hintStyle: CustomStyle.hintTextStyle),
                   ),
@@ -310,10 +308,10 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                         labelStyle: CustomStyle.textStyle,
                         filled: true,
                         fillColor: Colors.white,
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: const BorderSide(
+                            borderSide: BorderSide(
                                 color: CustomColor.primaryColor)),
                         hintStyle: CustomStyle.hintTextStyle),
                   ),
@@ -518,7 +516,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                   padding: const EdgeInsets.only(
                       top: Dimensions.defaultPaddingSize * 2,
                       bottom: Dimensions.defaultPaddingSize * 2),
-                  child: Container(
+                  child: SizedBox(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     child: AlertDialog(
@@ -657,7 +655,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                         ),
                         Positioned(
                           bottom: 0,
-                          child: Container(
+                          child: SizedBox(
                             width: MediaQuery.of(context).size.width,
                             child: Align(
                               alignment: Alignment.bottomCenter,

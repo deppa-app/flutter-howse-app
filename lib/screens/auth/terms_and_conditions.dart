@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:howse_app/utils/custom_color.dart';
 //import 'package:howse_app/screens/auth/sign_in_screen.dart';
 
 
@@ -60,23 +61,60 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
       child: Form(
           key: formKey,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
                  padding: const EdgeInsets.only(
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(
-                      "Términos y Condiciones",
+                      "Términos legales",
                        style: TextStyle(
-                       color: Colors.black,
+                       color: CustomColor.primaryColor,
                         fontSize: Dimensions.extraLargeTextSize * 1.5,
                         fontWeight: FontWeight.bold
                        ),
                          textAlign: TextAlign.center,
                        ),
-                        ),
-              const SizedBox(height: Dimensions.heightSize * 2,),                  
+              ),
+              const SizedBox(height: Dimensions.heightSize * 2,),    
+              Padding(
+                padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.03,
+                  right: MediaQuery.of(context).size.width * 0.03 
+                ),
+                child: const Text('Lreom ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  height: 2, 
+                  color: CustomColor.primaryColor
+                  ),
+                ),
+              ), 
+
+              Padding(
+                padding: const EdgeInsets.all(50),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset('assets/images/lorem-image.png'),
+                ),
+              ),
+            
+              Padding(
+                padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.03,
+                  right: MediaQuery.of(context).size.width * 0.03 
+                ),
+                child: const Text('Lreom ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  height: 2, 
+                  color: CustomColor.primaryColor
+                  ),
+                ),
+              ), 
               
           ],
         )

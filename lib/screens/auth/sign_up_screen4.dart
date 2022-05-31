@@ -52,7 +52,7 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                     padding: EdgeInsets.only(
                       left: width * 0.05
                     ),
-                    child: Icon(Icons.person_outline_rounded, size: 50, ),
+                    child: const Icon(Icons.person_outline_rounded, size: 50, ),
                   ),
                   Text(
                     " Tomar foto frontal",
@@ -65,7 +65,7 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                     ),
                 ],
               ),
-              SizedBox(height: 340,),
+              const SizedBox(height: 340,),
               Padding(
                 padding: EdgeInsets.only(
                   left: width * 0.1,
@@ -116,7 +116,7 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                  padding: EdgeInsets.only(
                     left: width * 0.2,
                     right: width * 0.2),
-                    child: Text(
+                    child: const Text(
                       "Verificación de documentos",
                        style: TextStyle(
                        color: CustomColor.primaryColor,
@@ -127,8 +127,8 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                        ),
                 ),
               const SizedBox(height: Dimensions.heightSize * 2,),  
-              Padding(
-                 padding: const EdgeInsets.only(
+              const Padding(
+                 padding: EdgeInsets.only(
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(

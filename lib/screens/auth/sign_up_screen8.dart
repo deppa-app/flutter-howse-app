@@ -63,7 +63,7 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                           )
                       ]
                     ),
-                    style: TextStyle(
+                    style: const TextStyle(
                     color: CustomColor.electricVioletColor,
                     fontSize: 16,
                       fontWeight: FontWeight.bold
@@ -100,7 +100,7 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                     textAlign: TextAlign.start,
                   ),
               ),
-              Divider(
+              const Divider(
                 indent: 50,
                 endIndent: 50,
                 thickness: 1,
@@ -196,7 +196,7 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                     textAlign: TextAlign.start,
                   ),
               ),
-              Divider(
+              const Divider(
                 indent: 50,
                 endIndent: 50,
                 thickness: 1,
@@ -268,9 +268,9 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
           key: formKey,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const [
               Padding(
-                 padding: const EdgeInsets.only(
+                 padding: EdgeInsets.only(
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(
@@ -282,8 +282,8 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                        ),
                          textAlign: TextAlign.center,
                        ),
-                        ),
-              const SizedBox(height: Dimensions.heightSize * 2,),                  
+                ),
+              SizedBox(height: Dimensions.heightSize * 2,),                  
               
           ],
         )

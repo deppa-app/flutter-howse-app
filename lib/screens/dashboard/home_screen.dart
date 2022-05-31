@@ -26,7 +26,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var currentLocation;
+  String currentLocation;
   TextEditingController searchController = TextEditingController();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -51,9 +51,9 @@ class _HomeScreenState extends State<HomeScreen> {
             color: CustomColor.primaryColor,
             child: ListView(
               children: <Widget>[
-                Container(
+                const SizedBox(
                   height: 200,
-                  child: const DrawerHeader(
+                  child: DrawerHeader(
                     child: DrawerHeaderWidget(),
                     decoration: BoxDecoration(
                       color: Colors.transparent,
@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        body: Container(
+        body: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: ListView(

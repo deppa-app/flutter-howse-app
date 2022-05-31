@@ -5,14 +5,11 @@ import 'package:howse_app/widgets/circle_button_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:howse_app/utils/custom_color.dart';
-import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/custom_style.dart';
-import 'package:howse_app/widgets/back_widget.dart';
 
 import '../../widgets/secondary_button_widget.dart';
 import '../dashboard/home_screen.dart';
-import '../splash_screen.dart';
 //import 'package:howse_app/auth/sign_up_screen.dart';
 //import 'package:howse_app/utils/dashboard_screen.dart';
 //import 'package:howse_app/auth/forgot_password_screen.dart';
@@ -44,7 +41,7 @@ class _SignInScreenState extends State<SignInScreen> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             //width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: ListView(
