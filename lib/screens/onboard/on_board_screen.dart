@@ -1,3 +1,4 @@
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/sign_in_screen.dart';
 import 'package:howse_app/utils/custom_color.dart';
@@ -26,12 +27,23 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
     return  SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: PageView.builder(
-            itemCount: totalPages,
-            itemBuilder: (context, index) {
-              OnBoardingItem oi = OnBoardingItems.loadOnboardItem()[index];
-              return SingleChildScrollView(
-                child: Column(
+        body: Column(
+          children: [
+            SizedBox(height: height * 0.03,),
+            SizedBox(
+            width: double.infinity,
+            height: 600,
+            child: Swiper(
+              itemCount: 3,
+              layout: SwiperLayout.DEFAULT,
+              itemWidth: width,
+              itemHeight: 550,
+              itemBuilder: (_, int index){
+                return PageView.builder(
+              itemCount: totalPages,
+              itemBuilder: (context, index) {
+                OnBoardingItem oi = OnBoardingItems.loadOnboardItem()[index];
+                return Column(
                     children: [
                       Positioned(
                         top: 30,
@@ -45,45 +57,41 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                           child:  Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Column(
-                                children: [
-                                  Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    padding: const EdgeInsets.only(
-                                        left: Dimensions.marginSize,
-                                        right: Dimensions.marginSize),
-                                    child: Text(
-                                      oi.title,
-                                      style: TextStyle(
-                                          color: CustomColor.primaryColor,
-                                          fontSize:
-                                              Dimensions.extraLargeTextSize *
-                                                  1.5,
-                                          fontWeight: FontWeight.bold),
-                                      textAlign: TextAlign.justify,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: Dimensions.heightSize * 2,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        left: Dimensions.marginSize,
-                                        right: Dimensions.marginSize),
-                                    child: Text(
-                                      oi.subTitle,
-                                      style: TextStyle(
-                                        color: CustomColor.primaryColor,
-                                        fontSize: Dimensions.largeTextSize,
-                                      ),
-                                      textAlign: TextAlign.justify,
-                                    ),
-                                  ),
-                                ],
+                              Container(
+                                width: MediaQuery.of(context).size.width,
+                                padding: const EdgeInsets.only(
+                                    left: Dimensions.marginSize,
+                                    right: Dimensions.marginSize),
+                                child: Text(
+                                  oi.title,
+                                  style: TextStyle(
+                                      color: CustomColor.primaryColor,
+                                      fontSize:
+                                          Dimensions.extraLargeTextSize *
+                                              1.5,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.justify,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: Dimensions.heightSize * 2,
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(
-                                  top: 70.00,
+                                    left: Dimensions.marginSize,
+                                    right: Dimensions.marginSize),
+                                child: Text(
+                                  oi.subTitle,
+                                  style: TextStyle(
+                                    color: CustomColor.primaryColor,
+                                    fontSize: Dimensions.largeTextSize,
+                                  ),
+                                  textAlign: TextAlign.justify,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 60.00,
                                   left: Dimensions.marginSize,
                                   right: Dimensions.marginSize,
                                 ),
@@ -163,52 +171,57 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                         ),
                                 ),
                               ),
-                              const SizedBox(height: Dimensions.heightSize * 4),
-                              index != (totalPages)
-                                  ? Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: Dimensions.marginSize,
-                                        right: Dimensions.marginSize,
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          SecondaryButtonWidget(
-                                            title: Strings.createAnAccount,
-                                            onTap: () {
-                                              Navigator.of(context).push(
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          const PassSignUpScreen()));
-                                            },
-                                          ),
-                                          const SizedBox(
-                                            height: Dimensions.heightSize,
-                                          ),
-                                          PrimaryButtonWidget(
-                                            title: Strings.signInAccount,
-                                            onTap: () {
-                                              Navigator.of(context).push(
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          const SignInScreen()));
-                                            },
-                                          )
-                                        ],
-                                      ),
-                                    )
-                                  : Container(),
-                              const SizedBox(height: Dimensions.heightSize),
                             ],
                           ))
                         ),
-                      
+                        
                     ],
-                  ));
-            }),
-      ),
-    );
+                  );
+              });
+              },
+              ),
+          ),
+          Padding(
+                  padding: const EdgeInsets.only(
+                    left: Dimensions.marginSize,
+                    right: Dimensions.marginSize,
+                  ),
+                  child: Column(
+                    children: [
+                      SecondaryButtonWidget(
+                        title: Strings.createAnAccount,
+                        onTap: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const PassSignUpScreen()));
+                        },
+                      ),
+                      const SizedBox(
+                        height: Dimensions.heightSize,
+                      ),
+                      PrimaryButtonWidget(
+                        title: Strings.signInAccount,
+                        onTap: () {
+                          Navigator.of(context).push(
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const SignInScreen()));
+                        },
+                      )
+                    ],
+                  ),
+                )
+          ])
+        )
+        
+        
+        
+        
+      );
     
     
     
   }
 }
+
