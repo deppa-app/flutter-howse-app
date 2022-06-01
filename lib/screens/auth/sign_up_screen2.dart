@@ -56,7 +56,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                 child: Align(
                   alignment: Alignment.topCenter,
                   child: SecondaryButtonWidget(
-                    title: "Siguiente",
+                    title: Strings.nextSignUp,
                     onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const SignUpScreen3()));
@@ -94,11 +94,11 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                       left: width * 0.1,
                       right: width * 0.1,
                     ),
-                    child: const Align(
+                    child: Align(
                       alignment: Alignment.topCenter,
                       child: Text(
-                        "Número de telefono celular",
-                        style: TextStyle(
+                        Strings.titleSignUp2,
+                        style: const TextStyle(
                             color: CustomColor.primaryColor,
                             fontSize: 26,
                             fontWeight: FontWeight.bold),
@@ -113,11 +113,11 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                     left: width * 0.12,
                     right: width * 0.1,
                   ),
-                  child: const Align(
+                  child: Align(
                     alignment: Alignment.topCenter,
                     child: Text(
-                      "Ingresar tu numero telefonico para validar tu dispositivo",
-                      style: TextStyle(
+                      Strings.phoneNumberSignUp,
+                      style: const TextStyle(
                         color: CustomColor.primaryColor,
                         fontSize: 16,
                       ),
@@ -154,7 +154,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                                   }
                                 },
                                 decoration: InputDecoration(
-                                    hintText: "Escribe tu telefono personal",
+                                    hintText: Strings.formPhoneNumberSignUp,
                                     contentPadding: const EdgeInsets.symmetric(
                                         vertical: 10.0, horizontal: 10.0),
                                     labelStyle: CustomStyle.textStyle,

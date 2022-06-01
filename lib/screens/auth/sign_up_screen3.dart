@@ -51,7 +51,7 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                   right: width * 0.05,
                 ),
                 child: SecondaryButtonWidget(
-                  title: "Validar",
+                  title: Strings.validateSignUp,
                     onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(builder:
                     (context) => const SignUpScreen4()));
@@ -60,9 +60,9 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                 ),
               
               const SizedBox(height: Dimensions.heightSize * 2,),
-              const Text(
-                "¿No recibiste el código?",
-                 style: TextStyle(
+              Text(
+                Strings.recibeCode,
+                 style: const TextStyle(
                  color: Colors.grey,
                  fontSize: 16,
                   fontWeight: FontWeight.bold
@@ -97,15 +97,15 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                  padding: EdgeInsets.only(
                     left: width * 0.05,
                     right: width * 0.05),
-                    child: const Text(
-                      "Confirma tu número de teléfono",
-                       style: TextStyle(
+                    child: Text(
+                      Strings.confirmNumber,
+                       style: const TextStyle(
                        color: CustomColor.primaryColor,
                         fontSize: 26,
                         fontWeight: FontWeight.bold
                        ),
                          textAlign: TextAlign.center,
-                       ),
+                      ),
                ),
               SizedBox(height: height * 0.02,),  
               Padding(padding: EdgeInsets.only(
@@ -113,9 +113,9 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                 right: width * 0.01
                 
               ),
-              child: const Text('Ingresa el código de 4 dígitos que Howse acaba de enviar a tu número teléfonico.',
+              child: Text(Strings.fourDigitCode,
               textAlign: TextAlign.start,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16 ,
                 color: CustomColor.primaryColor,
               ),),

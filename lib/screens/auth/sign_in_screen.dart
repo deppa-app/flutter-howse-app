@@ -313,13 +313,13 @@ class _SignInScreenState extends State<SignInScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Al continuar, declaro haber leído y aceptado los",
+          Strings.footerSignUp,
           style: CustomStyle.textStyle,
         ),
         GestureDetector(
-          child: const Text(
-            "Términos y condiciones",
-            style: TextStyle(
+          child: Text(
+            Strings.termsSignUp,
+            style: const TextStyle(
                 color: CustomColor.primaryColor,
                 fontWeight: FontWeight.bold,
                 decoration: TextDecoration.underline),

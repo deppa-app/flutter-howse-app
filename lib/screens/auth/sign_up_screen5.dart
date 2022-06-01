@@ -49,14 +49,14 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
                     child: const Icon(Icons.person_outline_rounded, size: 50, ),
                   ),
                   Text(
-                    " Tomar foto reversa",
+                    Strings.reversePhoto,
                      style: TextStyle(
                      color: Colors.grey,
                      fontSize: Dimensions.largeTextSize,
                       fontWeight: FontWeight.bold
                     ),
                     textAlign: TextAlign.start,
-                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: 340,),
@@ -66,7 +66,7 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
                   right: width * 0.1,
                 ),
                 child: SecondaryButtonWidget(
-                    title: "Validar",
+                    title: Strings.validateSignUp,
                       onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(builder:
                       (context) => const SignUpScreen6()));
@@ -75,7 +75,7 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
               ),
               const SizedBox(height: Dimensions.heightSize * 2,),
               Text(
-                "¿Instrucciones para tomar las fotografías?",
+                Strings.photoInstructions,
                  style: TextStyle(
                  color: Colors.grey,
                  fontSize: Dimensions.largeTextSize,
@@ -109,24 +109,24 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
                  padding: EdgeInsets.only(
                     left: width * 0.2,
                     right: width * 0.2),
-                    child: const Text(
-                      "Verificación de documentos",
-                       style: TextStyle(
+                    child: Text(
+                      Strings.documentsVerification,
+                       style: const TextStyle(
                        color: CustomColor.primaryColor,
                         fontSize: 26,
                         fontWeight: FontWeight.bold
                        ),
                          textAlign: TextAlign.center,
-                       ),
+                    ),
                 ),
               const SizedBox(height: Dimensions.heightSize * 2,),  
-              const Padding(
-                 padding: EdgeInsets.only(
+              Padding(
+                 padding: const EdgeInsets.only(
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(
-                      "Este proceso nos ayudara a verificar tu identidad",
-                       style: TextStyle(
+                      Strings.thisProcess,
+                       style: const TextStyle(
                        color: CustomColor.primaryColor,
                         fontSize: 16,
                        ),
@@ -139,7 +139,7 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(
-                      "Sube tu cedula de identidad",
+                      Strings.uploadId,
                        style: TextStyle(
                        color: CustomColor.primaryColor,
                         fontSize: Dimensions.extraSmallTextSize * 1.8,

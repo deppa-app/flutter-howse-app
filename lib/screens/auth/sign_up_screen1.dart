@@ -23,7 +23,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
 
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
   TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -164,6 +164,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
+              
             ],
           ),
         ),
@@ -193,7 +194,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                   alignment: Alignment.topCenter,
                   child: TextFormField(
                     style: CustomStyle.textStyle,
-                    controller: emailController,
+                    controller: addressController,
                     keyboardType: TextInputType.emailAddress,
                     validator: (String value) {
                       if (value.isEmpty) {
@@ -226,7 +227,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                   alignment: Alignment.topCenter,
                   child: TextFormField(
                     style: CustomStyle.textStyle,
-                    controller: usernameController,
+                    controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     validator: (String value) {
                       if (value.isEmpty) {
@@ -259,7 +260,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                   alignment: Alignment.topCenter,
                   child: TextFormField(
                     style: CustomStyle.textStyle,
-                    controller: emailController,
+                    controller: passwordController,
                     keyboardType: TextInputType.emailAddress,
                     validator: (String value) {
                       if (value.isEmpty) {
@@ -292,7 +293,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                   alignment: Alignment.topCenter,
                   child: TextFormField(
                     style: CustomStyle.textStyle,
-                    controller: emailController,
+                    controller: confirmPasswordController,
                     keyboardType: TextInputType.emailAddress,
                     validator: (String value) {
                       if (value.isEmpty) {

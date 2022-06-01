@@ -118,6 +118,56 @@ class Strings {
   static String decline = 'Decline';
   static String orLoginWith = 'or login with';
 
+
+  //agregadas TODO: ordenar
+  // sign_up_screen
+  static String titleSignUp = 'Únete al cambio de la comodidad';
+  static String bodySignUp = 'Antes de comenzar tu registro, te pediremos que tengas a mano tu documento de identidad vigente.';
+  static String buttonSignUp = 'Ir al registro';
+  static String footerSignUp = 'Al continuar, declaro haber leído los y aceptado';
+  static String termsSignUp = 'Términos y condiciones';
+  // sign_up_screen2
+  static String nextSignUp = 'Siguiente';
+  static String titleSignUp2 = 'Número de telefono celular';
+  static String phoneNumberSignUp = 'Ingresar tu número telefónico para validar tu dispositivo';
+  static String formPhoneNumberSignUp = 'Escribe tu teléfono personal';
+  // sign_up_screen3
+  static String validateSignUp = 'Validar';
+  static String recibeCode = '¿No recibiste el código?';
+  static String confirmNumber = 'Confirma tu número de teléfono'; 
+  static String fourDigitCode = 'Ingresa el código de 4 dígitos que Howse acaba de enviar a tu número teléfonico.';
+  // sign_up_screen4, 5
+  static String frontPhoto = 'Tomar foto frontal';
+  static String photoInstructions = '¿Instrucciones para tomar las fotografías?';
+  static String documentsVerification = 'Verificación de documentos';
+  static String thisProcess = 'Este proceso nos ayudara a verificar tu identidad';
+  static String uploadId = 'Sube tu cedula de identidad';
+  // sign_up_screen5
+  static String reversePhoto = 'Tomar foto reversa';
+  // sign_up_screen6
+  static String facePhoto = 'Tomar foto facial';
+  static String actualVerification = 'Verificación de identidad real';
+  static String photoIndications = 'Sitúa tu teléfono celular al frente de tu rostro, evitar elementos extra (gorro, cubre boca, etc).';
+  // sign_up_screen7
+  static String checkData = 'Revisa y completa tus datos demográficos';
+  static String man = 'Hombre';
+  static String woman = 'Mujer';
+  static String formDate = 'dd/mm/aaaa';
+  static String rut = 'RUT';
+  static String dateBirth = 'Fecha de nacimiento';
+  static String idSignUp = 'Cédula de identidad';
+  static String issueDate = 'Fecha de emisión';
+  static String expirationDateSignUp = 'Fecha de expiración';
+  // sign_up_screen8
+  static String paymentMethodSignUp = 'Método de pago';
+  static String creditCard = 'Tarjeta de credito';
+  static String creditVisa = 'Credito/Visa';
+  static String prepaidOption = 'Opción prepago';
+  static String noCreditCard = 'No tengo tarjeta de credito';
+  static String chooseMethod = 'Elige tu método de pago';
+
+
+
   //forgot password screen
   static String resetPassword = 'Recuperación de contraseña';
   static String sendPass = 'Enviar';

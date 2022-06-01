@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/sign_up_screen1.dart';
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/dimensions.dart';
+import 'package:howse_app/utils/strings.dart';
 
 import 'package:howse_app/widgets/secondary_button_widget.dart';
 
@@ -45,23 +46,23 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                     Column(
                                       children: [
                                         Container(
-                                          width: width* 0.6,
+                                          width: width* 0.75,
                                           padding: EdgeInsets.only(
-                                            top: height * 0.01
+                                            top: height * 0.03
                                             ),
-                                          child: const Text(
-                                            "Únete al cambio de la comodidad",//se debe cambiar para tomar la variable de una clase
-                                            style: TextStyle(
+                                          child: Text(
+                                            Strings.titleSignUp,//se debe cambiar para tomar la variable de una clase
+                                            style: const TextStyle(
                                                 color: CustomColor.primaryColor,
                                                 fontSize: 26,
-                                                height: 2.0,
+                                                
                                                 fontWeight: FontWeight.bold),
                                             textAlign: TextAlign.center,
                                           ),
                                         ),
                                         Padding(
                                           padding: EdgeInsets.only(
-                                            top: 20.00,
+                                            top: 10,
                                             left: width * 0.1 ,
                                             right: width * 0.1,
                                           ),
@@ -73,9 +74,9 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                                 right: width * 0.02,
                                                 top: height * 0.02
                                               ),
-                                              child: const Text(
-                                                "Antes de comenzar tu registro, te pediremos que tengas a mano tu documento de identidad vigente.",
-                                                style: TextStyle(
+                                              child: Text(
+                                                Strings.bodySignUp,
+                                                style: const TextStyle(
                                                   color: CustomColor.primaryColor,
                                                   fontSize: 16.00,
                                                   height: 2.0
@@ -97,7 +98,7 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                               'assets/images/lorem-image.png',
                                               fit: BoxFit.fill,
                                               height: height * 0.38,
-                                              width: width * 0.72,
+                                              width: width * 0.65,
                                             ),
                                           ),
                                         ),
@@ -115,7 +116,7 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                       child: Column(
                                         children: [
                                           SecondaryButtonWidget(
-                                            title: "Ir al registro",
+                                            title: Strings.buttonSignUp,
                                             onTap: () {
                                               Navigator.of(context).push(
                                                   MaterialPageRoute(
@@ -126,9 +127,9 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                           const SizedBox(
                                             height: Dimensions.heightSize,
                                           ),
-                                          const Text(
-                                            "Al continuar, declaro haber leído los y aceptado",
-                                            style: TextStyle(
+                                          Text(
+                                            Strings.footerSignUp,
+                                            style: const TextStyle(
                                                 color: CustomColor.primaryColor,
                                                 fontSize: 12.00,
                                                 height: 2.0,
@@ -136,9 +137,9 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                             textAlign: TextAlign.left,
                                           ),
                                           GestureDetector(
-                                          child: const Text(
-                                            "Términos y condiciones",
-                                            style: TextStyle(
+                                          child: Text(
+                                            Strings.termsSignUp,
+                                            style: const TextStyle(
                                                 color: CustomColor.primaryColor,
                                                 fontSize: 12.00,
                                                 height: 2.0,

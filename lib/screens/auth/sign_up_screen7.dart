@@ -66,7 +66,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                   right: width * 0.1,
                 ),
                 child: SecondaryButtonWidget(
-                    title: "Siguiente",
+                    title: Strings.nextSignUp,
                       onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(builder:
                       (context) => const SignUpScreen8()));
@@ -100,9 +100,9 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                     right: Dimensions.marginSize),
                     child: Column(
                       children:[ 
-                        const Text(
-                        "Revisa y completa tus datos demográficos",
-                          style: TextStyle(
+                        Text(
+                        Strings.checkData,
+                          style: const TextStyle(
                           color: CustomColor.primaryColor,
                           fontSize: 26,
                           fontWeight: FontWeight.bold
@@ -124,7 +124,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                                   icon: Image.asset('assets/images/icon/facebook.png'),
                                   onTap: () {},
                                   ),
-                                  const Text('Hombre')
+                                  Text(Strings.man)
                                 ]
                               ),
                             ),
@@ -139,7 +139,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                                     icon: Image.asset('assets/images/icon/facebook.png'),
                                     onTap: () {},
                                   ),
-                                  const Text('Mujer')
+                                  Text(Strings.woman)
                                 ],
                               ),
                             ),
@@ -156,7 +156,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _titleData('RUT'),
+                      _titleData(Strings.rut),
                       TextFormField(
                         style: CustomStyle.textStyle,
                         controller: firstNameController,
@@ -228,7 +228,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                             borderSide: BorderSide(color: CustomColor.primaryColor,)),
                         ),
                       ),
-                      _titleData('Fecha de nacimiento'),
+                      _titleData(Strings.dateBirth),
                       TextFormField(
                         style: CustomStyle.textStyle,
                         controller: emailController,
@@ -241,7 +241,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                           }
                         },
                         decoration: InputDecoration(
-                          hintText: 'dd/mm/aaaa',
+                          hintText: Strings.formDate,
                           contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                           labelStyle: CustomStyle.textStyle,
                           filled: true,
@@ -263,8 +263,8 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                         padding: EdgeInsets.only(
                           left: MediaQuery.of(context).size.width *0.15
                         ),
-                        child: const Text('Cédula de identidad',
-                            style: TextStyle(
+                        child: Text(Strings.idSignUp,
+                            style: const TextStyle(
                               fontSize: 16,
                               color: CustomColor.primaryColor,
                               fontWeight: FontWeight.bold),
@@ -272,7 +272,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
 
                         ),
                       ),
-                      _titleData('Fecha de emision'),
+                      _titleData(Strings.issueDate),
                       TextFormField(
                         style: CustomStyle.textStyle,
                         controller: usernameController,
@@ -285,7 +285,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                           }
                         },
                         decoration: InputDecoration(
-                          hintText: 'dd/mm/aaaa',
+                          hintText: Strings.formDate,
                           contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                           labelStyle: CustomStyle.textStyle,
                           filled: true,
@@ -300,7 +300,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                           )
                         ),
                       ),
-                      _titleData('Fecha de expiración'),
+                      _titleData(Strings.expirationDateSignUp),
                       TextFormField(
                         style: CustomStyle.textStyle,
                         controller: usernameController,
@@ -313,7 +313,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                           }
                         },
                         decoration: InputDecoration(
-                          hintText: 'dd/mm/aaaa',
+                          hintText: Strings.formDate,
                           contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                           labelStyle: CustomStyle.textStyle,
                           filled: true,
