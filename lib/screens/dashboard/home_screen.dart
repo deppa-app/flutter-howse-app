@@ -1,3 +1,5 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/dashboard/booking.dart';
 import 'package:howse_app/screens/servicesAviable/cleaning.dart';
@@ -112,54 +114,93 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: ListView(
-            physics: const BouncingScrollPhysics(),
-            children: [
-              _locationWidget(context),
-              _menuWidget(context),
-              const SizedBox(height: Dimensions.heightSize,),
-             // _discountBannerWidget(context),
-              const SizedBox(height: Dimensions.heightSize * 3,),
-              //_categoryWidget(context),
-              Column(
-                children: [
-                  circularButtonWidget(context, const Plumbing() ),
-                  const SizedBox(height: Dimensions.heightSize * 2,),
-                  circularButtonWidget(context, const Locksmithment()),
-                  const SizedBox(height: Dimensions.heightSize * 2,),
-                  circularButtonWidget(context, const Cleaning()),
-                  const SizedBox(height: Dimensions.heightSize * 2,),
-                  circularButtonWidget(context, const Removals()),
-                  const SizedBox(height: Dimensions.heightSize * 2,),
-                  circularButtonWidget(context,  go(context))
-                ],
-              ),
-              const SizedBox(height: Dimensions.heightSize,),
-              _bannerWidget(context),
-              const SizedBox(height: Dimensions.heightSize * 3,),
-              SecondaryButtonWidget(
-                  title: "Ver más",
-                    onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const MoreInfo()));
-                  },
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    //TODO: Cambiar por mapa.
+                    Container(
+                      color: Colors.blue,
+                      child: GestureDetector(
+                        child: Image.asset('assets/images/lorem-image.jpeg',
+                        height: MediaQuery.of(context).size.height * 0.6,
+                        width: MediaQuery.of(context).size.width,),
+                        onTap: () => print('hola'),
+                      ),
+                    ),
+                    Positioned(
+                      top: MediaQuery.of(context).size.height * 0.12,
+                      right: 0,
+                      child: Column(
+                        children: [
+                          circularButtonWidget(context, const Plumbing() ),
+                          const SizedBox(height: Dimensions.heightSize * 2,),
+                          circularButtonWidget(context, const Locksmithment()),
+                          const SizedBox(height: Dimensions.heightSize * 2,),
+                          circularButtonWidget(context, const Cleaning()),
+                          const SizedBox(height: Dimensions.heightSize * 2,),
+                          circularButtonWidget(context, const Removals()),
+                          const SizedBox(height: Dimensions.heightSize * 2,),
+                          
+                        ],
+                      ),
+                    ),
+
+                    // TODO: revisar
+                    Positioned(
+                      bottom: 30,
+                      child: circularButtonWidget(context,  go(context)),
+                      ),
+                    
+                    _menuWidget(context),
+                      
+                  ],
+                  
                 ),
-              const SizedBox(height: Dimensions.heightSize * 3,),
-              SecondaryButtonWidget(
-                  title: "Reseva visita ahora",
-                    onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const Booking()));
-                  },
-                ),
-                PrimaryButtonWidget(
-                  title: "Programar visita",
-                    onTap: () {
-                    /*Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const SignUpScreen10()));*/
-                  },
-                ),
-            ],
+                 
+                    const SizedBox(height: Dimensions.heightSize,),
+                    _bannerWidget(context),
+                    const SizedBox(height: Dimensions.heightSize * 3,),
+                    // SecondaryButtonWidget(
+                    //     title: "Ver más",
+                    //       onTap: () {
+                    //       Navigator.of(context).push(MaterialPageRoute(builder:
+                    //       (context) => const MoreInfo()));
+                    //     },
+                    //   ),
+                    const SizedBox(height: Dimensions.heightSize * 3,),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.1,
+                        right: MediaQuery.of(context).size.width * 0.1
+                      ),
+                      child: SecondaryButtonWidget(
+                          title: "Reseva visita ahora",
+                            onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(builder:
+                            (context) => const Booking()));
+                          },
+                        ),
+                    ),
+
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+                    Padding(
+                      padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * 0.1,
+                      right: MediaQuery.of(context).size.width * 0.1
+                    ),
+                      child: PrimaryButtonWidget(
+                        title: "Programar visita",
+                          onTap: () {
+                          /*Navigator.of(context).push(MaterialPageRoute(builder:
+                          (context) => const SignUpScreen10()));*/
+                        },
+                      ),
+                    ),
+              ],
+            ),
           ),
         ),
       ),
@@ -289,99 +330,114 @@ class _HomeScreenState extends State<HomeScreen> {
         right: Dimensions.marginSize,
         top: Dimensions.heightSize
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          GestureDetector(
-            child: Container(
-              height: Dimensions.buttonHeight,
-              width: Dimensions.buttonHeight,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(Dimensions.radius),
-                boxShadow: [
-                  BoxShadow(
-                    color: CustomColor.accentColor.withOpacity(0.5),
-                    spreadRadius: 0,
-                    blurRadius: 0.5,
-                    offset: const Offset(0, 0), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: const Icon(
-                Icons.menu,
-                color: CustomColor.accentColor,
-              ),
-            ),
-            onTap: () {
-              if(scaffoldKey.currentState.isDrawerOpen) {
-                return scaffoldKey.currentState.openEndDrawer();
-              } else {
-                return scaffoldKey.currentState.openDrawer();
-              }
-            },
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.07,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: CustomColor.accentColor.withOpacity(0.3)
+            )
+          ],
+          borderRadius: BorderRadius.circular(10),
+          color: Colors.white,
           ),
-          const SizedBox(width: Dimensions.widthSize,),
-          Expanded(
-            child: TextFormField(
-              style: CustomStyle.textStyle,
-              controller: searchController,
-              keyboardType: TextInputType.text,
-              validator: (String value){
-                if(value.isEmpty){
-                  return Strings.pleaseFillOutTheField;
-                }else{
-                  return null;
-                }
-              },
-              decoration: InputDecoration(
-                hintText: Strings.searchResult,
-                contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                labelStyle: CustomStyle.textStyle,
-                filled: true,
-                fillColor: Colors.white,
-                hintStyle: CustomStyle.textStyle,
-                focusedBorder: CustomStyle.searchBox,
-                enabledBorder: CustomStyle.searchBox,
-                focusedErrorBorder: CustomStyle.searchBox,
-                errorBorder: CustomStyle.searchBox,
-                prefixIcon: const Icon(
-                  Icons.search,
+        
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            GestureDetector(
+              child: Container(
+                height: Dimensions.buttonHeight,
+                width: Dimensions.buttonHeight,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(Dimensions.radius),
+                  
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.white,
+                      spreadRadius: 0,
+                      blurRadius: 0.5,
+                      offset: Offset(0, 0), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: const Icon(
+                  Icons.menu,
                   color: CustomColor.accentColor,
                 ),
               ),
+              onTap: () {
+                if(scaffoldKey.currentState.isDrawerOpen) {
+                  return scaffoldKey.currentState.openEndDrawer();
+                } else {
+                  return scaffoldKey.currentState.openDrawer();
+                }
+              },
             ),
-          ),
-          const SizedBox(width: Dimensions.widthSize,),
-          GestureDetector(
-            child: Container(
-              height: Dimensions.buttonHeight,
-              width: Dimensions.buttonHeight,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(Dimensions.radius),
-                boxShadow: [
-                  BoxShadow(
-                    color: CustomColor.accentColor.withOpacity(0.5),
-                    spreadRadius: 0,
-                    blurRadius: 0.5,
-                    offset: const Offset(0, 0), // changes position of shadow
+            const SizedBox(width: Dimensions.widthSize,),
+            Expanded(
+              child: TextFormField(
+                style: CustomStyle.textStyle,
+                controller: searchController,
+                keyboardType: TextInputType.text,
+                validator: (String value){
+                  if(value.isEmpty){
+                    return Strings.pleaseFillOutTheField;
+                  }else{
+                    return null;
+                  }
+                },
+                decoration: InputDecoration(
+                  hintText: Strings.searchResult,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                  labelStyle: CustomStyle.textStyle,
+                  filled: true,
+                  fillColor: Colors.white,
+                  hintStyle: CustomStyle.textStyle,
+                  focusedBorder: CustomStyle.searchBox,
+                  enabledBorder: CustomStyle.searchBox,
+                  focusedErrorBorder: CustomStyle.searchBox,
+                  errorBorder: CustomStyle.searchBox,
+                  suffixIcon: const Icon(
+                    Icons.search,
+                    size: 20,
+                    color: CustomColor.accentColor,
                   ),
-                ],
-              ),
-              child: const Icon(
-                Icons.filter_alt_outlined,
-                color: CustomColor.accentColor,
+                ),
               ),
             ),
-            onTap: () {
-              /*Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                  FilterScreen()));*/
-            },
-          )
+            const SizedBox(width: Dimensions.widthSize,),
+            GestureDetector(
+              child: Container(
+                height: Dimensions.buttonHeight,
+                width: Dimensions.buttonHeight,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(Dimensions.radius),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.white,
+                      spreadRadius: 0,
+                      blurRadius: 0.5,
+                      offset: Offset(0, 0), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: const Icon(
+                  Icons.drafts,
+                  color: CustomColor.accentColor,
+                ),
+              ),
+              onTap: () {
+                /*Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                    FilterScreen()));*/
+              },
+            )
 
-        ],
+          ],
+        ),
       ),
     );
   }

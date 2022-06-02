@@ -87,7 +87,8 @@ class CustomStyle {
   );
 
   static var searchBox = OutlineInputBorder(
-    borderRadius: BorderRadius.circular(Dimensions.radius),
+    //borderRadius: BorderRadius.circular(Dimensions.radius),
+    borderRadius: BorderRadius.circular(100),
     borderSide: BorderSide(color: Colors.grey.withOpacity(0.5)),
   );
 }

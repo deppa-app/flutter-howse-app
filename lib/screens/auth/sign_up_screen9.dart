@@ -53,7 +53,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
               Padding(
                 padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07),
                 child: Text(
-                  "*Validaremos los datos de tu tarjeta",
+                  Strings.validateCard,
                    style: TextStyle(
                    color: Colors.grey,
                    fontSize: Dimensions.largeTextSize * 0.8,
@@ -102,7 +102,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize ),
                     child: Text(
-                      "Método de pago",
+                      Strings.paymentMethodSignUp,
                        style: TextStyle(
                        color: CustomColor.primaryColor,
                         fontSize: Dimensions.extraLargeTextSize * 1.5,
@@ -111,13 +111,13 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                          textAlign: TextAlign.center,
                        ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(
+              Padding(
+                padding: const EdgeInsets.only(
                   top: Dimensions.heightSize,
                   right: Dimensions.marginSize * 6
                 ),
-                child: Text('Estas inscribiendo tu tarjeta',
-                style: TextStyle(
+                child: Text(Strings.enrollingCard,
+                style: const TextStyle(
                   color: CustomColor.primaryColor,
                   fontSize: 16
                 ),),
@@ -135,7 +135,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                 thickness: 2,
               ),
 
-              _titleData('Número de tarjeta'),
+              _titleData(Strings.numberCard),
               TextFormField(
                   style: CustomStyle.textStyle,
                   controller: numberCardController,
@@ -165,7 +165,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                   Expanded(
                     child: Column(
                       children: [
-                        _titleData('Fecha de caducidad'),
+                        _titleData(Strings.expiryDate),
                         TextFormField(
                         style: CustomStyle.textStyle,
                         controller: numberCardController,
@@ -178,7 +178,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                           }
                         },
                         decoration: InputDecoration(
-                          hintText: 'MM/AA',
+                          hintText: Strings.monthYear,
                           contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                           labelStyle: CustomStyle.textStyle,
                           filled: true,
@@ -188,7 +188,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                             borderRadius: BorderRadius.all(Radius.circular(5.0)),
                             borderSide: BorderSide(color: CustomColor.primaryColor,)),
                           ),
-                                      ),
+                        ),
                       ],
                     ),
                   ),
@@ -211,7 +211,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                           }
                         },
                         decoration: InputDecoration(
-                          hintText: 'MM/AA',
+                          hintText: Strings.monthYear,
                           contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                           labelStyle: CustomStyle.textStyle,
                           filled: true,

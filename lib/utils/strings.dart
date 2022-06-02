@@ -165,6 +165,12 @@ class Strings {
   static String prepaidOption = 'Opción prepago';
   static String noCreditCard = 'No tengo tarjeta de credito';
   static String chooseMethod = 'Elige tu método de pago';
+  // sign_up_screen9
+  static String validateCard = '*Validaremos los datos de tu tarjeta';
+  static String enrollingCard = 'Estas inscribiendo tu tarjeta';
+  static String numberCard = 'Número de tarjeta';
+  static String expiryDate = 'Fecha de caducidad';
+  static String monthYear = 'MM/AA';
 
 
 

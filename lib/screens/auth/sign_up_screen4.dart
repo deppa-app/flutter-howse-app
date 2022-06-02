@@ -128,7 +128,7 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                 ),
               const SizedBox(height: Dimensions.heightSize * 2,),  
               Padding(
-                 padding: EdgeInsets.only(
+                 padding: const EdgeInsets.only(
                     left: Dimensions.marginSize,
                     right: Dimensions.marginSize),
                     child: Text(
