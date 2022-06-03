@@ -47,8 +47,8 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
               Padding(
                 padding: EdgeInsets.only(
                   top: height * 0.06,
-                  left: width * 0.05,
-                  right: width * 0.05,
+                  left: width * 0.08,
+                  right: width * 0.08,
                 ),
                 child: SecondaryButtonWidget(
                   title: Strings.validateSignUp,

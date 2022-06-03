@@ -37,8 +37,8 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                SingleChildScrollView(
                       child: Padding(
                                 padding: EdgeInsets.only(
-                                  left: width * 0.05,
-                                  right: width * 0.05,
+                                  left: width * 0.03,
+                                  right: width * 0.03,
                                 ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,23 +63,24 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                         Padding(
                                           padding: EdgeInsets.only(
                                             top: 10,
-                                            left: width * 0.1 ,
-                                            right: width * 0.1,
+                                            left: width * 0.08 ,
+                                            right: width * 0.08,
                                           ),
                                           child: Align(
                                             alignment: Alignment.topCenter,
                                             child: Container(
                                               padding: EdgeInsets.only(
-                                                left: width * 0.02,
-                                                right: width * 0.02,
+                                                left: width * 0.03,
+                                                right: width * 0.03,
                                                 top: height * 0.02
                                               ),
                                               child: Text(
                                                 Strings.bodySignUp,
                                                 style: const TextStyle(
                                                   color: CustomColor.primaryColor,
-                                                  fontSize: 16.00,
-                                                  height: 2.0
+                                                  fontSize: 15.00,
+                                                  height: 2,
+                                                  
                                                 ),
                                                 textAlign: TextAlign.justify,
                                               ),

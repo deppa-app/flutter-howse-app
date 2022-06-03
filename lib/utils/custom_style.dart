@@ -91,4 +91,8 @@ class CustomStyle {
     borderRadius: BorderRadius.circular(100),
     borderSide: BorderSide(color: Colors.grey.withOpacity(0.5)),
   );
+
+  static var formField = OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.grey.withOpacity(0.5)),
+  );
 }

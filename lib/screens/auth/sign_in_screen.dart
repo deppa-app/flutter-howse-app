@@ -151,15 +151,17 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     hintText: Strings.emailLogin,
                     contentPadding: EdgeInsets.symmetric(
-                        vertical: height * 0.02, horizontal: width * 0.01),
+                        vertical: height * 0.02, horizontal: width * 0.05),
                     labelStyle: CustomStyle.textStyle,
                     filled: true,
+                    enabledBorder: CustomStyle.formField,                    
                     fillColor: Colors.white,
                     hintStyle: CustomStyle.textStyle,
-                    prefixIcon: const Icon(
-                      Icons.mail_outline,
-                      color: CustomColor.primaryColor,
-                    )),
+                    // prefixIcon: const Icon(
+                    //   Icons.mail_outline,
+                    //   color: CustomColor.primaryColor,
+                    // )
+                ),
               ),
               SizedBox(height: height * 0.08),
               TextFormField(
@@ -178,15 +180,16 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                   hintText: Strings.typePassword,
                   contentPadding: EdgeInsets.symmetric(
-                      vertical: height * 0.02, horizontal: width * 0.01),
+                      vertical: height * 0.02, horizontal: width * 0.05),
                   labelStyle: CustomStyle.textStyle,
+                  enabledBorder: CustomStyle.formField,
                   filled: true,
                   fillColor: Colors.white,
                   hintStyle: CustomStyle.textStyle,
-                  prefixIcon: const Icon(
-                    Icons.lock_outline,
-                    color: CustomColor.primaryColor,
-                  ),
+                  // prefixIcon: const Icon(
+                  //   Icons.lock_outline,
+                  //   color: CustomColor.primaryColor,
+                  // ),
                   suffixIcon: IconButton(
                     onPressed: () {
                       setState(() {
@@ -277,7 +280,14 @@ class _SignInScreenState extends State<SignInScreen> {
 
     return Column(
       children: [
-        const Text('Or'),
+        
+        Row(crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            Expanded(child: Divider(indent: 30, endIndent: 10, thickness: 1.5)),
+            Text('O si prefieres acceder', style: TextStyle(color: CustomColor.primaryColor)),
+            Expanded(child: Divider(indent: 10, endIndent: 30, thickness: 1.5))
+          ],
+        ),
         Padding(
           padding: EdgeInsets.only(top: height * 0.04),
           child: Row(

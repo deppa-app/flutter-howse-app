@@ -71,7 +71,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                 ],
               ),
               const SizedBox(
-                height: Dimensions.heightSize * 5,
+                height: Dimensions.heightSize * 1,
               ),
               Padding(
                 padding: EdgeInsets.only(
@@ -84,8 +84,8 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                     "Informacion básica para crear tu cuenta",
                     style: TextStyle(
                         color: CustomColor.primaryColor,
-                        fontSize: 26,
-                        height: 2.0,
+                        fontSize: 25,
+                        height: 1.3,
                         fontWeight: FontWeight.bold),
                     textAlign: TextAlign.start,
                   ),
@@ -100,7 +100,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                 child: const Align(
                   alignment: Alignment.topCenter,
                   child: Text(
-                    "Ingresar tu información para crear tu cuenta",
+                    "Ingresar tu información para crear tu cuenta.",
                     style: TextStyle(
                       color: CustomColor.primaryColor,
                       fontSize: 16,
@@ -147,8 +147,8 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               SizedBox(height: height * 0.05),
               Padding(
                 padding: EdgeInsets.only(
-                  left: width * 0.12,
-                  right: width * 0.12,
+                  left: width * 0.08,
+                  right: width * 0.08,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -191,8 +191,8 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                   
                 ),
                 child: Align(
-                  alignment: Alignment.topCenter,
-                  child: TextFormField(
+                  alignment: Alignment.topCenter, 
+                  child: TextFormField(                 
                     style: CustomStyle.textStyle,
                     controller: addressController,
                     keyboardType: TextInputType.emailAddress,
@@ -205,16 +205,11 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                     },
                     decoration: InputDecoration(
                         hintText: "Escribe tu direccion",
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 10.0),
+                        contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                         labelStyle: CustomStyle.textStyle,
                         filled: true,
                         fillColor: Colors.white,
-                        border: const OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: BorderSide(
-                                color: CustomColor.primaryColor)),
+                        enabledBorder: CustomStyle.formField,
                         hintStyle: CustomStyle.hintTextStyle),
                   ),
                 ),
@@ -243,11 +238,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                         labelStyle: CustomStyle.textStyle,
                         filled: true,
                         fillColor: Colors.white,
-                        border: const OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: BorderSide(
-                                color: CustomColor.primaryColor)),
+                        enabledBorder: CustomStyle.formField,
                         hintStyle: CustomStyle.hintTextStyle),
                   ),
                 ),
@@ -276,11 +267,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                         labelStyle: CustomStyle.textStyle,
                         filled: true,
                         fillColor: Colors.white,
-                        border: const OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: BorderSide(
-                                color: CustomColor.primaryColor)),
+                        enabledBorder: CustomStyle.formField,
                         hintStyle: CustomStyle.hintTextStyle),
                   ),
                 ),
@@ -309,11 +296,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                         labelStyle: CustomStyle.textStyle,
                         filled: true,
                         fillColor: Colors.white,
-                        border: const OutlineInputBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: BorderSide(
-                                color: CustomColor.primaryColor)),
+                        enabledBorder: CustomStyle.formField,
                         hintStyle: CustomStyle.hintTextStyle),
                   ),
                 ),

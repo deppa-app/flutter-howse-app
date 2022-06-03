@@ -65,8 +65,8 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
 
               Padding(
                 padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.1,
-                  right: MediaQuery.of(context).size.width * 0.1
+                  left: MediaQuery.of(context).size.width * 0.08,
+                  right: MediaQuery.of(context).size.width * 0.08
                 ),
                 child: SecondaryButtonWidget(
                     title: "Guardar",

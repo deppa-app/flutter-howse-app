@@ -62,8 +62,8 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
               SizedBox(height: height * 0.03),
               Padding(
                 padding: EdgeInsets.only(
-                  left: width * 0.1,
-                  right: width * 0.1,
+                  left: width * 0.08,
+                  right: width * 0.08,
                 ),
                 child: SecondaryButtonWidget(
                     title: Strings.nextSignUp,

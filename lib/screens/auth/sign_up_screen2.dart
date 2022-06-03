@@ -50,8 +50,8 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
               SizedBox(height: height * 0.35),
               Padding(
                 padding: EdgeInsets.only(
-                  left: width * 0.05,
-                  right: width * 0.05,
+                  left: width * 0.08,
+                  right: width * 0.08,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
@@ -160,11 +160,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                                     labelStyle: CustomStyle.textStyle,
                                     filled: true,
                                     fillColor: Colors.white,
-                                    border: const OutlineInputBorder(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(5.0)),
-                                        borderSide: BorderSide(
-                                            color: CustomColor.primaryColor)),
+                                    enabledBorder: CustomStyle.formField,
                                     hintStyle: CustomStyle.hintTextStyle),
                               ),
                             ),

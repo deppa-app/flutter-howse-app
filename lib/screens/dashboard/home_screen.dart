@@ -18,7 +18,6 @@ import '../../widgets/primary_button_widget.dart';
 import '../../widgets/secondary_button_widget.dart';
 import '../servicesAviable/locksmithment.dart';
 import '../servicesAviable/plumbing.dart';
-import 'more_info.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -172,11 +171,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(height: Dimensions.heightSize * 3,),
                     Padding(
                       padding: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * 0.1,
-                        right: MediaQuery.of(context).size.width * 0.1
+                        left: MediaQuery.of(context).size.width * 0.08,
+                        right: MediaQuery.of(context).size.width * 0.08
                       ),
                       child: SecondaryButtonWidget(
-                          title: "Reseva visita ahora",
+                          title: "Reserva visita ahora",
                             onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(builder:
                             (context) => const Booking()));
@@ -188,8 +187,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                     Padding(
                       padding: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width * 0.1,
-                      right: MediaQuery.of(context).size.width * 0.1
+                      left: MediaQuery.of(context).size.width * 0.08,
+                      right: MediaQuery.of(context).size.width * 0.08
                     ),
                       child: PrimaryButtonWidget(
                         title: "Programar visita",

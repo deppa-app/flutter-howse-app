@@ -146,26 +146,37 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                         )
                                       : Column(
                                           children: [
-                                            SecondaryButtonWidget(
-                                              title: Strings.createAnAccount,
-                                              onTap: () {
-                                                Navigator.of(context).push(
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            const PassSignUpScreen()));
-                                              },
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                left: MediaQuery.of(context).size.width * 0.1,
+                                                right: MediaQuery.of(context).size.width * 0.1
+                                              ),
+                                              child: SecondaryButtonWidget(
+                                                title: Strings.createAnAccount,
+                                                onTap: () {
+                                                  Navigator.of(context).push(
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              const PassSignUpScreen()));
+                                                },
+                                              ),
                                             ),
                                             const SizedBox(
                                               height: Dimensions.heightSize,
                                             ),
-                                            PrimaryButtonWidget(
-                                              title: Strings.signInAccount,
-                                              onTap: () {
-                                                Navigator.of(context).push(
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            const SignInScreen()));
-                                              },
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                left: MediaQuery.of(context).size.width * 0.1,
+                                                right: MediaQuery.of(context).size.width * 0.1),
+                                              child: PrimaryButtonWidget(
+                                                title: Strings.signInAccount,
+                                                onTap: () {
+                                                  Navigator.of(context).push(
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              const SignInScreen()));
+                                                },
+                                              ),
                                             )
                                           ],
                                         ),
@@ -188,26 +199,36 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                   ),
                   child: Column(
                     children: [
-                      SecondaryButtonWidget(
-                        title: Strings.createAnAccount,
-                        onTap: () {
-                          Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const PassSignUpScreen()));
-                        },
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.03,
+                          right: MediaQuery.of(context).size.width * 0.03),
+                        child: SecondaryButtonWidget(
+                          title: Strings.createAnAccount,
+                          onTap: () {
+                            Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PassSignUpScreen()));
+                          },
+                        ),
                       ),
                       const SizedBox(
                         height: Dimensions.heightSize,
                       ),
-                      PrimaryButtonWidget(
-                        title: Strings.signInAccount,
-                        onTap: () {
-                          Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const SignInScreen()));
-                        },
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.03,
+                          right: MediaQuery.of(context).size.width * 0.03),
+                        child: PrimaryButtonWidget(
+                          title: Strings.signInAccount,
+                          onTap: () {
+                            Navigator.of(context).push(
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const SignInScreen()));
+                          },
+                        ),
                       )
                     ],
                   ),

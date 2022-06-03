@@ -69,8 +69,8 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
               const SizedBox(height: 340,),
               Padding(
                 padding: EdgeInsets.only(
-                  left: width * 0.1,
-                  right: width * 0.1,
+                  left: width * 0.08,
+                  right: width * 0.08,
                 ),
                 child: SecondaryButtonWidget(
                     title: Strings.validateSignUp,
