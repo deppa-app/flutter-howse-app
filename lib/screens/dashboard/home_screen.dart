@@ -330,7 +330,7 @@ class _HomeScreenState extends State<HomeScreen> {
         top: Dimensions.heightSize
       ),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.07,
+        height: MediaQuery.of(context).size.height * 0.06,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -377,32 +377,36 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(width: Dimensions.widthSize,),
             Expanded(
-              child: TextFormField(
-                style: CustomStyle.textStyle,
-                controller: searchController,
-                keyboardType: TextInputType.text,
-                validator: (String value){
-                  if(value.isEmpty){
-                    return Strings.pleaseFillOutTheField;
-                  }else{
-                    return null;
-                  }
-                },
-                decoration: InputDecoration(
-                  hintText: Strings.searchResult,
-                  contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                  labelStyle: CustomStyle.textStyle,
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintStyle: CustomStyle.textStyle,
-                  focusedBorder: CustomStyle.searchBox,
-                  enabledBorder: CustomStyle.searchBox,
-                  focusedErrorBorder: CustomStyle.searchBox,
-                  errorBorder: CustomStyle.searchBox,
-                  suffixIcon: const Icon(
-                    Icons.search,
-                    size: 20,
-                    color: CustomColor.accentColor,
+              child: Container(
+                alignment: Alignment.center,
+                height: MediaQuery.of(context).size.height * 0.04,
+                child: TextFormField(
+                  style: CustomStyle.textStyle,
+                  controller: searchController,
+                  keyboardType: TextInputType.text,
+                  validator: (String value){
+                    if(value.isEmpty){
+                      return Strings.pleaseFillOutTheField;
+                    }else{
+                      return null;
+                    }
+                  },
+                  decoration: InputDecoration(
+                    hintText: Strings.searchResult,
+                    contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
+                    labelStyle: CustomStyle.textStyle,
+                    filled: true,
+                    fillColor: Colors.white,
+                    hintStyle: CustomStyle.textStyle,
+                    focusedBorder: CustomStyle.searchBox,
+                    enabledBorder: CustomStyle.searchBox,
+                    focusedErrorBorder: CustomStyle.searchBox,
+                    errorBorder: CustomStyle.searchBox,
+                    suffixIcon: const Icon(
+                      Icons.search,
+                      size: 20,
+                      color: CustomColor.accentColor,
+                    ),
                   ),
                 ),
               ),
