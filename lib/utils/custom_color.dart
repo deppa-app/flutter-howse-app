@@ -17,6 +17,8 @@ class CustomColor {
   static const Color whiteColor = Color(0xFFf6f3ed);
   static const Color colorBlack = Color(0xFF313131);
   static const Color orangeColor = Color(0xFFFF8000);
+  static const Color linkColor = Color(0xFF0165FC);
+ 
 
   static var primaryButtonGradient = LinearGradient(
       begin: Alignment.topCenter,

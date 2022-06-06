@@ -226,30 +226,6 @@ class _SignInScreenState extends State<SignInScreen> {
         //             ()));*/
       } ,
     );
-    // CheckboxListTile(
-    //   title: Row(
-    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //     children: [
-    //       GestureDetector(
-    //         child: Text(
-    //           Strings.forgotPassword,
-    //           style: CustomStyle.textStyle,
-    //         ),
-    //         onTap: () {
-    //           /* Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen
-    //             ()));*/
-    //         },
-    //       ),
-    //     ],
-    //   ),
-    //   value: checkedValue,
-    //   onChanged: (newValue) {
-    //     setState(() {
-    //       checkedValue = newValue;
-    //     });
-    //   },
-    //   controlAffinity: ListTileControlAffinity.leading, //  <-- leading Checkbox
-    // );
   }
 
   signInButtonWidget(BuildContext context) {
@@ -343,7 +319,7 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  _titleData(String title) {
+  /*_titleData(String title) {
 
     final height = MediaQuery.of(context).size.height;
 
@@ -357,5 +333,5 @@ class _SignInScreenState extends State<SignInScreen> {
         style: const TextStyle(color: Colors.black),
       ),
     );
-  }
+  }*/
 }

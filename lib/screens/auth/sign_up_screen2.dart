@@ -177,19 +177,4 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
             )));
   }
 
-  _titleData(String title) {
-
-    var height = MediaQuery.of(context).size.height;
-
-    return Padding(
-      padding: EdgeInsets.only(
-        bottom: height * 0.001,
-        top: height * 0.01,
-      ),
-      child: Text(
-        title,
-        style: const TextStyle(color: Colors.black),
-      ),
-    );
-  }
 }

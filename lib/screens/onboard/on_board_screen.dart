@@ -1,3 +1,4 @@
+
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/sign_in_screen.dart';
@@ -190,7 +191,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                   );
               });
               },
-              ),
+            ),
           ),
           Padding(
                   padding: const EdgeInsets.only(
