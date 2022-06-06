@@ -7,6 +7,7 @@ import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 import 'package:howse_app/widgets/circle_button_widget.dart';
+import 'package:howse_app/widgets/custom_text_form_field.dart';
 //import 'package:howse_app/widgets/text_form_field_w1.dart';
 
 import '../../widgets/secondary_button_widget.dart';
@@ -192,115 +193,41 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                 ),
                 child: Align(
                   alignment: Alignment.topCenter, 
-                  child: TextFormField(                 
-                    style: CustomStyle.textStyle,
-                    controller: addressController,
-                    keyboardType: TextInputType.emailAddress,
-                    validator: (String value) {
-                      if (value.isEmpty) {
-                        return Strings.pleaseFillOutTheField;
-                      } else {
-                        return null;
-                      }
-                    },
-                    decoration: InputDecoration(
-                        hintText: "Escribe tu direccion",
-                        contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                        labelStyle: CustomStyle.textStyle,
-                        filled: true,
-                        fillColor: Colors.white,
-                        enabledBorder: CustomStyle.formField,
-                        hintStyle: CustomStyle.hintTextStyle),
-                  ),
+                  child: CustomTextFormField(text: "Escribe tu direccion", controller: addressController,)
                 ),
               ),
+              
               Padding(
                 padding: const EdgeInsets.only(
                   top: 30.00,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: TextFormField(
-                    style: CustomStyle.textStyle,
-                    controller: emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    validator: (String value) {
-                      if (value.isEmpty) {
-                        return Strings.pleaseFillOutTheField;
-                      } else {
-                        return null;
-                      }
-                    },
-                    decoration: InputDecoration(
-                        hintText: "Escribe tu correo",
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 10.0),
-                        labelStyle: CustomStyle.textStyle,
-                        filled: true,
-                        fillColor: Colors.white,
-                        enabledBorder: CustomStyle.formField,
-                        hintStyle: CustomStyle.hintTextStyle),
+                  child: CustomTextFormField(text: "Escribe tu correo", controller: emailController,)
                   ),
                 ),
-              ),
+              
               Padding(
                 padding: const EdgeInsets.only(
                   top: 30.00,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: TextFormField(
-                    style: CustomStyle.textStyle,
-                    controller: passwordController,
-                    keyboardType: TextInputType.emailAddress,
-                    validator: (String value) {
-                      if (value.isEmpty) {
-                        return Strings.pleaseFillOutTheField;
-                      } else {
-                        return null;
-                      }
-                    },
-                    decoration: InputDecoration(
-                        hintText: "Escribe tu contraseña",
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 10.0),
-                        labelStyle: CustomStyle.textStyle,
-                        filled: true,
-                        fillColor: Colors.white,
-                        enabledBorder: CustomStyle.formField,
-                        hintStyle: CustomStyle.hintTextStyle),
+                  child: CustomTextFormField(text: "Escribe tu contraseña", controller: passwordController,)
+                    
                   ),
                 ),
-              ),
+              
               Padding(
                 padding: const EdgeInsets.only(
                   top: 30.00,
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: TextFormField(
-                    style: CustomStyle.textStyle,
-                    controller: confirmPasswordController,
-                    keyboardType: TextInputType.emailAddress,
-                    validator: (String value) {
-                      if (value.isEmpty) {
-                        return Strings.pleaseFillOutTheField;
-                      } else {
-                        return null;
-                      }
-                    },
-                    decoration: InputDecoration(
-                        hintText: "Confirma tu contraseña",
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 10.0, horizontal: 10.0),
-                        labelStyle: CustomStyle.textStyle,
-                        filled: true,
-                        fillColor: Colors.white,
-                        enabledBorder: CustomStyle.formField,
-                        hintStyle: CustomStyle.hintTextStyle),
+                  child: CustomTextFormField(text: "Confirma tu contraseña", controller: confirmPasswordController,)
                   ),
                 ),
-              ),
+              
               const SizedBox(height: Dimensions.heightSize),
             ],
           ));

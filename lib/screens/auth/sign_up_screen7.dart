@@ -7,6 +7,7 @@ import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 import 'package:howse_app/widgets/circle_button_widget.dart';
+import 'package:howse_app/widgets/custom_text_form_field.dart';
 
 import '../../utils/custom_color.dart';
 import '../../utils/custom_style.dart';
@@ -156,107 +157,35 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+
                       _titleData(Strings.rut),
-                      TextFormField(
-                        style: CustomStyle.textStyle,
+                      CustomTextFormField(
+                        text: Strings.demoFirstName,
                         controller: firstNameController,
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (String value){
-                          if(value.isEmpty){
-                            return Strings.pleaseFillOutTheField;
-                          }else{
-                            return null;
-                          }
-                        },
-                        decoration: InputDecoration(
-                          hintText: Strings.demoFirstName,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                          labelStyle: CustomStyle.textStyle,
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintStyle: CustomStyle.textStyle,
-                          border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: BorderSide(color: CustomColor.primaryColor,)),
-                          ),
                       ),
+                      
                         _titleData(Strings.firstName),
-                      TextFormField(
-                        style: CustomStyle.textStyle,
+                      CustomTextFormField(
+                        text: Strings.demoFirstName,
                         controller: firstNameController,
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (String value){
-                          if(value.isEmpty){
-                            return Strings.pleaseFillOutTheField;
-                          }else{
-                            return null;
-                          }
-                        },
-                        decoration: InputDecoration(
-                          hintText: Strings.demoFirstName,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                          labelStyle: CustomStyle.textStyle,
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintStyle: CustomStyle.textStyle,
-                          border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: BorderSide(color: CustomColor.primaryColor,))
-                        ),
                       ),
+                      
                       _titleData(Strings.phoneNumber),
-                      TextFormField(
-                        style: CustomStyle.textStyle,
+                      CustomTextFormField(
+                        text: Strings.demoPhoneNumber,
                         controller: phoneController,
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (String value){
-                          if(value.isEmpty){
-                            return Strings.pleaseFillOutTheField;
-                          }else{
-                            return null;
-                          }
-                        },
-                        decoration: InputDecoration(
-                          hintText: Strings.demoPhoneNumber,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                          labelStyle: CustomStyle.textStyle,
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintStyle: CustomStyle.textStyle,
-                          border:const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: BorderSide(color: CustomColor.primaryColor,)),
-                        ),
                       ),
+                      
                       _titleData(Strings.dateBirth),
-                      TextFormField(
-                        style: CustomStyle.textStyle,
-                        controller: emailController,
-                        keyboardType: TextInputType.datetime,
-                        validator: (String value){
-                          if(value.isEmpty){
-                            return Strings.pleaseFillOutTheField;
-                          }else{
-                            return null;
-                          }
-                        },
-                        decoration: InputDecoration(
-                          hintText: Strings.formDate,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                          labelStyle: CustomStyle.textStyle,
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintStyle: CustomStyle.textStyle,
-                          border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                                borderSide: BorderSide(color: CustomColor.primaryColor,)),
-                          suffixIcon: const Icon(
+                      CustomTextFormField(
+                        text: Strings.formDate,
+                        controller: emailController, // cambiar controller
+                        suffixIcon: const Icon(
                             Icons.calendar_month,
                             color: CustomColor.primaryColor,
-                          )
-                        ),
+                          ),
                       ),
-
+                      
                       SizedBox(height: MediaQuery.of(context).size.height * 0.03,),
 
                       Padding(
@@ -273,61 +202,25 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                         ),
                       ),
                       _titleData(Strings.issueDate),
-                      TextFormField(
-                        style: CustomStyle.textStyle,
-                        controller: usernameController,
-                        keyboardType: TextInputType.datetime,
-                        validator: (String value){
-                          if(value.isEmpty){
-                            return Strings.pleaseFillOutTheField;
-                          }else{
-                            return null;
-                          }
-                        },
-                        decoration: InputDecoration(
-                          hintText: Strings.formDate,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                          labelStyle: CustomStyle.textStyle,
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintStyle: CustomStyle.textStyle,
-                          border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                                borderSide: BorderSide(color: CustomColor.primaryColor,)),
-                          suffixIcon: const Icon(
+                      CustomTextFormField(
+                        text: Strings.formDate, 
+                        controller: usernameController, 
+                        suffixIcon: const Icon(
                             Icons.calendar_month,
                             color: CustomColor.primaryColor,
-                          )
-                        ),
+                          ),
                       ),
+                      
                       _titleData(Strings.expirationDateSignUp),
-                      TextFormField(
-                        style: CustomStyle.textStyle,
-                        controller: usernameController,
-                        keyboardType: TextInputType.datetime,
-                        validator: (String value){
-                          if(value.isEmpty){
-                            return Strings.pleaseFillOutTheField;
-                          }else{
-                            return null;
-                          }
-                        },
-                        decoration: InputDecoration(
-                          hintText: Strings.formDate,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                          labelStyle: CustomStyle.textStyle,
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintStyle: CustomStyle.textStyle,
-                          border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                                borderSide: BorderSide(color: CustomColor.primaryColor,)),
-                          suffixIcon: const Icon(
+                      CustomTextFormField(
+                        text: Strings.formDate, 
+                        controller: usernameController, 
+                        suffixIcon: const Icon(
                             Icons.calendar_month,
                             color: CustomColor.primaryColor,
-                          )
-                        ),
+                          ),
                       ),
+                      
                     ],
                   ),
                 ),

@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/custom_style.dart';
+import 'package:howse_app/widgets/custom_text_form_field.dart';
+import 'package:howse_app/widgets/text_form_field_password.dart';
 
 import '../../widgets/secondary_button_widget.dart';
 import '../dashboard/home_screen.dart';
@@ -134,63 +136,14 @@ class _SignInScreenState extends State<SignInScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: width * 0.04),
-              TextFormField(
-                style: CustomStyle.textStyle,
-                controller: emailController,
-                keyboardType: TextInputType.emailAddress,
-                validator: (String value) {
-                  if (value.isEmpty) {
-                    return Strings.pleaseFillOutTheField;
-                  } else {
-                    return null;
-                  }
-                },
-                decoration: InputDecoration(
-                    border: const  OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5))
-                    ),
-                    hintText: Strings.emailLogin,
-                    contentPadding: EdgeInsets.symmetric(
-                        vertical: height * 0.02, horizontal: width * 0.05),
-                    labelStyle: CustomStyle.textStyle,
-                    filled: true,
-                    enabledBorder: CustomStyle.formField,                    
-                    fillColor: Colors.white,
-                    hintStyle: CustomStyle.textStyle,
-                    // prefixIcon: const Icon(
-                    //   Icons.mail_outline,
-                    //   color: CustomColor.primaryColor,
-                    // )
-                ),
-              ),
+
+              CustomTextFormField(controller: emailController, text: Strings.emailLogin),
+
               SizedBox(height: height * 0.08),
-              TextFormField(
-                style: CustomStyle.textStyle,
-                controller: passwordController,
-                validator: (String value) {
-                  if (value.isEmpty) {
-                    return Strings.pleaseFillOutTheField;
-                  } else {
-                    return null;
-                  }
-                },
-                decoration: InputDecoration(
-                  border: const  OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5))
-                    ),
-                  hintText: Strings.typePassword,
-                  contentPadding: EdgeInsets.symmetric(
-                      vertical: height * 0.02, horizontal: width * 0.05),
-                  labelStyle: CustomStyle.textStyle,
-                  enabledBorder: CustomStyle.formField,
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintStyle: CustomStyle.textStyle,
-                  // prefixIcon: const Icon(
-                  //   Icons.lock_outline,
-                  //   color: CustomColor.primaryColor,
-                  // ),
-                  suffixIcon: IconButton(
+              TextFormFieldPassword(
+              controller: passwordController, 
+              text: Strings.typePassword, 
+              suffixIcon: IconButton(
                     onPressed: () {
                       setState(() {
                         _toggleVisibility = !_toggleVisibility;
@@ -205,10 +158,8 @@ class _SignInScreenState extends State<SignInScreen> {
                             Icons.visibility,
                             color: CustomColor.primaryColor,
                           ),
-                  ),
-                ),
-                obscureText: _toggleVisibility,
-              ),
+                  ),),
+
               SizedBox(height: height * 0.02),
             ],
           ),

@@ -5,6 +5,7 @@ import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/widgets/back_widget.dart';
+import 'package:howse_app/widgets/custom_text_form_field.dart';
 
 import '../../widgets/secondary_button_widget.dart';
 
@@ -142,29 +143,13 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                             ),
                             child: Align(
                               alignment: Alignment.center,
-                              child: TextFormField(
-                                style: CustomStyle.textStyle,
+                              child: CustomTextFormField(
+                                text: Strings.formPhoneNumberSignUp, 
                                 controller: phoneController,
-                                keyboardType: TextInputType.emailAddress,
-                                validator: (String value) {
-                                  if (value.isEmpty) {
-                                    return Strings.pleaseFillOutTheField;
-                                  } else {
-                                    return null;
-                                  }
-                                },
-                                decoration: InputDecoration(
-                                    hintText: Strings.formPhoneNumberSignUp,
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 10.0, horizontal: 10.0),
-                                    labelStyle: CustomStyle.textStyle,
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    enabledBorder: CustomStyle.formField,
-                                    hintStyle: CustomStyle.hintTextStyle),
+                                ),
                               ),
                             ),
-                          ),
+                          
                         ],
                       ),
                     ),

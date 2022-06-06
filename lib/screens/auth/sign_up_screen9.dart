@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:howse_app/screens/auth/sign_up_screen10.dart';
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/custom_style.dart';
@@ -8,6 +9,7 @@ import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/widgets/back_widget.dart';
+import 'package:howse_app/widgets/custom_text_form_field.dart';
 
 import '../../widgets/secondary_button_widget.dart';
 
@@ -124,7 +126,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
               ),             
              // const SizedBox(height: 0,),
 
-              const Icon(Icons.credit_card,
+              const FaIcon(FontAwesomeIcons.ccVisa,
               size: 150,
               ),
 
@@ -136,29 +138,11 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
               ),
 
               _titleData(Strings.numberCard),
-              TextFormField(
-                  style: CustomStyle.textStyle,
-                  controller: numberCardController,
-                  keyboardType: TextInputType.emailAddress,
-                  validator: (String value){
-                    if(value.isEmpty){
-                      return Strings.pleaseFillOutTheField;
-                    }else{
-                      return null;
-                    }
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'XXXX XXXX XXXX XXXX',
-                    contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                    labelStyle: CustomStyle.textStyle,
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintStyle: CustomStyle.textStyle,
-                    border: const OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                      borderSide: BorderSide(color: CustomColor.primaryColor,)),
-                    ),
+              CustomTextFormField(
+                text: 'XXXX XXXX XXXX XXXX',
+                controller: numberCardController,
                 ),
+                  
               Row(
                 children: [
                   
@@ -166,28 +150,9 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                     child: Column(
                       children: [
                         _titleData(Strings.expiryDate),
-                        TextFormField(
-                        style: CustomStyle.textStyle,
+                        CustomTextFormField(
+                        text: Strings.monthYear,
                         controller: numberCardController,
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (String value){
-                          if(value.isEmpty){
-                            return Strings.pleaseFillOutTheField;
-                          }else{
-                            return null;
-                          }
-                        },
-                        decoration: InputDecoration(
-                          hintText: Strings.monthYear,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                          labelStyle: CustomStyle.textStyle,
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintStyle: CustomStyle.textStyle,
-                          border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: BorderSide(color: CustomColor.primaryColor,)),
-                          ),
                         ),
                       ],
                     ),
@@ -199,29 +164,10 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                   child: Column(
                     children: [
                       _titleData('CVV'),
-                      TextFormField(
-                        style: CustomStyle.textStyle,
+                      CustomTextFormField(
+                        text: Strings.monthYear,
                         controller: numberCardController,
-                        keyboardType: TextInputType.emailAddress,
-                        validator: (String value){
-                          if(value.isEmpty){
-                            return Strings.pleaseFillOutTheField;
-                          }else{
-                            return null;
-                          }
-                        },
-                        decoration: InputDecoration(
-                          hintText: Strings.monthYear,
-                          contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                          labelStyle: CustomStyle.textStyle,
-                          filled: true,
-                          fillColor: Colors.white,
-                          hintStyle: CustomStyle.textStyle,
-                          border: const OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                            borderSide: BorderSide(color: CustomColor.primaryColor,)),
-                          ),
-                      ),
+                        ),
                     ],
                   ),
                 ),

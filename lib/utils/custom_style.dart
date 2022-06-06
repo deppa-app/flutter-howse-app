@@ -95,4 +95,22 @@ class CustomStyle {
   static var formField = OutlineInputBorder(
     borderSide: BorderSide(color: Colors.grey.withOpacity(0.5)),
   );
+
+  static decorationTextFormField( String text, Widget suffixIcon, [Widget prefixIcon]){
+  
+     return InputDecoration(
+              border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
+              hintText: text,
+              contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              labelStyle: CustomStyle.textStyle,
+              filled: true,
+              fillColor: Colors.white,
+              enabledBorder: CustomStyle.formField,
+              hintStyle: CustomStyle.hintTextStyle,
+              suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon
+            );
+
+    }
+    
 }
