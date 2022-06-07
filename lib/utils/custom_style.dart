@@ -96,7 +96,7 @@ class CustomStyle {
     borderSide: BorderSide(color: Colors.grey.withOpacity(0.5)),
   );
 
-  static decorationTextFormField( String text, Widget suffixIcon, [Widget prefixIcon]){
+  static decorationTextFormField( String text, [Widget suffixIcon, Widget prefixIcon]){
   
      return InputDecoration(
               border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5))),

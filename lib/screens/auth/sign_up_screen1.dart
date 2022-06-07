@@ -8,6 +8,9 @@ import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 import 'package:howse_app/widgets/circle_button_widget.dart';
 import 'package:howse_app/widgets/custom_text_form_field.dart';
+import 'package:howse_app/widgets/text_form_field_confirm_password.dart';
+import 'package:howse_app/widgets/text_form_field_email.dart';
+import 'package:howse_app/widgets/text_form_field_password.dart';
 //import 'package:howse_app/widgets/text_form_field_w1.dart';
 
 import '../../widgets/secondary_button_widget.dart';
@@ -156,8 +159,10 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                   child: SecondaryButtonWidget(
                     title: "Siguiente",
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
+                      if(formKey.currentState.validate()){
+                          Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const SignUpScreen2()));
+                        }
                     },
                   ),
                 ),
@@ -203,7 +208,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: CustomTextFormField(text: "Escribe tu correo", controller: emailController,)
+                  child: TextFormFieldEmail(text: "Escribe tu correo", controller: emailController,)
                   ),
                 ),
               
@@ -213,7 +218,8 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: CustomTextFormField(text: "Escribe tu contraseña", controller: passwordController,)
+                  child: TextFormFieldPassword(text: "Escribe tu contraseña", controller: passwordController,),
+                  
                     
                   ),
                 ),
@@ -224,7 +230,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: CustomTextFormField(text: "Confirma tu contraseña", controller: confirmPasswordController,)
+                  child: TextFormFieldConfirmPassword(text: "Confirma tu contraseña", controller: confirmPasswordController, controller2: passwordController,)
                   ),
                 ),
               

@@ -59,8 +59,10 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                   child: SecondaryButtonWidget(
                     title: Strings.nextSignUp,
                     onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const SignUpScreen3()));
+                      if(formKey.currentState.validate()){
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => const SignUpScreen3()));
+                      }
                     },
                   ),
                 ),

@@ -82,6 +82,8 @@ class Strings {
   static String password = 'Contraseña';
   static String typePassword = 'Escriba contraseña';
   static String pleaseFillOutTheField = 'Please Fill Out The Field';
+  static String pleaseUseValidEmail = 'Please use a valid email';
+  static String passwordsNotMatch = 'Passwords do not match';
   static String or = 'or';
   static String signUp = 'Sign Up';
   static String rememberMe = 'Remember Me';
