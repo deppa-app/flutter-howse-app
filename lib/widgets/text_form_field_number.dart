@@ -24,15 +24,15 @@ class TextFormFieldNumber extends StatelessWidget {
       validator: (String value) {
         
         if (value.isEmpty) {
-          return (Strings.pleaseFillOutTheField);
+          return (Strings.usarTelefonoValido);
         } else {
           // TODO: Mejorar expresión regular
           
-          RegExp regExp = RegExp(r'[a-zA-Z\._\-0-9]+@[a-z0-9\-]+\.[a-z]+');
+          RegExp regExp = RegExp(r'[9][0-9]{8}');
           bool match = regExp.hasMatch(value); 
 
-          if(!match){
-            return(Strings.pleaseUseValidEmail);
+          if(match == false){
+            return(Strings.usarTelefonoValido);
           }
 
           return null;

@@ -6,9 +6,8 @@ import 'package:howse_app/utils/custom_color.dart';
 
 import 'package:howse_app/utils/dimensions.dart';
 //import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/widgets/back_widget.dart';
+import 'package:howse_app/widgets/widget.dart';
 
-//import '../../widgets/secondary_button_widget.dart';
 
 class TermsAndConditions extends StatefulWidget {
   const TermsAndConditions({Key key}) : super(key: key);

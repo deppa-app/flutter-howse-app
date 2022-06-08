@@ -77,13 +77,17 @@ class Strings {
   static String createAnAccount = 'Crear Cuenta';
 
   //sign in screen
-
+  // TODO: revisar textos en español
   static String signInAccount = 'Iniciar sesión';
   static String password = 'Contraseña';
   static String typePassword = 'Escriba contraseña';
   static String pleaseFillOutTheField = 'Please Fill Out The Field';
+  static String rellenarCampo = 'Por favor rellene el campo';
   static String pleaseUseValidEmail = 'Please use a valid email';
+  static String usarCorreoValido = 'Por favor use un correo valido';
+  static String usarTelefonoValido = 'Por favor use un télefono valido';
   static String passwordsNotMatch = 'Passwords do not match';
+  static String noCoinciden = 'Las contraseñas no coinciden';
   static String or = 'or';
   static String signUp = 'Sign Up';
   static String rememberMe = 'Remember Me';

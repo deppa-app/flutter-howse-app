@@ -6,9 +6,7 @@ import 'package:howse_app/utils/custom_color.dart';
 
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/widgets/back_widget.dart';
-
-import '../../widgets/secondary_button_widget.dart';
+import 'package:howse_app/widgets/widget.dart';
 
 class SignUpScreen10 extends StatefulWidget {
   const SignUpScreen10({Key key}) : super(key: key);

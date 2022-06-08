@@ -3,11 +3,7 @@ import 'package:howse_app/screens/auth/sign_up_screen3.dart';
 
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/utils/custom_style.dart';
-import 'package:howse_app/widgets/back_widget.dart';
-import 'package:howse_app/widgets/custom_text_form_field.dart';
-
-import '../../widgets/secondary_button_widget.dart';
+import '../../widgets/widget.dart';
 
 class SignUpScreen2 extends StatefulWidget {
   const SignUpScreen2({Key key}) : super(key: key);
@@ -145,7 +141,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                             ),
                             child: Align(
                               alignment: Alignment.center,
-                              child: CustomTextFormField(
+                              child: TextFormFieldNumber(
                                 text: Strings.formPhoneNumberSignUp, 
                                 controller: phoneController,
                                 ),

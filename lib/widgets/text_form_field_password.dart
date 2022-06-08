@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:howse_app/utils/checkbox_validate.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/utils/strings.dart';
 
@@ -9,8 +10,12 @@ class TextFormFieldPassword extends StatelessWidget {
     @required this.text,
     this.controller2, 
     this.suffixIcon, 
+    this.value, 
+    this.callBack, 
     }) 
     : super(key: key);
+
+  final Function callBack;
 
   final TextEditingController controller;
   
@@ -19,6 +24,8 @@ class TextFormFieldPassword extends StatelessWidget {
   final String text;
 
   final Widget suffixIcon;
+
+  final bool value;
 
   final bool obscureText = true;
 
@@ -54,7 +61,13 @@ class TextFormFieldPassword extends StatelessWidget {
         return null;
         
       },
-      decoration: CustomStyle.decorationTextFormField(text, suffixIcon)
+      decoration: CustomStyle.decorationTextFormField(text, suffixIcon),
+      onChanged: callBack != null ? callBack(
+        validateUppercase(controller.text), 
+        validateLowercase(controller.text), 
+        validateCharacter(controller.text),
+        validateLenght(controller.text)
+        ) : (String value){return;},
       
     );
   }

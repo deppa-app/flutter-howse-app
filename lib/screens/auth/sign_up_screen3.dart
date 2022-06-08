@@ -3,8 +3,7 @@ import 'package:howse_app/screens/auth/sign_up_screen4.dart';
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/widgets/back_widget.dart';
-import '../../widgets/secondary_button_widget.dart';
+import 'package:howse_app/widgets/widget.dart';
 
 class SignUpScreen3 extends StatefulWidget {
   const SignUpScreen3({Key key}) : super(key: key);

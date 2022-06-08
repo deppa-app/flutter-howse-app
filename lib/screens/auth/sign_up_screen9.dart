@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:howse_app/screens/auth/sign_up_screen10.dart';
 import 'package:howse_app/utils/custom_color.dart';
-import 'package:howse_app/utils/custom_style.dart';
 
 
 
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/widgets/back_widget.dart';
-import 'package:howse_app/widgets/custom_text_form_field.dart';
+import 'package:howse_app/widgets/widget.dart';
 
-import '../../widgets/secondary_button_widget.dart';
 
 class SignUpScreen9 extends StatefulWidget {
   const SignUpScreen9({Key key}) : super(key: key);

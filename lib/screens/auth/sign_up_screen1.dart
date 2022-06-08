@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/sign_up_screen2.dart';
 
@@ -5,14 +6,7 @@ import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/custom_style.dart';
-import 'package:howse_app/widgets/back_widget.dart';
-import 'package:howse_app/widgets/circle_button_widget.dart';
-import 'package:howse_app/widgets/custom_text_form_field.dart';
-import 'package:howse_app/widgets/text_form_field_email.dart';
-import 'package:howse_app/widgets/text_form_field_password.dart';
-//import 'package:howse_app/widgets/text_form_field_w1.dart';
-
-import '../../widgets/secondary_button_widget.dart';
+import 'package:howse_app/widgets/widget.dart';
 
 class SignUpScreen1 extends StatefulWidget {
   const SignUpScreen1({Key key}) : super(key: key);
@@ -36,12 +30,21 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
   bool checkedValue1 = false;
   bool checkedValue2 = false;
   bool checkedValue3 = false;
+  bool checkedValue4 = false;
 
   String selectedCounty = 'United States';
   //Country _selected;
 
   List<String> genderList = ['Male', 'Female', 'Others'];
   String selectedGender;
+
+  callBack(bool value, bool value2, bool value3, bool value4){
+    checkedValue1 = value;
+    checkedValue2 = value2;
+    checkedValue3 = value3;
+    checkedValue4 = value4;
+
+  }
 
   @override
   void initState() {
@@ -190,48 +193,38 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
 
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 30.00,
-                  
-                ),
-                child: Align(
+              // TODO: Revisar Exepción Incorrect use of ParentDataWidget
+
+                const SizedBox(height: 30,),
+              
+                Align(
                   alignment: Alignment.topCenter, 
                   child: CustomTextFormField(text: "Escribe tu direccion", controller: addressController,)
                 ),
-              ),
               
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 30.00,
-                ),
-                child: Align(
+                const SizedBox(height: 30,),
+              
+                Align(
                   alignment: Alignment.topCenter,
                   child: TextFormFieldEmail(text: "Escribe tu correo", controller: emailController,)
-                  ),
                 ),
+                
+                const SizedBox(height: 30,),
               
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 30.00,
-                ),
-                child: Align(
+                Align(
                   alignment: Alignment.topCenter,
-                  child: TextFormFieldPassword(text: "Escribe tu contraseña", controller: passwordController,),
+                  child: TextFormFieldPassword(text: "Escribe tu contraseña", controller: passwordController, callBack: callBack),
                   
                     
-                  ),
                 ),
+                
+                const SizedBox(height: 30,),
               
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 30.00,
-                ),
-                child: Align(
+                Align(
                   alignment: Alignment.topCenter,
                   child: TextFormFieldPassword(text: "Confirma tu contraseña", controller: confirmPasswordController, controller2: passwordController)
-                  ),
                 ),
+                
               
               const SizedBox(height: Dimensions.heightSize),
             ],
@@ -240,92 +233,109 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
   }
 
   termsCheckBoxWidget(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(
-            left: 30.00,
-            right: 30.00,
-          ),
-          child: SizedBox(
-            height: 30.00,
-            child: CheckboxListTile(
-              title: const Text(
-                "Una mayuscula",
-                style: TextStyle(
-                  color: CustomColor.primaryColor,
-                  fontSize: 12.00,
+    return StatefulBuilder(
+      builder: (BuildContext context, StateSetter setState) {  
+      return Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 30.00,
+              right: 30.00,
+            ),
+            child: SizedBox(
+              height: 30.00,
+              child: CheckboxListTile(
+                title: const Text(
+                  "Una mayuscula",
+                  style: TextStyle(
+                    color: CustomColor.primaryColor,
+                    fontSize: 12.00,
+                  ),
+                  textAlign: TextAlign.justify,
                 ),
-                textAlign: TextAlign.justify,
+                value: checkedValue1,//checkedValue1,
+                onChanged: (_) {},
+                controlAffinity:
+                    ListTileControlAffinity.leading, //  <-- leading Checkbox
               ),
-              value: checkedValue1,
-              onChanged: (newValue) {
-                setState(() {
-                  checkedValue1 = newValue;
-                });
-              },
-              controlAffinity:
-                  ListTileControlAffinity.leading, //  <-- leading Checkbox
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 0.0,
-            left: 30.00,
-            right: 30.00,
-          ),
-          child: SizedBox(
-            height: 30.00,
-            child: CheckboxListTile(
-              title: const Text(
-                "Una mayuscula",
-                style: TextStyle(
-                  color: CustomColor.primaryColor,
-                  fontSize: 12.00,
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 0.0,
+              left: 30.00,
+              right: 30.00,
+            ),
+            child: SizedBox(
+              height: 30.00,
+              child: CheckboxListTile(
+                title: const Text(
+                  "Una minuscula",
+                  style: TextStyle(
+                    color: CustomColor.primaryColor,
+                    fontSize: 12.00,
+                  ),
+                  textAlign: TextAlign.justify,
                 ),
-                textAlign: TextAlign.justify,
+                value: checkedValue2,
+                selected: false,
+                onChanged: (_) {},
+                controlAffinity:
+                    ListTileControlAffinity.leading, //  <-- leading Checkbox
               ),
-              value: checkedValue2,
-              onChanged: (newValue) {
-                setState(() {
-                  checkedValue2 = newValue;
-                });
-              },
-              controlAffinity:
-                  ListTileControlAffinity.leading, //  <-- leading Checkbox
             ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 0.0,
-            left: 30.00,
-            right: 30.00,
-          ),
-          child: SizedBox(
-            height: 30.00,
-            child: CheckboxListTile(
-              title: const Text(
-                "Un caracter especial",
-                style: TextStyle(
-                  color: CustomColor.primaryColor,
-                  fontSize: 12.00,
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 0.0,
+              left: 30.00,
+              right: 30.00,
+            ),
+            child: SizedBox(
+              height: 30.00,
+              child: CheckboxListTile(
+                title: const Text(
+                  "Un caracter especial",
+                  style: TextStyle(
+                    color: CustomColor.primaryColor,
+                    fontSize: 12.00,
+                  ),
+                  textAlign: TextAlign.justify,
                 ),
-                textAlign: TextAlign.justify,
+                value: checkedValue3,
+                onChanged: (_) {},
+                controlAffinity:
+                    ListTileControlAffinity.leading, //  <-- leading Checkbox
               ),
-              value: checkedValue3,
-              onChanged: (newValue) {
-                setState(() {
-                  checkedValue3 = newValue;
-                });
-              },
-              controlAffinity:
-                  ListTileControlAffinity.leading, //  <-- leading Checkbox
             ),
           ),
-        )
-      ],
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 0.0,
+              left: 30.00,
+              right: 30.00,
+            ),
+            child: SizedBox(
+              height: 30.00,
+              child: CheckboxListTile(
+                title: const Text(
+                  "Entre 8 y 15 caracteres",
+                  style: TextStyle(
+                    color: CustomColor.primaryColor,
+                    fontSize: 12.00,
+                  ),
+                  textAlign: TextAlign.justify,
+                ),
+                value: checkedValue4,
+                onChanged: (_) {},
+                controlAffinity:
+                    ListTileControlAffinity.leading, //  <-- leading Checkbox
+              ),
+            ),
+          )
+        ],
+      );
+     },
     );
   }
 

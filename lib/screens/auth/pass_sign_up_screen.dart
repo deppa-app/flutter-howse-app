@@ -4,9 +4,8 @@ import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 
-import 'package:howse_app/widgets/secondary_button_widget.dart';
+import 'package:howse_app/widgets/widget.dart';
 
-import '../../widgets/back_widget.dart';
 
 class PassSignUpScreen extends StatefulWidget {
   const PassSignUpScreen({Key key}) : super(key: key);

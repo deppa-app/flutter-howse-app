@@ -5,13 +5,9 @@ import 'package:howse_app/screens/auth/sign_up_screen8.dart';
 
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/widgets/back_widget.dart';
-import 'package:howse_app/widgets/circle_button_widget.dart';
-import 'package:howse_app/widgets/custom_text_form_field.dart';
+import 'package:howse_app/widgets/widget.dart';
 
 import '../../utils/custom_color.dart';
-import '../../utils/custom_style.dart';
-import '../../widgets/secondary_button_widget.dart';
 
 
 

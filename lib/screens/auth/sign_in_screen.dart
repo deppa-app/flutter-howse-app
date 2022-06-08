@@ -1,16 +1,13 @@
 //import 'package:flutter/cupertino.dart';
 import 'package:howse_app/screens/auth/pass_sign_up_screen.dart';
 import 'package:howse_app/screens/auth/terms_and_conditions.dart';
-import 'package:howse_app/widgets/circle_button_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/custom_style.dart';
-import 'package:howse_app/widgets/custom_text_form_field.dart';
-import 'package:howse_app/widgets/text_form_field_password.dart';
+import 'package:howse_app/widgets/widget.dart';
 
-import '../../widgets/secondary_button_widget.dart';
 import '../dashboard/home_screen.dart';
 //import 'package:howse_app/auth/sign_up_screen.dart';
 //import 'package:howse_app/utils/dashboard_screen.dart';
