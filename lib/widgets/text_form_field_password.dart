@@ -6,12 +6,15 @@ class TextFormFieldPassword extends StatelessWidget {
   const TextFormFieldPassword({ 
     Key key, 
     @required this.controller, 
-    @required this.text, 
+    @required this.text,
+    this.controller2, 
     this.suffixIcon, 
     }) 
     : super(key: key);
 
   final TextEditingController controller;
+  
+  final TextEditingController controller2;
 
   final String text;
 
@@ -26,10 +29,12 @@ class TextFormFieldPassword extends StatelessWidget {
       style: CustomStyle.textStyle,
       controller: controller,
       validator: (String value) {  
-        
+               
+
         if (value.isEmpty) {
           return (Strings.pleaseFillOutTheField);
-        } else {
+        } else if (controller != null && controller2 == null){
+          // TODO: Mejorar expresión regular
 
           RegExp regExp = RegExp(r'[a-zA-Z0-9@._\-¡!]{8,15}');
           bool match = regExp.hasMatch(value); 
@@ -38,8 +43,16 @@ class TextFormFieldPassword extends StatelessWidget {
             return(Strings.pleaseFillOutTheField);
           }
 
-          return null;
+        
+        }else if(controller2 != null) {
+          if(controller.text != controller2.text){
+
+              return (Strings.passwordsNotMatch);
+              
+            }
         }
+        return null;
+        
       },
       decoration: CustomStyle.decorationTextFormField(text, suffixIcon)
       

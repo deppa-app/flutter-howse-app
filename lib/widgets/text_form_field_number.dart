@@ -2,46 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/utils/strings.dart';
 
-class TextFormFieldConfirmPassword extends StatelessWidget {
-  const TextFormFieldConfirmPassword({ 
+class TextFormFieldNumber extends StatelessWidget {
+  const TextFormFieldNumber({ 
     Key key, 
     @required this.controller, 
-    @required this.controller2,
     @required this.text, 
-    this.suffixIcon, 
     }) 
     : super(key: key);
 
   final TextEditingController controller;
-  final TextEditingController controller2;
 
   final String text;
 
-  final Widget suffixIcon;
-
-  final bool obscureText = true;
+  
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      obscureText: obscureText,    
+    return TextFormField(   
       style: CustomStyle.textStyle,
       controller: controller,
-      validator: (String value) {  
-      
+      validator: (String value) {
         
         if (value.isEmpty) {
           return (Strings.pleaseFillOutTheField);
         } else {
-          if(controller.text != controller2.text){
+          // TODO: Mejorar expresión regular
+          
+          RegExp regExp = RegExp(r'[a-zA-Z\._\-0-9]+@[a-z0-9\-]+\.[a-z]+');
+          bool match = regExp.hasMatch(value); 
 
-              return (Strings.passwordsNotMatch);
-              
-            }
+          if(!match){
+            return(Strings.pleaseUseValidEmail);
+          }
+
           return null;
         }
       },
-      decoration: CustomStyle.decorationTextFormField(text, suffixIcon)
+      decoration: CustomStyle.decorationTextFormField(text)
       
     );
   }

@@ -8,7 +8,6 @@ import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 import 'package:howse_app/widgets/circle_button_widget.dart';
 import 'package:howse_app/widgets/custom_text_form_field.dart';
-import 'package:howse_app/widgets/text_form_field_confirm_password.dart';
 import 'package:howse_app/widgets/text_form_field_email.dart';
 import 'package:howse_app/widgets/text_form_field_password.dart';
 //import 'package:howse_app/widgets/text_form_field_w1.dart';
@@ -230,7 +229,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
                 ),
                 child: Align(
                   alignment: Alignment.topCenter,
-                  child: TextFormFieldConfirmPassword(text: "Confirma tu contraseña", controller: confirmPasswordController, controller2: passwordController,)
+                  child: TextFormFieldPassword(text: "Confirma tu contraseña", controller: confirmPasswordController, controller2: passwordController)
                   ),
                 ),
               
