@@ -190,8 +190,10 @@ class _SignInScreenState extends State<SignInScreen> {
         //   color: CustomColor.whiteColor,
         // ),
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-              const HomeScreen()));
+          if(formKey.currentState.validate()){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                const HomeScreen()));
+          }
         },
       ),
     );
@@ -218,7 +220,7 @@ class _SignInScreenState extends State<SignInScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CircleButtonWidget(
-                icon: Image.asset('assets/images/icon/facebook.png'),
+                icon: Image.asset('assets/images/icon/twitter.png'),
                 onTap: () {},
               ),
                SizedBox(

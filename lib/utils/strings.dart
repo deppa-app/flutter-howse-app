@@ -104,6 +104,7 @@ class Strings {
   static String firstName = 'First Name';
   static String lastName = 'Last Name';
   static String phoneNumber = 'Phone Number';
+  static String phoneNumberEs = 'Número de teléfono';
   static String gender = 'Gender';
   static String email = 'Email';
   static String username = 'Username';
@@ -112,8 +113,10 @@ class Strings {
   static String demoEmail = 'email@gmail.com';
   static String demoName = 'Josef Milian';
   static String demoFirstName = 'Josef';
+  static String fistName = 'Nombre';
   static String demoLastName = 'Milian';
-  static String demoPhoneNumber = '1234-567-890';
+  static String demoRut = '12.345.678-9';
+  static String demoPhoneNumber = '9-1234-5678';
   static String demoUsername = 'jmilian';
   static String homeAddress = 'Home Address';
   static String iConfirmThat = 'I confirm that I have read & agree to the';

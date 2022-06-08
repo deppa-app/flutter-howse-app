@@ -120,7 +120,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                               child: Column(
                                 children:[ 
                                   CircleButtonWidget(
-                                  icon: Image.asset('assets/images/icon/facebook.png'),
+                                  icon: Image.asset('assets/images/icon/male.png', color: CustomColor.primaryColor,),
                                   onTap: () {},
                                   ),
                                   Text(Strings.man)
@@ -135,7 +135,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                               child: Column(
                                 children: [
                                   CircleButtonWidget(
-                                    icon: Image.asset('assets/images/icon/facebook.png'),
+                                    icon: Image.asset('assets/images/icon/female.png', color: CustomColor.primaryColor,),
                                     onTap: () {},
                                   ),
                                   Text(Strings.woman)
@@ -158,17 +158,17 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
 
                       _titleData(Strings.rut),
                       CustomTextFormField(
-                        text: Strings.demoFirstName,
+                        text: Strings.fistName,
                         controller: firstNameController,
                       ),
                       
-                        _titleData(Strings.firstName),
+                        _titleData(Strings.fistName),
                       CustomTextFormField(
-                        text: Strings.demoFirstName,
+                        text: Strings.demoRut,
                         controller: firstNameController,
                       ),
                       
-                      _titleData(Strings.phoneNumber),
+                      _titleData(Strings.phoneNumberEs),
                       CustomTextFormField(
                         text: Strings.demoPhoneNumber,
                         controller: phoneController,

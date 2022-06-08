@@ -125,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Image.asset('assets/images/lorem-image.jpeg',
                         height: MediaQuery.of(context).size.height * 0.6,
                         width: MediaQuery.of(context).size.width,),
-                        onTap: () => print('hola'),
+                        onTap: () => {},
                       ),
                     ),
                     Positioned(

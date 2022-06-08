@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:howse_app/screens/auth/sign_up_screen5.dart';
 import 'package:howse_app/utils/custom_color.dart';
 
@@ -29,6 +30,7 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
   Widget build(BuildContext context) {
 
     final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
 
     return SafeArea(
       child: Scaffold(
@@ -43,15 +45,17 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
               BackWidget(title: Strings.createAnAccount),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
+              SizedBox(height: height * 0.02),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [ 
                   Padding(
                     padding: EdgeInsets.only(
-                      left: width * 0.05
+                      left: width * 0.08
                     ),
-                    child: const Icon(Icons.person_outline_rounded, size: 50, ),
+                    child: const FaIcon(FontAwesomeIcons.circleUser, size: 30, color: CustomColor.primaryColor,)//const Icon(Icons.person_outline_rounded, size: 50, ),
                   ),
+                  SizedBox(width: width * 0.03),
                   Text(
                     Strings.frontPhoto,
                      style: TextStyle(
