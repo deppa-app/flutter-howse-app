@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/auth/sign_up_screen8.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-
-import 'package:howse_app/utils/dimensions.dart';
-import 'package:howse_app/utils/strings.dart';
+import 'package:howse_app/screens/auth/auth.dart';
+import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
-
-import '../../utils/custom_color.dart';
-
 
 
 class SignUpScreen7 extends StatefulWidget {
@@ -23,12 +18,13 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController firstNameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
+ // TextEditingController lastNameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
-  TextEditingController usernameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmPasswordController = TextEditingController();
+  TextEditingController runController = TextEditingController();
+  TextEditingController bornController = TextEditingController();
+  TextEditingController runEmitController = TextEditingController();
+  TextEditingController runExpirationController = TextEditingController();
+  //TextEditingController confirmPasswordController = TextEditingController();
 
   @override
   void initState() {
@@ -157,30 +153,31 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                     children: [
 
                       _titleData(Strings.rut),
-                      CustomTextFormField(
-                        text: Strings.fistName,
-                        controller: firstNameController,
+                      TextFormFieldRut(
+                        text: Strings.demoRut,
+                        controller: runController,
                       ),
                       
-                        _titleData(Strings.fistName),
+                      //TODO: Crear text_form_field para nombre?
+                        _titleData(Strings.firstNameEs),
                       CustomTextFormField(
-                        text: Strings.demoRut,
+                        text: Strings.firstNameEs,
                         controller: firstNameController,
                       ),
                       
                       _titleData(Strings.phoneNumberEs),
-                      CustomTextFormField(
+                      TextFormFieldNumber(
                         text: Strings.demoPhoneNumber,
                         controller: phoneController,
                       ),
                       
                       _titleData(Strings.dateBirth),
-                      CustomTextFormField(
+                      TextFormFieldDate(
                         text: Strings.formDate,
-                        controller: emailController, // cambiar controller
-                        suffixIcon: const Icon(
-                            Icons.calendar_month,
-                            color: CustomColor.primaryColor,
+                        controller: bornController, // cambiar controller
+                        suffixIcon: IconButton(
+                            onPressed: () {},
+                            icon: const FaIcon(FontAwesomeIcons.solidCalendarDays, color: CustomColor.primaryColor) 
                           ),
                       ),
                       
@@ -199,25 +196,26 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
 
                         ),
                       ),
-                      _titleData(Strings.issueDate),
-                      CustomTextFormField(
+                      _titleData(Strings.emitDate),
+                      TextFormFieldDate(
                         text: Strings.formDate, 
-                        controller: usernameController, 
-                        suffixIcon: const Icon(
-                            Icons.calendar_month,
-                            color: CustomColor.primaryColor,
+                        controller: runEmitController, 
+                        suffixIcon: IconButton(
+                            onPressed: () {},
+                            icon: const FaIcon(FontAwesomeIcons.solidCalendarDays,  color: CustomColor.primaryColor)    
                           ),
                       ),
                       
                       _titleData(Strings.expirationDateSignUp),
-                      CustomTextFormField(
+                      TextFormFieldDate(
                         text: Strings.formDate, 
-                        controller: usernameController, 
-                        suffixIcon: const Icon(
-                            Icons.calendar_month,
-                            color: CustomColor.primaryColor,
+                        controller: runExpirationController, 
+                        suffixIcon: IconButton(
+                            onPressed: () {},
+                            icon: const FaIcon(FontAwesomeIcons.solidCalendarDays,  color: CustomColor.primaryColor)  
                           ),
-                      ),
+                        ),
+                              
                       
                     ],
                   ),

@@ -2,17 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/utils/strings.dart';
 
-class TextFormFieldEmail extends StatelessWidget {
-  const TextFormFieldEmail({ 
+class TextFormFieldDate extends StatelessWidget {
+  const TextFormFieldDate({ 
     Key key, 
     @required this.controller, 
     @required this.text, 
+    this.suffixIcon, 
     }) 
     : super(key: key);
 
   final TextEditingController controller;
 
   final String text;
+
+  final Widget suffixIcon;
 
   
 
@@ -27,17 +30,20 @@ class TextFormFieldEmail extends StatelessWidget {
           return (Strings.fillOutField);
         } else {
           // TODO: Mejorar expresión regular
-          RegExp regExp = RegExp(r'[a-zA-Z\._\-0-9]+@[a-z0-9\-]+\.[a-z]+');
+          
+          RegExp regExp = RegExp(r'[0-3][1-9]\/[0-1][0-9]\/[1-2][0-9][0-9][0-9]');
           bool match = regExp.hasMatch(value); 
 
-          if(!match){
-            return(Strings.pleaseUseValidEmail);
+          if(match == false){
+            return(Strings.useValidDate);
           }
 
           return null;
         }
       },
-      decoration: CustomStyle.decorationTextFormField(text)
+      decoration: CustomStyle.decorationTextFormField(text, suffixIcon),
+      
+      
       
     );
   }

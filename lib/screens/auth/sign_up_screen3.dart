@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/auth/sign_up_screen4.dart';
-import 'package:howse_app/utils/custom_color.dart';
-import 'package:howse_app/utils/dimensions.dart';
-import 'package:howse_app/utils/strings.dart';
+
+import 'package:howse_app/screens/auth/auth.dart';
+import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
 
 class SignUpScreen3 extends StatefulWidget {

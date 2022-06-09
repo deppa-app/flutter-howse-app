@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/auth/sign_up_screen7.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'package:howse_app/utils/dimensions.dart';
-import 'package:howse_app/utils/strings.dart';
+import 'package:howse_app/screens/auth/auth.dart';
+import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
 
-import '../../utils/custom_color.dart';
 
 class SignUpScreen6 extends StatefulWidget {
   const SignUpScreen6({Key key}) : super(key: key);

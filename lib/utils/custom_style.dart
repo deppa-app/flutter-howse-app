@@ -101,7 +101,7 @@ class CustomStyle {
      return InputDecoration(
               border: const OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(5))),
               hintText: text,
-              contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              //contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               labelStyle: CustomStyle.textStyle,
               filled: true,
               fillColor: Colors.white,

@@ -39,7 +39,7 @@ class TextFormFieldPassword extends StatelessWidget {
                
 
         if (value.isEmpty) {
-          return (Strings.pleaseFillOutTheField);
+          return (Strings.fillOutField);
         } else if (controller != null && controller2 == null){
           // TODO: Mejorar expresión regular
 
@@ -47,7 +47,7 @@ class TextFormFieldPassword extends StatelessWidget {
           bool match = regExp.hasMatch(value); 
 
           if(!match){
-            return(Strings.pleaseFillOutTheField);
+            return(Strings.passwordsNotMatch);
           }
 
         

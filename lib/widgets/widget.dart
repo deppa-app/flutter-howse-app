@@ -10,4 +10,5 @@ export 'package:howse_app/widgets/text_form_field_email.dart';
 export 'package:howse_app/widgets/text_form_field_number.dart';
 export 'package:howse_app/widgets/text_form_field_password.dart';
 export 'package:howse_app/widgets/text_form_field_w1.dart';
-
+export 'package:howse_app/widgets/text_form_field_rut.dart';
+export 'package:howse_app/widgets/text_form_field_date.dart';

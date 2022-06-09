@@ -1,11 +1,8 @@
 //import 'package:flutter/cupertino.dart';
-import 'package:howse_app/screens/auth/pass_sign_up_screen.dart';
-import 'package:howse_app/screens/auth/terms_and_conditions.dart';
 import 'package:flutter/material.dart';
+import 'package:howse_app/screens/auth/auth.dart';
 
-import 'package:howse_app/utils/custom_color.dart';
-import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/utils/custom_style.dart';
+import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
 
 import '../dashboard/home_screen.dart';
@@ -256,7 +253,7 @@ class _SignInScreenState extends State<SignInScreen> {
           child: Text(
             Strings.termsSignUp,
             style: const TextStyle(
-                color: CustomColor.primaryColor,
+                color: CustomColor.linkColor,
                 fontWeight: FontWeight.bold,
                 decoration: TextDecoration.underline),
           ),

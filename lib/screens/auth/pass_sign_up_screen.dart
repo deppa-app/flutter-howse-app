@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/auth/sign_up_screen1.dart';
-import 'package:howse_app/utils/custom_color.dart';
-import 'package:howse_app/utils/dimensions.dart';
-import 'package:howse_app/utils/strings.dart';
+
+import 'package:howse_app/screens/auth/auth.dart';
+import 'package:howse_app/utils/utils.dart';
 
 import 'package:howse_app/widgets/widget.dart';
 
@@ -137,19 +136,17 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                             textAlign: TextAlign.left,
                                           ),
                                           GestureDetector(
-                                          child: Text(
-                                            Strings.termsSignUp,
-                                            style: const TextStyle(
-                                                color: CustomColor.primaryColor,
-                                                fontSize: 12.00,
-                                                height: 2.0,
-                                                fontWeight: FontWeight.bold,
-                                                decoration: TextDecoration.underline),
-                                          ),
-                                          onTap: () {
-                                            /*Navigator.of(context).push(MaterialPageRoute(
-                                                builder: (context) => const TermsAndConditions()));*/
-                                          },
+                                            child: Text(
+                                              Strings.termsSignUp,
+                                              style: const TextStyle(
+                                                  color: CustomColor.linkColor,
+                                                  fontWeight: FontWeight.bold,
+                                                  decoration: TextDecoration.underline),
+                                            ),
+                                            onTap: () {
+                                              Navigator.of(context).push(MaterialPageRoute(
+                                                  builder: (context) => const TermsAndConditions()));
+                                            },
                                           )
                                         ],
                                       ),

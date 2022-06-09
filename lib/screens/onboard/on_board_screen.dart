@@ -215,9 +215,11 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                             },
                           ),
                         ),
+
                         const SizedBox(
                           height: Dimensions.heightSize,
                         ),
+
                         Padding(
                           padding: EdgeInsets.only(
                             left: MediaQuery.of(context).size.width * 0.03,
@@ -231,7 +233,15 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                           const SignInScreen()));
                             },
                           ),
-                        )
+                        ),
+
+                        SizedBox(height: height * 0.04),
+
+                        
+
+                        const Text('¿Ya tienes una cuenta?', style: TextStyle(fontSize: 16, color: CustomColor.primaryColor)),
+
+                        SizedBox(height: height * 0.04),
                       ],
                     ),
                   )

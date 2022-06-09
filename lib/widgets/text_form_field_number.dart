@@ -24,7 +24,7 @@ class TextFormFieldNumber extends StatelessWidget {
       validator: (String value) {
         
         if (value.isEmpty) {
-          return (Strings.usarTelefonoValido);
+          return (Strings.fillOutField);
         } else {
           // TODO: Mejorar expresión regular
           
@@ -32,7 +32,7 @@ class TextFormFieldNumber extends StatelessWidget {
           bool match = regExp.hasMatch(value); 
 
           if(match == false){
-            return(Strings.usarTelefonoValido);
+            return(Strings.useValidPhone);
           }
 
           return null;

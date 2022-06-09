@@ -82,10 +82,12 @@ class Strings {
   static String password = 'Contraseña';
   static String typePassword = 'Escriba contraseña';
   static String pleaseFillOutTheField = 'Please Fill Out The Field';
-  static String rellenarCampo = 'Por favor rellene el campo';
+  static String fillOutField = 'Por favor rellene el campo';
+  static String useValidRut = 'Por favor ingrese un rut valido';
   static String pleaseUseValidEmail = 'Please use a valid email';
-  static String usarCorreoValido = 'Por favor use un correo valido';
-  static String usarTelefonoValido = 'Por favor use un télefono valido';
+  static String useValidEmail = 'Por favor ingrese un correo valido';
+  static String useValidPhone = 'Por favor ingrese un télefono valido';
+  static String useValidDate = 'Por favor ingrese una fecha valida';
   static String passwordsNotMatch = 'Passwords do not match';
   static String noCoinciden = 'Las contraseñas no coinciden';
   static String or = 'or';
@@ -113,7 +115,7 @@ class Strings {
   static String demoEmail = 'email@gmail.com';
   static String demoName = 'Josef Milian';
   static String demoFirstName = 'Josef';
-  static String fistName = 'Nombre';
+  static String firstNameEs = 'Nombre';
   static String demoLastName = 'Milian';
   static String demoRut = '12.345.678-9';
   static String demoPhoneNumber = '9-1234-5678';
@@ -165,7 +167,7 @@ class Strings {
   static String rut = 'RUT';
   static String dateBirth = 'Fecha de nacimiento';
   static String idSignUp = 'Cédula de identidad';
-  static String issueDate = 'Fecha de emisión';
+  static String emitDate = 'Fecha de emisión';
   static String expirationDateSignUp = 'Fecha de expiración';
   // sign_up_screen8
   static String paymentMethodSignUp = 'Método de pago';
