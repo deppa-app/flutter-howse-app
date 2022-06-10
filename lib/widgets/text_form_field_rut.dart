@@ -23,20 +23,20 @@ class TextFormFieldRut extends StatelessWidget {
       controller: controller,
       validator: (String value) {
         
-        if (value.isEmpty) {
-          return (Strings.fillOutField);
-        } else {
-          // TODO: Mejorar expresión regular
+        // if (value.isEmpty) {
+        //   return (Strings.fillOutField);
+        // } else {
+        //   // TODO: Mejorar expresión regular
           
-          RegExp regExp = RegExp(r'[0-9]{7,8}\-[0-9kK]');
-          bool match = regExp.hasMatch(value); 
+        //   RegExp regExp = RegExp(r'[0-9]{7,8}\-[0-9kK]');
+        //   bool match = regExp.hasMatch(value); 
 
-          if(match == false){
-            return(Strings.useValidRut);
-          }
+        //   if(match == false){
+        //     return(Strings.useValidRut);
+        //   }
 
-          return null;
-        }
+        //   return null;
+        // }
       },
       decoration: CustomStyle.decorationTextFormField(text)
       

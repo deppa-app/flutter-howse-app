@@ -38,26 +38,26 @@ class TextFormFieldPassword extends StatelessWidget {
       validator: (String value) {  
                
 
-        if (value.isEmpty) {
-          return (Strings.fillOutField);
-        } else if (controller != null && controller2 == null){
-          // TODO: Mejorar expresión regular
+        // if (value.isEmpty) {
+        //   return (Strings.fillOutField);
+        // } else if (controller != null && controller2 == null){
+        //   // TODO: Mejorar expresión regular
 
-          RegExp regExp = RegExp(r'[a-zA-Z0-9@._\-¡!]{8,15}');
-          bool match = regExp.hasMatch(value); 
+        //   RegExp regExp = RegExp(r'[a-zA-Z0-9@._\-¡!]{8,15}');
+        //   bool match = regExp.hasMatch(value); 
 
-          if(!match){
-            return(Strings.passwordsNotMatch);
-          }
+        //   if(!match){
+        //     return(Strings.passwordsNotMatch);
+        //   }
 
         
-        }else if(controller2 != null) {
-          if(controller.text != controller2.text){
+        // }else if(controller2 != null) {
+        //   if(controller.text != controller2.text){
 
-              return (Strings.passwordsNotMatch);
+        //       return (Strings.passwordsNotMatch);
               
-            }
-        }
+        //     }
+        // }
         return null;
         
       },

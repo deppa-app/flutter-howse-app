@@ -23,20 +23,20 @@ class TextFormFieldNumber extends StatelessWidget {
       controller: controller,
       validator: (String value) {
         
-        if (value.isEmpty) {
-          return (Strings.fillOutField);
-        } else {
-          // TODO: Mejorar expresión regular
+        // if (value.isEmpty) {
+        //   return (Strings.fillOutField);
+        // } else {
+        //   // TODO: Mejorar expresión regular
           
-          RegExp regExp = RegExp(r'[9][0-9]{8}');
-          bool match = regExp.hasMatch(value); 
+        //   RegExp regExp = RegExp(r'[9][0-9]{8}');
+        //   bool match = regExp.hasMatch(value); 
 
-          if(match == false){
-            return(Strings.useValidPhone);
-          }
+        //   if(match == false){
+        //     return(Strings.useValidPhone);
+        //   }
 
-          return null;
-        }
+        //   return null;
+        // }
       },
       decoration: CustomStyle.decorationTextFormField(text)
       

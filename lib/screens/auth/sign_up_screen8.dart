@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:howse_app/screens/auth/auth.dart';
 import 'package:howse_app/utils/utils.dart';
@@ -37,213 +38,111 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
               BackWidget(title: Strings.createAnAccount),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
-
-              Text.rich(
-                    TextSpan(
-                      children: [
-                        WidgetSpan(
-                          alignment: PlaceholderAlignment.middle,
-                          child:  Stack(
-                              children: const [
-                                Icon(
-                              Icons.arrow_right_rounded,
-                              color: CustomColor.primaryColor,
-                              size: 80,
-                              ),
-                              ]
-                            ),
-                          ),
-                        TextSpan(
-                          text: Strings.paymentMethodSignUp,
-                          )
-                      ]
-                    ),
-                    style: const TextStyle(
-                    color: CustomColor.electricVioletColor,
-                    fontSize: 16,
-                      fontWeight: FontWeight.bold
-                    ),
-                    textAlign: TextAlign.start,
+              Stack(
+                children: [
+                  const Icon(
+                    Icons.arrow_right_rounded,
+                    color: CustomColor.primaryColor,
+                    size: 80,
                   ),
-              
-              
+                  Positioned(
+                    bottom: 28,
+                    left: 60,
+                    child: Text(Strings.paymentMethodSignUp,
+                      style: const TextStyle(
+                        color: CustomColor.linkColor, 
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold
+                      ),
+                    )
+                  )
+
+                ],
+              ),
+            
               Padding(
                 padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.1
+                  left: MediaQuery.of(context).size.width * 0.13
                 ),
-                child:  Text.rich(
-                    TextSpan(
-                      children: [
-                        const WidgetSpan(
-                          alignment: PlaceholderAlignment.middle,
-                          child: 
-                        Icon(
-                          Icons.credit_card_rounded,
-                          color: CustomColor.primaryColor,
-                          size: 35,
-                          )),
-                        TextSpan(
-                          text: Strings.creditCard,
-                          )
-                      ]
-                    ),
-                    style: const TextStyle(
-                    color: CustomColor.electricVioletColor,
-                    fontSize: 16,
-                      fontWeight: FontWeight.bold
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
+                 child: Row(children: [
+                   Image.asset('assets/images/icon/card_cash.png', scale: 1.5,), //TODO: icono provisorio
+                   Padding(
+                     padding: const EdgeInsets.only(
+                       left: 20,
+                       top: 5
+                      ),
+                     child: Text(Strings.creditCard,
+                     style: const TextStyle(color: CustomColor.primaryColor, fontSize: 16),
+                     ),
+                   )
+                  ],
+                 )
               ),
+
               const Divider(
                 indent: 50,
                 endIndent: 50,
                 thickness: 1,
                 color: Colors.grey,
                 ),
-
-                ListTile(
-                    title: Text.rich(TextSpan(
-                    children: [
-                      const WidgetSpan(
-                        alignment: PlaceholderAlignment.middle,
-                        child: 
-                      Icon(
-                        Icons.credit_card_rounded,
-                        color: CustomColor.primaryColor,
-                        size: 35,
-                        )),
-                      TextSpan(
-                        text: Strings.creditVisa,
-                        ),
-                        const WidgetSpan(
-                        alignment: PlaceholderAlignment.middle,
-                        child: 
-                        Icon(
-                          Icons.keyboard_arrow_right,
-                          color: CustomColor.primaryColor,
-                          size: 35,
-                        )),
-                      ]
-                    ),
-                    ),
-                    leading: const Icon(Icons.circle,
-                    size: 20,
-                    color: Colors.grey,
-                    ),
-                  ),
-
-                  ListTile(
-                    title: Text.rich(TextSpan(
-                    children: [
-                      const WidgetSpan(
-                        alignment: PlaceholderAlignment.middle,
-                        child: 
-                      Icon(
-                        Icons.credit_card_rounded,
-                        color: CustomColor.primaryColor,
-                        size: 35,
-                        )),
-                      TextSpan(
-                        text: Strings.creditVisa,
-                        ),
-                        const WidgetSpan(
-                        alignment: PlaceholderAlignment.middle,
-                        child: 
-                        Icon(
-                          Icons.keyboard_arrow_right,
-                          color: CustomColor.primaryColor,
-                          size: 35,
-                        )),
-                      ]
-                    ),
-                    ),
-                    leading: const Icon(Icons.circle_rounded,
-                    size: 20,
-                    color: Colors.grey,
-                    ),
-                  ),
-                  Padding(
-                padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.1
-                ),
-                child: Text.rich(
-                    TextSpan(
-                      children: [
-                        const WidgetSpan(
-                          alignment: PlaceholderAlignment.middle,
-                          child: 
-                        Icon(
-                          Icons.credit_card_rounded,
-                          color: CustomColor.primaryColor,
-                          size: 35,
-                          )),
-                        TextSpan(
-                          text: Strings.prepaidOption,
-                          )
-                      ]
-                    ),
-                    style: const TextStyle(
-                    color: CustomColor.electricVioletColor,
-                    fontSize: 16,
-                      fontWeight: FontWeight.bold
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-              ),
-              const Divider(
-                indent: 50,
-                endIndent: 50,
-                thickness: 1,
-                color: Colors.grey,
-                ),
-                 ListTile(
-                    title: Text.rich(TextSpan(
-                    children: [
-                      const WidgetSpan(
-                        alignment: PlaceholderAlignment.middle,
-                        child: 
-                      Icon(
-                        Icons.credit_card_rounded,
-                        color: CustomColor.primaryColor,
-                        size: 35,
-                        )),
-                      TextSpan(
-                        text: Strings.noCreditCard,
-                        ),
-                        const WidgetSpan(
-                        alignment: PlaceholderAlignment.middle,
-                        child: 
-                        Icon(
-                          Icons.keyboard_arrow_right,
-                          color: CustomColor.primaryColor,
-                          size: 35,
-                        )),
-                      ]
-                    ),
-                    ),
-                    leading: const Icon(Icons.circle_rounded,
-                    size: 20,
-                    color: Colors.grey,
-                    ),
-                  ),
-
-                  
-                
-              Padding(
-                padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.08,
-                  right: MediaQuery.of(context).size.width * 0.08
-                ),
-                child: SecondaryButtonWidget(
-                    title: Strings.validateSignUp,
-                      onTap: () {
+                ListTileCustom(
+                  fontAwesomeIcon: FontAwesomeIcons.ccVisa, 
+                  title: Strings.creditVisa, 
+                  onTap: () {
                       Navigator.of(context).push(MaterialPageRoute(builder:
                       (context) => const SignUpScreen9()));
                     },
                   ),
+
+              ListTileCustom(
+                fontAwesomeIcon: FontAwesomeIcons.ccPaypal, 
+                title: Strings.creditVisa, 
+                onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder:
+                    (context) => const SignUpScreen9()));
+                  },
+                ),
+
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+
+              Padding(
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.13
               ),
-              const SizedBox(height: Dimensions.heightSize * 2,),
+                child: Row(children: [
+                      const FaIcon(
+                              FontAwesomeIcons.creditCard,
+                              color: Colors.black,
+                              size: 30,
+                              ), //TODO: icono provisorio
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          left: 20,
+                          top: 5
+                          ),
+                        child: Text(Strings.prepaidOption,
+                        style: const TextStyle(color: CustomColor.primaryColor, fontSize: 16),
+                        ),
+                      )
+                      ],
+                      ),
+              ),
+
+              const Divider(
+                indent: 50,
+                endIndent: 50,
+                thickness: 1,
+                color: Colors.grey,
+                ),
+
+              ListTileCustom(
+                fontAwesomeIcon: Icons.credit_card_rounded, 
+                title: Strings.noCreditCard, 
+                onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder:
+                    (context) => const SignUpScreen9()));
+                  },),
+            
             ],
           ),
         ),
@@ -266,19 +165,18 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
             children: [
               Padding(
                  padding: const EdgeInsets.only(
-                    left: Dimensions.marginSize,
+                    left: Dimensions.marginSize ,
                     right: Dimensions.marginSize),
                     child: Text(
                       Strings.chooseMethod,
                        style: const TextStyle(
                        color: CustomColor.primaryColor,
-                        fontSize: 26,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold
                        ),
                          textAlign: TextAlign.center,
                     ),
-                ),
-              const SizedBox(height: Dimensions.heightSize * 2,),                  
+                ),              
               
           ],
         )

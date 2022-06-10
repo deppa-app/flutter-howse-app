@@ -58,15 +58,32 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                 ),
               
               const SizedBox(height: Dimensions.heightSize * 2,),
-              Text(
-                Strings.recibeCode,
-                 style: const TextStyle(
-                 color: Colors.grey,
-                 fontSize: 16,
-                  fontWeight: FontWeight.bold
-                ),
-                textAlign: TextAlign.center,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    Strings.recibeCode,
+                     style: const TextStyle(
+                     color: Colors.grey,
+                     fontSize: 14,
+                      fontWeight: FontWeight.bold
+                    ),
+                    textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(width:10,),
+                    GestureDetector(
+                    child: GestureDetector(
+                    child: const Text(
+                      'Solicitar un nuevo código',
+                      style: TextStyle(
+                          color: CustomColor.linkColor,
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline),
+                      ),
+                    )
+                  )
+                ],
+              ),
             ],
           ),
         ),

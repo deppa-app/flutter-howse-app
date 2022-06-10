@@ -35,13 +35,13 @@ class _SignInScreenState extends State<SignInScreen> {
 
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: SizedBox(
             //width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: ListView(
-              physics: const BouncingScrollPhysics(),
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -81,8 +81,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
     final height = MediaQuery.of(context).size.height;
 
-    return SingleChildScrollView(
-      child: Column(
+    return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           headingWidget(context),
@@ -95,10 +94,9 @@ class _SignInScreenState extends State<SignInScreen> {
           orSignInWidget(context),
           SizedBox(height: height * 0.04),
           alreadyHaveAccountWidget(context),
-          SizedBox(height: height * 0.02),
+          SizedBox(height: height * 0.05),
         ],
-      ),
-    );
+      );
   }
 
   headingWidget(BuildContext context) {

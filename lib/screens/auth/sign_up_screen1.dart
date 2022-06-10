@@ -57,7 +57,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
     final height = MediaQuery.of(context).size.height;
 
     return SafeArea(
-      child: Scaffold(
+      child: Scaffold( resizeToAvoidBottomInset: false,
         body: Container(
           width: width,
           height: height,

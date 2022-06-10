@@ -160,7 +160,6 @@ class _HomeScreenState extends State<HomeScreen> {
                  
                     const SizedBox(height: Dimensions.heightSize,),
                     _bannerWidget(context),
-                    const SizedBox(height: Dimensions.heightSize * 3,),
                     // SecondaryButtonWidget(
                     //     title: "Ver más",
                     //       onTap: () {
@@ -168,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     //       (context) => const MoreInfo()));
                     //     },
                     //   ),
-                    const SizedBox(height: Dimensions.heightSize * 3,),
+                    const SizedBox(height: Dimensions.heightSize * 1,),
                     Padding(
                       padding: EdgeInsets.only(
                         left: MediaQuery.of(context).size.width * 0.08,
@@ -198,6 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         },
                       ),
                     ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.04)
               ],
             ),
           ),
@@ -450,10 +450,24 @@ class _HomeScreenState extends State<HomeScreen> {
   
 
   _bannerWidget(BuildContext context) {
-    return Image.asset(
-      'assets/images/hegga_logo_1a.png',
-      width: MediaQuery.of(context).size.width,
-      fit: BoxFit.fitWidth,
+    return Padding(
+      padding: EdgeInsets.only(
+        left: MediaQuery.of(context).size.width * 0.05,
+        right: MediaQuery.of(context).size.width * 0.05,
+      ),
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.25,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: CustomColor.primaryColor), 
+            borderRadius: BorderRadius.circular(12),
+          ),
+        child:(Image.asset(
+          'assets/images/hegga_logo_1a.png',
+          width: MediaQuery.of(context).size.width,
+          fit: BoxFit.fitWidth,
+        ))
+      ),
     );
   }
 

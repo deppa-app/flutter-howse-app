@@ -26,20 +26,20 @@ class TextFormFieldDate extends StatelessWidget {
       controller: controller,
       validator: (String value) {
         
-        if (value.isEmpty) {
-          return (Strings.fillOutField);
-        } else {
-          // TODO: Mejorar expresión regular
+        // if (value.isEmpty) {
+        //   return (Strings.fillOutField);
+        // } else {
+        //   // TODO: Mejorar expresión regular
           
-          RegExp regExp = RegExp(r'[0-3][1-9]\/[0-1][0-9]\/[1-2][0-9][0-9][0-9]');
-          bool match = regExp.hasMatch(value); 
+        //   RegExp regExp = RegExp(r'[0-3][1-9]\/[0-1][0-9]\/[1-2][0-9][0-9][0-9]');
+        //   bool match = regExp.hasMatch(value); 
 
-          if(match == false){
-            return(Strings.useValidDate);
-          }
+        //   if(match == false){
+        //     return(Strings.useValidDate);
+        //   }
 
-          return null;
-        }
+        //   return null;
+        // }
       },
       decoration: CustomStyle.decorationTextFormField(text, suffixIcon),
       

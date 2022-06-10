@@ -23,19 +23,19 @@ class TextFormFieldEmail extends StatelessWidget {
       controller: controller,
       validator: (String value) {
         
-        if (value.isEmpty) {
-          return (Strings.fillOutField);
-        } else {
-          // TODO: Mejorar expresión regular
-          RegExp regExp = RegExp(r'[a-zA-Z\._\-0-9]+@[a-z0-9\-]+\.[a-z]+');
-          bool match = regExp.hasMatch(value); 
+        // if (value.isEmpty) {
+        //   return (Strings.fillOutField);
+        // } else {
+        //   // TODO: Mejorar expresión regular
+        //   RegExp regExp = RegExp(r'[a-zA-Z\._\-0-9]+@[a-z0-9\-]+\.[a-z]+');
+        //   bool match = regExp.hasMatch(value); 
 
-          if(!match){
-            return(Strings.pleaseUseValidEmail);
-          }
+        //   if(!match){
+        //     return(Strings.pleaseUseValidEmail);
+        //   }
 
-          return null;
-        }
+        //   return null;
+        // }
       },
       decoration: CustomStyle.decorationTextFormField(text)
       
