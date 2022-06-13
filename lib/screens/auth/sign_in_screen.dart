@@ -43,31 +43,7 @@ class _SignInScreenState extends State<SignInScreen> {
             height: MediaQuery.of(context).size.height,
             child: ListView(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    GestureDetector(
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          top: height * 0.03, 
-                          right: width * 0.05),
-                        child: Text(
-                          Strings.createAnAccount,
-                          style: DefaultTextStyle.of(context).style.apply(
-                            fontSizeFactor: 0.4, 
-                            color: CustomColor.primaryColor, 
-                            decoration: TextDecoration.none),
-                        ),
-                      ),
-                      onTap: () {
-                          Navigator.of(context).push(
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const PassSignUpScreen()));
-                        },
-                    ),                  
-                  ],
-                ),
+                createAccountButton(height, width, context),
                 bodyWidget(context)
               ],
             ),
@@ -75,6 +51,34 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       ),
     );
+  }
+
+  createAccountButton(double height, double width, BuildContext context) {
+    return Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        top: height * 0.03, 
+                        right: width * 0.05),
+                      child: Text(
+                        Strings.createAnAccount,
+                        style: DefaultTextStyle.of(context).style.apply(
+                          fontSizeFactor: 0.4, 
+                          color: CustomColor.primaryColor, 
+                          decoration: TextDecoration.none),
+                      ),
+                    ),
+                    onTap: () {
+                        Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const PassSignUpScreen()));
+                      },
+                  ),                  
+                ],
+              );
   }
 
   bodyWidget(BuildContext context) {

@@ -88,6 +88,7 @@ class Strings {
   static String useValidEmail = 'Por favor ingrese un correo valido';
   static String useValidPhone = 'Por favor ingrese un télefono valido';
   static String useValidDate = 'Por favor ingrese una fecha valida';
+  static String invalidCvv = 'CVV invalido';
   static String passwordsNotMatch = 'Passwords do not match';
   static String noCoinciden = 'Las contraseñas no coinciden';
   static String or = 'or';

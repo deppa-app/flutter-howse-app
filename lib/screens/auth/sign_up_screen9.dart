@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:howse_app/screens/auth/auth.dart';
+import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
 
@@ -44,7 +45,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
               BackWidget(title: Strings.createAnAccount),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               Padding(
                 padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07),
                 child: Text(
@@ -60,6 +61,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
 
               Padding(
                 padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.08,
                   left: MediaQuery.of(context).size.width * 0.08,
                   right: MediaQuery.of(context).size.width * 0.08
                 ),
@@ -116,7 +118,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                 child: Text(Strings.enrollingCard,
                 style: const TextStyle(
                   color: CustomColor.primaryColor,
-                  fontSize: 16
+                  fontSize: 16,fontWeight: FontWeight.bold
                 ),),
               ),             
              // const SizedBox(height: 0,),
@@ -132,10 +134,13 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                 thickness: 2,
               ),
 
-              _titleData(Strings.numberCard),
-              CustomTextFormField(
-                text: 'XXXX XXXX XXXX XXXX',
-                controller: numberCardController,
+              Padding(
+                padding: EdgeInsets.only(right: 200),
+                child: _titleData(Strings.numberCard),),
+              
+              TextFormFieldCard(
+                controller: numberCardController, 
+                text: 'XXXX XXXX XXXX XXXX'
                 ),
                   
               Row(
@@ -145,9 +150,9 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                     child: Column(
                       children: [
                         _titleData(Strings.expiryDate),
-                        CustomTextFormField(
+                        TextFormFieldExpirationDate(
                         text: Strings.monthYear,
-                        controller: numberCardController,
+                        controller: dateCardController,
                         ),
                       ],
                     ),
@@ -158,10 +163,13 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                   Expanded(
                     child: Column(
                       children: [
-                        _titleData('CVV'),
-                        CustomTextFormField(
-                          text: Strings.monthYear,
-                          controller: numberCardController,
+                        Padding(padding: EdgeInsets.only(right: 120) ,
+                        child: _titleData('CVV'),
+                        ),
+                        
+                        TextFormFieldCvv(
+                          text: '123',
+                          controller: securityCardController,
                           ),
                       ],
                     ),
@@ -171,40 +179,65 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
 
               SizedBox(height: MediaQuery.of(context).size.height * 0.02,),
 
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(5),
-                  border: Border.all(
-                    color: CustomColor.primaryColor,
-                     
-                    )
-                  ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('Por favor! Confirma tu correo e inscribe tu \n tarjeta',
-                    textAlign: TextAlign.justify,
-                    ),
-                    CheckboxListTile(
-                      title: const Text(
-                        "Si, es mi correo",
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 12.00,
+              
+                Stack(
+                    children: [
+                      Container(
+                      height: 80,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(
+                          color: CustomColor.primaryColor,
+                          )
+                        ),),
+                      const Positioned(
+                        top: 5,
+                        left: 15,
+                        child: Text('Por favor! Confirma tu correo e inscribe tu \n tarjeta',
+                        textAlign: TextAlign.start, 
+                        style: TextStyle(color: CustomColor.greyColor, height: 1),
+                        
                         ),
-                        textAlign: TextAlign.justify,
                       ),
-                      value: false,
-                      onChanged: (newValue) {},
-                      controlAffinity:
-                          ListTileControlAffinity.leading, //  <-- leading Checkbox
-                    ),
-                  ],
-                ),
-              )
-            
-          ],
-        )
+                      
+                      
+                      Positioned(
+                        top: 30,
+                        left: 20,
+                        child: Row(
+                          children: [
+
+                            Checkbox(
+                            value: false,
+                            onChanged: (newValue) {},
+                            ),
+
+                            const Text(
+                              "Si, es mi correo",
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 12.00,
+                              ),
+                              textAlign: TextAlign.start,
+                            ),
+
+                            const SizedBox(width: 40,),
+                            
+                            GestureDetector(
+                              child: const Text(
+                                'Método de pago', 
+                                style: TextStyle(
+                                  color: CustomColor.linkColor, 
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold
+                                  ),),
+                            )
+                        ],),
+                      ),
+                    ],
+                  ),    
+            ],
+          )
       )
     );
   }    
@@ -218,7 +251,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
       child: Text(
         title,
         style: const TextStyle(
-            color: Colors.black
+            color: CustomColor.primaryColor
         ),
       ),
     );

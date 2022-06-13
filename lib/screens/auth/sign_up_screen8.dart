@@ -60,24 +60,10 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                 ],
               ),
             
-              Padding(
-                padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.13
+              rowIconCard(context,
+                  Image.asset('assets/images/icon/card_cash.png', scale: 1.5),
+                  Strings.creditCard
                 ),
-                 child: Row(children: [
-                   Image.asset('assets/images/icon/card_cash.png', scale: 1.5,), //TODO: icono provisorio
-                   Padding(
-                     padding: const EdgeInsets.only(
-                       left: 20,
-                       top: 5
-                      ),
-                     child: Text(Strings.creditCard,
-                     style: const TextStyle(color: CustomColor.primaryColor, fontSize: 16),
-                     ),
-                   )
-                  ],
-                 )
-              ),
 
               const Divider(
                 indent: 50,
@@ -105,29 +91,15 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
 
               SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
 
-              Padding(
-              padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.13
-              ),
-                child: Row(children: [
-                      const FaIcon(
-                              FontAwesomeIcons.creditCard,
-                              color: Colors.black,
-                              size: 30,
-                              ), //TODO: icono provisorio
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 20,
-                          top: 5
-                          ),
-                        child: Text(Strings.prepaidOption,
-                        style: const TextStyle(color: CustomColor.primaryColor, fontSize: 16),
-                        ),
-                      )
-                      ],
+              rowIconCard(context, 
+                const FaIcon(
+                        FontAwesomeIcons.creditCard,
+                        color: Colors.black,
+                        size: 30,
                       ),
-              ),
-
+                Strings.prepaidOption            
+                ),
+              
               const Divider(
                 indent: 50,
                 endIndent: 50,
@@ -148,6 +120,27 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
         ),
       ),
     );
+  }
+
+  rowIconCard(BuildContext context, Widget icon, String title) {
+    return Padding(
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.13
+              ),
+               child: Row(children: [
+                 icon, //TODO: icono provisorio
+                 Padding(
+                   padding: const EdgeInsets.only(
+                     left: 20,
+                     top: 5
+                    ),
+                   child: Text(title,
+                   style: const TextStyle(color: CustomColor.primaryColor, fontSize: 16),
+                   ),
+                 )
+                ],
+               )
+            );
   }
 
 
