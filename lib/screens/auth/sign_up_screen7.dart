@@ -53,27 +53,35 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
               SizedBox(height: height * 0.05),
               inputFieldWidget(context),
               SizedBox(height: height * 0.03),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: width * 0.08,
-                  right: width * 0.08,
-                ),
-                child: SecondaryButtonWidget(
-                    title: Strings.nextSignUp,
-                      onTap: () {
-                        if(formKey.currentState.validate()){
-                            Navigator.of(context).push(MaterialPageRoute(builder:
-                            (context) => const SignUpScreen8()));
-                        }
-                    },
-                  ),
-              ),
+              buttonPadding(width, context),
               const SizedBox(height: Dimensions.heightSize * 2,),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Padding buttonPadding(double width, BuildContext context) {
+    return Padding(
+              padding: EdgeInsets.only(
+                left: width * 0.08,
+                right: width * 0.08,
+              ),
+              child: nextButton(context),
+            );
+  }
+
+  SecondaryButtonWidget nextButton(BuildContext context) {
+    return SecondaryButtonWidget(
+                  title: Strings.nextSignUp,
+                    onTap: () {
+                      if(formKey.currentState.validate()){
+                          Navigator.of(context).push(MaterialPageRoute(builder:
+                          (context) => const SignUpScreen8()));
+                      }
+                  },
+                );
   }
 
 

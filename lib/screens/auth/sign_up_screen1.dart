@@ -66,115 +66,140 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  BackWidget(title: ""),
-                  //Se debe agregar la barra de carga en este apartado
-                ],
-              ),
-              const SizedBox(
-                height: Dimensions.heightSize * 1,
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: width * 0.15,
-                  right: width * 0.15,
-                ),
-                child: const Align(
-                  alignment: Alignment.topCenter,
-                  child: Text(
-                    "Informacion básica para crear tu cuenta",
-                    style: TextStyle(
-                        color: CustomColor.primaryColor,
-                        fontSize: 25,
-                        height: 1.3,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.start,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: height * 0.03,
-                  left: width * 0.12,
-                  right: width * 0.12,
-                ),
-                child: const Align(
-                  alignment: Alignment.topCenter,
-                  child: Text(
-                    "Ingresar tu información para crear tu cuenta.",
-                    style: TextStyle(
-                      color: CustomColor.primaryColor,
-                      fontSize: 16,
-                      height: 2.0,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                ),
-              ),
-              Column(
-                children: [
-                  //TextFormFieldW1(text: "Escribe tu correo", color: CustomColor.primaryColor, dataController: emailController,),
-                  Container(
-                    padding: EdgeInsets.only(
-                      left: width * 0.12,
-                      right: width * 0.12
-                      ),
-                    child: inputFieldWidget(context),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: height * 0.02,
-                      right: width * 0.15
-                    ),
-                    child: const Text('La contraseña debe incluir:',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: CustomColor.primaryColor,
-                      fontWeight: FontWeight.bold
-
-                    ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: width *  0.09,
-                    ),
-                    child: termsCheckBoxWidget(context),
-                  ),
-                  
-                ],
-              ),
-              
+              barIconRow(),
+              const SizedBox(height: Dimensions.heightSize * 1),
+              basicInfoPadding(width),
+              textInfoPadding(height, width),
+              inputColumn(width, context, height),
               SizedBox(height: height * 0.05),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: width * 0.08,
-                  right: width * 0.08,
-                ),
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: SecondaryButtonWidget(
-                    title: "Siguiente",
-                    onTap: () {
-                      if(formKey.currentState.validate()){
-                          Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const SignUpScreen2()));
-                        }
-                    },
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: Dimensions.heightSize * 2,
-              ),
-              
+              nextButtonPadding(width, context),
+              const SizedBox(height: Dimensions.heightSize * 2),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Padding nextButtonPadding(double width, BuildContext context) {
+    return Padding(
+              padding: EdgeInsets.only(
+                left: width * 0.08,
+                right: width * 0.08,
+              ),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: nextButton(context),
+              ),
+            );
+  }
+
+  Padding basicInfoPadding(double width) {
+    return Padding(
+              padding: EdgeInsets.only(
+                left: width * 0.15,
+                right: width * 0.15,
+              ),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: textBasicInfoAccount(),
+              ),
+            );
+  }
+
+  Padding textInfoPadding(double height, double width) {
+    return Padding(
+              padding: EdgeInsets.only(
+                top: height * 0.03,
+                left: width * 0.12,
+                right: width * 0.12,
+              ),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: textInfoAccount(),
+              ),
+            );
+  }
+
+  Row barIconRow() {
+    return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                BackWidget(title: ""),
+                //Se debe agregar la barra de carga en este apartado
+              ],
+            );
+  }
+
+  Text textBasicInfoAccount() {
+    return Text(
+                  Strings.basicInfoAccount,
+                  style: const TextStyle(
+                      color: CustomColor.primaryColor,
+                      fontSize: 25,
+                      height: 1.3,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.start,
+                );
+  }
+
+  Text textInfoAccount() {
+    return Text(
+                  Strings.infoAccount,
+                  style: const TextStyle(
+                    color: CustomColor.primaryColor,
+                    fontSize: 16,
+                    height: 2.0,
+                  ),
+                  textAlign: TextAlign.start,
+                );
+  }
+
+  Column inputColumn(double width, BuildContext context, double height) {
+    return Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(
+                    left: width * 0.12,
+                    right: width * 0.12
+                    ),
+                  child: inputFieldWidget(context),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: height * 0.02,
+                    right: width * 0.15
+                  ),
+                  child: Text(Strings.passwordContain,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: CustomColor.primaryColor,
+                    fontWeight: FontWeight.bold
+
+                  ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: width *  0.09,
+                  ),
+                  child: termsCheckBoxWidget(context),
+                ),
+                
+              ],
+            );
+  }
+
+  SecondaryButtonWidget nextButton(BuildContext context) {
+    return SecondaryButtonWidget(
+                  title: "Siguiente",
+                  onTap: () {
+                    if(formKey.currentState.validate()){
+                        Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SignUpScreen2()));
+                      }
+                  },
+                );
   }
 
   headingWidget(BuildContext context) {

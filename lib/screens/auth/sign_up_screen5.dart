@@ -39,56 +39,80 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
               SizedBox(height: height * 0.02),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [ 
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: width * 0.08
-                    ),
-                    child: const FaIcon(FontAwesomeIcons.circleUser, size: 30, color: CustomColor.primaryColor)
-                  ),
-                  SizedBox(width: width * 0.03),
-                  Text(
-                    Strings.reversePhoto,
-                     style: TextStyle(
-                     color: Colors.grey,
-                     fontSize: Dimensions.largeTextSize,
-                      fontWeight: FontWeight.bold
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                ],
-              ),
+              iconRow(width),
               const SizedBox(height: 340,),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: width * 0.08,
-                  right: width * 0.08,
-                ),
-                child: SecondaryButtonWidget(
-                    title: Strings.validateSignUp,
-                      onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder:
-                      (context) => const SignUpScreen6()));
-                    },
-                  ),
-              ),
+              validateButtonPadding(width, context),
               const SizedBox(height: Dimensions.heightSize * 2,),
-              Text(
-                Strings.photoInstructions,
-                 style: TextStyle(
-                 color: Colors.grey,
-                 fontSize: Dimensions.largeTextSize,
-                  fontWeight: FontWeight.bold
-                ),
-                textAlign: TextAlign.center,
-                ),
+              textPhotoInstructions(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Row iconRow(double width) {
+    return Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [ 
+                iconPadding(width),
+                SizedBox(width: width * 0.03),
+                textReversePhoto(),
+              ],
+            );
+  }
+
+  Padding iconPadding(double width) {
+    return Padding(
+                  padding: EdgeInsets.only(
+                    left: width * 0.08
+                  ),
+                  child: const FaIcon(FontAwesomeIcons.circleUser, size: 30, color: CustomColor.primaryColor)
+                );
+  }
+
+  Text textReversePhoto() {
+    return Text(
+                  Strings.reversePhoto,
+                   style: TextStyle(
+                   color: Colors.grey,
+                   fontSize: Dimensions.largeTextSize,
+                    fontWeight: FontWeight.bold
+                  ),
+                  textAlign: TextAlign.start,
+                );
+  }
+
+  Padding validateButtonPadding(double width, BuildContext context) {
+    return Padding(
+              padding: EdgeInsets.only(
+                left: width * 0.08,
+                right: width * 0.08,
+              ),
+              child: validateButton(context),
+            );
+  }
+
+  SecondaryButtonWidget validateButton(BuildContext context) {
+    return SecondaryButtonWidget(
+                  title: Strings.validateSignUp,
+                    onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder:
+                    (context) => const SignUpScreen6()));
+                  },
+                );
+  }
+
+  Text textPhotoInstructions() {
+    return Text(
+              Strings.photoInstructions,
+               style: TextStyle(
+               color: Colors.grey,
+               fontSize: Dimensions.largeTextSize,
+                fontWeight: FontWeight.bold
+              ),
+              textAlign: TextAlign.center,
+              );
   }
 
 

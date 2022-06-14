@@ -39,7 +39,6 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                 itemCount: totalPages,
                 layout: SwiperLayout.DEFAULT,
                 itemWidth: width,
-                itemHeight: 550,
                 itemBuilder: (_, int index){
                   return PageView.builder(
                 itemCount: totalPages,
@@ -47,146 +46,106 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                   OnBoardingItem oi = OnBoardingItems.loadOnboardItem()[index];
                   return Column(
                       children: [
-                        Positioned(
-                          top: 30,
-                          right: -10,
-                          left: -10,
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: Dimensions.marginSize * 1.5,
-                              right: Dimensions.marginSize * 1.5,
-                            ),
-                            child:  Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Container(
-                                  width: MediaQuery.of(context).size.width,
-                                  padding: const EdgeInsets.only(
-                                      left: Dimensions.marginSize,
-                                      right: Dimensions.marginSize),
-                                  child: Text(
-                                    oi.title,
-                                    style: TextStyle(
-                                        color: CustomColor.primaryColor,
-                                        fontSize:
-                                            Dimensions.extraLargeTextSize *
-                                                1.5,
-                                        fontWeight: FontWeight.bold),
-                                    textAlign: TextAlign.justify,
-                                  ),
-                                ),
-                                const SizedBox(
-                                  height: Dimensions.heightSize * 2,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: Dimensions.marginSize,
-                                      right: Dimensions.marginSize),
-                                  child: Text(
-                                    oi.subTitle,
-                                    style: TextStyle(
-                                      color: CustomColor.primaryColor,
-                                      fontSize: Dimensions.largeTextSize,
-                                    ),
-                                    textAlign: TextAlign.justify,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    top: 40.00,
-                                    left: Dimensions.marginSize,
-                                    right: Dimensions.marginSize,
-                                  ),
-                                  child: Align(
-                                    alignment: Alignment.topCenter,
-                                    child: Image.asset(
-                                      'assets/images/lorem-image.png',
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.width,
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    child: index != (totalPages)
-                                        ? Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 40.0),
-                                            child: SizedBox(
-                                              width: 110.0,
-                                              height: 40.0,
-                                              child: ListView.builder(
-                                                itemCount: totalPages,
-                                                shrinkWrap: true,
-                                                scrollDirection: Axis.horizontal,
-                                                itemBuilder: (context, i) {
-                                                  return Padding(
-                                                    padding:
-                                                        const EdgeInsets.only(
-                                                            right: 10.0),
-                                                    child: Text(
-                                                      ("o").toString(),
-                                                      style: TextStyle(
-                                                          color: index == i
-                                                              ? CustomColor
-                                                                  .primaryColor
-                                                              : CustomColor
-                                                                  .primaryColor
-                                                                  .withOpacity(
-                                                                      0.5),
-                                                          fontSize: 18.00,
-                                                          fontWeight: index == i
-                                                              ? FontWeight.bold
-                                                              : FontWeight
-                                                                  .normal),
-                                                    ),
-                                                  );
-                                                },
-                                              ),
-                                            ),
-                                          )
-                                        : Column(
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: MediaQuery.of(context).size.width * 0.1,
-                                                  right: MediaQuery.of(context).size.width * 0.1
-                                                ),
-                                                child: SecondaryButtonWidget(
-                                                  title: Strings.createAnAccount,
-                                                  onTap: () {
-                                                    Navigator.of(context).push(
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                const PassSignUpScreen()));
-                                                  },
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                height: Dimensions.heightSize,
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: MediaQuery.of(context).size.width * 0.1,
-                                                  right: MediaQuery.of(context).size.width * 0.1),
-                                                child: PrimaryButtonWidget(
-                                                  title: Strings.signInAccount,
-                                                  onTap: () {
-                                                    Navigator.of(context).push(
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                const SignInScreen()));
-                                                  },
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                  ),
-                                ),
-                              ],
-                            ))
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            left: Dimensions.marginSize * 1.5,
+                            right: Dimensions.marginSize * 1.5,
                           ),
+                          child:  Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width,
+                                padding: const EdgeInsets.only(
+                                    left: Dimensions.marginSize,
+                                    right: Dimensions.marginSize),
+                                child: Text(
+                                  oi.title,
+                                  style: TextStyle(
+                                      color: CustomColor.primaryColor,
+                                      fontSize:
+                                          Dimensions.extraLargeTextSize *
+                                              1.5,
+                                      fontWeight: FontWeight.bold),
+                                  textAlign: TextAlign.justify,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: Dimensions.heightSize * 2,
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: Dimensions.marginSize,
+                                    right: Dimensions.marginSize),
+                                child: Text(
+                                  oi.subTitle,
+                                  style: TextStyle(
+                                    color: CustomColor.primaryColor,
+                                    fontSize: Dimensions.largeTextSize,
+                                  ),
+                                  textAlign: TextAlign.justify,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 40.00,
+                                  left: Dimensions.marginSize,
+                                  right: Dimensions.marginSize,
+                                ),
+                                child: Align(
+                                  alignment: Alignment.topCenter,
+                                  child: Image.asset(
+                                    'assets/images/lorem-image.png',
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: index != (totalPages)
+                                      ? Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 40.0),
+                                          child: SizedBox(
+                                            width: 110.0,
+                                            height: 40.0,
+                                            child: ListView.builder(
+                                              itemCount: totalPages,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.horizontal,
+                                              itemBuilder: (context, i) {
+                                                return Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          right: 10.0),
+                                                  child: Text(
+                                                    ("o").toString(),
+                                                    style: TextStyle(
+                                                        color: index == i
+                                                            ? CustomColor
+                                                                .primaryColor
+                                                            : CustomColor
+                                                                .primaryColor
+                                                                .withOpacity(
+                                                                    0.5),
+                                                        fontSize: 18.00,
+                                                        fontWeight: index == i
+                                                            ? FontWeight.bold
+                                                            : FontWeight
+                                                                .normal),
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                          ),
+                                        )
+                                      : paddingButtons(context)
+                                ),
+                              ),
+                            ],
+                          )),
                           
                       ],
                     );
@@ -194,68 +153,62 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                 },
               ),
             ),
-            Padding(
-                    padding: const EdgeInsets.only(
-                      left: Dimensions.marginSize,
-                      right: Dimensions.marginSize,
-                    ),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width * 0.03,
-                            right: MediaQuery.of(context).size.width * 0.03),
-                          child: SecondaryButtonWidget(
-                            title: Strings.createAnAccount,
-                            onTap: () {
-                              Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const PassSignUpScreen()));
-                            },
-                          ),
-                        ),
 
-                        const SizedBox(
-                          height: Dimensions.heightSize,
-                        ),
+            paddingButtons(context),
 
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width * 0.03,
-                            right: MediaQuery.of(context).size.width * 0.03),
-                          child: PrimaryButtonWidget(
-                            title: Strings.signInAccount,
-                            onTap: () {
-                              Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const SignInScreen()));
-                            },
-                          ),
-                        ),
+            SizedBox(height: height * 0.03),
+            
+                  
+            
+            Text(Strings.haveAccount, style: const TextStyle(fontSize: 14, color: CustomColor.primaryColor)),
+            
+            SizedBox(height: height * 0.04),
 
-                        SizedBox(height: height * 0.04),
-
-                        
-
-                        const Text('¿Ya tienes una cuenta?', style: TextStyle(fontSize: 16, color: CustomColor.primaryColor)),
-
-                        SizedBox(height: height * 0.04),
-                      ],
-                    ),
-                  )
-            ]),
+            ]
+            
+          ),
         )
-        )
-        
-        
-        
-        
-      );
-    
-    
-    
+      ) 
+    );
+  }
+
+  paddingButtons(BuildContext context) {
+    return Padding(
+            padding: EdgeInsets.only(
+              left: MediaQuery.of(context).size.width * 0.08,
+              right: MediaQuery.of(context).size.width * 0.08
+            ),
+            child: Column(
+              children: [
+                SecondaryButtonWidget(
+                  title: Strings.createAnAccount,
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const PassSignUpScreen()));
+                  },
+                ),
+          
+                const SizedBox(
+                  height: Dimensions.heightSize,
+                ),
+          
+                PrimaryButtonWidget(
+                  title: Strings.signInAccount,
+                  onTap: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const SignInScreen()));
+                  },
+                ),
+          
+                
+              ],
+              
+            ),
+          );
   }
 }
 

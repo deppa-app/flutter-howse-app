@@ -39,37 +39,41 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
             shrinkWrap: true,
             children: [
               const BackWidget(title: ""),
-              SizedBox(
-                height: height * 0.02,
-              ),
+              SizedBox(height: height * 0.02),
               inputFieldWidget(context),
               SizedBox(height: height * 0.35),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: width * 0.08,
-                  right: width * 0.08,
-                ),
-                child: Align(
-                  alignment: Alignment.topCenter,
-                  child: SecondaryButtonWidget(
-                    title: Strings.nextSignUp,
-                    onTap: () {
-                      if(formKey.currentState.validate()){
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const SignUpScreen3()));
-                      }
-                    },
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: height * 0.02,
-              ),
+              nextButtonPadding(width, context),
+              SizedBox(height: height * 0.02),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Padding nextButtonPadding(double width, BuildContext context) {
+    return Padding(
+              padding: EdgeInsets.only(
+                left: width * 0.08,
+                right: width * 0.08,
+              ),
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: _nextButton(context),
+              ),
+            );
+  }
+
+  SecondaryButtonWidget _nextButton(BuildContext context) {
+    return SecondaryButtonWidget(
+                  title: Strings.nextSignUp,
+                  onTap: () {
+                    if(formKey.currentState.validate()){
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const SignUpScreen3()));
+                    }
+                  },
+                );
   }
 
   inputFieldWidget(BuildContext context) {

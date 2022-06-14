@@ -78,6 +78,9 @@ class Strings {
 
   //sign in screen
   // TODO: revisar textos en español
+  static String basicInfoAccount = 'Informacion básica para crear tu cuenta';
+  static String infoAccount = 'Ingresa tu información para crear tu cuenta.';
+  static String passwordContain = 'La contraseña debe incluir:';
   static String signInAccount = 'Iniciar sesión';
   static String password = 'Contraseña';
   static String typePassword = 'Escriba contraseña';
@@ -132,6 +135,9 @@ class Strings {
 
 
   //agregadas TODO: ordenar
+  // on_board
+  static String haveAccount = '¿Ya tienes una cuenta?';
+
   // sign_up_screen
   static String titleSignUp = 'Únete al cambio de la comodidad';
   static String bodySignUp = 'Antes de comenzar tu registro, te pediremos que tengas a mano tu documento de identidad vigente.';
@@ -144,6 +150,7 @@ class Strings {
   static String phoneNumberSignUp = 'Ingresar tu número telefónico para validar tu dispositivo';
   static String formPhoneNumberSignUp = 'Escribe tu teléfono personal';
   // sign_up_screen3
+  static String newCode = 'Solicitar un nuevo código';
   static String validateSignUp = 'Validar';
   static String recibeCode = '¿No recibiste el código?';
   static String confirmNumber = 'Confirma tu número de teléfono'; 
@@ -178,9 +185,13 @@ class Strings {
   static String noCreditCard = 'No tengo tarjeta de credito';
   static String chooseMethod = 'Elige tu método de pago';
   // sign_up_screen9
+  static String myEmail = 'Sí, es mi correo';
+  static String confirmEmailCard = 'Por favor! Confirma tu correo e inscribe tu \n tarjeta';
+  static String numberCard = 'XXXX XXXX XXXX XXXX';
+  static String titleCvv = 'CVV';
   static String validateCard = '*Validaremos los datos de tu tarjeta';
   static String enrollingCard = 'Estas inscribiendo tu tarjeta';
-  static String numberCard = 'Número de tarjeta';
+  static String titleNumberCard = 'Número de tarjeta';
   static String expiryDate = 'Fecha de caducidad';
   static String monthYear = 'MM/AA';
 

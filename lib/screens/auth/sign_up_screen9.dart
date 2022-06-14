@@ -46,41 +46,55 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-              Padding(
-                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07),
-                child: Text(
-                  Strings.validateCard,
-                   style: TextStyle(
-                   color: Colors.grey,
-                   fontSize: Dimensions.largeTextSize * 0.8,
-                    fontWeight: FontWeight.bold
-                  ),
-                  textAlign: TextAlign.start,
-                  ),
-              ),
-
-              Padding(
-                padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.08,
-                  left: MediaQuery.of(context).size.width * 0.08,
-                  right: MediaQuery.of(context).size.width * 0.08
-                ),
-                child: SecondaryButtonWidget(
-                    title: "Guardar",
-                      onTap: () {
-                        if(formKey.currentState.validate()){
-                            Navigator.of(context).push(MaterialPageRoute(builder:
-                            (context) => const SignUpScreen10()));
-                        }
-                    },
-                  ),
-              ),
+              validateCardPadding(context),              buttonPadding(context),
               const SizedBox(height: Dimensions.heightSize * 2,),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Padding buttonPadding(BuildContext context) {
+    return Padding(
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.08,
+                left: MediaQuery.of(context).size.width * 0.08,
+                right: MediaQuery.of(context).size.width * 0.08
+              ),
+              child: saveButton(context),
+            );
+  }
+
+  SecondaryButtonWidget saveButton(BuildContext context) {
+    return SecondaryButtonWidget(
+                  title: "Guardar",
+                    onTap: () {
+                      if(formKey.currentState.validate()){
+                          Navigator.of(context).push(MaterialPageRoute(builder:
+                          (context) => const SignUpScreen10()));
+                      }
+                  },
+                );
+  }
+
+  Padding validateCardPadding(BuildContext context) {
+    return Padding(
+              padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07),
+              child: textValidateCard(),
+            );
+  }
+
+  Text textValidateCard() {
+    return Text(
+                Strings.validateCard,
+                 style: TextStyle(
+                 color: Colors.grey,
+                 fontSize: Dimensions.largeTextSize * 0.8,
+                  fontWeight: FontWeight.bold
+                ),
+                textAlign: TextAlign.start,
+                );
   }
 
 
@@ -135,12 +149,12 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
               ),
 
               Padding(
-                padding: EdgeInsets.only(right: 200),
-                child: _titleData(Strings.numberCard),),
+                padding: const EdgeInsets.only(right: 200),
+                child: _titleData(Strings.titleNumberCard),),
               
               TextFormFieldCard(
                 controller: numberCardController, 
-                text: 'XXXX XXXX XXXX XXXX'
+                text: Strings.numberCard
                 ),
                   
               Row(
@@ -164,7 +178,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                     child: Column(
                       children: [
                         Padding(padding: EdgeInsets.only(right: 120) ,
-                        child: _titleData('CVV'),
+                        child: _titleData(Strings.cvv),
                         ),
                         
                         TextFormFieldCvv(
@@ -190,12 +204,12 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                           color: CustomColor.primaryColor,
                           )
                         ),),
-                      const Positioned(
+                      Positioned(
                         top: 5,
                         left: 15,
-                        child: Text('Por favor! Confirma tu correo e inscribe tu \n tarjeta',
+                        child: Text(Strings.confirmEmailCard,
                         textAlign: TextAlign.start, 
-                        style: TextStyle(color: CustomColor.greyColor, height: 1),
+                        style: const TextStyle(color: CustomColor.greyColor, height: 1),
                         
                         ),
                       ),
@@ -212,9 +226,9 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                             onChanged: (newValue) {},
                             ),
 
-                            const Text(
-                              "Si, es mi correo",
-                              style: TextStyle(
+                            Text(
+                              Strings.myEmail,
+                              style: const TextStyle(
                                 color: Colors.grey,
                                 fontSize: 12.00,
                               ),
@@ -224,9 +238,9 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                             const SizedBox(width: 40,),
                             
                             GestureDetector(
-                              child: const Text(
-                                'Método de pago', 
-                                style: TextStyle(
+                              child:  Text(
+                                Strings.paymentMethodSignUp, 
+                                style: const TextStyle(
                                   color: CustomColor.linkColor, 
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold

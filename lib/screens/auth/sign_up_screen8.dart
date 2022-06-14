@@ -38,47 +38,20 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
               BackWidget(title: Strings.createAnAccount),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
-              Stack(
-                children: [
-                  const Icon(
-                    Icons.arrow_right_rounded,
-                    color: CustomColor.primaryColor,
-                    size: 80,
-                  ),
-                  Positioned(
-                    bottom: 28,
-                    left: 60,
-                    child: Text(Strings.paymentMethodSignUp,
-                      style: const TextStyle(
-                        color: CustomColor.linkColor, 
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold
-                      ),
-                    )
-                  )
-
-                ],
-              ),
-            
+              paymentMethodStack(),
               rowIconCard(context,
                   Image.asset('assets/images/icon/card_cash.png', scale: 1.5),
                   Strings.creditCard
                 ),
-
-              const Divider(
-                indent: 50,
-                endIndent: 50,
-                thickness: 1,
-                color: Colors.grey,
+              customDivider(), 
+              ListTileCustom(
+                fontAwesomeIcon: FontAwesomeIcons.ccVisa, 
+                title: Strings.creditVisa, 
+                onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder:
+                    (context) => const SignUpScreen9()));
+                  },
                 ),
-                ListTileCustom(
-                  fontAwesomeIcon: FontAwesomeIcons.ccVisa, 
-                  title: Strings.creditVisa, 
-                  onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder:
-                      (context) => const SignUpScreen9()));
-                    },
-                  ),
 
               ListTileCustom(
                 fontAwesomeIcon: FontAwesomeIcons.ccPaypal, 
@@ -88,9 +61,7 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                     (context) => const SignUpScreen9()));
                   },
                 ),
-
               SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
-
               rowIconCard(context, 
                 const FaIcon(
                         FontAwesomeIcons.creditCard,
@@ -99,14 +70,7 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                       ),
                 Strings.prepaidOption            
                 ),
-              
-              const Divider(
-                indent: 50,
-                endIndent: 50,
-                thickness: 1,
-                color: Colors.grey,
-                ),
-
+              customDivider(),
               ListTileCustom(
                 fontAwesomeIcon: Icons.credit_card_rounded, 
                 title: Strings.noCreditCard, 
@@ -114,12 +78,52 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                     Navigator.of(context).push(MaterialPageRoute(builder:
                     (context) => const SignUpScreen9()));
                   },),
-            
             ],
           ),
         ),
       ),
     );
+  }
+
+  Stack paymentMethodStack() {
+    return Stack(
+              children: [
+                const Icon(
+                  Icons.arrow_right_rounded,
+                  color: CustomColor.primaryColor,
+                  size: 80,
+                ),
+                paymentMethodPositioned()
+
+              ],
+            );
+  }
+
+  Positioned paymentMethodPositioned() {
+    return Positioned(
+                  bottom: 28,
+                  left: 60,
+                  child: textPaymentMethod()
+                );
+  }
+
+  Text textPaymentMethod() {
+    return Text(Strings.paymentMethodSignUp,
+                    style: const TextStyle(
+                      color: CustomColor.linkColor, 
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold
+                    ),
+                  );
+  }
+
+  Divider customDivider() {
+    return const Divider(
+              indent: 50,
+              endIndent: 50,
+              thickness: 1,
+              color: Colors.grey,
+              );
   }
 
   rowIconCard(BuildContext context, Widget icon, String title) {

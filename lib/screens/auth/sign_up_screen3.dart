@@ -42,53 +42,73 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
               SizedBox(height: height * 0.4 ,),// TODO: Cambiar por widget código seguridad.
-              Padding(
-                padding: EdgeInsets.only(
-                  top: height * 0.06,
-                  left: width * 0.08,
-                  right: width * 0.08,
-                ),
-                child: SecondaryButtonWidget(
-                  title: Strings.validateSignUp,
-                    onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const SignUpScreen4()));
-                  },
-                ),
-                ),
-              
+              validateButtonPadding(height, width, context),
               const SizedBox(height: Dimensions.heightSize * 2,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    Strings.recibeCode,
-                     style: const TextStyle(
-                     color: Colors.grey,
-                     fontSize: 14,
-                      fontWeight: FontWeight.bold
-                    ),
-                    textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(width:10,),
-                    GestureDetector(
-                    child: GestureDetector(
-                    child: const Text(
-                      'Solicitar un nuevo código',
-                      style: TextStyle(
-                          color: CustomColor.linkColor,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline),
-                      ),
-                    )
-                  )
-                ],
-              ),
+              footerRow(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Row footerRow() {
+    return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                textReciveCode(),
+                const SizedBox(width:10,),
+                _newCode()
+              ],
+            );
+  }
+
+  Padding validateButtonPadding(double height, double width, BuildContext context) {
+    return Padding(
+              padding: EdgeInsets.only(
+                top: height * 0.06,
+                left: width * 0.08,
+                right: width * 0.08,
+              ),
+              child: validateButton(context),
+              );
+  }
+
+  SecondaryButtonWidget validateButton(BuildContext context) {
+    return SecondaryButtonWidget(
+                title: Strings.validateSignUp,
+                  onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder:
+                  (context) => const SignUpScreen4()));
+                },
+              );
+  }
+
+  Text textReciveCode() {
+    return Text(
+                  Strings.recibeCode,
+                   style: const TextStyle(
+                   color: Colors.grey,
+                   fontSize: 14,
+                    fontWeight: FontWeight.bold
+                  ),
+                  textAlign: TextAlign.center,
+                  );
+  }
+
+  GestureDetector _newCode() {
+    return GestureDetector(
+                  child: GestureDetector(
+                  child: Text(
+                    Strings.newCode,
+                    style: TextStyle(
+                        color: CustomColor.linkColor,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline),
+                    ),
+                    // onTap: (value){},
+                  )
+                );
   }
 
 
