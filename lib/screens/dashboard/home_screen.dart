@@ -20,8 +20,8 @@ import '../servicesAviable/locksmithment.dart';
 import '../servicesAviable/plumbing.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key key}) : super(key: key);
-
+  const HomeScreen({Key key, this.idProfile}) : super(key: key);
+  final int idProfile;
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -33,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
- 
     super.initState();
 
     //_determinePosition();
@@ -103,7 +102,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: Strings.signOut,
                   onTap: () {
                     Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SignInScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SignInScreen()));
                   },
                 ),
               ],
@@ -122,9 +122,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       color: Colors.blue,
                       child: GestureDetector(
-                        child: Image.asset('assets/images/lorem-image.jpeg',
-                        height: MediaQuery.of(context).size.height * 0.6,
-                        width: MediaQuery.of(context).size.width,),
+                        child: Image.asset(
+                          'assets/images/lorem-image.jpeg',
+                          height: MediaQuery.of(context).size.height * 0.6,
+                          width: MediaQuery.of(context).size.width,
+                        ),
                         onTap: () => {},
                       ),
                     ),
@@ -133,15 +135,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       right: 0,
                       child: Column(
                         children: [
-                          circularButtonWidget(context, const Plumbing() ),
-                          const SizedBox(height: Dimensions.heightSize * 2,),
+                          circularButtonWidget(context, const Plumbing()),
+                          const SizedBox(
+                            height: Dimensions.heightSize * 2,
+                          ),
                           circularButtonWidget(context, const Locksmithment()),
-                          const SizedBox(height: Dimensions.heightSize * 2,),
+                          const SizedBox(
+                            height: Dimensions.heightSize * 2,
+                          ),
                           circularButtonWidget(context, const Cleaning()),
-                          const SizedBox(height: Dimensions.heightSize * 2,),
+                          const SizedBox(
+                            height: Dimensions.heightSize * 2,
+                          ),
                           circularButtonWidget(context, const Removals()),
-                          const SizedBox(height: Dimensions.heightSize * 2,),
-                          
+                          const SizedBox(
+                            height: Dimensions.heightSize * 2,
+                          ),
                         ],
                       ),
                     ),
@@ -175,51 +184,51 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     
                     _menuWidget(context),
-                      
                   ],
-                  
                 ),
-                 
-                    const SizedBox(height: Dimensions.heightSize,),
-                    _bannerWidget(context),
-                    // SecondaryButtonWidget(
-                    //     title: "Ver más",
-                    //       onTap: () {
-                    //       Navigator.of(context).push(MaterialPageRoute(builder:
-                    //       (context) => const MoreInfo()));
-                    //     },
-                    //   ),
-                    const SizedBox(height: Dimensions.heightSize * 1,),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * 0.08,
-                        right: MediaQuery.of(context).size.width * 0.08
-                      ),
-                      child: SecondaryButtonWidget(
-                          title: "Reserva visita ahora",
-                            onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder:
-                            (context) => const Booking()));
-                          },
-                        ),
-                    ),
 
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-
-                    Padding(
-                      padding: EdgeInsets.only(
+                const SizedBox(
+                  height: Dimensions.heightSize,
+                ),
+                _bannerWidget(context),
+                // SecondaryButtonWidget(
+                //     title: "Ver más",
+                //       onTap: () {
+                //       Navigator.of(context).push(MaterialPageRoute(builder:
+                //       (context) => const MoreInfo()));
+                //     },
+                //   ),
+                const SizedBox(
+                  height: Dimensions.heightSize * 1,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
                       left: MediaQuery.of(context).size.width * 0.08,
-                      right: MediaQuery.of(context).size.width * 0.08
-                    ),
-                      child: PrimaryButtonWidget(
-                        title: "Programar visita",
-                          onTap: () {
-                          /*Navigator.of(context).push(MaterialPageRoute(builder:
+                      right: MediaQuery.of(context).size.width * 0.08),
+                  child: SecondaryButtonWidget(
+                    title: "Reserva visita ahora",
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const Booking()));
+                    },
+                  ),
+                ),
+
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * 0.08,
+                      right: MediaQuery.of(context).size.width * 0.08),
+                  child: PrimaryButtonWidget(
+                    title: "Programar visita",
+                    onTap: () {
+                      /*Navigator.of(context).push(MaterialPageRoute(builder:
                           (context) => const SignUpScreen10()));*/
-                        },
-                      ),
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04)
+                    },
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.04)
               ],
             ),
           ),
@@ -347,22 +356,18 @@ class _HomeScreenState extends State<HomeScreen> {
   _menuWidget(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        left: Dimensions.marginSize,
-        right: Dimensions.marginSize,
-        top: Dimensions.heightSize
-      ),
+          left: Dimensions.marginSize,
+          right: Dimensions.marginSize,
+          top: Dimensions.heightSize),
       child: Container(
         height: MediaQuery.of(context).size.height * 0.06,
         decoration: BoxDecoration(
           boxShadow: [
-            BoxShadow(
-              color: CustomColor.accentColor.withOpacity(0.3)
-            )
+            BoxShadow(color: CustomColor.accentColor.withOpacity(0.3))
           ],
           borderRadius: BorderRadius.circular(10),
           color: Colors.white,
-          ),
-        
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -374,7 +379,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(Dimensions.radius),
-                  
                   boxShadow: const [
                     BoxShadow(
                       color: Colors.white,
@@ -390,14 +394,16 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               onTap: () {
-                if(scaffoldKey.currentState.isDrawerOpen) {
+                if (scaffoldKey.currentState.isDrawerOpen) {
                   return scaffoldKey.currentState.openEndDrawer();
                 } else {
                   return scaffoldKey.currentState.openDrawer();
                 }
               },
             ),
-            const SizedBox(width: Dimensions.widthSize,),
+            const SizedBox(
+              width: Dimensions.widthSize,
+            ),
             Expanded(
               child: Container(
                 alignment: Alignment.center,
@@ -406,16 +412,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: CustomStyle.textStyle,
                   controller: searchController,
                   keyboardType: TextInputType.text,
-                  validator: (String value){
-                    if(value.isEmpty){
+                  validator: (String value) {
+                    if (value.isEmpty) {
                       return Strings.pleaseFillOutTheField;
-                    }else{
+                    } else {
                       return null;
                     }
                   },
                   decoration: InputDecoration(
                     hintText: Strings.searchResult,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 5.0, horizontal: 20.0),
                     labelStyle: CustomStyle.textStyle,
                     filled: true,
                     fillColor: Colors.white,
@@ -433,7 +440,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-            const SizedBox(width: Dimensions.widthSize,),
+            const SizedBox(
+              width: Dimensions.widthSize,
+            ),
             GestureDetector(
               child: Container(
                 height: Dimensions.buttonHeight,
@@ -460,16 +469,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     FilterScreen()));*/
               },
             )
-
           ],
         ),
       ),
     );
   }
-
- 
-
-  
 
   _bannerWidget(BuildContext context) {
     return Padding(
@@ -478,24 +482,20 @@ class _HomeScreenState extends State<HomeScreen> {
         right: MediaQuery.of(context).size.width * 0.05,
       ),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.25,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: CustomColor.primaryColor), 
+          height: MediaQuery.of(context).size.height * 0.25,
+          decoration: BoxDecoration(
+            border: Border.all(color: CustomColor.primaryColor),
             borderRadius: BorderRadius.circular(12),
           ),
-        child:(Image.asset(
-          'assets/images/hegga_logo_1a.png',
-          width: MediaQuery.of(context).size.width,
-          fit: BoxFit.fitWidth,
-        ))
-      ),
+          child: (Image.asset(
+            'assets/images/hegga_logo_1a.png',
+            width: MediaQuery.of(context).size.width,
+            fit: BoxFit.fitWidth,
+          ))),
     );
   }
 
-  
   circularButtonWidget(BuildContext context, Widget page) {
-    
     return Padding(
       padding: const EdgeInsets.only(
           left: Dimensions.marginSize, right: Dimensions.marginSize),
@@ -505,17 +505,16 @@ class _HomeScreenState extends State<HomeScreen> {
           color: CustomColor.whiteColor,
         ),
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-              page));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => page));
         },
       ),
     );
   }
 
 //Menú flotante para reservas
-  go(BuildContext context){
-
-     return Padding(
+  go(BuildContext context) {
+    return Padding(
       padding: const EdgeInsets.only(
           left: Dimensions.marginSize, right: Dimensions.marginSize),
       child: CircleButtonWidget(
@@ -523,11 +522,8 @@ class _HomeScreenState extends State<HomeScreen> {
           Icons.arrow_forward,
           color: CustomColor.whiteColor,
         ),
-        onTap: () {
-        
-        },
+        onTap: () {},
       ),
     );
   }
-    
 }
