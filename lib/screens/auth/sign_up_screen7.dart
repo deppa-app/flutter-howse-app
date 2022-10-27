@@ -1,24 +1,33 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:howse_app/models/profile.dart';
 
 import 'package:howse_app/screens/auth/auth.dart';
+import 'package:howse_app/services/profile.dart';
+import 'package:howse_app/services/user.dart';
 import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
 
-
 class SignUpScreen7 extends StatefulWidget {
-  const SignUpScreen7({Key key}) : super(key: key);
+  const SignUpScreen7(
+      {Key key, this.address, this.email, this.password, this.phone})
+      : super(key: key);
+  final String address;
+  final String email;
+  final String password;
+  final String phone;
 
   @override
   _SignUpScreen7State createState() => _SignUpScreen7State();
 }
 
 class _SignUpScreen7State extends State<SignUpScreen7> {
-
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController firstNameController = TextEditingController();
- // TextEditingController lastNameController = TextEditingController();
+  // TextEditingController lastNameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
   TextEditingController runController = TextEditingController();
   TextEditingController bornController = TextEditingController();
@@ -28,14 +37,11 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
 
   @override
   void initState() {
-
     super.initState();
-
-
   }
+
   @override
   Widget build(BuildContext context) {
-
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
@@ -54,7 +60,9 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
               inputFieldWidget(context),
               SizedBox(height: height * 0.03),
               buttonPadding(width, context),
-              const SizedBox(height: Dimensions.heightSize * 2,),
+              const SizedBox(
+                height: Dimensions.heightSize * 2,
+              ),
             ],
           ),
         ),
@@ -64,82 +72,122 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
 
   Padding buttonPadding(double width, BuildContext context) {
     return Padding(
-              padding: EdgeInsets.only(
-                left: width * 0.08,
-                right: width * 0.08,
-              ),
-              child: nextButton(context),
-            );
+      padding: EdgeInsets.only(
+        left: width * 0.08,
+        right: width * 0.08,
+      ),
+      child: nextButton(context),
+    );
   }
 
   SecondaryButtonWidget nextButton(BuildContext context) {
     return SecondaryButtonWidget(
-                  title: Strings.nextSignUp,
-                    onTap: () {
-                      if(formKey.currentState.validate()){
-                          Navigator.of(context).push(MaterialPageRoute(builder:
-                          (context) => const SignUpScreen8()));
-                      }
-                  },
-                );
+      title: Strings.nextSignUp,
+      onTap: () {
+        if (formKey.currentState.validate()) {
+          Map profile = {
+            'data': {
+              'name': firstNameController.text,
+              'lastName': firstNameController.text, //TODO: cambiar
+              'email': widget.email,
+              'birthday': bornController.text,
+              'gender': "Hombre", //TODO: cambiar
+              'identificationNumber': phoneController.text, //TODO: cambiar
+              'numberPhone': phoneController.text,
+              'pin': 111, //TODO: cambiar
+              'numberPhoneValidation': widget.phone, //TODO: cambiar
+              'identificationNumberValidation': 11211, //TODO: cambiar
+              'emailValidation': true, //TODO: cambiar
+              'paymentValidation': true, //TODO: cambiar
+              'rut': runController.text,
+              'address': widget.address,
+              //'avatar': firstNameController.text, //TODO: cambiar
+              'expirationDate': runExpirationController.text,
+              'emisionDate': runEmitController.text
+            }
+          };
+          Future<ValidateProfile> newProfile = saveProfile(jsonEncode(profile));
+          newProfile.then(
+            (data) {
+              Map user = {
+                'data': {
+                  'username': firstNameController.text,
+                  'password': widget.password,
+                  'publicToken': widget.password, //TODO: cambiar
+                  'rut': runController.text,
+                  'profile': {'id': data.id}
+                }
+              };
+              saveUser(jsonEncode(user));
+            },
+          );
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const SignUpScreen8()));
+        }
+      },
+    );
   }
-
 
   inputFieldWidget(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        left: Dimensions.marginSize,
-        right: Dimensions.marginSize,
-      ),
-      child: SingleChildScrollView(
-        child: Form(
-            key: formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: Dimensions.marginSize,
-                    right: Dimensions.marginSize),
-                    child: Column(
-                      children:[ 
+        padding: const EdgeInsets.only(
+          left: Dimensions.marginSize,
+          right: Dimensions.marginSize,
+        ),
+        child: SingleChildScrollView(
+          child: Form(
+              key: formKey,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          left: Dimensions.marginSize,
+                          right: Dimensions.marginSize),
+                      child: Column(children: [
                         Text(
-                        Strings.checkData,
+                          Strings.checkData,
                           style: const TextStyle(
-                          color: CustomColor.primaryColor,
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold
-                          ),
-                            textAlign: TextAlign.center,
+                              color: CustomColor.primaryColor,
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
                         ),
                         Row(
                           children: [
                             //TODO: Cambiar CircleButtonWidget por elemento seleccionable
-                            SizedBox(height: MediaQuery.of(context).size.height * 0.12),
+                            SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.12),
                             Padding(
                               padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.18,
-                                right: MediaQuery.of(context).size.width * 0.06
-                                ),
-                              child: Column(
-                                children:[ 
-                                  CircleButtonWidget(
-                                  icon: Image.asset('assets/images/icon/male.png', color: CustomColor.primaryColor,),
-                                  onTap: () {},
+                                  left:
+                                      MediaQuery.of(context).size.width * 0.18,
+                                  right:
+                                      MediaQuery.of(context).size.width * 0.06),
+                              child: Column(children: [
+                                CircleButtonWidget(
+                                  icon: Image.asset(
+                                    'assets/images/icon/male.png',
+                                    color: CustomColor.primaryColor,
                                   ),
-                                  Text(Strings.man)
-                                ]
-                              ),
+                                  onTap: () {},
+                                ),
+                                Text(Strings.man)
+                              ]),
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width * 0.1,
-                              right: MediaQuery.of(context).size.width * 0.06                                
-                              ),
+                                  left: MediaQuery.of(context).size.width * 0.1,
+                                  right:
+                                      MediaQuery.of(context).size.width * 0.06),
                               child: Column(
                                 children: [
                                   CircleButtonWidget(
-                                    icon: Image.asset('assets/images/icon/female.png', color: CustomColor.primaryColor,),
+                                    icon: Image.asset(
+                                      'assets/images/icon/female.png',
+                                      color: CustomColor.primaryColor,
+                                    ),
                                     onTap: () {},
                                   ),
                                   Text(Strings.woman)
@@ -148,94 +196,89 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                             ),
                           ],
                         ),
-                      ]
+                      ]),
                     ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.08,
-                    right: MediaQuery.of(context).size.width * 0.08,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-
-                      _titleData(Strings.rut),
-                      TextFormFieldRut(
-                        text: Strings.demoRut,
-                        controller: runController,
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.08,
+                        right: MediaQuery.of(context).size.width * 0.08,
                       ),
-                      
-                      //TODO: Crear text_form_field para nombre?
-                        _titleData(Strings.firstNameEs),
-                      CustomTextFormField(
-                        text: Strings.firstNameEs,
-                        controller: firstNameController,
-                      ),
-                      
-                      _titleData(Strings.phoneNumberEs),
-                      TextFormFieldNumber(
-                        text: Strings.demoPhoneNumber,
-                        controller: phoneController,
-                      ),
-                      
-                      _titleData(Strings.dateBirth),
-                      TextFormFieldDate(
-                        text: Strings.formDate,
-                        controller: bornController, // cambiar controller
-                        suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const FaIcon(FontAwesomeIcons.solidCalendarDays, color: CustomColor.primaryColor) 
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          _titleData(Strings.rut),
+                          TextFormFieldRut(
+                            text: Strings.demoRut,
+                            controller: runController,
                           ),
-                      ),
-                      
-                      SizedBox(height: MediaQuery.of(context).size.height * 0.03,),
 
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: MediaQuery.of(context).size.width *0.15
-                        ),
-                        child: Text(Strings.idSignUp,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: CustomColor.primaryColor,
-                              fontWeight: FontWeight.bold),
-
-
-                        ),
-                      ),
-                      _titleData(Strings.emitDate),
-                      TextFormFieldDate(
-                        text: Strings.formDate, 
-                        controller: runEmitController, 
-                        suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const FaIcon(FontAwesomeIcons.solidCalendarDays,  color: CustomColor.primaryColor)    
+                          //TODO: Crear text_form_field para nombre?
+                          _titleData(Strings.firstNameEs),
+                          CustomTextFormField(
+                            text: Strings.firstNameEs,
+                            controller: firstNameController,
                           ),
-                      ),
-                      
-                      _titleData(Strings.expirationDateSignUp),
-                      TextFormFieldDate(
-                        text: Strings.formDate, 
-                        controller: runExpirationController, 
-                        suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const FaIcon(FontAwesomeIcons.solidCalendarDays,  color: CustomColor.primaryColor)  
+
+                          _titleData(Strings.phoneNumberEs),
+                          TextFormFieldNumber(
+                            text: Strings.demoPhoneNumber,
+                            controller: phoneController,
                           ),
-                        ),
-                              
-                      
-                    ],
-                  ),
-                ),
-              ] 
-            ) 
-        ),
-      )
-    );
+
+                          _titleData(Strings.dateBirth),
+                          TextFormFieldDate(
+                            text: Strings.formDate,
+                            controller: bornController, // cambiar controller
+                            suffixIcon: IconButton(
+                                onPressed: () {},
+                                icon: const FaIcon(
+                                    FontAwesomeIcons.solidCalendarDays,
+                                    color: CustomColor.primaryColor)),
+                          ),
+
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.03,
+                          ),
+
+                          Padding(
+                            padding: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.width * 0.15),
+                            child: Text(
+                              Strings.idSignUp,
+                              style: const TextStyle(
+                                  fontSize: 16,
+                                  color: CustomColor.primaryColor,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          _titleData(Strings.emitDate),
+                          TextFormFieldDate(
+                            text: Strings.formDate,
+                            controller: runEmitController,
+                            suffixIcon: IconButton(
+                                onPressed: () {},
+                                icon: const FaIcon(
+                                    FontAwesomeIcons.solidCalendarDays,
+                                    color: CustomColor.primaryColor)),
+                          ),
+
+                          _titleData(Strings.expirationDateSignUp),
+                          TextFormFieldDate(
+                            text: Strings.formDate,
+                            controller: runExpirationController,
+                            suffixIcon: IconButton(
+                                onPressed: () {},
+                                icon: const FaIcon(
+                                    FontAwesomeIcons.solidCalendarDays,
+                                    color: CustomColor.primaryColor)),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ])),
+        ));
   }
 
-  
   _titleData(String title) {
     return Padding(
       padding: const EdgeInsets.only(
@@ -244,13 +287,8 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
       ),
       child: Text(
         title,
-        style: const TextStyle(
-            color: Colors.black
-        ),
+        style: const TextStyle(color: Colors.black),
       ),
     );
   }
-
-
 }
-

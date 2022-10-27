@@ -23,7 +23,6 @@ Future<ValidateProfile> saveProfile(String profile) async {
         'Content-Type': 'application/json; charset=UTF-8',
       },
       body: profile);
-
   if (response.statusCode == 200) {
     return ValidateProfile.fromJson(jsonDecode(response.body));
   } else {
@@ -47,18 +46,18 @@ Future<ValidateProfile> updateProfile(String user, int idProfile) async {
   }
 }
 
-Future<ClassProfile> changePassword(int id, String password) async {
-  //  final String passwordHashed = BCrypt.hashpw(
-  //   password,
-  //   BCrypt.gensalt(logRounds: 10),
-  // );
+// Future<ClassProfile> changePassword(int id, String password) async {
+//   //  final String passwordHashed = BCrypt.hashpw(
+//   //   password,
+//   //   BCrypt.gensalt(logRounds: 10),
+//   // );
 
-  final response = await http.get(Uri.parse(
-      'https://enteleqqia.hegga.cl/api/profiles?filters[id]=$id&filters[password]=$password'));
-  if (response.statusCode == 200) {
-    return ClassProfile.fromJson(jsonDecode(response.body));
-  } else {
-    String response = await rootBundle.loadString('mocks/categories.json');
-    return ClassProfile.fromJson(jsonDecode(response));
-  }
-}
+//   final response = await http.get(Uri.parse(
+//       'https://enteleqqia.hegga.cl/api/profiles?filters[id]=$id&filters[password]=$password'));
+//   if (response.statusCode == 200) {
+//     return ClassProfile.fromJson(jsonDecode(response.body));
+//   } else {
+//     String response = await rootBundle.loadString('mocks/categories.json');
+//     return ClassProfile.fromJson(jsonDecode(response));
+//   }
+// }

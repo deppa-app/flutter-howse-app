@@ -21,13 +21,19 @@ Future<DataUser> validateUser(String username, String password) async {
   }
 }
 
-Future<User> saveUser(String user) async {
-  const urlAPI = 'https://enteleqqia.hegga.cl/api/users';
-  final response = await http.post(Uri.parse(urlAPI), body: user);
+Future<DataUser> saveUser(String user) async {
+  print(user);
+  const urlAPI = 'https://enteleqqia.hegga.cl/api/user-apps';
+  final response = await http.post(Uri.parse(urlAPI),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: user);
+  print(response.body);
   if (response.statusCode == 200) {
-    return User.fromJson(jsonDecode(response.body));
+    return DataUser.fromJson(jsonDecode(response.body));
   } else {
     String response = await rootBundle.loadString('mocks/categories.json');
-    return User.fromJson(jsonDecode(response));
+    return DataUser.fromJson(jsonDecode(response));
   }
 }

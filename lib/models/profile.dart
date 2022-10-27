@@ -59,45 +59,76 @@ class DataProfile {
   }
 }
 
-class ClassProfile {
+class ModelProfile {
   final int id;
   final String name;
   final String lastName;
   final String email;
   final String birthday;
   final String gender;
+  final String avatar;
   final String identificationNumber;
-  final String createdAt;
-  final String updatedAt;
-  final String publishedAt;
+  final String numberPhone;
+  final int pin;
+  final String expirationDate;
+  final String emisionDate;
+  final int numberPhoneValidation;
+  final int identificationNumberValidation;
+  final bool emailValidation;
+  final bool paymentValidation;
+  final String updateAt;
+  final String creationAt;
+  final String rut;
+  final String address;
 
-  ClassProfile({
+  ModelProfile({
     this.id,
+    this.avatar,
+    this.numberPhone,
+    this.pin,
+    this.expirationDate,
+    this.emisionDate,
+    this.numberPhoneValidation,
+    this.identificationNumberValidation,
+    this.emailValidation,
+    this.paymentValidation,
+    this.updateAt,
+    this.creationAt,
+    this.rut,
+    this.address,
     this.name,
     this.lastName,
     this.email,
     this.birthday,
     this.gender,
     this.identificationNumber,
-    this.createdAt,
-    this.updatedAt,
-    this.publishedAt,
   });
 
-  factory ClassProfile.fromJson(Map<String, dynamic> parsedJson) {
+  factory ModelProfile.fromJson(Map<String, dynamic> parsedJson) {
     var data = parsedJson["data"];
     var firstElement = data[0];
-    return ClassProfile(
-      id: firstElement["id"],
-      name: firstElement["name"],
-      lastName: firstElement["lastName"],
-      email: firstElement["email"],
-      birthday: firstElement["birthday"],
-      gender: firstElement["gender"],
-      identificationNumber: firstElement["identificationNumber"],
-      createdAt: firstElement["createdAt"],
-      updatedAt: firstElement["updatedAt"],
-      publishedAt: firstElement["publishedAt"],
+    return ModelProfile(
+      id: firstElement['id'],
+      avatar: firstElement['avatar'],
+      numberPhone: firstElement['numberPhone'],
+      pin: firstElement['pin'],
+      expirationDate: firstElement['expirationDate'],
+      emisionDate: firstElement['emisionDate'],
+      numberPhoneValidation: firstElement['numberPhoneValidation'],
+      identificationNumberValidation:
+          firstElement['identificationNumberValidation'],
+      emailValidation: firstElement['emailValidation'],
+      paymentValidation: firstElement['paymentValidation'],
+      updateAt: firstElement['updateAt'],
+      creationAt: firstElement['creationAt'],
+      rut: firstElement['rut'],
+      address: firstElement['address'],
+      name: firstElement['name'],
+      lastName: firstElement['lastName'],
+      email: firstElement['email'],
+      birthday: firstElement['birthday'],
+      gender: firstElement['gender'],
+      identificationNumber: firstElement['identificationNumber'],
     );
   }
 }
@@ -110,36 +141,64 @@ class ValidateProfile {
   final String birthday;
   final String gender;
   final String identificationNumber;
+  final String numberPhone;
+  final int pin;
+  final int numberPhoneValidation;
+  final int identificationNumberValidation;
+  final bool emailValidation;
+  final bool paymentValidation;
+  final String rut;
+  final String address;
   final String createdAt;
   final String updatedAt;
   final String publishedAt;
+  final String avatar;
+  final String expirationDate;
+  final String emisionDate;
 
-  ValidateProfile({
-    this.id,
-    this.name,
-    this.lastName,
-    this.email,
-    this.birthday,
-    this.gender,
-    this.identificationNumber,
-    this.createdAt,
-    this.updatedAt,
-    this.publishedAt,
-  });
+  ValidateProfile(
+      {this.numberPhone,
+      this.pin,
+      this.numberPhoneValidation,
+      this.identificationNumberValidation,
+      this.emailValidation,
+      this.paymentValidation,
+      this.rut,
+      this.address,
+      this.id,
+      this.name,
+      this.lastName,
+      this.email,
+      this.birthday,
+      this.gender,
+      this.identificationNumber,
+      this.createdAt,
+      this.updatedAt,
+      this.publishedAt,
+      this.avatar,
+      this.expirationDate,
+      this.emisionDate});
 
   factory ValidateProfile.fromJson(Map<String, dynamic> parsedJson) {
     var data = parsedJson["data"];
     return ValidateProfile(
-      id: data["id"],
-      name: data["name"],
-      lastName: data["lastName"],
-      email: data["email"],
-      birthday: data["birthday"],
-      gender: data["gender"],
-      identificationNumber: data["identificationNumber"],
-      createdAt: data["createdAt"],
-      updatedAt: data["updatedAt"],
-      publishedAt: data["publishedAt"],
+      id: data['id'],
+      numberPhone: data['numberPhone'],
+      pin: data['pin'],
+      expirationDate: data['expirationDate'],
+      emisionDate: data['emisionDate'],
+      numberPhoneValidation: data['numberPhoneValidation'],
+      identificationNumberValidation: data['identificationNumberValidation'],
+      emailValidation: data['emailValidation'],
+      paymentValidation: data['paymentValidation'],
+      rut: data['rut'],
+      address: data['address'],
+      name: data['name'],
+      lastName: data['lastName'],
+      email: data['email'],
+      birthday: data['birthday'],
+      gender: data['gender'],
+      identificationNumber: data['identificationNumber'],
     );
   }
 }

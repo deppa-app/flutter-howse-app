@@ -5,7 +5,11 @@ import 'package:howse_app/utils/utils.dart';
 import '../../widgets/widget.dart';
 
 class SignUpScreen2 extends StatefulWidget {
-  const SignUpScreen2({Key key}) : super(key: key);
+  const SignUpScreen2({Key key, this.address, this.email, this.password})
+      : super(key: key);
+  final String address;
+  final String email;
+  final String password;
 
   @override
   _SignUpScreen2State createState() => _SignUpScreen2State();
@@ -16,7 +20,6 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
 
   TextEditingController phoneController = TextEditingController();
 
-
   @override
   void initState() {
     super.initState();
@@ -24,7 +27,6 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
 
   @override
   Widget build(BuildContext context) {
-
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
@@ -53,31 +55,35 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
 
   Padding nextButtonPadding(double width, BuildContext context) {
     return Padding(
-              padding: EdgeInsets.only(
-                left: width * 0.08,
-                right: width * 0.08,
-              ),
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: _nextButton(context),
-              ),
-            );
+      padding: EdgeInsets.only(
+        left: width * 0.08,
+        right: width * 0.08,
+      ),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: _nextButton(context),
+      ),
+    );
   }
 
   SecondaryButtonWidget _nextButton(BuildContext context) {
     return SecondaryButtonWidget(
-                  title: Strings.nextSignUp,
-                  onTap: () {
-                    if(formKey.currentState.validate()){
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => const SignUpScreen3()));
-                    }
-                  },
-                );
+      title: Strings.nextSignUp,
+      onTap: () {
+        if (formKey.currentState.validate()) {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => SignUpScreen3(
+                    address: widget.address,
+                    email: widget.email,
+                    password: widget.password,
+                    phone: phoneController.text,
+                  )));
+        }
+      },
+    );
   }
 
   inputFieldWidget(BuildContext context) {
-
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
@@ -92,23 +98,22 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                    padding: EdgeInsets.only(
-                      left: width * 0.1,
-                      right: width * 0.1,
-                    ),
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: Text(
-                        Strings.titleSignUp2,
-                        style: const TextStyle(
-                            color: CustomColor.primaryColor,
-                            fontSize: 26,
-                            fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
-                      ),
+                  padding: EdgeInsets.only(
+                    left: width * 0.1,
+                    right: width * 0.1,
+                  ),
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: Text(
+                      Strings.titleSignUp2,
+                      style: const TextStyle(
+                          color: CustomColor.primaryColor,
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                
+                ),
                 Padding(
                   padding: EdgeInsets.only(
                     top: height * 0.05,
@@ -145,12 +150,11 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                             child: Align(
                               alignment: Alignment.center,
                               child: TextFormFieldNumber(
-                                text: Strings.formPhoneNumberSignUp, 
+                                text: Strings.formPhoneNumberSignUp,
                                 controller: phoneController,
-                                ),
                               ),
                             ),
-                          
+                          ),
                         ],
                       ),
                     ),
@@ -162,5 +166,4 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
               ],
             )));
   }
-
 }

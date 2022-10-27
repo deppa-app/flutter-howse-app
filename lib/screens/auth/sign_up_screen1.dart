@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/auth.dart';
 
@@ -35,12 +34,11 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
   List<String> genderList = ['Male', 'Female', 'Others'];
   String selectedGender;
 
-  callBack(bool value, bool value2, bool value3, bool value4){
+  callBack(bool value, bool value2, bool value3, bool value4) {
     checkedValue1 = value;
     checkedValue2 = value2;
     checkedValue3 = value3;
     checkedValue4 = value4;
-
   }
 
   @override
@@ -52,12 +50,12 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
 
   @override
   Widget build(BuildContext context) {
-
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
     return SafeArea(
-      child: Scaffold( resizeToAvoidBottomInset: false,
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Container(
           width: width,
           height: height,
@@ -83,123 +81,119 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
 
   Padding nextButtonPadding(double width, BuildContext context) {
     return Padding(
-              padding: EdgeInsets.only(
-                left: width * 0.08,
-                right: width * 0.08,
-              ),
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: nextButton(context),
-              ),
-            );
+      padding: EdgeInsets.only(
+        left: width * 0.08,
+        right: width * 0.08,
+      ),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: nextButton(context),
+      ),
+    );
   }
 
   Padding basicInfoPadding(double width) {
     return Padding(
-              padding: EdgeInsets.only(
-                left: width * 0.15,
-                right: width * 0.15,
-              ),
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: textBasicInfoAccount(),
-              ),
-            );
+      padding: EdgeInsets.only(
+        left: width * 0.15,
+        right: width * 0.15,
+      ),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: textBasicInfoAccount(),
+      ),
+    );
   }
 
   Padding textInfoPadding(double height, double width) {
     return Padding(
-              padding: EdgeInsets.only(
-                top: height * 0.03,
-                left: width * 0.12,
-                right: width * 0.12,
-              ),
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: textInfoAccount(),
-              ),
-            );
+      padding: EdgeInsets.only(
+        top: height * 0.03,
+        left: width * 0.12,
+        right: width * 0.12,
+      ),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: textInfoAccount(),
+      ),
+    );
   }
 
   Row barIconRow() {
     return Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                BackWidget(title: ""),
-                //Se debe agregar la barra de carga en este apartado
-              ],
-            );
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: const [
+        BackWidget(title: ""),
+        //Se debe agregar la barra de carga en este apartado
+      ],
+    );
   }
 
   Text textBasicInfoAccount() {
     return Text(
-                  Strings.basicInfoAccount,
-                  style: const TextStyle(
-                      color: CustomColor.primaryColor,
-                      fontSize: 25,
-                      height: 1.3,
-                      fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.start,
-                );
+      Strings.basicInfoAccount,
+      style: const TextStyle(
+          color: CustomColor.primaryColor,
+          fontSize: 25,
+          height: 1.3,
+          fontWeight: FontWeight.bold),
+      textAlign: TextAlign.start,
+    );
   }
 
   Text textInfoAccount() {
     return Text(
-                  Strings.infoAccount,
-                  style: const TextStyle(
-                    color: CustomColor.primaryColor,
-                    fontSize: 16,
-                    height: 2.0,
-                  ),
-                  textAlign: TextAlign.start,
-                );
+      Strings.infoAccount,
+      style: const TextStyle(
+        color: CustomColor.primaryColor,
+        fontSize: 16,
+        height: 2.0,
+      ),
+      textAlign: TextAlign.start,
+    );
   }
 
   Column inputColumn(double width, BuildContext context, double height) {
     return Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.only(
-                    left: width * 0.12,
-                    right: width * 0.12
-                    ),
-                  child: inputFieldWidget(context),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: height * 0.02,
-                    right: width * 0.15
-                  ),
-                  child: Text(Strings.passwordContain,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: CustomColor.primaryColor,
-                    fontWeight: FontWeight.bold
-
-                  ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    left: width *  0.09,
-                  ),
-                  child: termsCheckBoxWidget(context),
-                ),
-                
-              ],
-            );
+      children: [
+        Container(
+          padding: EdgeInsets.only(left: width * 0.12, right: width * 0.12),
+          child: inputFieldWidget(context),
+        ),
+        Padding(
+          padding: EdgeInsets.only(top: height * 0.02, right: width * 0.15),
+          child: Text(
+            Strings.passwordContain,
+            style: const TextStyle(
+                fontSize: 16,
+                color: CustomColor.primaryColor,
+                fontWeight: FontWeight.bold),
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.only(
+            left: width * 0.09,
+          ),
+          child: termsCheckBoxWidget(context),
+        ),
+      ],
+    );
   }
 
   SecondaryButtonWidget nextButton(BuildContext context) {
     return SecondaryButtonWidget(
-                  title: "Siguiente",
-                  onTap: () {
-                    if(formKey.currentState.validate()){
-                        Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const SignUpScreen2()));
-                      }
-                  },
-                );
+      title: "Siguiente",
+      onTap: () {
+        if (formKey.currentState.validate()) {
+          print(emailController.text);
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => SignUpScreen2(
+                  address: addressController.text,
+                  email: emailController.text,
+                  password: confirmPasswordController.text)));
+        }
+      },
+    );
   }
 
   headingWidget(BuildContext context) {
@@ -207,157 +201,167 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
   }
 
   inputFieldWidget(BuildContext context) {
+    return Form(
+        key: formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // TODO: Revisar Exepción Incorrect use of ParentDataWidget
 
+            const SizedBox(
+              height: 30,
+            ),
 
-    return  Form(
-          key: formKey,
-          child: Column(
+            Align(
+                alignment: Alignment.topCenter,
+                child: CustomTextFormField(
+                  text: "Escribe tu direccion",
+                  controller: addressController,
+                )),
 
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // TODO: Revisar Exepción Incorrect use of ParentDataWidget
+            const SizedBox(
+              height: 30,
+            ),
 
-                const SizedBox(height: 30,),
-              
-                Align(
-                  alignment: Alignment.topCenter, 
-                  child: CustomTextFormField(text: "Escribe tu direccion", controller: addressController,)
-                ),
-              
-                const SizedBox(height: 30,),
-              
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: TextFormFieldEmail(text: "Escribe tu correo", controller: emailController,)
-                ),
-                
-                const SizedBox(height: 30,),
-              
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: TextFormFieldPassword(text: "Escribe tu contraseña", controller: passwordController, callBack: callBack),
-                  
-                    
-                ),
-                
-                const SizedBox(height: 30,),
-              
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: TextFormFieldPassword(text: "Confirma tu contraseña", controller: confirmPasswordController, controller2: passwordController)
-                ),
-                
-              
-              const SizedBox(height: Dimensions.heightSize),
-            ],
-          ));
-    
+            Align(
+                alignment: Alignment.topCenter,
+                child: TextFormFieldEmail(
+                  text: "Escribe tu correo",
+                  controller: emailController,
+                )),
+
+            const SizedBox(
+              height: 30,
+            ),
+
+            Align(
+              alignment: Alignment.topCenter,
+              child: TextFormFieldPassword(
+                  text: "Escribe tu contraseña",
+                  controller: passwordController,
+                  callBack: callBack),
+            ),
+
+            const SizedBox(
+              height: 30,
+            ),
+
+            Align(
+                alignment: Alignment.topCenter,
+                child: TextFormFieldPassword(
+                    text: "Confirma tu contraseña",
+                    controller: confirmPasswordController,
+                    controller2: passwordController)),
+
+            const SizedBox(height: Dimensions.heightSize),
+          ],
+        ));
   }
 
   termsCheckBoxWidget(BuildContext context) {
     return StatefulBuilder(
-      builder: (BuildContext context, StateSetter setState) {  
-      return Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(
-              left: 30.00,
-              right: 30.00,
-            ),
-            child: SizedBox(
-              height: 30.00,
-              child: CheckboxListTile(
-                title: const Text(
-                  "Una mayuscula",
-                  style: TextStyle(
-                    color: CustomColor.primaryColor,
-                    fontSize: 12.00,
+      builder: (BuildContext context, StateSetter setState) {
+        return Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 30.00,
+                right: 30.00,
+              ),
+              child: SizedBox(
+                height: 30.00,
+                child: CheckboxListTile(
+                  title: const Text(
+                    "Una mayuscula",
+                    style: TextStyle(
+                      color: CustomColor.primaryColor,
+                      fontSize: 12.00,
+                    ),
+                    textAlign: TextAlign.justify,
                   ),
-                  textAlign: TextAlign.justify,
+                  value: checkedValue1, //checkedValue1,
+                  onChanged: (_) {},
+                  controlAffinity:
+                      ListTileControlAffinity.leading, //  <-- leading Checkbox
                 ),
-                value: checkedValue1,//checkedValue1,
-                onChanged: (_) {},
-                controlAffinity:
-                    ListTileControlAffinity.leading, //  <-- leading Checkbox
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 0.0,
-              left: 30.00,
-              right: 30.00,
-            ),
-            child: SizedBox(
-              height: 30.00,
-              child: CheckboxListTile(
-                title: const Text(
-                  "Una minuscula",
-                  style: TextStyle(
-                    color: CustomColor.primaryColor,
-                    fontSize: 12.00,
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 0.0,
+                left: 30.00,
+                right: 30.00,
+              ),
+              child: SizedBox(
+                height: 30.00,
+                child: CheckboxListTile(
+                  title: const Text(
+                    "Una minuscula",
+                    style: TextStyle(
+                      color: CustomColor.primaryColor,
+                      fontSize: 12.00,
+                    ),
+                    textAlign: TextAlign.justify,
                   ),
-                  textAlign: TextAlign.justify,
+                  value: checkedValue2,
+                  selected: false,
+                  onChanged: (_) {},
+                  controlAffinity:
+                      ListTileControlAffinity.leading, //  <-- leading Checkbox
                 ),
-                value: checkedValue2,
-                selected: false,
-                onChanged: (_) {},
-                controlAffinity:
-                    ListTileControlAffinity.leading, //  <-- leading Checkbox
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 0.0,
-              left: 30.00,
-              right: 30.00,
-            ),
-            child: SizedBox(
-              height: 30.00,
-              child: CheckboxListTile(
-                title: const Text(
-                  "Un caracter especial",
-                  style: TextStyle(
-                    color: CustomColor.primaryColor,
-                    fontSize: 12.00,
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 0.0,
+                left: 30.00,
+                right: 30.00,
+              ),
+              child: SizedBox(
+                height: 30.00,
+                child: CheckboxListTile(
+                  title: const Text(
+                    "Un caracter especial",
+                    style: TextStyle(
+                      color: CustomColor.primaryColor,
+                      fontSize: 12.00,
+                    ),
+                    textAlign: TextAlign.justify,
                   ),
-                  textAlign: TextAlign.justify,
+                  value: checkedValue3,
+                  onChanged: (_) {},
+                  controlAffinity:
+                      ListTileControlAffinity.leading, //  <-- leading Checkbox
                 ),
-                value: checkedValue3,
-                onChanged: (_) {},
-                controlAffinity:
-                    ListTileControlAffinity.leading, //  <-- leading Checkbox
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              top: 0.0,
-              left: 30.00,
-              right: 30.00,
-            ),
-            child: SizedBox(
-              height: 30.00,
-              child: CheckboxListTile(
-                title: const Text(
-                  "Entre 8 y 15 caracteres",
-                  style: TextStyle(
-                    color: CustomColor.primaryColor,
-                    fontSize: 12.00,
-                  ),
-                  textAlign: TextAlign.justify,
-                ),
-                value: checkedValue4,
-                onChanged: (_) {},
-                controlAffinity:
-                    ListTileControlAffinity.leading, //  <-- leading Checkbox
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 0.0,
+                left: 30.00,
+                right: 30.00,
               ),
-            ),
-          )
-        ],
-      );
-     },
+              child: SizedBox(
+                height: 30.00,
+                child: CheckboxListTile(
+                  title: const Text(
+                    "Entre 8 y 15 caracteres",
+                    style: TextStyle(
+                      color: CustomColor.primaryColor,
+                      fontSize: 12.00,
+                    ),
+                    textAlign: TextAlign.justify,
+                  ),
+                  value: checkedValue4,
+                  onChanged: (_) {},
+                  controlAffinity:
+                      ListTileControlAffinity.leading, //  <-- leading Checkbox
+                ),
+              ),
+            )
+          ],
+        );
+      },
     );
   }
 
@@ -374,8 +378,12 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
           color: CustomColor.primaryColor,
         ),
         onTap: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const SignUpScreen2()));
+          print(emailController.text);
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => SignUpScreen2(
+                  address: addressController.text,
+                  email: emailController.text,
+                  password: confirmPasswordController.text)));
         },
       ),
     );
@@ -429,6 +437,4 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
       ],
     );
   }
-
-  
 }
