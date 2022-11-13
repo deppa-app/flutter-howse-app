@@ -8,6 +8,7 @@ import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
 
 import '../dashboard/home_screen.dart';
+import 'forgot_password_screen.dart';
 //import 'package:howse_app/auth/sign_up_screen.dart';
 //import 'package:howse_app/utils/dashboard_screen.dart';
 //import 'package:howse_app/auth/forgot_password_screen.dart';
@@ -25,8 +26,8 @@ class _SignInScreenState extends State<SignInScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  bool _toggleVisibility = true;
   bool checkedValue = false;
+  bool _toggleVisibility = true;
 
   Future<DataUser> futureUser;
   int id;
@@ -67,7 +68,7 @@ class _SignInScreenState extends State<SignInScreen> {
               Strings.createAnAccount,
               style: DefaultTextStyle.of(context).style.apply(
                   fontSizeFactor: 0.4,
-                  color: CustomColor.primaryColor,
+                  color: CustomColor.brownColor,
                   decoration: TextDecoration.none),
             ),
           ),
@@ -110,7 +111,7 @@ class _SignInScreenState extends State<SignInScreen> {
         Strings.signInAccount,
         style: const TextStyle(
             fontSize: 27,
-            color: CustomColor.primaryColor,
+            color: CustomColor.colorBlack,
             fontWeight: FontWeight.bold),
       ),
 
@@ -135,18 +136,20 @@ class _SignInScreenState extends State<SignInScreen> {
                   controller: emailController, text: Strings.emailLogin),
               SizedBox(height: height * 0.08),
               TextFormFieldPassword(
+                obscureText: _toggleVisibility,
                 controller: passwordController,
                 text: Strings.typePassword,
                 suffixIcon: IconButton(
                   onPressed: () {
-                    setState(() {
-                      _toggleVisibility = !_toggleVisibility;
-                    });
+                    _toggleVisibility == true
+                        ? _toggleVisibility = false
+                        : _toggleVisibility = true; //TODO
+                    setState(() {});
                   },
                   icon: _toggleVisibility
                       ? const Icon(
                           Icons.visibility_off,
-                          color: CustomColor.primaryColor,
+                          color: CustomColor.colorBlack,
                         )
                       : const Icon(
                           Icons.visibility,
@@ -167,8 +170,9 @@ class _SignInScreenState extends State<SignInScreen> {
         style: CustomStyle.textStyle,
       ),
       onTap: () {
-        /* Navigator.of(context).push(MaterialPageRoute(builder: (context) => ForgotPasswordScreen
-        //             ()));*/
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const ForgotPasswordScreen()));
+        //             ()));
       },
     );
   }
@@ -231,7 +235,7 @@ class _SignInScreenState extends State<SignInScreen> {
           children: const [
             Expanded(child: Divider(indent: 30, endIndent: 10, thickness: 1.5)),
             Text('O si prefieres acceder',
-                style: TextStyle(color: CustomColor.primaryColor)),
+                style: TextStyle(color: CustomColor.secondBlack)),
             Expanded(child: Divider(indent: 10, endIndent: 30, thickness: 1.5))
           ],
         ),
@@ -277,7 +281,7 @@ class _SignInScreenState extends State<SignInScreen> {
           child: Text(
             Strings.termsSignUp,
             style: const TextStyle(
-                color: CustomColor.linkColor,
+                color: CustomColor.brownColor,
                 fontWeight: FontWeight.bold,
                 decoration: TextDecoration.underline),
           ),

@@ -3,6 +3,7 @@ import 'package:howse_app/screens/auth/sign_up_screen3.dart';
 
 import 'package:howse_app/utils/utils.dart';
 import '../../widgets/widget.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 class SignUpScreen2 extends StatefulWidget {
   const SignUpScreen2({Key key, this.address, this.email, this.password})
@@ -40,7 +41,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              const BackWidget(title: ""),
+              const BackWidget(title: "", percent: 0.2),
               SizedBox(height: height * 0.02),
               inputFieldWidget(context),
               SizedBox(height: height * 0.35),
@@ -107,7 +108,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                     child: Text(
                       Strings.titleSignUp2,
                       style: const TextStyle(
-                          color: CustomColor.primaryColor,
+                          color: CustomColor.colorBlack,
                           fontSize: 26,
                           fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
@@ -125,7 +126,7 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                     child: Text(
                       Strings.phoneNumberSignUp,
                       style: const TextStyle(
-                        color: CustomColor.primaryColor,
+                        color: CustomColor.colorBlack,
                         fontSize: 16,
                       ),
                       textAlign: TextAlign.start,
@@ -149,8 +150,11 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
                             ),
                             child: Align(
                               alignment: Alignment.center,
-                              child: TextFormFieldNumber(
-                                text: Strings.formPhoneNumberSignUp,
+                              child: IntlPhoneField(
+                                decoration: InputDecoration(
+                                  labelText: Strings.formPhoneNumberSignUp,
+                                ),
+                                initialCountryCode: 'CL',
                                 controller: phoneController,
                               ),
                             ),

@@ -37,13 +37,13 @@ class DataUser {
 
   factory DataUser.fromJson(Map<String, dynamic> parsedJson) {
     var data = parsedJson["data"];
-
+    var firstElement = data[0];
     return DataUser(
-        id: data['id'],
-        userName: data["username"],
-        password: data['password'],
-        publicToken: data["publicToken"],
-        rut: data['rut']);
+        id: firstElement['id'],
+        userName: firstElement["username"],
+        password: firstElement['password'],
+        publicToken: firstElement["publicToken"],
+        rut: firstElement['rut']);
   }
 }
 

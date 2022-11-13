@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 
 import 'package:howse_app/screens/auth/auth.dart';
+import 'package:howse_app/screens/auth/recovery_code_screen.dart';
 import 'package:howse_app/utils/utils.dart';
 
 import 'package:howse_app/widgets/widget.dart';
 
-class PassSignUpScreen extends StatefulWidget {
-  const PassSignUpScreen({Key key}) : super(key: key);
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({Key key}) : super(key: key);
 
   @override
-  _PassSignUpScreenState createState() => _PassSignUpScreenState();
+  _ForgotPasswordScreenState createState() => _ForgotPasswordScreenState();
 }
 
-class _PassSignUpScreenState extends State<PassSignUpScreen> {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController confirmEmailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -32,7 +36,6 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                   children: [
                     const BackWidget(
                       title: "",
-                      percent: 0,
                     ),
                     SingleChildScrollView(
                       child: Padding(
@@ -50,7 +53,7 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                   padding: EdgeInsets.only(top: height * 0.03),
                                   child: Text(
                                     Strings
-                                        .titleSignUp, //se debe cambiar para tomar la variable de una clase
+                                        .recoverPasswordText, //se debe cambiar para tomar la variable de una clase
                                     style: const TextStyle(
                                         color: CustomColor.colorBlack,
                                         fontSize: 26,
@@ -72,7 +75,7 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                           right: width * 0.03,
                                           top: height * 0.02),
                                       child: Text(
-                                        Strings.bodySignUp,
+                                        Strings.recoveryBodyText,
                                         style: const TextStyle(
                                           color: CustomColor.colorBlack,
                                           fontSize: 15.00,
@@ -83,20 +86,24 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    top: height * 0.045,
-                                    left: width * 0.02,
-                                    right: width * 0.02,
-                                  ),
-                                  child: Align(
-                                    alignment: Alignment.topCenter,
-                                    child: Image.asset(
-                                      'assets/images/lorem-image.png',
-                                      fit: BoxFit.fill,
-                                      height: height * 0.38,
-                                      width: width * 0.65,
-                                    ),
+                                SizedBox(
+                                  height: height * 0.04,
+                                ),
+                                SizedBox(
+                                  width: width * 0.8,
+                                  child: Column(
+                                    children: [
+                                      TextFormFieldEmail(
+                                          controller: emailController,
+                                          text: 'Escribe tu correo'),
+                                      SizedBox(
+                                        height: height * 0.04,
+                                      ),
+                                      TextFormFieldEmail(
+                                          controller: confirmEmailController,
+                                          text:
+                                              'Confirma tu correo electrónico'),
+                                    ],
                                   ),
                                 ),
                                 SizedBox(
@@ -104,51 +111,19 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                 ),
                               ],
                             ),
-                            //const SizedBox(height: Dimensions.heightSize * 4),
+                            SizedBox(height: height * 0.3),
                             Padding(
                               padding: EdgeInsets.only(
                                 left: width * 0.05,
                                 right: width * 0.05,
                               ),
-                              child: Column(
-                                children: [
-                                  SecondaryButtonWidget(
-                                    title: Strings.buttonSignUp,
-                                    onTap: () {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const SignUpScreen1()));
-                                    },
-                                  ),
-                                  const SizedBox(
-                                    height: Dimensions.heightSize,
-                                  ),
-                                  Text(
-                                    Strings.footerSignUp,
-                                    style: const TextStyle(
-                                        color: CustomColor.colorBlack,
-                                        fontSize: 12.00,
-                                        height: 2.0,
-                                        fontWeight: FontWeight.bold),
-                                    textAlign: TextAlign.left,
-                                  ),
-                                  GestureDetector(
-                                    child: Text(
-                                      Strings.termsSignUp,
-                                      style: const TextStyle(
-                                          color: CustomColor.brownColor,
-                                          fontWeight: FontWeight.bold,
-                                          decoration: TextDecoration.underline),
-                                    ),
-                                    onTap: () {
-                                      Navigator.of(context).push(
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  const TermsAndConditions()));
-                                    },
-                                  )
-                                ],
+                              child: SecondaryButtonWidget(
+                                title: Strings.recoverPasswordText,
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          const RecoveryCodeScreen()));
+                                },
                               ),
                             ),
                             const SizedBox(height: Dimensions.heightSize),

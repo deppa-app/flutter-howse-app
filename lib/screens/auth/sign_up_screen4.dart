@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:howse_app/screens/auth/auth.dart';
 import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
+import 'package:image_picker/image_picker.dart';
 
 class SignUpScreen4 extends StatefulWidget {
   const SignUpScreen4(
@@ -20,6 +24,22 @@ class SignUpScreen4 extends StatefulWidget {
 class _SignUpScreen4State extends State<SignUpScreen4> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+  File photo;
+
+  Future pickImage() async {
+    try {
+      final photo = await ImagePicker().pickImage(source: ImageSource.camera);
+
+      if (photo == null) return;
+
+      final imageTemp = File(photo.path);
+
+      setState(() => this.photo = imageTemp);
+    } on PlatformException catch (e) {
+      print(e);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -32,6 +52,14 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
 
     return SafeArea(
       child: Scaffold(
+        floatingActionButton: Padding(
+          padding: EdgeInsets.only(right: width * 0.37, bottom: 150),
+          child: FloatingActionButton(
+            backgroundColor: Colors.deepPurpleAccent,
+            child: const FaIcon(FontAwesomeIcons.camera),
+            onPressed: () => pickImage(),
+          ),
+        ),
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -40,15 +68,29 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: Strings.createAnAccount),
+              const BackWidget(title: '', percent: 0.4),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
               inputFieldWidget(context),
               SizedBox(height: height * 0.02),
               iconRow(width),
+              photo == null
+                  ? Align(
+                      alignment: Alignment.topCenter,
+                      child: Image.asset(
+                        'assets/images/lorem-image.png',
+                        fit: BoxFit.fill,
+                        height: height * 0.35,
+                        width: width * 0.7,
+                      ),
+                    )
+                  : SizedBox(
+                      height: height * 0.35,
+                      width: width * 0.7,
+                      child: Image.file(photo)),
               const SizedBox(
-                height: 340,
+                height: Dimensions.heightSize * 4,
               ),
               validateButtonPadding(width, context),
               const SizedBox(
@@ -77,9 +119,9 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
     return Padding(
         padding: EdgeInsets.only(left: width * 0.08),
         child: const FaIcon(
-          FontAwesomeIcons.circleUser,
+          FontAwesomeIcons.solidCircleUser,
           size: 30,
-          color: CustomColor.primaryColor,
+          color: CustomColor.greenColor,
         ) //const Icon(Icons.person_outline_rounded, size: 50, ),
         );
   }
@@ -150,7 +192,7 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                   child: Text(
                     Strings.documentsVerification,
                     style: const TextStyle(
-                        color: CustomColor.primaryColor,
+                        color: CustomColor.colorBlack,
                         fontSize: 26,
                         fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
@@ -166,7 +208,7 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                   child: Text(
                     Strings.thisProcess,
                     style: const TextStyle(
-                      color: CustomColor.primaryColor,
+                      color: CustomColor.colorBlack,
                       fontSize: 16,
                     ),
                     textAlign: TextAlign.start,
@@ -180,7 +222,7 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                   child: Text(
                     Strings.uploadId,
                     style: TextStyle(
-                        color: CustomColor.primaryColor,
+                        color: CustomColor.colorBlack,
                         fontSize: Dimensions.extraSmallTextSize * 1.8,
                         fontWeight: FontWeight.bold),
                     textAlign: TextAlign.start,

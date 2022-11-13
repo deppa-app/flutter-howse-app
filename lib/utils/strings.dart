@@ -18,7 +18,7 @@ class Strings {
   static String failedAttempts1 = 'Quedan ';
   static String failedAttempts2 = ' intentos antes de bloquear su sesión';
 
-   //forgot_password_screen
+  //forgot_password_screen
   static String recoverPasswordText = 'Recuperar contraseña';
   static String recoveryMail = 'email@gmail.com';
   static String sendBtn = 'Enviar';
@@ -26,7 +26,8 @@ class Strings {
       'Se enviara su contraseña de recuperación a su email registrado';
   static String returnBtn =
       'Volver'; // variable compartida (search_bluetooth, BOTON VOLVER)
-
+  static String recoveryBodyText =
+      'Ingresa tu correo electrónico y te enviaremos un código de ingreso';
   //search_bluetooth
   static String titletext1 = 'Dispositivo bluetooth';
   static String titletext3 = 'Disponible';
@@ -133,40 +134,46 @@ class Strings {
   static String decline = 'Decline';
   static String orLoginWith = 'or login with';
 
-
   //agregadas TODO: ordenar
   // on_board
   static String haveAccount = '¿Ya tienes una cuenta?';
 
   // sign_up_screen
   static String titleSignUp = 'Únete al cambio de la comodidad';
-  static String bodySignUp = 'Antes de comenzar tu registro, te pediremos que tengas a mano tu documento de identidad vigente.';
+  static String bodySignUp =
+      'Antes de comenzar tu registro, te pediremos que tengas a mano tu documento de identidad vigente.';
   static String buttonSignUp = 'Ir al registro';
-  static String footerSignUp = 'Al continuar, declaro haber leído los y aceptado';
+  static String footerSignUp =
+      'Al continuar, declaro haber leído los y aceptado';
   static String termsSignUp = 'Términos y condiciones';
   // sign_up_screen2
   static String nextSignUp = 'Siguiente';
   static String titleSignUp2 = 'Número de telefono celular';
-  static String phoneNumberSignUp = 'Ingresar tu número telefónico para validar tu dispositivo';
-  static String formPhoneNumberSignUp = 'Escribe tu teléfono personal';
+  static String phoneNumberSignUp =
+      'Ingresar tu número telefónico para validar tu dispositivo';
+  static String formPhoneNumberSignUp = 'Escribe tu teléfono';
   // sign_up_screen3
   static String newCode = 'Solicitar un nuevo código';
   static String validateSignUp = 'Validar';
   static String recibeCode = '¿No recibiste el código?';
-  static String confirmNumber = 'Confirma tu número de teléfono'; 
-  static String fourDigitCode = 'Ingresa el código de 4 dígitos que Howse acaba de enviar a tu número teléfonico.';
+  static String confirmNumber = 'Confirma tu número de teléfono';
+  static String fourDigitCode =
+      'Ingresa el código de 4 dígitos que Howse acaba de enviar a tu número teléfonico.';
   // sign_up_screen4, 5
   static String frontPhoto = 'Tomar foto frontal';
-  static String photoInstructions = '¿Instrucciones para tomar las fotografías?';
+  static String photoInstructions =
+      '¿Instrucciones para tomar las fotografías?';
   static String documentsVerification = 'Verificación de documentos';
-  static String thisProcess = 'Este proceso nos ayudara a verificar tu identidad';
+  static String thisProcess =
+      'Este proceso nos ayudara a verificar tu identidad';
   static String uploadId = 'Sube tu cedula de identidad';
   // sign_up_screen5
   static String reversePhoto = 'Tomar foto reversa';
   // sign_up_screen6
   static String facePhoto = 'Tomar foto facial';
   static String actualVerification = 'Verificación de identidad real';
-  static String photoIndications = 'Sitúa tu teléfono celular al frente de tu rostro, evitar elementos extra (gorro, cubre boca, etc).';
+  static String photoIndications =
+      'Sitúa tu teléfono celular al frente de tu rostro, evitar elementos extra (gorro, cubre boca, etc).';
   // sign_up_screen7
   static String checkData = 'Revisa y completa tus datos demográficos';
   static String man = 'Hombre';
@@ -186,7 +193,8 @@ class Strings {
   static String chooseMethod = 'Elige tu método de pago';
   // sign_up_screen9
   static String myEmail = 'Sí, es mi correo';
-  static String confirmEmailCard = 'Por favor! Confirma tu correo e inscribe tu \n tarjeta';
+  static String confirmEmailCard =
+      'Por favor! Confirma tu correo e inscribe tu \n tarjeta';
   static String numberCard = 'XXXX XXXX XXXX XXXX';
   static String titleCvv = 'CVV';
   static String validateCard = '*Validaremos los datos de tu tarjeta';
@@ -194,8 +202,6 @@ class Strings {
   static String titleNumberCard = 'Número de tarjeta';
   static String expiryDate = 'Fecha de caducidad';
   static String monthYear = 'MM/AA';
-
-
 
   //forgot password screen
   static String resetPassword = 'Recuperación de contraseña';

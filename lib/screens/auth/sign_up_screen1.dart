@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/auth.dart';
 
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
+
+import '../../widgets/linear_percent_widget.dart';
 
 class SignUpScreen1 extends StatefulWidget {
   const SignUpScreen1({Key key}) : super(key: key);
@@ -121,10 +124,12 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
 
   Row barIconRow() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: const [
-        BackWidget(title: ""),
-        //Se debe agregar la barra de carga en este apartado
+        BackWidget(
+          title: "",
+          percent: 0.1,
+        )
       ],
     );
   }
@@ -133,7 +138,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
     return Text(
       Strings.basicInfoAccount,
       style: const TextStyle(
-          color: CustomColor.primaryColor,
+          color: CustomColor.colorBlack,
           fontSize: 25,
           height: 1.3,
           fontWeight: FontWeight.bold),
@@ -145,7 +150,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
     return Text(
       Strings.infoAccount,
       style: const TextStyle(
-        color: CustomColor.primaryColor,
+        color: CustomColor.colorBlack,
         fontSize: 16,
         height: 2.0,
       ),
@@ -166,7 +171,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
             Strings.passwordContain,
             style: const TextStyle(
                 fontSize: 16,
-                color: CustomColor.primaryColor,
+                color: CustomColor.colorBlack,
                 fontWeight: FontWeight.bold),
           ),
         ),
@@ -271,10 +276,12 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               child: SizedBox(
                 height: 30.00,
                 child: CheckboxListTile(
+                  activeColor: Colors.white,
+                  checkColor: CustomColor.greenColor,
                   title: const Text(
                     "Una mayuscula",
                     style: TextStyle(
-                      color: CustomColor.primaryColor,
+                      color: CustomColor.colorBlack,
                       fontSize: 12.00,
                     ),
                     textAlign: TextAlign.justify,
@@ -295,10 +302,12 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               child: SizedBox(
                 height: 30.00,
                 child: CheckboxListTile(
+                  activeColor: Colors.white,
+                  checkColor: CustomColor.greenColor,
                   title: const Text(
                     "Una minuscula",
                     style: TextStyle(
-                      color: CustomColor.primaryColor,
+                      color: CustomColor.colorBlack,
                       fontSize: 12.00,
                     ),
                     textAlign: TextAlign.justify,
@@ -320,10 +329,12 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               child: SizedBox(
                 height: 30.00,
                 child: CheckboxListTile(
+                  activeColor: Colors.white,
+                  checkColor: CustomColor.greenColor,
                   title: const Text(
                     "Un caracter especial",
                     style: TextStyle(
-                      color: CustomColor.primaryColor,
+                      color: CustomColor.colorBlack,
                       fontSize: 12.00,
                     ),
                     textAlign: TextAlign.justify,
@@ -344,10 +355,12 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
               child: SizedBox(
                 height: 30.00,
                 child: CheckboxListTile(
+                  activeColor: Colors.white,
+                  checkColor: CustomColor.greenColor,
                   title: const Text(
                     "Entre 8 y 15 caracteres",
                     style: TextStyle(
-                      color: CustomColor.primaryColor,
+                      color: CustomColor.colorBlack,
                       fontSize: 12.00,
                     ),
                     textAlign: TextAlign.justify,

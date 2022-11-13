@@ -1,4 +1,3 @@
-
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -23,15 +22,14 @@ class _SplashScreenState extends State<SplashScreen> {
         () => Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (context) => const OnBoardScreen())));
   }
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColor.whiteColor,
       body: Center(
         child: Image.asset(
-          'assets/images/hegga_logo_2a.png',
-          fit: BoxFit.fill,
+          'assets/images/deppa.png',
+          fit: BoxFit.fitWidth,
           height: 200,
           width: 300,
         ),

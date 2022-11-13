@@ -16,7 +16,7 @@ class SecondaryButtonWidget extends StatelessWidget {
         height: Dimensions.buttonHeight,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-            color: CustomColor.primaryColor,
+            color: CustomColor.greenColor,
             border: Border.all(color: CustomColor.primaryColor),
             borderRadius: BorderRadius.circular(Dimensions.radius)),
         child: Center(

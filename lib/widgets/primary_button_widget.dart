@@ -17,13 +17,13 @@ class PrimaryButtonWidget extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             color: Colors.white,
-            border: Border.all(color: CustomColor.greyColor),
+            border: Border.all(color: CustomColor.brownColor),
             borderRadius: BorderRadius.circular(Dimensions.radius)),
         child: Center(
           child: Text(
             title,
             style: TextStyle(
-                color: CustomColor.primaryColor,
+                color: CustomColor.brownColor,
                 fontSize: Dimensions.largeTextSize,
                 fontWeight: FontWeight.bold),
           ),

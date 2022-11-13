@@ -10,6 +10,8 @@ import 'package:howse_app/services/user.dart';
 import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
 
+enum AppState { male, female, none }
+
 class SignUpScreen7 extends StatefulWidget {
   const SignUpScreen7(
       {Key key, this.address, this.email, this.password, this.phone})
@@ -26,6 +28,9 @@ class SignUpScreen7 extends StatefulWidget {
 class _SignUpScreen7State extends State<SignUpScreen7> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+  var _appState = AppState.none;
+  bool _toggleVisibility = false;
+  String gender;
   TextEditingController firstNameController = TextEditingController();
   // TextEditingController lastNameController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
@@ -47,6 +52,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
 
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         body: Container(
           width: width,
           height: height,
@@ -55,7 +61,10 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: Strings.createAnAccount),
+              const BackWidget(
+                title: '',
+                percent: 0.7,
+              ),
               SizedBox(height: height * 0.05),
               inputFieldWidget(context),
               SizedBox(height: height * 0.03),
@@ -87,23 +96,24 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
         if (formKey.currentState.validate()) {
           Map profile = {
             'data': {
-              'name': firstNameController.text,
-              'lastName': firstNameController.text, //TODO: cambiar
-              'email': widget.email,
-              'birthday': bornController.text,
-              'gender': "Hombre", //TODO: cambiar
-              'identificationNumber': phoneController.text, //TODO: cambiar
-              'numberPhone': phoneController.text,
-              'pin': 111, //TODO: cambiar
-              'numberPhoneValidation': widget.phone, //TODO: cambiar
-              'identificationNumberValidation': 11211, //TODO: cambiar
-              'emailValidation': true, //TODO: cambiar
-              'paymentValidation': true, //TODO: cambiar
-              'rut': runController.text,
-              'address': widget.address,
+              'name': firstNameController.text.trim(),
+              'email': widget.email.trim(),
+              'birthday': dateFunction(bornController.text.trim()),
+              'address': widget.address.trim(),
+              'numberPhone': phoneController.text.trim(),
+              'rut': runController.text.trim(),
+              'expirationDate':
+                  dateFunction(runExpirationController.text.trim()),
+              'emisionDate': dateFunction(runEmitController.text.trim()),
+              // 'pin': 111, //TODO: cambiar
+              //'lastName': firstNameController.text, //TODO: cambiar
+              //'identificationNumber': phoneController.text, //TODO: cambiar
+              //'gender': "Hombre", //TODO: cambiar
+              //'numberPhoneValidation': widget.phone, //TODO: cambiar
+              //'identificationNumberValidation': 11211, //TODO: cambiar
+              //'emailValidation': true, //TODO: cambiar
+              //'paymentValidation': true, //TODO: cambiar
               //'avatar': firstNameController.text, //TODO: cambiar
-              'expirationDate': runExpirationController.text,
-              'emisionDate': runEmitController.text
             }
           };
           Future<ValidateProfile> newProfile = saveProfile(jsonEncode(profile));
@@ -148,7 +158,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                         Text(
                           Strings.checkData,
                           style: const TextStyle(
-                              color: CustomColor.primaryColor,
+                              color: CustomColor.colorBlack,
                               fontSize: 26,
                               fontWeight: FontWeight.bold),
                           textAlign: TextAlign.center,
@@ -166,13 +176,9 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                                   right:
                                       MediaQuery.of(context).size.width * 0.06),
                               child: Column(children: [
-                                CircleButtonWidget(
-                                  icon: Image.asset(
-                                    'assets/images/icon/male.png',
-                                    color: CustomColor.primaryColor,
-                                  ),
-                                  onTap: () {},
-                                ),
+                                _appState == AppState.male
+                                    ? circleButtonGreen('male')
+                                    : circleButtonGrey('male'),
                                 Text(Strings.man)
                               ]),
                             ),
@@ -183,13 +189,9 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                                       MediaQuery.of(context).size.width * 0.06),
                               child: Column(
                                 children: [
-                                  CircleButtonWidget(
-                                    icon: Image.asset(
-                                      'assets/images/icon/female.png',
-                                      color: CustomColor.primaryColor,
-                                    ),
-                                    onTap: () {},
-                                  ),
+                                  _appState == AppState.female
+                                      ? circleButtonGreen('female')
+                                      : circleButtonGrey('female'),
                                   Text(Strings.woman)
                                 ],
                               ),
@@ -233,7 +235,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                                 onPressed: () {},
                                 icon: const FaIcon(
                                     FontAwesomeIcons.solidCalendarDays,
-                                    color: CustomColor.primaryColor)),
+                                    color: CustomColor.secondBlack)),
                           ),
 
                           SizedBox(
@@ -247,7 +249,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                               Strings.idSignUp,
                               style: const TextStyle(
                                   fontSize: 16,
-                                  color: CustomColor.primaryColor,
+                                  color: CustomColor.colorBlack,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
@@ -259,7 +261,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                                 onPressed: () {},
                                 icon: const FaIcon(
                                     FontAwesomeIcons.solidCalendarDays,
-                                    color: CustomColor.primaryColor)),
+                                    color: CustomColor.secondBlack)),
                           ),
 
                           _titleData(Strings.expirationDateSignUp),
@@ -270,13 +272,43 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
                                 onPressed: () {},
                                 icon: const FaIcon(
                                     FontAwesomeIcons.solidCalendarDays,
-                                    color: CustomColor.primaryColor)),
+                                    color: CustomColor.secondBlack)),
                           ),
                         ],
                       ),
                     ),
                   ])),
         ));
+  }
+
+  CircleButtonWidget circleButtonGreen(String value) {
+    return CircleButtonWidget(
+      icon: const FaIcon(
+        FontAwesomeIcons.solidCircleUser,
+        size: 50,
+        color: CustomColor.greenColor,
+      ),
+      onTap: () {
+        gender = value;
+        setState(() {});
+      },
+    );
+  }
+
+  CircleButtonWidget circleButtonGrey(String value) {
+    return CircleButtonWidget(
+      icon: const FaIcon(FontAwesomeIcons.solidCircleUser,
+          size: 50, color: Color.fromARGB(255, 154, 154, 154)),
+      onTap: () {
+        if (_appState != AppState.male && value == 'male') {
+          _appState = AppState.male;
+        } else if (_appState != AppState.female && value == 'female') {
+          _appState = AppState.female;
+        }
+        gender = value;
+        setState(() {});
+      },
+    );
   }
 
   _titleData(String title) {
@@ -290,5 +322,12 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
         style: const TextStyle(color: Colors.black),
       ),
     );
+  }
+
+  String dateFunction(String date) {
+    String day = date[0] + date[1];
+    String month = date[3] + date[4];
+    String year = date[6] + date[7] + date[8] + date[9];
+    return year + '-' + month + '-' + day;
   }
 }

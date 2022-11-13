@@ -24,6 +24,11 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
     super.initState();
   }
 
+  TextEditingController controller;
+  TextEditingController controller1;
+  TextEditingController controller2;
+  TextEditingController controller3;
+
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
@@ -31,29 +36,24 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
 
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          width: width,
-          height: height,
-          color: Colors.white,
-          child: ListView(
-            physics: const BouncingScrollPhysics(),
-            shrinkWrap: true,
-            children: [
-              BackWidget(title: Strings.createAnAccount),
-              const SizedBox(
-                height: Dimensions.heightSize * 2,
-              ),
-              inputFieldWidget(context),
-              SizedBox(
-                height: height * 0.4,
-              ), // TODO: Cambiar por widget código seguridad.
-              validateButtonPadding(height, width, context),
-              const SizedBox(
-                height: Dimensions.heightSize * 2,
-              ),
-              footerRow(),
-            ],
-          ),
+        body: ListView(
+          physics: const BouncingScrollPhysics(),
+          shrinkWrap: true,
+          children: [
+            const BackWidget(
+              title: '',
+              percent: 0.3,
+            ),
+            const SizedBox(
+              height: Dimensions.heightSize * 2,
+            ),
+            inputFieldWidget(context),
+            validateButtonPadding(height, width, context),
+            const SizedBox(
+              height: Dimensions.heightSize * 2,
+            ),
+            footerRow(),
+          ],
         ),
       ),
     );
@@ -113,7 +113,7 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
         child: GestureDetector(
       child: Text(
         Strings.newCode,
-        style: TextStyle(
+        style: const TextStyle(
             color: CustomColor.linkColor,
             fontWeight: FontWeight.bold,
             decoration: TextDecoration.underline),
@@ -142,7 +142,7 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                   child: Text(
                     Strings.confirmNumber,
                     style: const TextStyle(
-                        color: CustomColor.primaryColor,
+                        color: CustomColor.colorBlack,
                         fontSize: 26,
                         fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
@@ -159,11 +159,61 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                     textAlign: TextAlign.start,
                     style: const TextStyle(
                       fontSize: 16,
-                      color: CustomColor.primaryColor,
+                      color: CustomColor.colorBlack,
                     ),
                   ),
                 ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SquareTextFormField(controller: controller),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    SquareTextFormField(
+                      controller: controller1,
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    SquareTextFormField(
+                      controller: controller2,
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    SquareTextFormField(
+                      controller: controller3,
+                    ),
+                  ],
+                ),
+                SizedBox(height: height * 0.4)
               ],
             )));
+  }
+}
+
+class SquareTextFormField extends StatelessWidget {
+  const SquareTextFormField({
+    Key key,
+    @required this.controller,
+  }) : super(key: key);
+  final TextEditingController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 50,
+        width: 50,
+        child: TextFormField(
+          decoration: CustomStyle.decorationTextFormField(''),
+          controller: controller,
+          showCursor: false,
+          style: const TextStyle(color: CustomColor.greenColor, fontSize: 30),
+          textAlign: TextAlign.center,
+        ));
   }
 }
