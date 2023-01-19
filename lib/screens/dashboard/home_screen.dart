@@ -130,7 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () => {},
                       ),
                     ),
-                    Positioned(
+                    /*Positioned(
                       top: MediaQuery.of(context).size.height * 0.12,
                       right: 0,
                       child: Column(
@@ -158,9 +158,31 @@ class _HomeScreenState extends State<HomeScreen> {
                     // TODO: revisar
                     Positioned(
                       bottom: 30,
-                      child: circularButtonWidget(context, go(context)),
-                    ),
-
+                      child: circularButtonWidget(context,  go(context)),
+                      ),*/
+                    
+                    Positioned(
+                      right: 0,
+                      bottom: 30,
+                      child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: Dimensions.marginSize, right: Dimensions.marginSize),
+                          child: CircleButtonWidget(
+                            icon: const Icon(
+                              Icons.arrow_forward,
+                              color: CustomColor.whiteColor,
+                            ),
+                            onTap: () {
+                            if(scaffoldKey.currentState.isDrawerOpen) {
+                              return scaffoldKey.currentState.openEndDrawer();
+                            } else {
+                              return scaffoldKey.currentState.openDrawer();
+                            }
+                          },
+      ),
+    )
+                      ),
+                    
                     _menuWidget(context),
                   ],
                 ),
