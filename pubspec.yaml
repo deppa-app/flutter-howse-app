@@ -27,16 +27,26 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  equatable: ^2.0.3
   flutter:
     sdk: flutter
     
   card_swiper: ^2.0.3
   font_awesome_flutter: ^10.1.0
+  flutter_dotenv: ^3.1.0
+  dotenv: ^3.0.0
+  flutter_bloc: ^8.0.0
+  plugin_toc:
+    path: build/plugin_toc/
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  image_picker: ^0.8.6+1
+  percent_indicator: ^4.2.2
+  intl_phone_field: ^3.1.0
+  permission_handler: ^8.3.0
 
 dev_dependencies:
   flutter_test:

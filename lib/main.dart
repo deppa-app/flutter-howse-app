@@ -1,10 +1,14 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:howse_app/integrations/toc/features/autocapture/presentation/bloc/autocapture_bloc.dart';
 import 'package:howse_app/screens/splash_screen.dart';
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(create: (_) => AutocaptureBloc()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -20,7 +24,7 @@ class MyApp extends StatelessWidget {
           primaryColor: CustomColor.primaryColor,
           fontFamily: 'Poppins'
       ),
-      home: const SplashScreen(),
+      home: SplashScreen(),
     );
   }
 }

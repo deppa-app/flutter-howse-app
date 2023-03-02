@@ -189,7 +189,9 @@ class _SignInScreenState extends State<SignInScreen> {
           //   color: CustomColor.whiteColor,
           // ),
           onTap: () {
-            if (formKey.currentState.validate()) {
+            Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const HomeScreen()));
+            /*if (formKey.currentState.validate()) {
               futureUser =
                   validateUser(emailController.text, passwordController.text);
 
@@ -219,7 +221,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   );
                 }
               });
-            }
+            }*/
           }),
     );
   }
