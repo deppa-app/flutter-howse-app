@@ -7,6 +7,15 @@ import 'package:plugin_toc/core/data/model/face_and_document_request.dart';
 
 import 'package:flutter/material.dart';
 
+import 'package:dotenv/dotenv.dart' as dotenv;
+import 'package:toc_flutter_demo/core/presentation/widgets/alert_helper.dart';
+import 'package:toc_flutter_demo/core/presentation/widgets/loading_dialog.dart';
+import 'package:toc_flutter_demo/features/autocapture/domain/usecases/capture_back.dart';
+import 'package:toc_flutter_demo/features/autocapture/domain/usecases/capture_front.dart';
+
+import 'package:toc_flutter_demo/features/autocapture/presentation/bloc/autocapture_bloc.dart';
+import 'package:toc_flutter_demo/features/liveness/domain/usecases/capture_liveness.dart';
+
 class AutocaptureDemoPage extends StatefulWidget {
   final String documentType;
   const AutocaptureDemoPage({Key key,  this.documentType}) : super(key: key);
@@ -17,8 +26,8 @@ class AutocaptureDemoPage extends StatefulWidget {
 
 class _AutocaptureDemoPageState extends State<AutocaptureDemoPage> {
   final FaceAndDocumentRequest _faceAndDocumentRequest = FaceAndDocumentRequest(
-    apiKey: apiKey,
-  );
+    apiKey: dotenv.env['apiKey'],
+  ); 
   @override
   void initState() {
     BlocProvider.of<AutocaptureBloc>(context).add(const FecthTocSessionTrigger(apiKey: apiKey));
