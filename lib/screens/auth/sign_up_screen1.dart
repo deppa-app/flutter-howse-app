@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/auth.dart';
 
-import 'package:percent_indicator/percent_indicator.dart';
+//import 'package:percent_indicator/percent_indicator.dart';
 import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
 
