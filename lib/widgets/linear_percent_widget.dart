@@ -17,7 +17,10 @@ class LinearPercentWidget extends StatelessWidget {
       child: LinearPercentIndicator(
         width: 300.0,
         lineHeight: 14.0,
-        percent: percent,
+        //La variable "percent" está llegando nula, por esto tira la excepción y no deja pasar a la siguiente pantalla.
+        //De forma temporal le agregué una condición para que su valor sea 0.0 en caso de que sea nulo.
+        //TODO: DEJAR COMO ESTABA SIN LA CONDICIÓN (percent: percent)
+        percent: percent ?? 0.0,
         barRadius: const Radius.circular(30),
         backgroundColor: Colors.grey,
         progressColor: CustomColor.greenColor,

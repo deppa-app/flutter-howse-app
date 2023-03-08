@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primaryColor: CustomColor.primaryColor,
-          fontFamily: 'Poppins'
+          fontFamily: 'Monserrat'
       ),
       home: const SplashScreen(),
     );

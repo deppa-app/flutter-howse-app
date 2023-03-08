@@ -20,6 +20,7 @@ class CustomColor {
   static const Color orangeColor = Color(0xFFFF8000);
   static const Color linkColor = Color(0xFF0165FC);
   static const Color brownColor = Color.fromARGB(255, 191, 163, 91);
+  static const Color brownColor2 = Color.fromARGB(255, 173, 119, 841);
 
   static var primaryButtonGradient = LinearGradient(
       begin: Alignment.topCenter,
