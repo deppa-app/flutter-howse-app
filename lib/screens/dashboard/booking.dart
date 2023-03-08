@@ -40,12 +40,12 @@ class _BookingState extends State<Booking> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              AppBar(
+              /* AppBar(
                 iconTheme: const IconThemeData(color: CustomColor.greenColor),
                 backgroundColor: Colors.white,
                 elevation: 0,
-              ),
-              //BackWidget(title: Strings.createAnAccount),
+              ), */
+              const BackGeneralWidget(),
               const SizedBox(height: Dimensions.heightSize * 4,),
               inputFieldWidget(context),
               Padding(padding: const EdgeInsets.only(

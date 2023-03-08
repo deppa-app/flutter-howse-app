@@ -1,4 +1,6 @@
 
+export 'package:howse_app/widgets/back_general_widget.dart';
+
 export 'package:howse_app/widgets/back_widget.dart';
 export 'package:howse_app/widgets/circle_button_widget.dart';
 export 'package:howse_app/widgets/custom_text_form_field.dart';
