@@ -172,7 +172,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(right: 120),
+                            padding: const EdgeInsets.only(right: 120),
                             child: _titleData(Strings.cvv),
                           ),
                           TextFormFieldCvv(

@@ -1,4 +1,4 @@
-import 'package:howse_app/utils/custom_color.dart';
+//import 'package:howse_app/utils/custom_color.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:howse_app/screens/onboard/on_board_screen.dart';

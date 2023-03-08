@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/auth/auth.dart';
 
-import 'package:percent_indicator/percent_indicator.dart';
+//import 'package:percent_indicator/percent_indicator.dart';
 import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';
 
-import '../../widgets/linear_percent_widget.dart';
+//import '../../widgets/linear_percent_widget.dart';
 
 class SignUpScreen1 extends StatefulWidget {
   const SignUpScreen1({Key key}) : super(key: key);
@@ -190,7 +190,6 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
       title: "Siguiente",
       onTap: () {
         if (formKey.currentState.validate()) {
-          print(emailController.text);
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => SignUpScreen2(
                   address: addressController.text,
@@ -391,7 +390,6 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
           color: CustomColor.primaryColor,
         ),
         onTap: () {
-          print(emailController.text);
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => SignUpScreen2(
                   address: addressController.text,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/utils/custom_style.dart';
-import 'package:howse_app/utils/strings.dart';
+//import 'package:howse_app/utils/strings.dart';
 
 class TextFormFieldEmail extends StatelessWidget {
   const TextFormFieldEmail({ 

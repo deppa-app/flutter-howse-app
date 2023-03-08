@@ -3,8 +3,8 @@ import 'package:howse_app/screens/dashboard/booking_pin.dart';
 
 
 
-import 'package:howse_app/utils/dimensions.dart';
-import 'package:howse_app/utils/strings.dart';
+//import 'package:howse_app/utils/dimensions.dart';
+//import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/back_widget.dart';
 

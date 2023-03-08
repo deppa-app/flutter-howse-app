@@ -29,7 +29,7 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   var _appState = AppState.none;
-  bool _toggleVisibility = false;
+  //bool _toggleVisibility = false;
   String gender;
   TextEditingController firstNameController = TextEditingController();
   // TextEditingController lastNameController = TextEditingController();

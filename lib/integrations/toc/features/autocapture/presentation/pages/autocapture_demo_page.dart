@@ -1,20 +1,24 @@
 
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:howse_app/integrations/toc/core/presentation/widgets/loading_dialog.dart';
+import 'package:howse_app/integrations/toc/features/liveness/domain/usecases/capture_liveness.dart';
+import 'package:howse_app/integrations/toc/features/autocapture/domain/usecases/capture_back.dart';
+import 'package:howse_app/integrations/toc/features/autocapture/domain/usecases/capture_front.dart';
+import 'package:howse_app/integrations/toc/features/autocapture/presentation/bloc/autocapture_bloc.dart';
+import 'package:howse_app/integrations/toc/core/presentation/widgets/alert_helper.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:plugin_toc/core/data/model/face_and_document_request.dart';
 
 import 'package:flutter/material.dart';
 
 import 'package:dotenv/dotenv.dart' as dotenv;
-import 'package:toc_flutter_demo/core/presentation/widgets/alert_helper.dart';
-import 'package:toc_flutter_demo/core/presentation/widgets/loading_dialog.dart';
-import 'package:toc_flutter_demo/features/autocapture/domain/usecases/capture_back.dart';
-import 'package:toc_flutter_demo/features/autocapture/domain/usecases/capture_front.dart';
 
-import 'package:toc_flutter_demo/features/autocapture/presentation/bloc/autocapture_bloc.dart';
-import 'package:toc_flutter_demo/features/liveness/domain/usecases/capture_liveness.dart';
+
+
+
+
+
 
 class AutocaptureDemoPage extends StatefulWidget {
   final String documentType;
@@ -30,7 +34,7 @@ class _AutocaptureDemoPageState extends State<AutocaptureDemoPage> {
   ); 
   @override
   void initState() {
-    BlocProvider.of<AutocaptureBloc>(context).add(const FecthTocSessionTrigger(apiKey: apiKey));
+    BlocProvider.of<AutocaptureBloc>(context).add(FecthTocSessionTrigger(apiKey: dotenv.env['apiKey']));
     super.initState();
   }
 

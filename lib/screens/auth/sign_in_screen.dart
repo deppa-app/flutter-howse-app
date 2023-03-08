@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/models/user.dart';
 import 'package:howse_app/screens/auth/auth.dart';
-import 'package:howse_app/services/user.dart';
+//import 'package:howse_app/services/user.dart';
 
 import 'package:howse_app/utils/utils.dart';
 import 'package:howse_app/widgets/widget.dart';

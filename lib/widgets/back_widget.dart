@@ -46,7 +46,7 @@ class _BackWidgetState extends State<BackWidget> {
           ),
           widget.percent != 0
               ? LinearPercentWidget(percent: widget.percent)
-              : Text('')
+              : const Text('')
         ],
       ),
     );

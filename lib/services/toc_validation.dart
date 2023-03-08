@@ -4,7 +4,7 @@ import '../constants/toc_constants.dart';
 import 'package:dotenv/dotenv.dart' as dotenv;
 
 
-void getTocValidation( String INType) async {
+void getTocValidation( String inType) async {
 
   // Creación de una solicitud de tipo "multipart/form-data"
   var request = http.MultipartRequest('POST', Uri.parse(urlToc));
@@ -12,7 +12,7 @@ void getTocValidation( String INType) async {
   // Se agregan las variables estáticas
   request.fields.addAll({
   'apiKey': dotenv.env['apiKey'],
-  'documentType': INType
+  'documentType': inType
   });
 
     //TODO: rediseñar función para recibir las imágenes

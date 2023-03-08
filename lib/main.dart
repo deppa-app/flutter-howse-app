@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           primaryColor: CustomColor.primaryColor,
           fontFamily: 'Poppins'
       ),
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
