@@ -17,7 +17,7 @@ class SecondaryOutlineButtonWidget extends StatelessWidget {
         height: Dimensions.buttonHeight,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
-            color: CustomColor.whiteColor,
+            color: CustomColor.whiteColor2,
             border: Border.all(color: CustomColor.brownColor2),
             borderRadius: BorderRadius.circular(Dimensions.radius)),
         child: Center(

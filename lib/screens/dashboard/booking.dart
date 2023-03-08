@@ -54,15 +54,15 @@ class _BookingState extends State<Booking> {
                   bottom: 40
                 ),
                 child: RichText(textAlign: TextAlign.center, text: TextSpan(text: "Recuerda que una vez reserves,\n dispones de ", style: TextStyle(
-                  color: Colors.grey,
+                  color: CustomColor.colorBlack,
                   fontSize: Dimensions.largeTextSize,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.normal,
                   height: 1.5
                   ),children:[
                     TextSpan(text: '30 minutos ', style: TextStyle(
                     color: CustomColor.brownColor2,
                     fontSize: Dimensions.largeTextSize,
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.normal
                     ), ),
                     const TextSpan(
                       text: 'para visitar.\n Si necesitas más tiempo, puedes agendar\n con tiempo.'
@@ -119,22 +119,22 @@ class _BookingState extends State<Booking> {
                   left: 40,
                   right: 40
                 ),
-                child: RichText(textAlign: TextAlign.center, text: TextSpan(text: '"Si necesitas agendar tu visita' , style: TextStyle(
-                  color: Colors.grey,
+                child: RichText(textAlign: TextAlign.center, text: TextSpan(text: '"Si quieres reservar tu visita' , style: TextStyle(
+                  color: CustomColor.colorBlack,
                   fontSize: Dimensions.largeTextSize,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.normal,
                   height: 1.5
                   ), 
                   children: [
-                    TextSpan(text: 'AHORA\n ', style: TextStyle(
+                    TextSpan(text: ' AHORA\n ', style: TextStyle(
                     color: CustomColor.brownColor2,
                     fontSize: Dimensions.largeTextSize,
                     fontWeight: FontWeight.bold
                     ), ),
-                    TextSpan(text: 'entonces dale click al botón Reservar visitar ahora"', style: TextStyle(
-                    color: Colors.grey,
+                    TextSpan(text: 'Y llegas en menos de 15 minutos a la\npropiedad, entonces dale clic al botón\nReservar visita ahora"', style: TextStyle(
+                    color: CustomColor.colorBlack,
                     fontSize: Dimensions.largeTextSize,
-                    fontWeight: FontWeight.bold
+                    fontWeight: FontWeight.normal
                     ),)
                   ]
                   )
@@ -152,6 +152,25 @@ class _BookingState extends State<Booking> {
                     (context) => const BookingPin()));
                   },
                 ),
+
+              const SizedBox(height: Dimensions.heightSize * 2,),
+              
+              Padding(padding: const EdgeInsets.only(
+                  left: 40,
+                  right: 40,
+                  bottom: 40
+                ),
+                child: RichText(textAlign: TextAlign.center, text: TextSpan(text: "Tienes 2 minutos para cancelar tu visita sin costo", 
+                style: TextStyle(
+                  color: CustomColor.brownColor2,
+                  fontSize: Dimensions.largeTextSize,
+                  fontWeight: FontWeight.normal,
+                  height: 1.5
+                  )
+                  )
+                  ),
+                  
+                ),  
               
             ],
           ),

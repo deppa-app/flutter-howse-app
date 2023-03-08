@@ -11,16 +11,18 @@ class CustomColor {
   static const Color electricVioletColor = Color(0xFF7836FC);
   static const Color redColor = Color(0xFFEB2721);
   static const Color greyColor = Color(0xFF9E9E9E);
-  static const Color greenColor = Color(0xFF03A60F);
+  static const Color greenColor = Color.fromARGB(255,77, 186, 109);
+
   static const Color greenLightColor = Color(0xFFD8EEDC);
   static const Color blueColor = Color(0xFF2C3066);
   static const Color whiteColor = Color(0xFFf6f3ed);
+  static const Color whiteColor2 = Color.fromARGB(255, 248, 248, 248);
   static const Color colorBlack = Color(0xFF313131);
   static const Color secondBlack = Color.fromARGB(185, 95, 94, 94);
   static const Color orangeColor = Color(0xFFFF8000);
   static const Color linkColor = Color(0xFF0165FC);
   static const Color brownColor = Color.fromARGB(255, 191, 163, 91);
-  static const Color brownColor2 = Color.fromARGB(255, 173, 119, 841);
+  static const Color brownColor2 = Color.fromARGB(255, 167, 104, 70);
 
   static var primaryButtonGradient = LinearGradient(
       begin: Alignment.topCenter,
