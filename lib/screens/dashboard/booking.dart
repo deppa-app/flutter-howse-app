@@ -40,13 +40,11 @@ class _BookingState extends State<Booking> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              /* AppBar(
-                iconTheme: const IconThemeData(color: CustomColor.greenColor),
-                backgroundColor: Colors.white,
-                elevation: 0,
-              ), */
               const BackGeneralWidget(),
-              const SizedBox(height: Dimensions.heightSize * 4,),
+              SizedBox(
+                height: Dimensions.heightSize * 8,
+                child: Image.asset('assets/images/logo_orizon.png'),
+                ),
               inputFieldWidget(context),
               Padding(padding: const EdgeInsets.only(
                   left: 40,
@@ -70,11 +68,10 @@ class _BookingState extends State<Booking> {
                   ]
                   )
                   ),
-                  
                 ),
               SizedBox(
                 height: 200,
-                child: Image.asset('assets/images/lorem-image.jpeg')
+                child: Image.asset('assets/images/pasos.png')
                 ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03,),
               Padding(
@@ -201,7 +198,7 @@ class _BookingState extends State<Booking> {
                        style: TextStyle(
                        color: CustomColor.brownColor2,
                         fontSize: Dimensions.extraLargeTextSize * 1.5,
-                        fontWeight: FontWeight.bold
+                        fontWeight: FontWeight.w600
                        ),
                          textAlign: TextAlign.center,
                        ),
