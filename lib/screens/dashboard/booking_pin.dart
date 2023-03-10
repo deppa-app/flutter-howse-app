@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/dashboard/booking_confirmed.dart';
-
-
-
+import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/dimensions.dart';
-import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/widgets/back_widget.dart';
-
-import '../../widgets/secondary_button_widget.dart';
+import 'package:pin_keyboard/pin_keyboard.dart';
+import 'package:pin_keyboard/pin_keyboard_controller.dart';
+import '../../widgets/widget.dart';
 
 class BookingPin extends StatefulWidget {
   const BookingPin({Key key}) : super(key: key);
@@ -17,89 +14,157 @@ class BookingPin extends StatefulWidget {
 }
 
 class _BookingPinState extends State<BookingPin> {
-
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final TextEditingController _pinController = TextEditingController();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
-
+    _pinController.text = '••••'; //se inicializa el controlador del PIN con asteriscos
     super.initState();
-
   }
-  @override
+
+  void _onPinEntered(String pin) => setState(() => _pinController.text = pin.padRight(4, "•"));
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          color: Colors.white,
-          child: ListView(
-            physics: const BouncingScrollPhysics(),
-            shrinkWrap: true,
-            children: [
-              BackWidget(title: Strings.createAnAccount),
-              const SizedBox(height: Dimensions.heightSize * 2,),
-              inputFieldWidget(context),
-              Text(
-                "Recuerde que una vez que reserves, dispones de 30 minutos para visitar. Si necesitas más tiempo, puedes agendar de forma programada",
-                 style: TextStyle(
-                 color: Colors.grey,
-                 fontSize: Dimensions.largeTextSize,
-                  fontWeight: FontWeight.bold
-                ),
-                textAlign: TextAlign.center,
-                ),
-              SecondaryButtonWidget(
-                  title: "Reservar",
-                    onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) => const BookingConfirmed()));
-                  },
-                ),
-              const SizedBox(height: Dimensions.heightSize * 2,),
-            ],
-          ),
+        body: ListView(
+          physics: const BouncingScrollPhysics(),
+          children: [
+            const BackGeneralWidget(),
+            const SizedBox(height: Dimensions.heightSize * 2),
+            
+            principalPinKeyboard(),
+            const SizedBox(height: Dimensions.heightSize * 3.5),
+
+            SecondaryButtonWidget(
+              title: "Reservar",
+              onTap: () {
+                if (_formKey.currentState.validate()) { // se valida el formulario al presionar el botón "Reservar"
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const BookingConfirmed(),
+                  ));
+                }
+              },
+            ),
+            const SizedBox(height: Dimensions.heightSize * 2),
+          ],
         ),
       ),
     );
   }
 
-
-
-  inputFieldWidget(BuildContext context) {
+  Padding principalPinKeyboard() {
     return Padding(
-      padding: const EdgeInsets.only(
-        left: Dimensions.marginSize,
-        right: Dimensions.marginSize,
-      ),
-      child: Form(
-          key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                 padding: const EdgeInsets.only(
-                    left: Dimensions.marginSize,
-                    right: Dimensions.marginSize),
-                    child: Text(
-                      "Ingresa tu PIN de HowseApp para confirmar la reserva",
-                       style: TextStyle(
-                       color: Colors.black,
-                        fontSize: Dimensions.extraLargeTextSize * 1.5,
-                        fontWeight: FontWeight.bold
-                       ),
-                         textAlign: TextAlign.center,
-                       ),
+            padding: const EdgeInsets.only(
+              left: Dimensions.marginSize,
+              right: Dimensions.marginSize,
+              top: Dimensions.heightSize * 2,
+            ),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const PrincipalString(),
+                  const SizedBox(height: Dimensions.heightSize * 2),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      for (int i = 0; i < 4; i++) // se crea una fila con 4 círculos para representar los dígitos del PIN
+                        Padding(
+                          padding: const EdgeInsets.only(left: 6.0, right: 6.0, bottom: 6.0),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                              border: Border.all(
+                                color: Colors.black12,
+                              )
+                            ),
+                            child: CircleAvatar(
+                              backgroundColor: i < _pinController.text.length ? const Color.fromARGB(1, 229, 229, 229) : Colors.green[300],  // se cambia el color de fondo del círculo si se ha ingresado un dígito
+                              radius: 25,
+                              child: Text(
+                                i < _pinController.text.length ? _pinController.text[i] : "", // se muestra el dígito ingresado si corresponde
+                                style: const TextStyle(
+                                  fontSize: 41,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
-              const SizedBox(height: Dimensions.heightSize * 2,),                  
-              
-          ],
-        )
-      )
+                    ],
+                  ),
+                  const SizedBox(height: Dimensions.heightSize * 2),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 80),
+                    child: Container(
+                      padding: const EdgeInsets.only(left:16.0, right:16.0,top: 20, bottom: 35.0),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200], 
+                        borderRadius: BorderRadius.circular(12.0),
+                        border: Border.all(color: Colors.black12, width: 1.5),
+                      ),
+                      child: Column(
+                        children: [
+                          pinKeyboard(),
+                          GestureDetector(
+                            onTap: () {
+                            },
+                            child: const Text(
+                              'Olvidé mi contraseña',
+                              style: TextStyle(
+                                color: CustomColor.colorBlack,
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.normal
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+  }
+/*
+Este widget crea una pantalla para ingresar un PIN de cuatro dígitos.
+El usuario puede ingresar un dígito a la vez y se muestra en la pantalla.
+Los dígitos ingresados se almacenan en una variable _pinController.
+Los círculos que representan los dígitos del PIN cambian de color cuando se ingresa un dígito.
+*/
+  PinKeyboard pinKeyboard() {
+    return PinKeyboard(
+                        space: 95,
+                        length: 4,
+                        fontSize: 41,
+                        fontWeight: FontWeight.w600,
+                        textColor: CustomColor.colorBlack,
+                        controller: PinKeyboardController(),
+                        onChange: _onPinEntered,
+                      );
+  }
+}
+class PrincipalString extends StatelessWidget {
+  const PrincipalString({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      "Ingresa tu PIN para\n confirmar la reserva",
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: Dimensions.extraLargeTextSize * 1.5,
+        fontWeight: FontWeight.w600,
+      ),
+      textAlign: TextAlign.center,
     );
   }
-
-    
-
 }

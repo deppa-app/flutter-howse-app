@@ -11,6 +11,8 @@ class CustomColor {
   static const Color electricVioletColor = Color(0xFF7836FC);
   static const Color redColor = Color(0xFFEB2721);
   static const Color greyColor = Color(0xFF9E9E9E);
+  static const Color keyboardBackgroundColor = Color(0xFFF8F8F8);
+  static const Color keyboardBorderColor = Color(0xFFF8F8F8);
   static const Color greenColor = Color.fromARGB(255,77, 186, 109);
 
   static const Color greenLightColor = Color(0xFFD8EEDC);
