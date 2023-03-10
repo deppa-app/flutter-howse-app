@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/dashboard/booking_pin.dart';
-
-
-
-import 'package:howse_app/utils/dimensions.dart';
-import 'package:howse_app/utils/strings.dart';
+import 'package:howse_app/widgets/widget.dart';
 import 'package:howse_app/utils/utils.dart';
-import 'package:howse_app/widgets/back_widget.dart';
 
-import '../../widgets/secondary_button_widget.dart';
 import '../../widgets/widget.dart';
 
 class Booking extends StatefulWidget {
@@ -40,7 +34,7 @@ class _BookingState extends State<Booking> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              const BackGeneralWidget(),
+              const BackButtonGeneralWidget(),
               SizedBox(
                 height: Dimensions.heightSize * 8,
                 child: Image.asset('assets/images/logo_orizon.png'),
@@ -56,7 +50,8 @@ class _BookingState extends State<Booking> {
                   fontSize: Dimensions.largeTextSize,
                   fontWeight: FontWeight.normal,
                   height: 1.5
-                  ),children:[
+                  ),
+                  children:[
                     TextSpan(text: '30 minutos ', style: TextStyle(
                     color: CustomColor.brownColor2,
                     fontSize: Dimensions.largeTextSize,
@@ -210,7 +205,4 @@ class _BookingState extends State<Booking> {
       )
     );
   }
-
-    
-
 }

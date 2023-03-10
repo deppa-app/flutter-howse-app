@@ -7,9 +7,7 @@ import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 import '../auth/pass_sign_up_screen.dart';
 import 'data.dart';
-import 'package:howse_app/widgets/primary_button_widget.dart';
-import 'package:howse_app/widgets/secondary_button_widget.dart';
-
+import 'package:howse_app/widgets/widget.dart';
 class OnBoardScreen extends StatefulWidget {
   const OnBoardScreen({Key key}) : super(key: key);
 

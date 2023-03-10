@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/utils/custom_style.dart';
 
-import '../utils/custom_color.dart';
-import '../utils/dimensions.dart';
-import '../utils/strings.dart';
+import '../../utils/custom_color.dart';
+import '../../utils/dimensions.dart';
+import '../../utils/strings.dart';
 
 
 class TextFormFieldW1 extends StatelessWidget{

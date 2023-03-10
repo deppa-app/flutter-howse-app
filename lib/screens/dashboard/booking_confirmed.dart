@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/dashboard/home_screen.dart';
-
-
-
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
-
-
 import '../../utils/custom_color.dart';
 import '../../widgets/widget.dart';
 import 'booking_details.dart';
@@ -40,7 +35,7 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              const BackGeneralWidget(),
+              const BackButtonGeneralWidget(),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
               SizedBox(
@@ -57,10 +52,8 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
                   fontWeight: FontWeight.w600
                 ),
                 textAlign: TextAlign.center,
-                
                 ),
               const SizedBox(height: 21,),
-                
                 GestureDetector(
                 child:  const Text(
                   "ver detalle de visita",
@@ -76,7 +69,7 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
                       builder: (context) => const BookingDetails()));
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 226,
               ),
               SecondaryButtonWidget(

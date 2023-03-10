@@ -1,23 +1,13 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/dashboard/booking.dart';
-import 'package:howse_app/screens/servicesAviable/cleaning.dart';
-import 'package:howse_app/screens/servicesAviable/removals.dart';
-
+import 'package:howse_app/widgets/widget.dart';
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/widgets/drawer_header_widget.dart';
-import 'package:howse_app/widgets/list_data_widget.dart';
 import 'package:howse_app/screens/auth/sign_in_screen.dart';
 
-import '../../widgets/circle_button_widget.dart';
-import '../../widgets/primary_button_widget.dart';
-import '../../widgets/secondary_button_widget.dart';
-import '../servicesAviable/locksmithment.dart';
-import '../servicesAviable/plumbing.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key, this.idProfile}) : super(key: key);

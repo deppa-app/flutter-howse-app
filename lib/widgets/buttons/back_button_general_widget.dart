@@ -2,19 +2,19 @@ import 'package:howse_app/utils/custom_color.dart';
 import 'package:flutter/material.dart';
 import 'package:howse_app/utils/dimensions.dart';
 
-import 'linear_percent_widget.dart';
 
-class BackGeneralWidget extends StatefulWidget {
+
+class BackButtonGeneralWidget extends StatefulWidget {
   final String title;
   //final double percent;
 
-  const BackGeneralWidget({Key key, this.title=''}) : super(key: key);
+  const BackButtonGeneralWidget({Key key, this.title=''}) : super(key: key);
 
   @override
-  _BackGeneralWidgetState createState() => _BackGeneralWidgetState();
+  _BackButtonGeneralWidgetState createState() => _BackButtonGeneralWidgetState();
 }
 
-class _BackGeneralWidgetState extends State<BackGeneralWidget> {
+class _BackButtonGeneralWidgetState extends State<BackButtonGeneralWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
