@@ -69,7 +69,7 @@ class _DemoPageState extends State<DemoPage> {
               height: 200,
               color: Colors.transparent,
               child: const Image(
-                image: AssetImage("assets/logo.png"),
+                image: AssetImage("assets/images/logo.jpeg"),
               )),
           const Text(
             "Seleccione el tipo de documento",

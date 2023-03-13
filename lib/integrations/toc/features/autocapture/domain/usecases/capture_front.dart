@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:plugin_toc/plugin_toc.dart';
 
+
 class CaptureFront {
   final MethodChannel _channelios = const MethodChannel('plugin_toc.ios');
 

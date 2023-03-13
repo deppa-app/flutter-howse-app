@@ -5,6 +5,8 @@ import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:flutter/material.dart';
 
+import 'integrations/toc/presentation/pages/demo_page.dart';
+
 void main() {
   runApp(MultiBlocProvider(providers: [
     BlocProvider(create: (_) => AutocaptureBloc()),
@@ -24,7 +26,8 @@ class MyApp extends StatelessWidget {
           primaryColor: CustomColor.primaryColor,
           fontFamily: 'Poppins'
       ),
-      home: const SplashScreen(),
+      //home: const SplashScreen(),
+      home: const DemoPage(),
     );
   }
 }
