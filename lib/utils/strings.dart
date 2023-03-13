@@ -345,6 +345,7 @@ class Strings {
 
   //help and support screen
   static String myAccount = 'My Account';
+  static String myAccountEsp = 'Mi Cuenta';
   static String paymentMethod = 'Payment Method';
   static String vouchers = 'Vouchers';
   static String supportRequest = 'Support Request';

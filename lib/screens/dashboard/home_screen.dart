@@ -7,7 +7,9 @@ import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/screens/auth/sign_in_screen.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../widgets/list_data/list_data_fontawesome_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key, this.idProfile}) : super(key: key);
@@ -38,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
         key: scaffoldKey,
         drawer: Drawer(
           child: Container(
-            color: CustomColor.primaryColor,
+            color: CustomColor.whiteColor2,
             child: ListView(
               children: <Widget>[
                 const SizedBox(
@@ -52,20 +54,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 ListDataWidget(
                   icon: 'assets/images/icon/coupon.png',
+                  title: Strings.myAccountEsp,
+                  onTap: () {
+                    /*Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                        MyWalletScreen()));*/
+                  },
+                ),
+                ListDataWidget(
+                  icon: 'assets/images/icon/coupon.png',
                   title: Strings.myCoupon,
                   onTap: () {
                     /*Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
                         MyCouponScreen()));*/
-                  },
-                ),
-                ListDataWidget(
-                  icon: 'assets/images/icon/wallet.png',
-                  title: Strings.myWallet,
-                  onTap: () {
-                    /*Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        MyWalletScreen()));*/
                   },
                 ),
                 ListDataWidget(
