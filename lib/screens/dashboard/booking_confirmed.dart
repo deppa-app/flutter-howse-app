@@ -45,7 +45,7 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
               ),
               const SizedBox(height: 21,),
 
-              const Text(
+               Text(
                 "Ha realizado con éxito su solicitud",
                 style: TextStyle(
                     color: Colors.grey,

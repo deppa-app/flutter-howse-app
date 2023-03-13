@@ -247,6 +247,7 @@ class Strings {
   static String cart = 'Cart';
   static String orders = 'Orders';
   static String profile = 'Profile';
+  static String visitsEsp= 'Visitas';
 
   static String settings = 'Settings';
   static String helpSupport = 'Nosotros';
