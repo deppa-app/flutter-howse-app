@@ -33,7 +33,7 @@ class _BookingDetailsState extends State<BookingDetails> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: Strings.createAnAccount),
+              const BackButtonGeneralWidget(),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
               Text(

@@ -4,6 +4,7 @@ import 'package:howse_app/screens/dashboard/schedule_visits/Carousel.dart';
 import 'package:howse_app/screens/dashboard/schedule_visits/calendar.dart';
 import 'package:howse_app/screens/dashboard/schedule_visits/time.dart';
 import 'package:howse_app/utils/dimensions.dart';
+import 'package:howse_app/widgets/buttons/secondary_button_widget.dart';
 
 import '../../../utils/custom_color.dart';
 import '../../../utils/strings.dart';

@@ -34,7 +34,7 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: Strings.createAnAccount),
+              const BackButtonGeneralWidget(),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
