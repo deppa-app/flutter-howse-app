@@ -1,30 +1,20 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/dashboard/booking.dart';
-import 'package:howse_app/screens/dashboard/schedule_visits/book_your_visit.dart';
-import 'package:howse_app/screens/servicesAviable/cleaning.dart';
-import 'package:howse_app/screens/servicesAviable/removals.dart';
+
 
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/screens/auth/sign_in_screen.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../widgets/buttons/circle_button_widget.dart';
-import '../../widgets/buttons/primary_button_widget.dart';
-import '../../widgets/buttons/secondary_button_widget.dart';
-import '../../widgets/drawer_header_widget.dart';
-import '../../widgets/list_data/list_data_fontawesome_widget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../widgets/widget.dart';
 import '../auth/my_account_screen.dart';
 
-import '../../widgets/list_data/list_data_widget.dart';
 
-
+import 'package:howse_app/screens/screens.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key, this.idProfile}) : super(key: key);
   final int idProfile;
@@ -72,21 +62,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        MyAccountScreen()));
+                        const MyAccountScreen()));
                   },
                 ),
                 ListDataFontawesomeWidget(
                   icon: FontAwesomeIcons.houseChimneyUser,
-                  title: Strings.myCoupon,
+                  title: Strings.visitsEsp,
                   onTap: () {
-                    /*Navigator.of(context).pop();
+                    Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        MyCouponScreen()));*/
+                        const MyVisitsHistory()));
                   },
                 ),
-                ListDataWidget(
-                  icon: 'assets/images/icon/settings.png',
-                  title: Strings.changePassword,
+                ListDataFontawesomeWidget(
+                  icon: FontAwesomeIcons.fileInvoiceDollar,
+                  title: Strings.billingEsp,
                   onTap: () {
                     /*Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
@@ -94,17 +84,35 @@ class _HomeScreenState extends State<HomeScreen> {
                           ()));*/
                   },
                 ),
-                ListDataWidget(
-                  icon: 'assets/images/icon/help.png',
-                  title: Strings.helpSupport,
+                ListDataFontawesomeWidget(
+                  icon: FontAwesomeIcons.phoneFlip,
+                  title: Strings.callCenter,
                   onTap: () {
                     /*Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
                         MessagingScreen()));*/
                   },
                 ),
-                ListDataWidget(
-                  icon: 'assets/images/icon/logout.png',
+                ListDataFontawesomeWidget(
+                  icon: FontAwesomeIcons.peopleRobbery,
+                  title: Strings.functionalAdult,
+                  onTap: () {
+                    /*Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                        MessagingScreen()));*/
+                  },
+                ),
+                ListDataFontawesomeWidget(
+                  icon: FontAwesomeIcons.houseCircleCheck,
+                  title: Strings.hired,
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const SignInScreen()));
+                  },
+                ),
+                ListDataFontawesomeWidget(
+                  icon: FontAwesomeIcons.rightFromBracket,
                   title: Strings.signOut,
                   onTap: () {
                     Navigator.of(context).pop();

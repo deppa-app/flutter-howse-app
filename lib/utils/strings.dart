@@ -247,11 +247,15 @@ class Strings {
   static String cart = 'Cart';
   static String orders = 'Orders';
   static String profile = 'Profile';
-  static String visitsEsp= 'Visitas';
+  static String visitsEsp = 'Visitas';
+  static String myVisitsHistoy = 'Mi historial de visitas';
+  static String functionalAdult = 'Adulto funcional';
+  static String hired = 'Arriendo contratados';
 
   static String settings = 'Settings';
   static String helpSupport = 'Nosotros';
-  static String signOut = 'Cerrar Sección';
+  static String callCenter = 'Call center';
+  static String signOut = 'Cerrar Sesión';
 
   //groceryDetails screen
   static String groceryDetails = 'Grocery Details';
@@ -280,6 +284,8 @@ class Strings {
   static String backToHome = 'Back to Home';
 
   // payment screen
+
+  static String billingEsp = 'Facturación';
   static String buy = 'Buy';
   static String applyCoupon = 'Apply Coupon';
   static String enterCoupon = 'Enter Coupon';
