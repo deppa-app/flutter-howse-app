@@ -1,7 +1,11 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:howse_app/widgets/widget.dart';
+import 'package:howse_app/screens/dashboard/booking.dart';
+import 'package:howse_app/screens/dashboard/schedule_visits/book_your_visit.dart';
+import 'package:howse_app/screens/servicesAviable/cleaning.dart';
+import 'package:howse_app/screens/servicesAviable/removals.dart';
+
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/utils/dimensions.dart';
@@ -152,29 +156,29 @@ class _HomeScreenState extends State<HomeScreen> {
                       bottom: 30,
                       child: circularButtonWidget(context,  go(context)),
                       ),*/
-                    
+
                     Positioned(
-                      right: 0,
-                      bottom: 30,
-                      child: Padding(
+                        right: 0,
+                        bottom: 30,
+                        child: Padding(
                           padding: const EdgeInsets.only(
-                              left: Dimensions.marginSize, right: Dimensions.marginSize),
+                              left: Dimensions.marginSize,
+                              right: Dimensions.marginSize),
                           child: CircleButtonWidget(
                             icon: const Icon(
                               Icons.arrow_forward,
                               color: CustomColor.whiteColor,
                             ),
                             onTap: () {
-                            if(scaffoldKey.currentState.isDrawerOpen) {
-                              return scaffoldKey.currentState.openEndDrawer();
-                            } else {
-                              return scaffoldKey.currentState.openDrawer();
-                            }
-                          },
-      ),
-    )
-                      ),
-                    
+                              if (scaffoldKey.currentState.isDrawerOpen) {
+                                return scaffoldKey.currentState.openEndDrawer();
+                              } else {
+                                return scaffoldKey.currentState.openDrawer();
+                              }
+                            },
+                          ),
+                        )),
+
                     _menuWidget(context),
                   ],
                 ),
@@ -215,8 +219,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: PrimaryButtonWidget(
                     title: "Programar visita",
                     onTap: () {
-                      /*Navigator.of(context).push(MaterialPageRoute(builder:
-                          (context) => const SignUpScreen10()));*/
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const BookYourVisit()));
                     },
                   ),
                 ),

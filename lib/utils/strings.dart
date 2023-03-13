@@ -388,4 +388,16 @@ class Strings {
 
   //  myCourse screen
   static String myCourse = 'My Course';
+
+  //reservation
+  static String monthlyRent = 'Valor arriendo mensual:';
+  static String distance = 'Estas a ';
+  static String department_details = 'aqui van los detalles del departamento';
+  static String code = "Código:";
+  static String bathroom = "Baños:";
+  static String parking = "Estacionamiento:";
+  static String bedrooms = "Dormitorios";
+  static String services = "Servicios:";
+  static String square_meter = "Mts2";
+  static String others = "Otros";
 }
