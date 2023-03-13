@@ -13,7 +13,12 @@ import 'package:howse_app/utils/strings.dart';
 import 'package:howse_app/screens/auth/sign_in_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../widgets/buttons/circle_button_widget.dart';
+import '../../widgets/buttons/primary_button_widget.dart';
+import '../../widgets/buttons/secondary_button_widget.dart';
+import '../../widgets/drawer_header_widget.dart';
 import '../../widgets/list_data/list_data_fontawesome_widget.dart';
+import '../../widgets/list_data/list_data_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key, this.idProfile}) : super(key: key);

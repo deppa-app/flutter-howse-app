@@ -14,7 +14,6 @@ export 'package:howse_app/widgets/buttons/circle_button_widget.dart';
 export 'package:howse_app/widgets/custom_text_form_field.dart';
 export 'package:howse_app/widgets/drawer_header_widget.dart';
 export 'package:howse_app/widgets/filter_chip_widget.dart';
-export 'package:howse_app/widgets/list_data_widget.dart';
 export 'package:howse_app/widgets/list_tile_custom.dart';
 export 'package:howse_app/widgets/texts/text_form_field_card.dart';
 export 'package:howse_app/widgets/texts/text_form_field_cvv.dart';
