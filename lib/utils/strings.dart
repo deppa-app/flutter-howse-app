@@ -257,6 +257,10 @@ class Strings {
   static String callCenter = 'Call center';
   static String signOut = 'Cerrar Sesión';
 
+  //visits Screen
+  static String aparmentRentals = 'Arriendo de departamento';
+  static String storage = 'Bodega';
+
   //groceryDetails screen
   static String groceryDetails = 'Grocery Details';
   static String quantityCantZero = "Quantity Can't Zero";
@@ -401,10 +405,11 @@ class Strings {
   static String distance = 'Estas a ';
   static String department_details = 'aqui van los detalles del departamento';
   static String code = "Código:";
-  static String bathroom = "Baños:";
-  static String parking = "Estacionamiento:";
+  static String bathroom = "Baños";
+  static String parking = "Estacionamiento";
   static String bedrooms = "Dormitorios";
   static String services = "Servicios:";
   static String square_meter = "Mts2";
+  static String square_meter2 = "mts²";
   static String others = "Otros";
 }
