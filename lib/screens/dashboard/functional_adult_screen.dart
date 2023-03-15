@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../utils/utils.dart';
 import '../../widgets/widget.dart';
 
-class FunctionalAdultScreen extends StatelessWidget {
+class FunctionalAdultScreen extends StatefulWidget {
    
   const FunctionalAdultScreen({Key key}) : super(key: key);
-  
+
+  @override
+  State<FunctionalAdultScreen> createState() => _FunctionalAdultScreenState();
+}
+
+class _FunctionalAdultScreenState extends State<FunctionalAdultScreen> {
+String _searchText = '';
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -22,34 +29,78 @@ class FunctionalAdultScreen extends StatelessWidget {
                 const BackButtonGeneralWidget(),
                 const SizedBox(height: Dimensions.heightSize),
                 const _PrincipalString(),
-                IconButton(
-                  icon: Icon(Icons.search_outlined),
-                  onPressed: () => {}, 
+                const SizedBox(height: Dimensions.heightSize),
+                Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: TextField(
+                  decoration:  InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(
+                      vertical: 8,  // altura de 32 - 16 (padding vertical)
+                      horizontal: 14, // anchura de 285 - 16 (padding horizontal)
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: const BorderSide(
+                        width: 1,
+                        style: BorderStyle.solid,
+                        color: CustomColor.greyColor
+                      )
+                    ),
+                    suffixIcon: const Icon(FontAwesomeIcons.magnifyingGlass, color: CustomColor.greyColor, size: 16,),
+                    hintText: 'Búsquedas',
                   ),
-                const SizedBox(height: Dimensions.heightSize),
-                const _ImgBuild(imageUrl: 'assets/images/home-key.png',),
+                  onChanged: (text) {
+                    // Add your search logic here
+                    _searchText = text;
+                  },
+                ),
+              ),
                 const SizedBox(height: Dimensions.heightSize *2),
-                const _TittleText(tittle: 'Precios de arriendos en la RM siguen en\n alza sobre todo en 6 comunas y avisos\n en UF se triplican',),
-                const SizedBox(height: Dimensions.heightSize),
-                const _OverView(overview: 'Los precios de los arriendos en la región Metropolitana continúan mostrando alzas y en las comunas de Providencia, Vitacura y Peñalolén se registraron los mayores aumentos para departamentos; y en Huechuraba, Las Condes y La Florida para casas. Además, los precios publicados en UF se triplicaron.\n \n De acuerdo a información de Portalinmobiliario.com, si durante el segundo trimestre del 2021 el número de avisos publicados en UF era del 9%, ahora ese porcentaje se triplicó a un 28%.\n \n “Este incremento en el número de publicaciones en UF es un fenómeno que se ha ido acrecentando durante los últimos trimestres y se entiende como una medida de protección frente a la inflación”, explica Gianfranco Aste, gerente comercial de Portalinmobiliario.com.',),
+                const CustomWidget(
+                  imageUrl: 'assets/images/home-key.png',
+                  title: 'Precios de arriendos en la RM siguen en\n alza sobre todo en 6 comunas y avisos\n en UF se triplican',
+                  overview: 'Los precios de los arriendos en la región Metropolitana continúan mostrando alzas y en las comunas de Providencia, Vitacura y Peñalolén se registraron los mayores aumentos para departamentos',
+                ),
                 const SizedBox(height: Dimensions.heightSize *2),
-                const _ImgBuild(imageUrl: 'assets/images/house2.png',),
-                const SizedBox(height: Dimensions.heightSize *2),
-                const _TittleText(tittle: 'Caída en la venta de viviendas en Chile',),
-                const SizedBox(height: Dimensions.heightSize),
-                const _OverView(overview: 'Las mayores bajas en 12 meses se observaron en las ventas de casas en el norte del país y en la zona central, con disminuciones de 49% y 46%, respectivamente. Por su parte, se detalló que en el sur de Chile el retroceso fue de 35%. Lo mismo sucede en el caso de departamentos: norte y sur exhibieron disminuciones de 39% y 34% anual, mientras en el sur solo cayeron 17%.\n \n Promediando ambos tipos de vivienda, norte y centro también se vieron más afectados, con retrocesos de 43% (a 2.044 unidades) y de 36% (a 13.802 unidades). En el sur disminuyeron 22%, a 4.793 unidades.\n\n En materia de oferta de viviendas, la de departamentos creció 7%, llegando a 95.556 unidades.',)
-
-
-            ],
+            ].where((widget) {
+                // Si _searchText está vacío, no se realiza ninguna filtración
+                if (_searchText.isEmpty) {
+                  return true;
+                } else if (widget is CustomWidget &&
+                    widget.title.toLowerCase().contains(_searchText.toLowerCase())) {
+                  // Filtra los widgets para que solo se muestren aquellos que tienen un título que contiene _searchText
+                  return true;
+                } else {
+                  return false;
+                }
+              }
+              ).toList(),
           ),
         )
         ),
     );
   }
 }
+class CustomWidget extends StatelessWidget {
+  final String imageUrl;
+  final String title;
+  final String overview;
 
+    const CustomWidget({Key key, this.imageUrl, this.title, this.overview}) : super(key: key);
 
-
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        _ImgBuild(imageUrl: imageUrl),
+        SizedBox(width: 20),
+        _TitleText(title: title),
+        SizedBox(height: 10),
+        _OverView(overview: overview),
+      ],
+    );
+  }
+}
 
 class _PrincipalString extends StatelessWidget {
   const _PrincipalString({
@@ -69,7 +120,6 @@ class _PrincipalString extends StatelessWidget {
     );
   }
 }
-
 class _ImgBuild extends StatelessWidget {
 
   final String imageUrl;
@@ -78,43 +128,39 @@ class _ImgBuild extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 80,
-      child: Padding(
-        padding: const EdgeInsets.only(right: 30, left: 30),
-        child: Column(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child:  FadeInImage(
-                width: 327,
-                height: 207,
-                fit: BoxFit.cover,
-                placeholder: const AssetImage('assets/images/no-image.jpg'),
-                image: AssetImage(imageUrl)
-              ),
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.only(right: 30, left: 30,bottom: 20),
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child:  FadeInImage(
+              width: 327,
+              height: 207,
+              fit: BoxFit.cover,
+              placeholder: const AssetImage('assets/images/no-image.jpg'),
+              image: AssetImage(imageUrl)),
+          ),
+        ],
       ),
     );
   }
 }
 
-class _TittleText extends StatelessWidget {
+class _TitleText extends StatelessWidget {
 
-  final String tittle;
+  final String title;
 
-  const _TittleText({
-    Key key, this.tittle = 'Sin título',
+  const _TitleText({
+    Key key, this.title = 'Sin título',
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 100),
+      padding: const EdgeInsets.symmetric(horizontal: 100),
       child: Text(
-        tittle,
+        title,
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: Dimensions.largeTextSize,
@@ -136,7 +182,7 @@ class _OverView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 110),
+      padding: const EdgeInsets.symmetric(horizontal: 110),
       child: Text(
         overview,
         textAlign: TextAlign.start,
@@ -145,4 +191,3 @@ class _OverView extends StatelessWidget {
       );
   }
 }
-
