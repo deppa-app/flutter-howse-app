@@ -1,6 +1,7 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:howse_app/screens/dashboard/functional_adult_screen.dart';
 
 
 import 'package:howse_app/utils/custom_color.dart';
@@ -97,9 +98,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   icon: FontAwesomeIcons.peopleRobbery,
                   title: Strings.functionalAdult,
                   onTap: () {
-                    /*Navigator.of(context).pop();
+                    Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        MessagingScreen()));*/
+                        FunctionalAdultScreen()));
                   },
                 ),
                 ListDataFontawesomeWidget(

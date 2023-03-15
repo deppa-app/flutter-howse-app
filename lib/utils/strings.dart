@@ -257,6 +257,11 @@ class Strings {
   static String callCenter = 'Call center';
   static String signOut = 'Cerrar Sesión';
 
+
+  //funtionalAdult Screen
+  static String blog = 'Blog';
+
+
   //visits Screen
   static String aparmentRentals = 'Arriendo de departamento';
   static String storage = 'Bodega';
