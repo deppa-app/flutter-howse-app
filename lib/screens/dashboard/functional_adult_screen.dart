@@ -13,7 +13,7 @@ class FunctionalAdultScreen extends StatefulWidget {
 
 class _FunctionalAdultScreenState extends State<FunctionalAdultScreen> {
 String _searchText = '';
-
+bool _isSearching = false;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -22,63 +22,75 @@ String _searchText = '';
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           color: Colors.white,
-          child: ListView(
-            physics: const BouncingScrollPhysics(),
-            shrinkWrap: true,
+          child: Column(
             children: [
-                const BackButtonGeneralWidget(),
-                const SizedBox(height: Dimensions.heightSize),
-                const _PrincipalString(),
-                const SizedBox(height: Dimensions.heightSize),
-                Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: TextField(
-                  decoration:  InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 8,  // altura de 32 - 16 (padding vertical)
-                      horizontal: 14, // anchura de 285 - 16 (padding horizontal)
-                    ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                      borderSide: const BorderSide(
-                        width: 1,
-                        style: BorderStyle.solid,
-                        color: CustomColor.greyColor
-                      )
-                    ),
-                    suffixIcon: const Icon(FontAwesomeIcons.magnifyingGlass, color: CustomColor.greyColor, size: 16,),
-                    hintText: 'Búsquedas',
-                  ),
-                  onChanged: (text) {
-                    // Add your search logic here
-                    _searchText = text;
-                  },
+              if (!_isSearching) const BackButtonGeneralWidget(),
+              const SizedBox(height: Dimensions.heightSize),
+              if (_isSearching) buildSearchBar(),
+              const SizedBox(height: Dimensions.heightSize),
+              Expanded(
+                child: ListView(
+                  physics: const BouncingScrollPhysics(),
+                  shrinkWrap: true,
+                  children: [
+                      const SizedBox(height: Dimensions.heightSize),
+                      const _PrincipalString(),
+                      const SizedBox(height: Dimensions.heightSize),
+                      buildSearchBar(),
+                      const SizedBox(height: Dimensions.heightSize *2),
+                      const CustomWidget(
+                        imageUrl: 'assets/images/home-key.png',
+                        title: 'Precios de arriendos en la RM siguen en\n alza sobre todo en 6 comunas y avisos\n en UF se triplican',
+                        overview: 'Los precios de los arriendos en la región Metropolitana continúan mostrando alzas y en las comunas de Providencia, Vitacura y Peñalolén se registraron los mayores aumentos para departamentos',
+                      ),
+                      const SizedBox(height: Dimensions.heightSize *2),
+                  ].where((widget) {
+                      // Si _searchText está vacío, no se realiza ninguna filtración
+                      if (_searchText.isEmpty) {
+                        return true;
+                      } else if (widget is CustomWidget &&
+                          widget.title.toLowerCase().contains(_searchText.toLowerCase())) {
+                        // Filtra los widgets para que solo se muestren aquellos que tienen un título que contiene _searchText
+                        return true;
+                      } else {
+                        return false;
+                      }
+                    }
+                    ).toList(),
                 ),
               ),
-                const SizedBox(height: Dimensions.heightSize *2),
-                const CustomWidget(
-                  imageUrl: 'assets/images/home-key.png',
-                  title: 'Precios de arriendos en la RM siguen en\n alza sobre todo en 6 comunas y avisos\n en UF se triplican',
-                  overview: 'Los precios de los arriendos en la región Metropolitana continúan mostrando alzas y en las comunas de Providencia, Vitacura y Peñalolén se registraron los mayores aumentos para departamentos',
-                ),
-                const SizedBox(height: Dimensions.heightSize *2),
-            ].where((widget) {
-                // Si _searchText está vacío, no se realiza ninguna filtración
-                if (_searchText.isEmpty) {
-                  return true;
-                } else if (widget is CustomWidget &&
-                    widget.title.toLowerCase().contains(_searchText.toLowerCase())) {
-                  // Filtra los widgets para que solo se muestren aquellos que tienen un título que contiene _searchText
-                  return true;
-                } else {
-                  return false;
-                }
-              }
-              ).toList(),
+            ],
           ),
         )
         ),
     );
+  }
+
+  Padding buildSearchBar() {
+    return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: TextField(
+              decoration:  InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(
+                  vertical: 8,  // altura de 32 - 16 (padding vertical)
+                  horizontal: 14, // anchura de 285 - 16 (padding horizontal)
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: const BorderSide(
+                    width: 1,
+                    style: BorderStyle.solid,
+                    color: CustomColor.greyColor
+                  )
+                ),
+                suffixIcon: const Icon(FontAwesomeIcons.magnifyingGlass, color: CustomColor.greyColor, size: 16,),
+                hintText: 'Búsquedas',
+              ),
+              onChanged: (text) {
+                _searchText = text;
+              },
+            ),
+          );
   }
 }
 class CustomWidget extends StatelessWidget {
