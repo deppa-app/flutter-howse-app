@@ -13,7 +13,7 @@ class FunctionalAdultScreen extends StatefulWidget {
 
 class _FunctionalAdultScreenState extends State<FunctionalAdultScreen> {
 String _searchText = '';
-bool _isSearching = false;
+final bool _isSearching = false;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(

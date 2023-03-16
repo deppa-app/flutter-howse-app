@@ -10,6 +10,7 @@ import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:howse_app/widgets/buttons/filter_button_widget.dart';
 
 import '../../widgets/widget.dart';
 import '../auth/my_account_screen.dart';
@@ -176,26 +177,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: circularButtonWidget(context,  go(context)),
                       ),*/
 
-                    Positioned(
+                    const Positioned(
                         right: 0,
                         bottom: 30,
                         child: Padding(
-                          padding: const EdgeInsets.only(
+                          padding: EdgeInsets.only(
                               left: Dimensions.marginSize,
                               right: Dimensions.marginSize),
-                          child: CircleButtonWidget(
-                            icon: const Icon(
-                              Icons.arrow_forward,
-                              color: CustomColor.whiteColor,
-                            ),
-                            onTap: () {
-                              if (scaffoldKey.currentState.isDrawerOpen) {
-                                return scaffoldKey.currentState.openEndDrawer();
-                              } else {
-                                return scaffoldKey.currentState.openDrawer();
-                              }
-                            },
-                          ),
+                          child:  FilterButtonWidget(icon: Icon(FontAwesomeIcons.filter),)
                         )),
 
                     _menuWidget(context),
