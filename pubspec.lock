@@ -272,7 +272,12 @@ packages:
     dependency: transitive
     description:
       name: petitparser
+<<<<<<< Updated upstream
       url: "https://pub.dartlang.org"
+=======
+      sha256: "49392a45ced973e8d94a85fdb21293fbb40ba805fc49f2965101ae748a3683b4"
+      url: "https://pub.dev"
+>>>>>>> Stashed changes
     source: hosted
     version: "5.0.0"
   pin_keyboard:
@@ -375,7 +380,12 @@ packages:
     dependency: transitive
     description:
       name: xml
+<<<<<<< Updated upstream
       url: "https://pub.dartlang.org"
+=======
+      sha256: "979ee37d622dec6365e2efa4d906c37470995871fe9ae080d967e192d88286b5"
+      url: "https://pub.dev"
+>>>>>>> Stashed changes
     source: hosted
     version: "6.1.0"
 sdks:

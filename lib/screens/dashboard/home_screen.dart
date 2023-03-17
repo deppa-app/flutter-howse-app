@@ -111,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const SignInScreen()));
+                        builder: (context) => const Rental_History()));
                   },
                 ),
                 ListDataFontawesomeWidget(
