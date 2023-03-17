@@ -162,7 +162,7 @@ packages:
       name: image_picker_android
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.8.6+1"
+    version: "0.8.6+4"
   image_picker_for_web:
     dependency: transitive
     description:
@@ -184,6 +184,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.6.3"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.18.0"
   intl_phone_field:
     dependency: "direct main"
     description:
@@ -202,6 +209,13 @@ packages:
     dependency: transitive
     description:
       name: lints
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
+  lite_rolling_switch:
+    dependency: "direct main"
+    description:
+      name: lite_rolling_switch
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
@@ -275,6 +289,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.4"
+  quds_popup_menu:
+    dependency: "direct main"
+    description:
+      name: quds_popup_menu
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1+1"
+  quds_ui_kit:
+    dependency: transitive
+    description:
+      name: quds_ui_kit
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.7+9"
   sky_engine:
     dependency: transitive
     description: flutter

@@ -8,7 +8,7 @@ class ListDataFontawesomeWidget extends StatelessWidget {
   final String title;
   final GestureTapCallback onTap;
 
-  const ListDataFontawesomeWidget({Key key, this.icon, this.title, this.onTap})
+  const   ListDataFontawesomeWidget({Key key, this.icon, this.title, this.onTap})
       : super(key: key);
 
   @override

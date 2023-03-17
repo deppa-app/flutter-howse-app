@@ -2,7 +2,7 @@ import 'package:howse_app/utils/custom_color.dart';
 import 'package:flutter/material.dart';
 import 'package:howse_app/utils/dimensions.dart';
 
-import '../linear_percent_widget.dart';
+import '../../linear_percent_widget.dart';
 
 class BackWidget extends StatefulWidget {
   final String title;

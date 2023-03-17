@@ -5,9 +5,9 @@ import 'package:howse_app/screens/servicesAviable/successful_hiring.dart';
 
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
-import 'package:howse_app/widgets/buttons/back_widget.dart';
+import 'package:howse_app/widgets/buttons/back_buttons/back_widget.dart';
 
-import '../../widgets/buttons/secondary_button_widget.dart';
+import '../../widgets/buttons/general_buttons/secondary_button_widget.dart';
 
 class Locksmithment extends StatefulWidget {
   const Locksmithment({Key key}) : super(key: key);
