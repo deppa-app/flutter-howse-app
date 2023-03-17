@@ -251,11 +251,8 @@ class Strings {
   static String myVisitsHistoy = 'Mi historial de visitas';
   static String functionalAdult = 'Adulto funcional';
   static String hired = 'Arriendo contratados';
-<<<<<<< HEAD
   static String priceRange= 'Rango de precios';
 
-=======
->>>>>>> 7799567b65aaacb203018ba64b89dc1ed0b6abe2
   static String settings = 'Settings';
   static String helpSupport = 'Nosotros';
   static String callCenter = 'Call center';
