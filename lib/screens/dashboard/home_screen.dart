@@ -1,8 +1,14 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:howse_app/screens/dashboard/functional_adult_screen.dart';
 
+import 'package:howse_app/screens/dashboard/billing.dart';
+import 'package:howse_app/screens/dashboard/booking.dart';
+import 'package:howse_app/screens/dashboard/rental_history.dart';
+import 'package:howse_app/screens/dashboard/schedule_visits/book_your_visit.dart';
+import 'package:howse_app/screens/dashboard/schedule_visits/my_visits_history_screen.dart';
+import 'package:howse_app/screens/servicesAviable/cleaning.dart';
+import 'package:howse_app/screens/servicesAviable/removals.dart';
 
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/custom_style.dart';
@@ -15,8 +21,10 @@ import 'package:howse_app/widgets/buttons/filter_button_widget.dart';
 import '../../widgets/widget.dart';
 import '../auth/my_account_screen.dart';
 
+import '../../widgets/list_data/list_data_widget.dart';
+import '../auth/sign_in_screen.dart';
+import 'functional_adult_screen.dart';
 
-import 'package:howse_app/screens/screens.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key, this.idProfile}) : super(key: key);
   final int idProfile;
@@ -63,8 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: Strings.myAccountEsp,
                   onTap: () {
                     Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        const MyAccountScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => MyAccountScreen()));
                   },
                 ),
                 ListDataFontawesomeWidget(
@@ -72,23 +80,32 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: Strings.visitsEsp,
                   onTap: () {
                     Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        const MyVisitsHistory()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const MyVisitsHistory()));
                   },
                 ),
                 ListDataFontawesomeWidget(
                   icon: FontAwesomeIcons.fileInvoiceDollar,
-                  title: Strings.billingEsp,
+                  title: Strings.billing,
                   onTap: () {
-                    /*Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        ChangePasswordScreen
-                          ()));*/
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Billing()));
                   },
                 ),
-                ListDataFontawesomeWidget(
-                  icon: FontAwesomeIcons.phoneFlip,
-                  title: Strings.callCenter,
+
+                /* ListDataWidget(
+                  icon: 'assets/images/icon/settings.png',
+                  title: Strings.billing,
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const Billing()));
+                  },
+                ),*/
+                ListDataWidget(
+                  icon: 'assets/images/icon/help.png',
+                  title: Strings.helpSupport,
                   onTap: () {
                     /*Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
@@ -100,8 +117,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: Strings.functionalAdult,
                   onTap: () {
                     Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                         FunctionalAdultScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => FunctionalAdultScreen()));
                   },
                 ),
                 ListDataFontawesomeWidget(
@@ -120,6 +137,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const SignInScreen()));
+                  },
+                ),
+                ListDataFontawesomeWidget(
+                  icon: FontAwesomeIcons.houseCircleCheck,
+                  title: Strings.rental_history,
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => Rental_History()));
                   },
                 ),
               ],
@@ -181,11 +207,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         right: 0,
                         bottom: 30,
                         child: Padding(
-                          padding: EdgeInsets.only(
-                              left: Dimensions.marginSize,
-                              right: Dimensions.marginSize),
-                          child:  FilterButtonWidget(icon: Icon(FontAwesomeIcons.filter),)
-                        )),
+                            padding: EdgeInsets.only(
+                                left: Dimensions.marginSize,
+                                right: Dimensions.marginSize),
+                            child: FilterButtonWidget(
+                              icon: Icon(FontAwesomeIcons.filter),
+                            ))),
 
                     _menuWidget(context),
                   ],

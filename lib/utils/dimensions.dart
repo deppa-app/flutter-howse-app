@@ -5,6 +5,8 @@ class Dimensions {
   static double largeTextSize = 16.00;
   static double extraLargeTextSize = 20.00;
   static double semilarge = 25.00;
+  static double semilargelarge = 29.00;
+  static double micro_item = 22.00;
 
   static const double defaultPaddingSize = 30.00;
   static const double marginSize = 20.00;

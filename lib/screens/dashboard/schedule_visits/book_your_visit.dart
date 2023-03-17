@@ -1,4 +1,4 @@
-
+import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/dashboard/schedule_visits/Carousel.dart';
 import 'package:howse_app/screens/dashboard/schedule_visits/calendar.dart';
@@ -8,8 +8,6 @@ import 'package:howse_app/widgets/buttons/secondary_button_widget.dart';
 
 import '../../../utils/custom_color.dart';
 import '../../../utils/strings.dart';
-/* import '../../../widgets/secondary_button_widget.dart'; */
-import '../../../widgets/widget.dart';
 import '../booking_pin.dart';
 
 class BookYourVisit extends StatefulWidget {
@@ -71,7 +69,7 @@ class _book_your_visitState extends State<BookYourVisit> {
               const SizedBox(
                 height: Dimensions.heightSize * 0.1,
               ),
-//TODO: agregar ícono de acercamiento
+              //TODO: agregar ícono de acercamiento
               Center(
                 child: Text(
                   Strings.distance,
@@ -182,72 +180,77 @@ text_2(BuildContext context) {
   return Padding(
     padding: EdgeInsets.all(16.0), // Añade un relleno de 16.0 a todos los lados
     child: Container(
-        width: 344,
-        height: 1080,
-        decoration: BoxDecoration(
-          color: CustomColor.whiteColor,
-          border: Border.all(
-            color: CustomColor.greyColor,
-            width: 2.0,
-          ),
+      width: 344,
+      height: 108,
+      decoration: BoxDecoration(
+        color: CustomColor.whiteColor,
+        border: Border.all(
+          color: CustomColor.greyColor,
+          width: 2.0,
         ),
-        child: Column(
-          children: [
-            Text(
+      ),
+      child: ListView(
+        children: [
+          Center(
+            child: Text(
               Strings.department_details,
               style: TextStyle(
                   color: CustomColor.colorBlack,
                   fontSize: Dimensions.smallTextSize,
                   fontWeight: FontWeight.w500),
             ),
-            /*Row(
-              children: [
-                text_3(context, Strings.code, "value"),
-                text_3(context, Strings.bathroom, "value"),
-                text_3(context, Strings.parking, "value"),
-                text_3(context, Strings.bedrooms, "value"),
-                Column(
-                  children: [
-                    text_3(context, Strings.code, "value"),
-                    text_3(context, Strings.bathroom, "value"),
-                    text_3(context, Strings.parking, "value"),
-                    text_3(context, Strings.bedrooms, "value"),
-                  ],
-                ), 
-                Column(
-                  children: [
-                    text_3(context, Strings.services, "value"),
-                    text_3(context, Strings.square_meter, "value"),
-                    text_3(context, Strings.others, "value"),
-                  ],
-                )
-              ],
-            )*/
-          ],
-        )),
+          ),
+          Expanded(
+              child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  text_3(context, Strings.code, "value"),
+                  text_3(context, Strings.bathroom, "value"),
+                  text_3(context, Strings.parking, "value"),
+                  text_3(context, Strings.bedrooms, "value")
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  text_3(context, Strings.services, "value"),
+                  text_3(context, Strings.square_meter, "value"),
+                  text_3(context, Strings.others, "value")
+                ],
+              ),
+            ],
+          )),
+        ],
+      ),
+    ),
   );
 }
 
 text_3(BuildContext context, String string, String value) {
-  return Container(
-    child: ListView(
-      children: [
-        const Icon(Icons.check_circle),
-        Text(
-          string,
-          style: TextStyle(
-              color: CustomColor.colorBlack,
-              fontSize: Dimensions.smallTextSize,
-              fontWeight: FontWeight.bold),
-        ),
-        Text(
-          value,
-          style: TextStyle(
-              color: CustomColor.colorBlack,
-              fontSize: Dimensions.smallTextSize,
-              fontWeight: FontWeight.bold),
-        )
-      ],
-    ),
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      const Icon(Icons.check_circle),
+      Text(
+        string,
+        style: TextStyle(
+            color: CustomColor.colorBlack,
+            fontSize: Dimensions.smallTextSize,
+            fontWeight: FontWeight.bold),
+      ),
+      Text(
+        value,
+        style: TextStyle(
+            color: CustomColor.colorBlack,
+            fontSize: Dimensions.smallTextSize,
+            fontWeight: FontWeight.bold),
+      )
+    ],
   );
 }

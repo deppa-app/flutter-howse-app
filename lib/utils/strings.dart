@@ -251,16 +251,13 @@ class Strings {
   static String myVisitsHistoy = 'Mi historial de visitas';
   static String functionalAdult = 'Adulto funcional';
   static String hired = 'Arriendo contratados';
-
   static String settings = 'Settings';
   static String helpSupport = 'Nosotros';
   static String callCenter = 'Call center';
   static String signOut = 'Cerrar Sesión';
 
-
   //funtionalAdult Screen
   static String blog = 'Blog';
-
 
   //visits Screen
   static String aparmentRentals = 'Arriendo de departamento';
@@ -417,4 +414,18 @@ class Strings {
   static String square_meter = "Mts2";
   static String square_meter2 = "mts²";
   static String others = "Otros";
+
+  //Billing
+  static String billing = "Facturación";
+  static String paid_views = "Vistas Pagadas";
+  static String paid_views_value = "";
+  static String views_used = "Vistas Utilizadas";
+  static String views_used_value = "";
+  static String views_available = "Vistas Disponibles";
+  static String views_available_value = "";
+  static String rental_location = "ubicacion del arriendo";
+  static String rent_payment = "dinero pagado";
+
+  //Rental_history
+  static String rental_history = "Arriendos contratados";
 }
