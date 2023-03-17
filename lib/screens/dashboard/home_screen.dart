@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/dashboard/functional_adult_screen.dart';
-
+import 'package:howse_app/screens/dashboard/rental_history.dart';
 
 import 'package:howse_app/utils/custom_color.dart';
 import 'package:howse_app/utils/custom_style.dart';
@@ -16,8 +16,8 @@ import '../../widgets/buttons/filter_buttons/filter_button_widget.dart';
 import '../../widgets/widget.dart';
 import '../auth/my_account_screen.dart';
 
-
 import 'package:howse_app/screens/screens.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key, this.idProfile}) : super(key: key);
   final int idProfile;
@@ -64,8 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: Strings.myAccountEsp,
                   onTap: () {
                     Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        const MyAccountScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const MyAccountScreen()));
                   },
                 ),
                 ListDataFontawesomeWidget(
@@ -73,8 +73,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: Strings.visitsEsp,
                   onTap: () {
                     Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        const MyVisitsHistory()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const MyVisitsHistory()));
                   },
                 ),
                 ListDataFontawesomeWidget(
@@ -101,8 +101,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   title: Strings.functionalAdult,
                   onTap: () {
                     Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                         const FunctionalAdultScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const FunctionalAdultScreen()));
                   },
                 ),
                 ListDataFontawesomeWidget(
@@ -178,15 +178,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: circularButtonWidget(context,  go(context)),
                       ),*/
 
-                     const Positioned(
+                    const Positioned(
                         right: 0,
                         bottom: 30,
                         child: Padding(
-                          padding: EdgeInsets.only(
-                              left: Dimensions.marginSize,
-                              right: Dimensions.marginSize),
-                          child:  FilterPopUpButtonWidget(icon: Icon(FontAwesomeIcons.arrowDown),)
-                        )),
+                            padding: EdgeInsets.only(
+                                left: Dimensions.marginSize,
+                                right: Dimensions.marginSize),
+                            child: FilterPopUpButtonWidget(
+                              icon: Icon(FontAwesomeIcons.arrowDown),
+                            ))),
 
                     _menuWidget(context),
                   ],
