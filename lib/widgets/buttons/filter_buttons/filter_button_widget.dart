@@ -8,10 +8,9 @@ import 'package:quds_popup_menu/quds_popup_menu.dart';
 import '../../widget.dart';
 
 class FilterPopUpButtonWidget extends StatefulWidget {
-  final Icon icon;
   final GestureTapCallback onTap;
 
-  const FilterPopUpButtonWidget({Key key, this.icon, this.onTap})
+  const FilterPopUpButtonWidget({Key key,this.onTap})
       : super(key: key);
 
   @override
@@ -21,17 +20,25 @@ class FilterPopUpButtonWidget extends StatefulWidget {
 class _FilterButtonWidgetState extends State<FilterPopUpButtonWidget> {
   @override
   Widget build(BuildContext context) {
-    return QudsPopupButton(
-        backgroundColor: CustomColor.whiteColor2,
-        tooltip: 'T',
-        items: getMenuItems(),
-        child: const Icon(FontAwesomeIcons.filter));
+    return FloatingActionButton(
+      backgroundColor: CustomColor.whiteColor,
+      child: QudsPopupButton(
+          backgroundColor: CustomColor.whiteColor2,
+          tooltip: 'T',
+          items: getMenuItems(),
+          child: const Icon(FontAwesomeIcons.filter, color: CustomColor.greenColor,),
+          focusNode: FocusNode(),
+
+      
+          ),
+    );
   }
 }
 
 List<QudsPopupMenuBase> getMenuItems() {
   return [
     QudsPopupMenuWidget(
+
       builder: (c) => Column(
         children: [
           const SizedBox(height: 15,),
