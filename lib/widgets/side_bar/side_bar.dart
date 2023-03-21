@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:howse_app/screens/dashboard/billing.dart';
 
 import '../../screens/screens.dart';
 import '../../utils/utils.dart';
@@ -15,15 +16,13 @@ class SideBar extends StatelessWidget {
     return Container(
       height: MediaQuery.of(context).size.height * 0.7,
       decoration: BoxDecoration(
-            border: Border.all( color: CustomColor.greyColor, width: 2),
-            color: CustomColor.greyColor2, 
-            borderRadius: const BorderRadius.only(
-              topRight: Radius.circular(25), 
-              bottomRight: Radius.circular(25)
-                  ) 
-              ),
+          border: Border.all(color: CustomColor.greyColor, width: 2),
+          color: CustomColor.greyColor2,
+          borderRadius: const BorderRadius.only(
+              topRight: Radius.circular(25), bottomRight: Radius.circular(25))),
       child: ClipRRect(
-        borderRadius: const BorderRadius.only(topRight: Radius.circular(25), bottomRight: Radius.circular(25)),
+        borderRadius: const BorderRadius.only(
+            topRight: Radius.circular(25), bottomRight: Radius.circular(25)),
         child: Drawer(
           child: Container(
             decoration: const BoxDecoration(color: CustomColor.greyColor2),
@@ -60,10 +59,9 @@ class SideBar extends StatelessWidget {
                   icon: FontAwesomeIcons.fileInvoiceDollar,
                   title: Strings.billingEsp,
                   onTap: () {
-                    /*Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        ChangePasswordScreen
-                          ()));*/
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const Billing()));
                   },
                 ),
                 ListDataFontawesomeWidget(

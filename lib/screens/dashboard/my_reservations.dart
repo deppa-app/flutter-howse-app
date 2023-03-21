@@ -74,6 +74,7 @@ List<QudsPopupMenuBase> getMenuItems() {
             title: Text(Strings.lease_status),
             subtitle: Text(Strings.rental_location1),
           ),
+          Divider(),
         ],
       ),
     ),
