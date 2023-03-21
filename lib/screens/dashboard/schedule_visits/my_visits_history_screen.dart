@@ -3,6 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:howse_app/widgets/widget.dart';
 
 import '../../../utils/utils.dart';
+import '../../screens.dart';
+import '../billing.dart';
 
 class MyVisitsHistory extends StatelessWidget {
    
@@ -19,12 +21,17 @@ class MyVisitsHistory extends StatelessWidget {
           child: ListView(
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
-            children: const[
+            children: [
                BackButtonGeneralWidget(),
               SizedBox(height: Dimensions.heightSize),
               _principalString(),
               SizedBox(height: Dimensions.heightSize),
-              _HiredSection(),
+
+              GestureDetector(child: _HiredSection(), onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>  const VisitDetailsScreen()));
+              },),
+              
               SizedBox(height: Dimensions.heightSize),
               _HiredSection(),
               SizedBox(height: Dimensions.heightSize),
