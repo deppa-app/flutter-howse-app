@@ -17,8 +17,6 @@ import '../../widgets/widget.dart';
 import '../auth/my_account_screen.dart';
 
 import 'package:howse_app/screens/screens.dart';
-<<<<<<< Updated upstream
-=======
 
 import '../servicesAviable/locksmithment.dart';
 import '../servicesAviable/plumbing.dart';
@@ -109,19 +107,19 @@ class _HomeScreenState extends State<HomeScreen> {
                             padding: EdgeInsets.only(
                                 left: Dimensions.marginSize,
                                 right: Dimensions.marginSize),
-<<<<<<< Updated upstream
-                            child: FilterPopUpButtonWidget()
-                            )
-                    ),
-=======
-                            child: FilterPopUpButtonWidget(
-                              icon: Icon(FontAwesomeIcons.arrowDown),
-                            ))),
+                            child: FilterPopUpButtonWidget())),
+                    const Positioned(
+                        left: 0,
+                        bottom: 30,
+                        child: Padding(
+                            padding: EdgeInsets.only(
+                                left: Dimensions.marginSize,
+                                right: Dimensions.marginSize),
+                            child: MyReservations())),
 
                     _menuWidget(context),
                   ],
                 ),
-
                 const SizedBox(
                   height: Dimensions.heightSize,
                 ),
@@ -130,11 +128,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: Dimensions.heightSize * 1,
                 ),
                 const _goToBooking(),
-                
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-
                 const _goToBookYourVisit(),
-
                 SizedBox(height: MediaQuery.of(context).size.height * 0.04)
               ],
             ),
@@ -398,8 +393,7 @@ class _HomeScreenState extends State<HomeScreen> {
             'assets/images/hegga_logo_1a.png',
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.fitWidth,
-              )
-          ),
+          )),
     );
   }
 
@@ -450,8 +444,8 @@ class _goToBookYourVisit extends StatelessWidget {
       child: PrimaryButtonWidget(
         title: Strings.scheduleAvisit,
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const BookYourVisit()));
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const BookYourVisit()));
         },
       ),
     );
@@ -472,11 +466,10 @@ class _goToBooking extends StatelessWidget {
       child: SecondaryButtonWidget(
         title: Strings.visitNow,
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const Booking()));
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => const Booking()));
         },
       ),
     );
   }
 }
-
