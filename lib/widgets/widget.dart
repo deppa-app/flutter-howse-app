@@ -13,6 +13,7 @@
 
 
 
+
 export 'package:howse_app/screens/dashboard/booking.dart';
 export 'package:howse_app/widgets/buttons/back_buttons/back_button_general_widget.dart';
 export 'package:howse_app/widgets/buttons/back_buttons/back_widget.dart';
@@ -28,6 +29,7 @@ export 'package:howse_app/widgets/list_data/list_data_fontawesome_widget.dart';
 export 'package:howse_app/widgets/list_data/list_data_widget.dart';
 export 'package:howse_app/widgets/list_tile_custom.dart';
 export 'package:howse_app/widgets/pin_keyboard/booking_pin_widget.dart';
+export 'package:howse_app/widgets/side_bar/side_bar.dart';
 export 'package:howse_app/widgets/sliders/range_slider_widget.dart';
 export 'package:howse_app/widgets/texts/text_form_field_card.dart';
 export 'package:howse_app/widgets/texts/text_form_field_cvv.dart';

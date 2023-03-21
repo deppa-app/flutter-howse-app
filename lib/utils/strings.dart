@@ -47,6 +47,8 @@ class Strings {
   static String unitMeasure = '°C';
   static String humidity = 'Humedad';
   static String percentage = '%';
+  static String visitNow= 'Visitar ahora';
+  static String scheduleAvisit= 'Programar visita';
 
   //select language
   static String languageText1 = 'SELECCION DE IDIOMA';

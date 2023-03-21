@@ -10,14 +10,12 @@ import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:howse_app/widgets/buttons/secondary_filter_button_widget.dart';
 
 import '../../widgets/buttons/filter_buttons/filter_button_widget.dart';
 import '../../widgets/widget.dart';
 import '../auth/my_account_screen.dart';
 
 import 'package:howse_app/screens/screens.dart';
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key, this.idProfile}) : super(key: key);
   final int idProfile;
@@ -45,88 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: Colors.white,
         key: scaffoldKey,
-        drawer: Drawer(
-          child: Container(
-            color: CustomColor.whiteColor2,
-            child: ListView(
-              children: <Widget>[
-                const SizedBox(
-                  height: 200,
-                  child: DrawerHeader(
-                    child: DrawerHeaderWidget(),
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                    ),
-                  ),
-                ),
-                ListDataFontawesomeWidget(
-                  icon: FontAwesomeIcons.userPen,
-                  title: Strings.myAccountEsp,
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const MyAccountScreen()));
-                  },
-                ),
-                ListDataFontawesomeWidget(
-                  icon: FontAwesomeIcons.houseChimneyUser,
-                  title: Strings.visitsEsp,
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const MyVisitsHistory()));
-                  },
-                ),
-                ListDataFontawesomeWidget(
-                  icon: FontAwesomeIcons.fileInvoiceDollar,
-                  title: Strings.billingEsp,
-                  onTap: () {
-                    /*Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        ChangePasswordScreen
-                          ()));*/
-                  },
-                ),
-                ListDataFontawesomeWidget(
-                  icon: FontAwesomeIcons.phoneFlip,
-                  title: Strings.callCenter,
-                  onTap: () {
-                    /*Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                        MessagingScreen()));*/
-                  },
-                ),
-                ListDataFontawesomeWidget(
-                  icon: FontAwesomeIcons.peopleRobbery,
-                  title: Strings.functionalAdult,
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const FunctionalAdultScreen()));
-                  },
-                ),
-                ListDataFontawesomeWidget(
-                  icon: FontAwesomeIcons.houseCircleCheck,
-                  title: Strings.hired,
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const Rental_History()));
-                  },
-                ),
-                ListDataFontawesomeWidget(
-                  icon: FontAwesomeIcons.rightFromBracket,
-                  title: Strings.signOut,
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const SignInScreen()));
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
+        drawer: const SideBar(),
         body: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
@@ -147,36 +64,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () => {},
                       ),
                     ),
-                    /*Positioned(
-                      top: MediaQuery.of(context).size.height * 0.12,
-                      right: 0,
-                      child: Column(
-                        children: [
-                          circularButtonWidget(context, const Plumbing()),
-                          const SizedBox(
-                            height: Dimensions.heightSize * 2,
-                          ),
-                          circularButtonWidget(context, const Locksmithment()),
-                          const SizedBox(
-                            height: Dimensions.heightSize * 2,
-                          ),
-                          circularButtonWidget(context, const Cleaning()),
-                          const SizedBox(
-                            height: Dimensions.heightSize * 2,
-                          ),
-                          circularButtonWidget(context, const Removals()),
-                          const SizedBox(
-                            height: Dimensions.heightSize * 2,
-                          ),
-                        ],
-                      ),
-                    ),
-
                     // TODO: revisar
                     Positioned(
                       bottom: 30,
                       child: circularButtonWidget(context,  go(context)),
-                      ),*/
+                      ),
 
                     const Positioned(
                         right: 0,
@@ -185,10 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             padding: EdgeInsets.only(
                                 left: Dimensions.marginSize,
                                 right: Dimensions.marginSize),
-                            child: FilterPopUpButtonWidget(
-                              icon: Icon(FontAwesomeIcons.arrowDown),
-                            ))),
-
+                            child: FilterPopUpButtonWidget()
+                            )
+                    ),
                     _menuWidget(context),
                   ],
                 ),
@@ -197,43 +88,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: Dimensions.heightSize,
                 ),
                 _bannerWidget(context),
-                // SecondaryButtonWidget(
-                //     title: "Ver más",
-                //       onTap: () {
-                //       Navigator.of(context).push(MaterialPageRoute(builder:
-                //       (context) => const MoreInfo()));
-                //     },
-                //   ),
                 const SizedBox(
                   height: Dimensions.heightSize * 1,
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width * 0.08,
-                      right: MediaQuery.of(context).size.width * 0.08),
-                  child: SecondaryButtonWidget(
-                    title: "Reserva visita ahora",
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const Booking()));
-                    },
-                  ),
-                ),
-
+                const _goToBooking(),
+                
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
 
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: MediaQuery.of(context).size.width * 0.08,
-                      right: MediaQuery.of(context).size.width * 0.08),
-                  child: PrimaryButtonWidget(
-                    title: "Programar visita",
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const BookYourVisit()));
-                    },
-                  ),
-                ),
+                const _goToBookYourVisit(),
+
                 SizedBox(height: MediaQuery.of(context).size.height * 0.04)
               ],
             ),
@@ -493,11 +356,12 @@ class _HomeScreenState extends State<HomeScreen> {
             border: Border.all(color: CustomColor.primaryColor),
             borderRadius: BorderRadius.circular(12),
           ),
-          child: (Image.asset(
+          child: Image.asset(
             'assets/images/hegga_logo_1a.png',
             width: MediaQuery.of(context).size.width,
             fit: BoxFit.fitWidth,
-          ))),
+              )
+          ),
     );
   }
 
@@ -533,3 +397,48 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+class _goToBookYourVisit extends StatelessWidget {
+  const _goToBookYourVisit({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width * 0.08,
+          right: MediaQuery.of(context).size.width * 0.08),
+      child: PrimaryButtonWidget(
+        title: Strings.scheduleAvisit,
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const BookYourVisit()));
+        },
+      ),
+    );
+  }
+}
+
+class _goToBooking extends StatelessWidget {
+  const _goToBooking({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width * 0.08,
+          right: MediaQuery.of(context).size.width * 0.08),
+      child: SecondaryButtonWidget(
+        title: Strings.visitNow,
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const Booking()));
+        },
+      ),
+    );
+  }
+}
+
