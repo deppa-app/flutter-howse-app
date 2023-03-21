@@ -41,19 +41,28 @@ List<QudsPopupMenuBase> getMenuItems() {
 
       builder: (c) => Column(
         children: [
-          const SizedBox(height: 15,),
+          const SizedBox(
+            height: 15,
+          ),
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(FontAwesomeIcons.filter, color: CustomColor.colorBlack),
-                Text('Filtro', style: TextStyle(fontSize: Dimensions.smallTextSize, fontWeight: FontWeight.w600),)
+                Text(
+                  'Filtro',
+                  style: TextStyle(
+                      fontSize: Dimensions.smallTextSize,
+                      fontWeight: FontWeight.w600),
+                )
               ],
             ),
           ),
-          const SizedBox(height: 15,),
+          const SizedBox(
+            height: 15,
+          ),
 
-          const _SwitchButtonWidget(),
+          //const _SwitchButtonWidget(),
           const _buildParameter(
             icon: FontAwesomeIcons.bed,
             title: 'Dormitorio',

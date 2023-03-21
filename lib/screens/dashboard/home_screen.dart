@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:howse_app/screens/dashboard/functional_adult_screen.dart';
+import 'package:howse_app/screens/dashboard/my_reservations.dart';
 import 'package:howse_app/screens/dashboard/rental_history.dart';
 
 import 'package:howse_app/utils/custom_color.dart';
@@ -16,6 +17,13 @@ import '../../widgets/widget.dart';
 import '../auth/my_account_screen.dart';
 
 import 'package:howse_app/screens/screens.dart';
+<<<<<<< Updated upstream
+=======
+
+import '../servicesAviable/locksmithment.dart';
+import '../servicesAviable/plumbing.dart';
+
+>>>>>>> Stashed changes
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key, this.idProfile}) : super(key: key);
   final int idProfile;
@@ -64,11 +72,44 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () => {},
                       ),
                     ),
+<<<<<<< Updated upstream
                     // TODO: revisar
                     Positioned(
                       bottom: 30,
                       child: circularButtonWidget(context,  go(context)),
                       ),
+=======
+                    Positioned(
+                      top: MediaQuery.of(context).size.height * 0.12,
+                      right: 0,
+                      child: Column(
+                        children: [
+                          circularButtonWidget(context, const Plumbing()),
+                          const SizedBox(
+                            height: Dimensions.heightSize * 2,
+                          ),
+                          circularButtonWidget(context, const Locksmithment()),
+                          const SizedBox(
+                            height: Dimensions.heightSize * 2,
+                          ),
+                          circularButtonWidget(context, const Cleaning()),
+                          const SizedBox(
+                            height: Dimensions.heightSize * 2,
+                          ),
+                          circularButtonWidget(context, const Removals()),
+                          const SizedBox(
+                            height: Dimensions.heightSize * 2,
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // TODO: revisar
+                    Positioned(
+                      bottom: 30,
+                      child: circularButtonWidget(context, go(context)),
+                    ),
+>>>>>>> Stashed changes
 
                     const Positioned(
                         right: 0,
@@ -77,9 +118,25 @@ class _HomeScreenState extends State<HomeScreen> {
                             padding: EdgeInsets.only(
                                 left: Dimensions.marginSize,
                                 right: Dimensions.marginSize),
+<<<<<<< Updated upstream
                             child: FilterPopUpButtonWidget()
                             )
                     ),
+=======
+                            child: FilterPopUpButtonWidget(
+                              icon: Icon(FontAwesomeIcons.arrowDown),
+                            ))),
+
+                    const Positioned(
+                        left: 0,
+                        bottom: 30,
+                        child: Padding(
+                            padding: EdgeInsets.only(
+                                left: Dimensions.marginSize,
+                                right: Dimensions.marginSize),
+                            child: MyReservations())),
+
+>>>>>>> Stashed changes
                     _menuWidget(context),
                   ],
                 ),

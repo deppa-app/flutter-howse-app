@@ -253,7 +253,7 @@ class Strings {
   static String myVisitsHistoy = 'Mi historial de visitas';
   static String functionalAdult = 'Adulto funcional';
   static String hired = 'Arriendo contratados';
-  static String priceRange= 'Rango de precios';
+  static String priceRange = 'Rango de precios';
 
   static String settings = 'Settings';
   static String helpSupport = 'Nosotros';
@@ -432,4 +432,11 @@ class Strings {
 
   //Rental_history
   static String rental_history = "Arriendos contratados";
+
+  //My Reservations
+
+  static String date = "xx/xx/xxxx";
+  static String time = "xx:xx";
+  static String lease_status = "estado de arriendo";
+  static String rental_location1 = "ubicacion de arriendo";
 }
