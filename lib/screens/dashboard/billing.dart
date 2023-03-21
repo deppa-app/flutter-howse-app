@@ -161,7 +161,7 @@ class _BillingState extends State<Billing> {
 }
 
 Text_1Billing(BuildContext context) {
-  return Expanded(
+  return Expanded( //Al quitar el 'Expanded' se va la excepción.
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
