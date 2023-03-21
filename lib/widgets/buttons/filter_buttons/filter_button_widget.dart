@@ -46,18 +46,9 @@ List<QudsPopupMenuBase> getMenuItems() {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-<<<<<<< HEAD
                 const Icon(FontAwesomeIcons.filter, color: CustomColor.colorBlack),
-                Text('Filtro', style: TextStyle(fontSize: Dimensions.smallTextSize, fontWeight: FontWeight.w600),)
-=======
-                Icon(FontAwesomeIcons.filter, color: CustomColor.colorBlack),
-                Text(
-                  'Filtro',
-                  style: TextStyle(
-                      fontSize: Dimensions.smallTextSize,
-                      fontWeight: FontWeight.w600),
-                )
->>>>>>> 56a2063c8a7c90b8c5727cadcf0c0f85dc5d616a
+                Text('Filtro', style: TextStyle(fontSize: Dimensions.smallTextSize, fontWeight: FontWeight.w600),),
+
               ],
             ),
           ),
@@ -65,7 +56,7 @@ List<QudsPopupMenuBase> getMenuItems() {
             height: 15,
           ),
 
-          //const _SwitchButtonWidget(),
+          const _SwitchButtonWidget(),
           const _buildParameter(
             icon: FontAwesomeIcons.bed,
             title: 'Dormitorio',
