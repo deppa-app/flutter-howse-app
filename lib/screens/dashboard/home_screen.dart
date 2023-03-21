@@ -23,7 +23,6 @@ import 'package:howse_app/screens/screens.dart';
 import '../servicesAviable/locksmithment.dart';
 import '../servicesAviable/plumbing.dart';
 
->>>>>>> Stashed changes
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key, this.idProfile}) : super(key: key);
   final int idProfile;
@@ -72,14 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: () => {},
                       ),
                     ),
-<<<<<<< Updated upstream
-                    // TODO: revisar
-                    Positioned(
-                      bottom: 30,
-                      child: circularButtonWidget(context,  go(context)),
-                      ),
-=======
-                    Positioned(
+                    /*Positioned(
                       top: MediaQuery.of(context).size.height * 0.12,
                       right: 0,
                       child: Column(
@@ -107,9 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     // TODO: revisar
                     Positioned(
                       bottom: 30,
-                      child: circularButtonWidget(context, go(context)),
-                    ),
->>>>>>> Stashed changes
+                      child: circularButtonWidget(context,  go(context)),
+                      ),*/
 
                     const Positioned(
                         right: 0,
@@ -127,16 +118,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               icon: Icon(FontAwesomeIcons.arrowDown),
                             ))),
 
-                    const Positioned(
-                        left: 0,
-                        bottom: 30,
-                        child: Padding(
-                            padding: EdgeInsets.only(
-                                left: Dimensions.marginSize,
-                                right: Dimensions.marginSize),
-                            child: MyReservations())),
-
->>>>>>> Stashed changes
                     _menuWidget(context),
                   ],
                 ),
