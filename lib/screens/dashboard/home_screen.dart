@@ -10,12 +10,8 @@ import 'package:howse_app/utils/custom_style.dart';
 import 'package:howse_app/utils/dimensions.dart';
 import 'package:howse_app/utils/strings.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../../widgets/buttons/filter_buttons/filter_button_widget.dart';
 import '../../widgets/widget.dart';
-import '../auth/my_account_screen.dart';
-
 import 'package:howse_app/screens/screens.dart';
 
 import '../servicesAviable/locksmithment.dart';
@@ -430,6 +426,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+// ignore: camel_case_types
 class _goToBookYourVisit extends StatelessWidget {
   const _goToBookYourVisit({
     Key key,

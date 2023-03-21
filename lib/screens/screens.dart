@@ -7,7 +7,10 @@
 
 
 
+
+
 // import 'dart:html';
+export 'package:howse_app/screens/auth/change_password.dart';
 export 'package:howse_app/screens/auth/my_account_screen.dart';
 export 'package:howse_app/screens/auth/sign_in_screen.dart';
 export 'package:howse_app/screens/dashboard/booking.dart';

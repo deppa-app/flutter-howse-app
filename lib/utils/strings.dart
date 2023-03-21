@@ -240,6 +240,11 @@ class Strings {
 
   // dashboard screen
   static String changePassword = 'Change Password';
+  static String changePasswordEsp = 'Cambiar contraseña';
+  static String currentPasswordEsp = 'Contraseña actual';
+  static String newPasswordEsp = 'Nueva contraseña';
+  static String confirmPasswordEsp = 'Confirmar contraseña';
+  static String updateEsp = 'Actualizar';
 
   // home screen
   static String currentLocation = 'Current Location';

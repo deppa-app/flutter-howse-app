@@ -27,9 +27,7 @@ class _FilterButtonWidgetState extends State<FilterPopUpButtonWidget> {
           tooltip: 'T',
           items: getMenuItems(),
           child: const Icon(FontAwesomeIcons.filter, color: CustomColor.greenColor,),
-          focusNode: FocusNode(),
-
-      
+          focusNode: FocusNode(),    
           ),
     );
   }
@@ -48,6 +46,10 @@ List<QudsPopupMenuBase> getMenuItems() {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+<<<<<<< HEAD
+                const Icon(FontAwesomeIcons.filter, color: CustomColor.colorBlack),
+                Text('Filtro', style: TextStyle(fontSize: Dimensions.smallTextSize, fontWeight: FontWeight.w600),)
+=======
                 Icon(FontAwesomeIcons.filter, color: CustomColor.colorBlack),
                 Text(
                   'Filtro',
@@ -55,6 +57,7 @@ List<QudsPopupMenuBase> getMenuItems() {
                       fontSize: Dimensions.smallTextSize,
                       fontWeight: FontWeight.w600),
                 )
+>>>>>>> 56a2063c8a7c90b8c5727cadcf0c0f85dc5d616a
               ],
             ),
           ),
