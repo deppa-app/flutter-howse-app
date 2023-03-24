@@ -178,7 +178,7 @@ class _DetailedServicePriceState extends State<DetailedServicePrice> {
             Text(
               Strings.total_price,
               style: const TextStyle(
-                  color: CustomColor.colorBlack,
+                  color: CustomColor.brownColor2,
                   fontSize: Dimensions.radius,
                   fontWeight: FontWeight.w600),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:howse_app/screens/dashboard/billing/property_features.dart';
 
 import '../../../utils/custom_color.dart';
 import '../../../utils/dimensions.dart';
@@ -139,7 +140,7 @@ class _BillingDataState extends State<BillingData> {
                   title: "Desacargar propiedad ",
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const BookingPin()));
+                        builder: (context) => const PropertyFeatures()));
                   },
                 ),
               ),

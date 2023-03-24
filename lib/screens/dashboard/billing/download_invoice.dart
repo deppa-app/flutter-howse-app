@@ -76,7 +76,12 @@ class DownloadInvoice extends StatelessWidget {
                 const SizedBox(
                   height: Dimensions.heightSize * 1,
                 ),
-                Center(
+                Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height,
+                    color: CustomColor.whiteColor,
+                    child: Text(" ")),
+                /*Center(
                   child: SecondaryButtonWidget(
                     title: ("Revisar terminos legales "),
                     onTap: () {
@@ -84,7 +89,7 @@ class DownloadInvoice extends StatelessWidget {
                           builder: (context) => const Legalterms()));
                     },
                   ),
-                ),
+                ),*/
                 const SizedBox(
                   height: Dimensions.heightSize * 2,
                 ),

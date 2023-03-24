@@ -412,9 +412,9 @@ class Strings {
   static String myCourse = 'My Course';
 
   //reservation
-  
-  static String donwloadProperty= 'Descargar propiedad';
-  static String iWantToRent= 'Quiero Arrendar';
+
+  static String donwloadProperty = 'Descargar propiedad';
+  static String iWantToRent = 'Quiero Arrendar';
   static String monthlyRent = 'Valor arriendo mensual:';
   static String visitValue = 'Valor de la visita';
   static String distance = 'Estas a ';
@@ -472,4 +472,24 @@ class Strings {
   static String Subtotal = "xx,xx";
   static String discount = "xx,xx";
   static String total_price = "xx,xx";
+
+  //property features
+  static String monthly_rental_value = "xx,xx";
+  static String code1 = "Codigo: ";
+  static String bathroom1 = "Baños: ";
+  static String parking1 = "Estacionamientos: ";
+  static String bedrooms1 = "Dormitorios: ";
+  static String environments = "Ambientes: ";
+  static String common_expenses = "Gastos omunes: ";
+  static String pets_allowed = "Admiten mascotas: ";
+  static String total_area = "Superficie total: ";
+  static String usable_area = "Superficie util: ";
+  static String number_of_floors = "Numero de pisos: ";
+  static String apartment_per_floor = "Departamento por piso: ";
+  static String number_of_floors1 = "Cantidad de pisos: ";
+  static String mts2 = "Mts2: ";
+  static String wineries = "Bodegas: ";
+  static String orientation = "Orientación: ";
+  static String services1 = "Servicios: ";
+  static String property_location = "Ubicacion de la propiedad ";
 }

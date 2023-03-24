@@ -6,50 +6,49 @@ import '../../../utils/utils.dart';
 import '../../screens.dart';
 
 class MyVisitsHistory extends StatelessWidget {
-   
   const MyVisitsHistory({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: Container(
-           width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          color: Colors.white,
-          child: ListView(
-            physics: const BouncingScrollPhysics(),
-            shrinkWrap: true,
-            children: [
-               BackButtonGeneralWidget(),
-              SizedBox(height: Dimensions.heightSize),
-              _principalString(),
-              SizedBox(height: Dimensions.heightSize),
-
-              GestureDetector(child: _HiredSection(), onTap: () {
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            color: Colors.white,
+            child: ListView(
+              physics: const BouncingScrollPhysics(),
+              shrinkWrap: true,
+              children: [
+                BackButtonGeneralWidget(),
+                SizedBox(height: Dimensions.heightSize),
+                _principalString(),
+                SizedBox(height: Dimensions.heightSize),
+                GestureDetector(
+                  child: _HiredSection(),
+                  onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>  const VisitDetailsScreen()));
-              },),
-              
-              SizedBox(height: Dimensions.heightSize),
-              _HiredSection(),
-              SizedBox(height: Dimensions.heightSize),
-              _HiredSection(),
-              SizedBox(height: Dimensions.heightSize),
-              _HiredSection(),
-              SizedBox(height: Dimensions.heightSize),
-              _HiredSection(),
-              SizedBox(height: Dimensions.heightSize),
-              _HiredSection(),
-              SizedBox(height: Dimensions.heightSize),
-              _HiredSection(),
-              SizedBox(height: Dimensions.heightSize),
-              _HiredSection(),
-              SizedBox(height: Dimensions.heightSize),
-              _HiredSection(),
-            ],
-            )
-        ),
+                        builder: (context) => const VisitDetailsScreen()));
+                  },
+                ),
+                SizedBox(height: Dimensions.heightSize),
+                _HiredSection(),
+                SizedBox(height: Dimensions.heightSize),
+                _HiredSection(),
+                SizedBox(height: Dimensions.heightSize),
+                _HiredSection(),
+                SizedBox(height: Dimensions.heightSize),
+                _HiredSection(),
+                SizedBox(height: Dimensions.heightSize),
+                _HiredSection(),
+                SizedBox(height: Dimensions.heightSize),
+                _HiredSection(),
+                SizedBox(height: Dimensions.heightSize),
+                _HiredSection(),
+                SizedBox(height: Dimensions.heightSize),
+                _HiredSection(),
+              ],
+            )),
       ),
     );
   }
@@ -75,7 +74,6 @@ class _principalString extends StatelessWidget {
 }
 
 class _HiredSection extends StatelessWidget {
-   
   final String price;
   final int toilet;
   final int bedroom;
@@ -83,36 +81,39 @@ class _HiredSection extends StatelessWidget {
   final int parking;
   final int squareMeter;
 
+  const _HiredSection(
+      {Key key,
+      this.price = '385.000',
+      this.toilet = 0,
+      this.storage = 0,
+      this.parking = 0,
+      this.squareMeter = 0,
+      this.bedroom = 0})
+      : super(key: key);
 
-  const _HiredSection({
-    Key key, 
-    this.price = '385.000', 
-    this.toilet = 0, 
-    this.storage = 0, 
-    this.parking = 0, 
-    this.squareMeter = 0, 
-    this.bedroom = 0
-    }) 
-    : super(key: key);
-  
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 1,
-      child: Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(width: MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width)),
-              _buildImageAndPrice(price: price),
-              _buildDetails(toilet: toilet, bedroom: bedroom, storage: storage, parking: parking, squareMeter: squareMeter),
-              /* Expanded(child: _buildDate()), */
-            ],
-          ),
-          const _buildLocation()
-        ],
-      ),
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(width: Dimensions.marginSize * 1.5),
+            _buildImageAndPrice(price: price),
+            const SizedBox(
+              width: 5,
+            ),
+            _buildDetails(
+                toilet: toilet,
+                bedroom: bedroom,
+                storage: storage,
+                parking: parking,
+                squareMeter: squareMeter),
+            _buildDate(),
+          ],
+        ),
+        _buildLocation()
+      ],
     );
   }
 }
@@ -124,32 +125,40 @@ class _buildLocation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-    
-      child: Row(
-        children: [
-          const SizedBox(width: Dimensions.marginSize *2),
-          const Icon(FontAwesomeIcons.podcast, color: CustomColor.greenColor, size: 10,),
-          const SizedBox(width: 5, height: 5,),
-          Text(
-            'AV. Providencia',
-            style: TextStyle(
+    return Row(
+      children: [
+        const SizedBox(width: Dimensions.marginSize * 2),
+        const Icon(
+          FontAwesomeIcons.podcast,
+          color: CustomColor.greenColor,
+          size: 10,
+        ),
+        const SizedBox(
+          width: 5,
+          height: 5,
+        ),
+        Text(
+          'AV. Providencia',
+          style: TextStyle(
               fontSize: Dimensions.smallTextSize,
-              color: CustomColor.greenColor
-            ),
-          ),
-          const SizedBox(width: Dimensions.marginSize *1.2),
-          const Icon(FontAwesomeIcons.personWalkingArrowRight, color: CustomColor.greyColor, size: 10,),
-          const SizedBox(width: 5, height: 5,),
-          Text(
-            '200 Rafael Sotomayor #23',
-            style: TextStyle(
-              fontSize: Dimensions.smallTextSize,
-              color: CustomColor.greyColor
-            ),
-          )
-        ],
-      ),
+              color: CustomColor.greenColor),
+        ),
+        const SizedBox(width: Dimensions.marginSize * 1.2),
+        const Icon(
+          FontAwesomeIcons.personWalkingArrowRight,
+          color: CustomColor.greyColor,
+          size: 10,
+        ),
+        const SizedBox(
+          width: 5,
+          height: 5,
+        ),
+        Text(
+          '200 Rafael Sotomayor #23',
+          style: TextStyle(
+              fontSize: Dimensions.smallTextSize, color: CustomColor.greyColor),
+        )
+      ],
     );
   }
 }
@@ -167,14 +176,12 @@ class _buildDate extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        Text( 
-          'Fecha: 14/3/2023',
-          style: TextStyle(
-            fontSize: Dimensions.extraSmallTextSize,
-                    fontWeight: FontWeight.w600,
-                    color: CustomColor.greenColor,
-          )
-        ),
+        Text('Fecha: 14/3/2023',
+            style: TextStyle(
+              fontSize: Dimensions.extraSmallTextSize,
+              fontWeight: FontWeight.w600,
+              color: CustomColor.greenColor,
+            )),
       ],
     );
   }
@@ -201,22 +208,15 @@ class _buildDetails extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 8.5),
-
-        Row(
-          children: [
-            Text( 
-              Strings.aparmentRentals,
-              style: TextStyle(
-                fontSize: Dimensions.smallTextSize,
-                        fontWeight: FontWeight.w600,
-                        color: CustomColor.colorBlack,
-              )
-            ),
-            SizedBox(width: MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width *0.9) ),
-            _buildDate()
-          ],
+        const SizedBox(
+          height: 10,
         ),
+        Text(Strings.aparmentRentals,
+            style: TextStyle(
+              fontSize: Dimensions.smallTextSize,
+              fontWeight: FontWeight.w600,
+              color: CustomColor.colorBlack,
+            )),
         const SizedBox(height: 6),
         Row(
           mainAxisSize: MainAxisSize.min,
@@ -226,84 +226,111 @@ class _buildDetails extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Icon(FontAwesomeIcons.toilet, color: CustomColor.greyColor, size: 10,),
-                    const SizedBox(width: 5, height: 5,),
-                    Text( 
-                      '$toilet ${Strings.bathroom}',
-                      style: TextStyle(
-                        fontSize: Dimensions.defaultTextSize,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black,
-                      )
+                    const Icon(
+                      FontAwesomeIcons.toilet,
+                      color: CustomColor.greyColor,
+                      size: 10,
                     ),
+                    const SizedBox(
+                      width: 5,
+                      height: 5,
+                    ),
+                    Text('$toilet ${Strings.bathroom}',
+                        style: TextStyle(
+                          fontSize: Dimensions.defaultTextSize,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                        )),
                   ],
                 ),
                 Row(
                   children: [
-                    const Icon(FontAwesomeIcons.bed, color: CustomColor.greyColor, size: 10,),
-                    const SizedBox(width: 5, height: 5,),
-                    Text( 
-                      '$bedroom ${Strings.bedrooms}',
-                      style: TextStyle(
-                        fontSize: Dimensions.defaultTextSize,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black,
-                      )
+                    const Icon(
+                      FontAwesomeIcons.bed,
+                      color: CustomColor.greyColor,
+                      size: 10,
                     ),
+                    const SizedBox(
+                      width: 5,
+                      height: 5,
+                    ),
+                    Text('$bedroom ${Strings.bedrooms}',
+                        style: TextStyle(
+                          fontSize: Dimensions.defaultTextSize,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                        )),
                   ],
                 ),
                 Row(
                   children: [
-                    const Icon(FontAwesomeIcons.boxArchive, color: CustomColor.greyColor, size: 10,),
-                    const SizedBox(width: 5, height: 5,),
-                    Text( 
-                      '$storage ${Strings.storage}',
-                      style: TextStyle(
-                        fontSize: Dimensions.defaultTextSize,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black,
-                      )
+                    const Icon(
+                      FontAwesomeIcons.boxArchive,
+                      color: CustomColor.greyColor,
+                      size: 10,
                     ),
+                    const SizedBox(
+                      width: 5,
+                      height: 5,
+                    ),
+                    Text('$storage ${Strings.storage}',
+                        style: TextStyle(
+                          fontSize: Dimensions.defaultTextSize,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                        )),
                   ],
                 ),
               ],
             ),
-            const SizedBox(width: 25,),
+            const SizedBox(
+              width: 25,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    const Icon(FontAwesomeIcons.carOn, color: CustomColor.greyColor, size: 10,),
-                    const SizedBox(width: 5, height: 5,),
-                    Text( 
-                      '$parking ${Strings.parking}',
-                      style: TextStyle(
-                        fontSize: Dimensions.defaultTextSize,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black,
-                      )
+                    const Icon(
+                      FontAwesomeIcons.carOn,
+                      color: CustomColor.greyColor,
+                      size: 10,
                     ),
+                    const SizedBox(
+                      width: 5,
+                      height: 5,
+                    ),
+                    Text('$parking ${Strings.parking}',
+                        style: TextStyle(
+                          fontSize: Dimensions.defaultTextSize,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                        )),
                   ],
                 ),
                 Row(
                   children: [
-                    const Icon(FontAwesomeIcons.house, color: CustomColor.greyColor, size: 10,),
-                    const SizedBox(width: 5, height: 5,),
-                    Text( 
-                      '$squareMeter ${Strings.square_meter2}',
-                      style: TextStyle(
-                        fontSize: Dimensions.defaultTextSize,
-                                fontWeight: FontWeight.normal,
-                                color: Colors.black,
-                      )
+                    const Icon(
+                      FontAwesomeIcons.house,
+                      color: CustomColor.greyColor,
+                      size: 10,
                     ),
+                    const SizedBox(
+                      width: 5,
+                      height: 5,
+                    ),
+                    Text('$squareMeter ${Strings.square_meter2}',
+                        style: TextStyle(
+                          fontSize: Dimensions.defaultTextSize,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                        )),
                   ],
                 ),
                 const SizedBox(height: 15),
               ],
             ),
-          ], 
+          ],
         ),
       ],
     );
@@ -322,13 +349,15 @@ class _buildImageAndPrice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 15,),
+        const SizedBox(
+          height: 15,
+        ),
         const FadeInImage(
-            placeholder: AssetImage('assets/images/no-image.jpg'),
-            fit: BoxFit.cover,
-            image:  AssetImage('assets/images/casita.png'),
-            width: 56,
-            height: 64,
+          placeholder: AssetImage('assets/images/no-image.jpg'),
+          fit: BoxFit.cover,
+          image: AssetImage('assets/images/casita.png'),
+          width: 56,
+          height: 64,
         ),
         const SizedBox(height: 10),
         _builPrice(price: price),
@@ -356,7 +385,8 @@ class _builPrice extends StatelessWidget {
           style: TextStyle(
             fontSize: Dimensions.smallTextSize,
             fontWeight: FontWeight.w600,
-            color: CustomColor.brownColor2,),
+            color: CustomColor.brownColor2,
+          ),
         ),
       ],
     );
