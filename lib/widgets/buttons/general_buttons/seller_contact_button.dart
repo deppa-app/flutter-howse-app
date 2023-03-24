@@ -15,7 +15,7 @@ class SellerContactButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 50.0), // Agrego un margin horizontal de 16.0,
+        margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width -20)), // Agrego un margin horizontal de 16.0,
         height: Dimensions.buttonHeight * 1.2,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(

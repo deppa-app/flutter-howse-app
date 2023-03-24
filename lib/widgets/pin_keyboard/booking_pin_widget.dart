@@ -22,8 +22,7 @@ class _BookingPinWidgetState extends State<BookingPinWidget> {
     super.initState();
   }
 
-    void _onPinEntered(String pin) =>
-      setState(() => _pinController.text = pin.padRight(4, "•"));
+    void _onPinEntered(String pin) => setState(() => _pinController.text = pin.padRight(4, "•"));
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class _BookingPinWidgetState extends State<BookingPinWidget> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: Dimensions.heightSize * 2),
+                  SizedBox(height: MediaQuery.of(context).size.height *.1),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -66,7 +65,7 @@ class _BookingPinWidgetState extends State<BookingPinWidget> {
                   ),
                   const SizedBox(height: Dimensions.heightSize * 2),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 80),
+                    padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width - MediaQuery.of(context).size.width),
                     child: Container(
                       padding: const EdgeInsets.only(left:16.0, right:16.0,top: 20, bottom: 35.0),
                       decoration: BoxDecoration(
@@ -106,6 +105,8 @@ class _BookingPinWidgetState extends State<BookingPinWidget> {
                       );
   }
 }
+
+
 /* class PrincipalString extends StatelessWidget {
   const PrincipalString({
     Key key,

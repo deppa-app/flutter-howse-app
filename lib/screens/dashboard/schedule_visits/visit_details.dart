@@ -52,7 +52,8 @@ class VisitDetailsScreen extends StatelessWidget {
             const _buildAddresSection(),
             const SizedBox(height: Dimensions.heightSize * 1.5),
             const _buildTotalPrice(totalPrice: 12470,),
-            _seeTicket(),
+            const SizedBox(height: Dimensions.heightSize * 1.5),
+            const _seeTicket(),
             const SizedBox(height: Dimensions.heightSize * 1.5),
             SecondaryButtonWidget(title: Strings.iWantToRent,),
             const SizedBox(height: Dimensions.heightSize * 1.5),
@@ -73,7 +74,7 @@ class _seeTicket extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Padding(
-      padding: const EdgeInsets.only(left: 390),
+      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * .7),
       child: Text(
         'Ver boleta',
         style: TextStyle(
@@ -99,7 +100,7 @@ class _buildTotalPrice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: CustomColor.greyColor2,
-      height: 64,
+      height: 70,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -112,7 +113,7 @@ class _buildTotalPrice extends StatelessWidget {
                 Strings.visitValue,
                 style: TextStyle(fontSize: Dimensions.largeTextSize, fontWeight: FontWeight.w600, color: CustomColor.brownColor2),
               ),
-              const SizedBox(width: 120,),
+              SizedBox(width: MediaQuery.of(context).size.width *.2,),
               Text(
                 '\$ $totalPrice',
                 style: TextStyle(fontSize: Dimensions.largeTextSize, fontWeight: FontWeight.normal, color: CustomColor.brownColor2),
@@ -172,7 +173,7 @@ class _buildDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.8,
+          width: MediaQuery.of(context).size.width * 0.9,
           child: const Divider(
               height: 25, color: CustomColor.greyColor, thickness: 1)),
     );
@@ -192,23 +193,23 @@ class _buildDetailsSection extends StatelessWidget {
         Column(
           children: [
             Icon(FontAwesomeIcons.clock,
-                size: 80, color: CustomColor.greenColor),
+                size: 70, color: CustomColor.greenColor),
             Text('40 minutos')
           ],
         ),
-        const SizedBox(width: Dimensions.widthSize * 8),
+        SizedBox(width: MediaQuery.of(context).size.width *0.08),
         Column(
           children: [
             Icon(FontAwesomeIcons.clock,
-                size: 80, color: CustomColor.greenColor),
+                size: 70, color: CustomColor.greenColor),
             Text('40 minutos')
           ],
         ),
-        const SizedBox(width: Dimensions.widthSize * 8),
+        SizedBox(width: MediaQuery.of(context).size.width *0.1),
         Column(
           children: [
             Icon(FontAwesomeIcons.personCircleCheck,
-                size: 80, color: CustomColor.greenColor),
+                size: 70, color: CustomColor.greenColor),
             Text('2 visitas')
           ],
         )
@@ -267,11 +268,11 @@ class _buildImage extends StatelessWidget {
         ),
         ClipRRect(
           borderRadius: BorderRadius.circular(8),
-          child: const FadeInImage(
+          child: FadeInImage(
             placeholder: AssetImage('assets/images/no-image.jpg'),
             fit: BoxFit.cover,
             image: AssetImage('assets/images/casita.png'),
-            width: 400,
+            width: MediaQuery.of(context).size.width *.9,
             height: 250,
           ),
         ),
@@ -354,7 +355,7 @@ class _buildDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 50),
+      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width - MediaQuery.of(context).size.width),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

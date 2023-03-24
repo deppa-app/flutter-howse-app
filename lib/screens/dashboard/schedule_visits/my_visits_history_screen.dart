@@ -98,20 +98,22 @@ class _HiredSection extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-             const SizedBox(width: Dimensions.marginSize *1.5),
-            _buildImageAndPrice(price: price),
-            const SizedBox(width: 5,),
-            _buildDetails(toilet: toilet, bedroom: bedroom, storage: storage, parking: parking, squareMeter: squareMeter),
-            _buildDate(),
-          ],
-        ),
-        _buildLocation()
-      ],
+    return SizedBox(
+      width: 1,
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(width: MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width)),
+              _buildImageAndPrice(price: price),
+              _buildDetails(toilet: toilet, bedroom: bedroom, storage: storage, parking: parking, squareMeter: squareMeter),
+              /* Expanded(child: _buildDate()), */
+            ],
+          ),
+          const _buildLocation()
+        ],
+      ),
     );
   }
 }
@@ -123,29 +125,32 @@ class _buildLocation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const SizedBox(width: Dimensions.marginSize *2),
-        const Icon(FontAwesomeIcons.podcast, color: CustomColor.greenColor, size: 10,),
-        const SizedBox(width: 5, height: 5,),
-        Text(
-          'AV. Providencia',
-          style: TextStyle(
-            fontSize: Dimensions.smallTextSize,
-            color: CustomColor.greenColor
+    return SizedBox(
+    
+      child: Row(
+        children: [
+          const SizedBox(width: Dimensions.marginSize *2),
+          const Icon(FontAwesomeIcons.podcast, color: CustomColor.greenColor, size: 10,),
+          const SizedBox(width: 5, height: 5,),
+          Text(
+            'AV. Providencia',
+            style: TextStyle(
+              fontSize: Dimensions.smallTextSize,
+              color: CustomColor.greenColor
+            ),
           ),
-        ),
-        const SizedBox(width: Dimensions.marginSize *1.2),
-        const Icon(FontAwesomeIcons.personWalkingArrowRight, color: CustomColor.greyColor, size: 10,),
-        const SizedBox(width: 5, height: 5,),
-        Text(
-          '200 Rafael Sotomayor #23',
-          style: TextStyle(
-            fontSize: Dimensions.smallTextSize,
-            color: CustomColor.greyColor
-          ),
-        )
-      ],
+          const SizedBox(width: Dimensions.marginSize *1.2),
+          const Icon(FontAwesomeIcons.personWalkingArrowRight, color: CustomColor.greyColor, size: 10,),
+          const SizedBox(width: 5, height: 5,),
+          Text(
+            '200 Rafael Sotomayor #23',
+            style: TextStyle(
+              fontSize: Dimensions.smallTextSize,
+              color: CustomColor.greyColor
+            ),
+          )
+        ],
+      ),
     );
   }
 }
@@ -197,15 +202,21 @@ class _buildDetails extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 10,),
+        SizedBox(height: 8.5),
 
-        Text( 
-          Strings.aparmentRentals,
-          style: TextStyle(
-            fontSize: Dimensions.smallTextSize,
-                    fontWeight: FontWeight.w600,
-                    color: CustomColor.colorBlack,
-          )
+        Row(
+          children: [
+            Text( 
+              Strings.aparmentRentals,
+              style: TextStyle(
+                fontSize: Dimensions.smallTextSize,
+                        fontWeight: FontWeight.w600,
+                        color: CustomColor.colorBlack,
+              )
+            ),
+            SizedBox(width: MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width *0.9) ),
+            _buildDate()
+          ],
         ),
         const SizedBox(height: 6),
         Row(
