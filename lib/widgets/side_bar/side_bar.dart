@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:howse_app/screens/dashboard/billing.dart';
+import 'package:howse_app/screens/dashboard/billing/billing.dart';
 
 import '../../screens/screens.dart';
 import '../../utils/utils.dart';

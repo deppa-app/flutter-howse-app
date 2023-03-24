@@ -1,5 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:howse_app/screens/dashboard/schedule_visits/Carousel.dart';
 import 'package:howse_app/screens/dashboard/schedule_visits/calendar.dart';
 import 'package:howse_app/screens/dashboard/schedule_visits/time.dart';
@@ -180,13 +181,15 @@ text_2(BuildContext context) {
   return Padding(
     padding: EdgeInsets.all(16.0), // Añade un relleno de 16.0 a todos los lados
     child: Container(
-      width: 344,
-      height: 108,
+      width: 200,
+      height: 125,
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
         color: CustomColor.whiteColor,
         border: Border.all(
+          strokeAlign: BorderSide.strokeAlignCenter,
           color: CustomColor.greyColor,
-          width: 2.0,
+          width: 0.1,
         ),
       ),
       child: ListView(
@@ -236,7 +239,11 @@ text_3(BuildContext context, String string, String value) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     children: [
-      const Icon(Icons.check_circle),
+      const Icon(
+        FontAwesomeIcons.circleCheck,
+        color: CustomColor.brownColor2,
+        size: 7.82,
+      ),
       Text(
         string,
         style: TextStyle(

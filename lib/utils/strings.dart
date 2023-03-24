@@ -47,8 +47,8 @@ class Strings {
   static String unitMeasure = '°C';
   static String humidity = 'Humedad';
   static String percentage = '%';
-  static String visitNow= 'Visitar ahora';
-  static String scheduleAvisit= 'Programar visita';
+  static String visitNow = 'Visitar ahora';
+  static String scheduleAvisit = 'Programar visita';
 
   //select language
   static String languageText1 = 'SELECCION DE IDIOMA';
@@ -439,4 +439,28 @@ class Strings {
   static String time = "xx:xx";
   static String lease_status = "estado de arriendo";
   static String rental_location1 = "ubicacion de arriendo";
+
+  //billing data
+
+  static String billing_value = "Valor facturación:";
+  static String billing_price = " cantidad en pesos ";
+  static String minutes_reserved = " Minutos reservados ";
+  static String busy_minutes = " Minutos ocupado ";
+  static String number_of_visits = " Numero de visitas ";
+  static String number_of_minutes_booked = " XX Min ";
+  static String number_of_minutes_occupied = " XX Min ";
+  static String visitor_counter = " XX  ";
+
+  //download invoice
+  static String detail_value_visit = "Valor visita";
+  static String additional_time_detail = "Tiempo adicional";
+  static String plumbing_service_detail = "Servicio gasfiteria";
+  static String toilet_service_detail = "Servicio aseo";
+  static String price_value_visit = "xx,xx";
+  static String additional_time_price = "xx,xx";
+  static String plumbing_service_price = "xx,xx";
+  static String toilet_service_price = "xx,xx";
+  static String Subtotal = "xx,xx";
+  static String discount = "xx,xx";
+  static String total_price = "xx,xx";
 }

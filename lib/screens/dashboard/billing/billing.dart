@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../../utils/custom_color.dart';
-import '../../utils/dimensions.dart';
-import '../../utils/strings.dart';
+import '../../../utils/custom_color.dart';
+import '../../../utils/dimensions.dart';
+import '../../../utils/strings.dart';
+import 'billing_data.dart';
 
 class Billing extends StatefulWidget {
   const Billing({Key key}) : super(key: key);
@@ -64,6 +65,11 @@ class _BillingState extends State<Billing> {
               Column(
                 children: [
                   ListTile(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const BillingData()));
+                    },
                     leading: const Icon(
                       FontAwesomeIcons.houseChimneyWindow,
                       color: CustomColor.greenColor,
@@ -176,10 +182,10 @@ Text_1Billing(BuildContext context) {
                   FontAwesomeIcons.circleDollarToSlot,
                   color: CustomColor.brownColor2,
                 ),
-                Icon(
-                  FontAwesomeIcons.eye,
-                  color: CustomColor.brownColor2,
-                ),
+                //Icon(
+                //FontAwesomeIcons.eye,
+                //color: CustomColor.brownColor2,
+                //),
               ],
             ),
             Text(
