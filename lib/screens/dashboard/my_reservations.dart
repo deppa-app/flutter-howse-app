@@ -12,16 +12,19 @@ class MyReservations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return QudsPopupButton(
-        backgroundColor: CustomColor.whiteColor2,
-        tooltip: 'Reservations',
-        items: getMenuItems(),
-        radius: 10,
-        child: const Icon(
-          FontAwesomeIcons.circleCheck,
-          size: Dimensions.buttonHeight,
-          color: CustomColor.greenColor,
-        ));
+    return FloatingActionButton(
+      backgroundColor: CustomColor.whiteColor,
+      child: QudsPopupButton(
+          backgroundColor: CustomColor.whiteColor2,
+          tooltip: 'Reservations',
+          items: getMenuItems(),
+          radius: 10,
+          child: const Icon(
+            FontAwesomeIcons.circleCheck,
+            size: Dimensions.buttonHeight,
+            color: CustomColor.greenColor,
+          )),
+    );
   }
 }
 
