@@ -27,9 +27,7 @@ class _FilterButtonWidgetState extends State<FilterPopUpButtonWidget> {
           tooltip: 'T',
           items: getMenuItems(),
           child: const Icon(FontAwesomeIcons.filter, color: CustomColor.greenColor,),
-          focusNode: FocusNode(),
-
-      
+          focusNode: FocusNode(),    
           ),
     );
   }
@@ -48,13 +46,9 @@ List<QudsPopupMenuBase> getMenuItems() {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(FontAwesomeIcons.filter, color: CustomColor.colorBlack),
-                Text(
-                  'Filtro',
-                  style: TextStyle(
-                      fontSize: Dimensions.smallTextSize,
-                      fontWeight: FontWeight.w600),
-                )
+                const Icon(FontAwesomeIcons.filter, color: CustomColor.colorBlack),
+                Text('Filtro', style: TextStyle(fontSize: Dimensions.smallTextSize, fontWeight: FontWeight.w600),),
+
               ],
             ),
           ),
@@ -62,7 +56,7 @@ List<QudsPopupMenuBase> getMenuItems() {
             height: 15,
           ),
 
-          //const _SwitchButtonWidget(),
+          const _SwitchButtonWidget(),
           const _buildParameter(
             icon: FontAwesomeIcons.bed,
             title: 'Dormitorio',

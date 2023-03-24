@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../../utils/utils.dart';
 import '../../widgets/widget.dart';
 import '../dashboard/booking_pin.dart';
+import '../screens.dart';
 
 class MyAccountScreen extends StatelessWidget {
    
@@ -55,10 +55,25 @@ class MyAccountScreen extends StatelessWidget {
                   }
                   ),
                   const SizedBox(height: Dimensions.heightSize * 4),
-                  const iconConfig(icon: FontAwesomeIcons.userLock, text: 'Cambiar contraseña',
+                   iconConfig(
+                    icon: FontAwesomeIcons.userLock, 
+                    text: 'Cambiar contraseña',
+                    onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>  const ChangePasswordScreen()));
+                  },
+
                   ),
                   const SizedBox(height: Dimensions.heightSize * 4),
-                  const iconConfig(icon: FontAwesomeIcons.creditCard, text: 'Medios de Pago',),
+                  iconConfig(
+                    icon: FontAwesomeIcons.creditCard, text: 'Medios de Pago',
+                    onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>   const SignUpScreen9()));
+                  },
+                  ),
                 ],
               )
             ]

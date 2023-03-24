@@ -118,6 +118,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                     textAlign: TextAlign.center,
                   ),
                 ),
+                
                 Padding(
                   padding: const EdgeInsets.only(
                       top: Dimensions.heightSize,
@@ -146,9 +147,9 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
 
                 Padding(
                   padding: const EdgeInsets.only(right: 200),
-                  child: _titleData(Strings.titleNumberCard),
+                  child: _hintData(Strings.titleNumberCard),
                 ),
-
+                const _titleLabel(label: 'Número de tarjeta', paddingRight: 370,),
                 TextFormFieldCard(
                     controller: numberCardController, text: Strings.numberCard),
 
@@ -157,7 +158,8 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                     Expanded(
                       child: Column(
                         children: [
-                          _titleData(Strings.expiryDate),
+                          _hintData(Strings.expiryDate),
+                          const _titleLabel(label: 'Fecha de vencimiento', paddingRight: 80,),
                           TextFormFieldExpirationDate(
                             text: Strings.monthYear,
                             controller: dateCardController,
@@ -173,8 +175,9 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(right: 120),
-                            child: _titleData(Strings.cvv),
+                            child: _hintData(Strings.cvv),
                           ),
+                          const _titleLabel(label: 'CVV', paddingRight: 207,),
                           TextFormFieldCvv(
                             text: '123',
                             controller: securityCardController,
@@ -247,7 +250,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
             )));
   }
 
-  _titleData(String title) {
+  _hintData(String title) {
     return Padding(
       padding: const EdgeInsets.only(
         bottom: Dimensions.heightSize * 0.1,
@@ -258,5 +261,24 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
         style: const TextStyle(color: CustomColor.primaryColor),
       ),
     );
+  }
+}
+
+class _titleLabel extends StatelessWidget {
+  final String label;
+  final double paddingRight;
+  const _titleLabel({
+    Key key, this.label = '', this.paddingRight = 0.0,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding:  EdgeInsets.only(right: paddingRight, bottom: 2),
+      child: Text(
+        label,
+        style: TextStyle(fontSize: Dimensions.defaultTextSize),
+        )
+      );
   }
 }
