@@ -10,8 +10,7 @@ import '../../widget.dart';
 class FilterPopUpButtonWidget extends StatefulWidget {
   final GestureTapCallback onTap;
 
-  const FilterPopUpButtonWidget({Key key,this.onTap})
-      : super(key: key);
+  const FilterPopUpButtonWidget({Key key, this.onTap}) : super(key: key);
 
   @override
   State<FilterPopUpButtonWidget> createState() => _FilterButtonWidgetState();
@@ -21,14 +20,18 @@ class _FilterButtonWidgetState extends State<FilterPopUpButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      heroTag: Null,
       backgroundColor: CustomColor.whiteColor,
       child: QudsPopupButton(
-          backgroundColor: CustomColor.whiteColor2,
-          tooltip: 'T',
-          items: getMenuItems(),
-          child: const Icon(FontAwesomeIcons.filter, color: CustomColor.greenColor,),
-          focusNode: FocusNode(),    
-          ),
+        backgroundColor: CustomColor.whiteColor2,
+        tooltip: 'T',
+        items: getMenuItems(),
+        child: const Icon(
+          FontAwesomeIcons.filter,
+          color: CustomColor.greenColor,
+        ),
+        focusNode: FocusNode(),
+      ),
     );
   }
 }
@@ -36,7 +39,6 @@ class _FilterButtonWidgetState extends State<FilterPopUpButtonWidget> {
 List<QudsPopupMenuBase> getMenuItems() {
   return [
     QudsPopupMenuWidget(
-
       builder: (c) => Column(
         children: [
           const SizedBox(
@@ -46,16 +48,20 @@ List<QudsPopupMenuBase> getMenuItems() {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(FontAwesomeIcons.filter, color: CustomColor.colorBlack),
-                Text('Filtro', style: TextStyle(fontSize: Dimensions.smallTextSize, fontWeight: FontWeight.w600),),
-
+                const Icon(FontAwesomeIcons.filter,
+                    color: CustomColor.colorBlack),
+                Text(
+                  'Filtro',
+                  style: TextStyle(
+                      fontSize: Dimensions.smallTextSize,
+                      fontWeight: FontWeight.w600),
+                ),
               ],
             ),
           ),
           const SizedBox(
             height: 15,
           ),
-
           const _SwitchButtonWidget(),
           const _buildParameter(
             icon: FontAwesomeIcons.bed,

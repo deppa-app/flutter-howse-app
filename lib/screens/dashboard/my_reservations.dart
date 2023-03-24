@@ -12,6 +12,7 @@ class MyReservations extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      heroTag: null,
       backgroundColor: CustomColor.whiteColor,
       child: QudsPopupButton(
           backgroundColor: CustomColor.whiteColor2,
