@@ -4,7 +4,6 @@ import 'package:howse_app/widgets/widget.dart';
 
 import '../../../utils/utils.dart';
 import '../../screens.dart';
-import '../billing.dart';
 
 class MyVisitsHistory extends StatelessWidget {
    

@@ -1,4 +1,3 @@
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:howse_app/screens/dashboard/schedule_visits/Carousel.dart';
@@ -187,7 +186,6 @@ text_2(BuildContext context) {
         borderRadius: BorderRadius.circular(10),
         color: CustomColor.whiteColor,
         border: Border.all(
-          strokeAlign: BorderSide.strokeAlignCenter,
           color: CustomColor.greyColor,
           width: 0.1,
         ),
