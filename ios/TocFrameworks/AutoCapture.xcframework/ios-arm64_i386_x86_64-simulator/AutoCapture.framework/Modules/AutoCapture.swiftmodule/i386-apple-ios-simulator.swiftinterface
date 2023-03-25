@@ -1,0 +1,65 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-module-flags: -target i386-apple-ios10.2-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AutoCapture
+import AVFoundation
+@_exported import AutoCapture
+import CoreMedia
+import Foundation
+import Lottie
+import SocketIO
+import Swift
+import SystemConfiguration
+import UIKit
+import _Concurrency
+public enum CaptureInterfaceClientErrors : Swift.Int {
+  case SessionIdMissing
+  case DelegateMissing
+  case DocTypeMissing
+  case InitialControllerIsMissing
+  case NoInternetConnection
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class captureInterface : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public func getImage() -> Swift.String
+  @objc public func getUIImage() -> UIKit.UIImage
+  @objc public func setDelegate(del: AutoCapture.captureDelegate)
+  @objc public func setSessionId(sid: Swift.String)
+  public func retry()
+  @objc public func captureFront(currentController: UIKit.UIViewController, type: Swift.String)
+  @objc public func captureBack(currentController: UIKit.UIViewController, type: Swift.String)
+  public func finished(token: Swift.String, image: Swift.String, status: Swift.Int, IMAGE: UIKit.UIImage)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class LoadingOverlay {
+  public func showOverlay(view: UIKit.UIView)
+  public func hideOverlayView()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class InternetConnectionManager {
+  public static func isConnectedToNetwork() -> Swift.Bool
+  @objc deinit
+}
+public enum Localization {
+  public static let title: Swift.String
+  public static let timeout: Swift.String
+  public static let retry: Swift.String
+  public static let fake: Swift.String
+  public static let close: Swift.String
+  public static let adjust: Swift.String
+  public static let connection_error: Swift.String
+  public static let cantread: Swift.String
+  public static let mrzclogged: Swift.String
+  public static let indtitle1: Swift.String
+  public static let indtitle2: Swift.String
+}
+@objc public protocol captureDelegate {
+  @objc func finished(status: Swift.Int, captured_token: Swift.String)
+}
+extension AutoCapture.CaptureInterfaceClientErrors : Swift.Equatable {}
+extension AutoCapture.CaptureInterfaceClientErrors : Swift.Hashable {}
+extension AutoCapture.CaptureInterfaceClientErrors : Swift.RawRepresentable {}

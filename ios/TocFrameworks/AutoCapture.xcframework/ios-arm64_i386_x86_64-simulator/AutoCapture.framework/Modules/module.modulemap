@@ -1,0 +1,11 @@
+framework module AutoCapture {
+  umbrella header "AutoCapture.h"
+
+  export *
+  module * { export * }
+}
+
+module AutoCapture.Swift {
+    header "AutoCapture-Swift.h"
+    requires objc
+}

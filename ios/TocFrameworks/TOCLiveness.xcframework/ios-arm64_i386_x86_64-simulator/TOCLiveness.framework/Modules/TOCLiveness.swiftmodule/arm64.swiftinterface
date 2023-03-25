@@ -1,0 +1,61 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-module-flags: -target arm64-apple-ios10.2-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TOCLiveness
+import AVFoundation
+import Foundation
+import Lottie
+import SocketIO
+import Swift
+import SystemConfiguration
+@_exported import TOCLiveness
+import UIKit
+import _Concurrency
+@_hasMissingDesignatedInitializers public class InternetConnectionManager {
+  public static func isConnectedToNetwork() -> Swift.Bool
+  @objc deinit
+}
+public enum Localization {
+  public static let err_network: Swift.String
+  public static let timeout_title: Swift.String
+  public static let timeout_body: Swift.String
+  public static let timeout_ok: Swift.String
+  public static let session_body: Swift.String
+  public static let session_title: Swift.String
+  public static let ins_image_blury: Swift.String
+  public static let ins_place_inside_frame: Swift.String
+  public static let ins_face_not_found: Swift.String
+  public static let ins_close_camera: Swift.String
+  public static let ins_follow_mask: Swift.String
+  public static let ins_mouth_open: Swift.String
+  public static let ins_mouth_close: Swift.String
+  public static let top_text_1: Swift.String
+  public static let top_text_2: Swift.String
+}
+@_inheritsConvenienceInitializers @objc public class Liveness : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc public func setSessionId(session_id_in: Swift.String)
+  @objc public func setDelegate(del: TOCLiveness.livenessDelegate)
+  @objc public func getSelfieImage() -> UIKit.UIImage
+  @objc public func initLiveness(currentController: UIKit.UIViewController)
+  public func setSelfieImage(img: UIKit.UIImage)
+  public func close()
+  public func close(sts: Swift.Int)
+  @objc deinit
+}
+public enum LivenessClientErrors : Swift.Int {
+  case NoInternetConnection
+  case SessionIdMissing
+  case DelegateMissing
+  case InitialControllerIsMissing
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol livenessDelegate {
+  @objc func finished(status: Swift.Int, liv_token: Swift.String)
+}
+extension TOCLiveness.LivenessClientErrors : Swift.Equatable {}
+extension TOCLiveness.LivenessClientErrors : Swift.Hashable {}
+extension TOCLiveness.LivenessClientErrors : Swift.RawRepresentable {}

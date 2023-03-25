@@ -1,0 +1,11 @@
+framework module TOCLiveness {
+  umbrella header "TOCLiveness.h"
+
+  export *
+  module * { export * }
+}
+
+module TOCLiveness.Swift {
+    header "TOCLiveness-Swift.h"
+    requires objc
+}

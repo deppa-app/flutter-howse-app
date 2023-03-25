@@ -1,0 +1,28 @@
+/* Class = "UIButton"; normalTitle = "Salir"; ObjectID = "2sh-yB-wEC"; */
+"2sh-yB-wEC.normalTitle" = "Close";
+
+/* Class = "UILabel"; text = "Realiza el proceso en un ambiente con luz uniforme para evitar que brillos o sombras obstruyan la lectura del documento"; ObjectID = "5yc-41-ZOe"; */
+"5yc-41-ZOe.text" = "Capture the image in a well-lit environment and avoid unexpected shadows or light reflections on the document";
+
+/* Class = "UILabel"; text = "Posiciona el celular en paralelo al documento de identidad para evitar angulos incorrectos."; ObjectID = "8Sp-Bf-qMe"; */
+"8Sp-Bf-qMe.text" = "Place the phone parallel to your document in order to capture the image in the right angle";
+
+/* Class = "UILabel"; text = "Coloca el documento de identidad sobre una superficie plana en lugar de sostenerlo con la mano para evitar obstruir la imagen"; ObjectID = "FuX-KR-CZH"; */
+"FuX-KR-CZH.text" = "Place your document on a flat surface instead of holding it with your hand in order to avoid hiding any detail";
+
+/* Class = "UILabel"; text = "Evita fondos similares al color del documento de identidad"; ObjectID = "X6k-aM-tpj"; */
+"X6k-aM-tpj.text" = "Avoid placing the document against a background of similar color";
+
+/* Class = "UIButton"; normalTitle = "REINTENTAR"; ObjectID = "pio-Xw-nWZ"; */
+"pio-Xw-nWZ.normalTitle" = "RETRY";
+
+/* Class = "UIButton"; normalTitle = "Salir"; ObjectID = "tqF-pe-BKA"; */
+"tqF-pe-BKA.normalTitle" = "Close";
+
+/* Class = "UILabel"; text = "Verifica que el lente de la cámara esté limpio"; ObjectID = "wPD-Jp-b3V"; */
+"wPD-Jp-b3V.text" = "Check your camera lens is clean";
+
+/* Class = "UIButton"; normalTitle = "REINTENTAR"; ObjectID = "yFE-gJ-p0m"; */
+"yFE-gJ-p0m.normalTitle" = "RETRY";
+
+"k0A-3R-aqc.text" = "We couldn't capture the image, consider these suggestions before retrying";
