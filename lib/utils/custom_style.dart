@@ -115,6 +115,8 @@ class CustomStyle {
             color: Colors.green,
           ),
         ),
-        prefixIcon: prefixIcon);
+        prefixIcon: prefixIcon, 
+        contentPadding: const EdgeInsets.symmetric(vertical:15 , horizontal: 15.0)
+        );
   }
 }

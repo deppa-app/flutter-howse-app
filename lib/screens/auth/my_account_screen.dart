@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../utils/utils.dart';
 import '../../widgets/widget.dart';
-import '../dashboard/booking_pin.dart';
 import '../screens.dart';
 
 class MyAccountScreen extends StatelessWidget {
@@ -11,8 +10,9 @@ class MyAccountScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final name = 'Elon Reeve\n Musk'.replaceAll('\n', ' ');
-    final email = 'elon.musk@email.com';
+    const name = 'Elon Rafael de la Trinidad';
+    const lastName = 'Reeve Musk';
+    const email = 'elon.musk@email.com';
 
     return  SafeArea(
       child: Scaffold(
@@ -32,16 +32,14 @@ class MyAccountScreen extends StatelessWidget {
                   const SizedBox(height: Dimensions.heightSize * 4),
                   Container(
                     decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 240, 238, 238),
+                                  color: const Color.fromARGB(255, 240, 238, 238),
                                   borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(
-                                    color: Colors.black12,
-                                  ),
                                 ),
                     width: MediaQuery.of(context).size.width * 0.8,
-                    height: MediaQuery.of(context).size.height * 0.25,
-                    child:  UserInfoSection(
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    child:  const UserInfoSection(
                       name: name, 
+                      lastName: lastName,
                       email: email, 
                       avatarUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/1200px-Elon_Musk_Royal_Society_%28crop2%29.jpg'
                       ),
@@ -74,6 +72,7 @@ class MyAccountScreen extends StatelessWidget {
                         builder: (context) =>   const SignUpScreen9()));
                   },
                   ),
+                  const SizedBox(height: Dimensions.heightSize * 4),
                 ],
               )
             ]
@@ -92,10 +91,11 @@ class UserInfoSection extends StatelessWidget {
     Key key,
     @required this.name,
     @required this.email,
-    @required this.avatarUrl,
+    @required this.avatarUrl, this.lastName,
   }) : super(key: key);
 
   final String name;
+  final String lastName;
   final String email;
   final String avatarUrl;
 
@@ -103,15 +103,12 @@ class UserInfoSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(padding: EdgeInsets.only(top: 20)),
-
+        SizedBox(height: MediaQuery.of(context).size.height - (MediaQuery.of(context).size.height -25)),
         CircleAvatar(
           radius: 80,
           backgroundImage: NetworkImage(avatarUrl),
         ),
-        const SizedBox(height: Dimensions.heightSize),
-        Padding(padding: EdgeInsets.only(top: 10)),
-
+       SizedBox(height: MediaQuery.of(context).size.height - (MediaQuery.of(context).size.height -25)),
         Text(
           name,
           style:  TextStyle(
@@ -119,13 +116,21 @@ class UserInfoSection extends StatelessWidget {
             fontSize: Dimensions.largeTextSize,
           ),
         ),
-        Padding(padding: EdgeInsets.only(top: 10)),
+        Text(
+          lastName,
+          style:  TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: Dimensions.largeTextSize,
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height - (MediaQuery.of(context).size.height -25)),
         Text(
           email,
           style:  TextStyle(
             fontWeight: FontWeight.normal,
             fontSize: Dimensions.largeTextSize
           ),
+          textAlign: TextAlign.center,
         ),
         
       ],

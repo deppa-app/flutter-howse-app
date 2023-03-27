@@ -37,9 +37,8 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
             shrinkWrap: true,
             children: [
               const BackWidget(title: '', percent: 1.0),
-              const SizedBox(
-                height: Dimensions.heightSize * 2,
-              ),
+              const SizedBox(height: Dimensions.heightSize * 2,),
+
               inputFieldWidget(context),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
               validateCardPadding(context),
@@ -103,149 +102,161 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
         child: Form(
             key: formKey,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                      left: Dimensions.marginSize,
-                      right: Dimensions.marginSize),
-                  child: Text(
-                    Strings.paymentMethodSignUp,
-                    style: TextStyle(
-                        color: CustomColor.primaryColor,
-                        fontSize: Dimensions.extraLargeTextSize * 1.5,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                
-                Padding(
-                  padding: const EdgeInsets.only(
-                      top: Dimensions.heightSize,
-                      right: Dimensions.marginSize * 6),
-                  child: Text(
-                    Strings.enrollingCard,
-                    style: const TextStyle(
-                        color: CustomColor.primaryColor,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-                // const SizedBox(height: 0,),
-
-                const FaIcon(
-                  FontAwesomeIcons.ccVisa,
-                  size: 150,
-                ),
-
-                const Divider(
-                  color: Colors.grey,
-                  indent: 30,
-                  endIndent: 30,
-                  thickness: 2,
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(right: 200),
-                  child: _hintData(Strings.titleNumberCard),
-                ),
-                const _titleLabel(label: 'Número de tarjeta', paddingRight: 370,),
-                TextFormFieldCard(
-                    controller: numberCardController, text: Strings.numberCard),
-
-                Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: Column(
-                        children: [
-                          _hintData(Strings.expiryDate),
-                          const _titleLabel(label: 'Fecha de vencimiento', paddingRight: 80,),
-                          TextFormFieldExpirationDate(
-                            text: Strings.monthYear,
-                            controller: dateCardController,
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(right: 120),
-                            child: _hintData(Strings.cvv),
-                          ),
-                          const _titleLabel(label: 'CVV', paddingRight: 207,),
-                          TextFormFieldCvv(
-                            text: '123',
-                            controller: securityCardController,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.02,
-                ),
-
-                Stack(
-                  children: [
-                    Container(
-                      height: 80,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          border: Border.all(
-                            color: CustomColor.primaryColor,
-                          )),
-                    ),
-                    Positioned(
-                      top: 5,
-                      left: 15,
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          left: Dimensions.marginSize,
+                          right: Dimensions.marginSize),
                       child: Text(
-                        Strings.confirmEmailCard,
-                        textAlign: TextAlign.start,
+                        Strings.paymentMethodSignUp,
+                        style: TextStyle(
+                            color: CustomColor.colorBlack,
+                            fontSize: Dimensions.extraLargeTextSize * 1.5,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    
+                    Padding(
+                      padding: const EdgeInsets.only(
+                          top: Dimensions.heightSize,
+                          right: Dimensions.marginSize * 6),
+                      child: Text(
+                        Strings.enrollingCard,
                         style: const TextStyle(
-                            color: CustomColor.greyColor, height: 1),
+                            color: CustomColor.primaryColor,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
-                    Positioned(
-                      top: 30,
-                      left: 20,
-                      child: Row(
-                        children: [
-                          Checkbox(
-                            value: false,
-                            onChanged: (newValue) {},
-                          ),
-                          Text(
-                            Strings.myEmail,
-                            style: const TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12.00,
-                            ),
-                            textAlign: TextAlign.start,
-                          ),
-                          const SizedBox(
-                            width: 40,
-                          ),
-                          GestureDetector(
-                            child: Text(
-                              Strings.paymentMethodSignUp,
-                              style: const TextStyle(
-                                  color: CustomColor.linkColor,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )
-                        ],
-                      ),
+                    // const SizedBox(height: 0,),
+
+                    const FaIcon(
+                      FontAwesomeIcons.ccVisa,
+                      size: 150,
                     ),
+
+                    const Divider(
+                      color: Colors.grey,
+                      indent: 30,
+                      endIndent: 30,
+                      thickness: 2,
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.only(right: 200),
+                      child: _hintData(Strings.titleNumberCard),
+                    ),
+                    
                   ],
                 ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                  const _titleLabel(label: 'Número de tarjeta',),
+                    TextFormFieldCard(
+                        controller: numberCardController, text: Strings.numberCard),
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _hintData(Strings.expiryDate),
+                              const _titleLabel(label: 'Fecha de vencimiento'),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height *.1,
+                                child: TextFormFieldExpirationDate(
+                                  text: Strings.monthYear,
+                                  controller: dateCardController,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: MediaQuery.of(context).size.width - (MediaQuery.of(context).size.width * 0.95),),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              _hintData(Strings.cvv),
+                              const _titleLabel(label: 'CVV'),
+                              SizedBox(
+                                height: MediaQuery.of(context).size.height *.1,
+                                child: TextFormFieldCvv(
+                                  text: '123',
+                                  controller: securityCardController,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.02,
+                    ),
+
+                    Stack(
+                      children: [
+                        Container(
+                          height: 80,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(
+                                color: CustomColor.primaryColor,
+                              )),
+                        ),
+                        Positioned(
+                          top: 5,
+                          left: 15,
+                          child: Text(
+                            Strings.confirmEmailCard,
+                            textAlign: TextAlign.start,
+                            style: const TextStyle(
+                                color: CustomColor.greyColor, height: 1),
+                          ),
+                        ),
+                        Positioned(
+                          top: 30,
+                          left: 20,
+                          child: Row(
+                            children: [
+                              Checkbox(
+                                value: false,
+                                onChanged: (newValue) {},
+                              ),
+                              Text(
+                                Strings.myEmail,
+                                style: const TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12.00,
+                                ),
+                                textAlign: TextAlign.start,
+                              ),
+                              const SizedBox(
+                                width: 40,
+                              ),
+                              GestureDetector(
+                                child: Text(
+                                  Strings.paymentMethodSignUp,
+                                  style: const TextStyle(
+                                      color: CustomColor.linkColor,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                ],)
               ],
             )));
   }
@@ -266,19 +277,21 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
 
 class _titleLabel extends StatelessWidget {
   final String label;
-  final double paddingRight;
   const _titleLabel({
-    Key key, this.label = '', this.paddingRight = 0.0,
+    Key key, this.label = '',
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.only(right: paddingRight, bottom: 2),
+      padding:  EdgeInsets.only(bottom: 2),
       child: Text(
         label,
-        style: TextStyle(fontSize: Dimensions.defaultTextSize),
+        style: TextStyle(fontSize: Dimensions.smallTextSize),
+        textAlign: TextAlign.start,
         )
       );
   }
 }
+
+
