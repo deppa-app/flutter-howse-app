@@ -110,7 +110,6 @@ class _HiredSection extends StatelessWidget {
                 storage: storage,
                 parking: parking,
                 squareMeter: squareMeter),
-            _buildDate(),
           ],
         ),
         _buildLocation()
@@ -212,12 +211,20 @@ class _buildDetails extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        Text(Strings.aparmentRentals,
-            style: TextStyle(
-              fontSize: Dimensions.smallTextSize,
-              fontWeight: FontWeight.w600,
-              color: CustomColor.colorBlack,
-            )),
+        Row(
+          children: [
+            Text(Strings.aparmentRentals,
+                style: TextStyle(
+                  fontSize: Dimensions.smallTextSize,
+                  fontWeight: FontWeight.w600,
+                  color: CustomColor.colorBlack,
+                )
+                ),
+                SizedBox( width: MediaQuery.of(context).size.width * 0.1,),
+            _buildDate(),
+
+          ],
+        ),
         const SizedBox(height: 6),
         Row(
           mainAxisSize: MainAxisSize.min,
@@ -362,7 +369,9 @@ class _buildImageAndPrice extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         _builPrice(price: price),
+        
       ],
+      
     );
   }
 }
