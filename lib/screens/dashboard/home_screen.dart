@@ -1,5 +1,6 @@
 // import 'dart:html';
 
+import 'package:deppa_app/search/search_delegate.dart';
 import 'package:flutter/material.dart';
 import 'package:deppa_app/screens/dashboard/functional_adult_screen.dart';
 import 'package:deppa_app/screens/dashboard/my_reservations.dart';
@@ -9,7 +10,9 @@ import 'package:deppa_app/utils/custom_color.dart';
 import 'package:deppa_app/utils/custom_style.dart';
 import 'package:deppa_app/utils/dimensions.dart';
 import 'package:deppa_app/utils/strings.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../search/search_department.dart';
 import '../../widgets/buttons/filter_buttons/filter_button_widget.dart';
 import '../../widgets/widget.dart';
 import 'package:deppa_app/screens/screens.dart';
@@ -94,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: circularButtonWidget(context,  go(context)),
                       ),*/
 
-                     Positioned(
+                     const Positioned(
                         right: 0,
                         bottom: 30,
                         child: Padding(
@@ -102,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 left: Dimensions.marginSize,
                                 right: Dimensions.marginSize),
                             child: FilterPopUpButtonWidget())),
-                     Positioned(
+                     const Positioned(
                         left: 0,
                         bottom: 30,
                         child: Padding(
@@ -270,6 +273,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             GestureDetector(
               child: Container(
+
                 height: Dimensions.buttonHeight,
                 width: Dimensions.buttonHeight,
                 decoration: BoxDecoration(
@@ -285,8 +289,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 child: const Icon(
-                  Icons.menu,
-                  color: CustomColor.accentColor,
+                  FontAwesomeIcons.bars,
+                  color:  CustomColor.greyColor,
                 ),
               ),
               onTap: () {
@@ -301,37 +305,47 @@ class _HomeScreenState extends State<HomeScreen> {
               width: Dimensions.widthSize,
             ),
             Expanded(
-              child: Container(
-                alignment: Alignment.center,
-                height: MediaQuery.of(context).size.height * 0.04,
-                child: TextFormField(
-                  style: CustomStyle.textStyle,
-                  controller: searchController,
-                  keyboardType: TextInputType.text,
-                  validator: (String ?value) {
-                    if (value!.isEmpty) {
-                      return Strings.pleaseFillOutTheField;
-                    } else {
-                      return null;
-                    }
-                  },
-                  decoration: InputDecoration(
-                    hintText: Strings.searchResult,
-                    contentPadding: const EdgeInsets.symmetric(
-                        vertical: 5.0, horizontal: 20.0),
-                    labelStyle: CustomStyle.textStyle,
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintStyle: CustomStyle.textStyle,
-                    focusedBorder: CustomStyle.searchBox,
-                    enabledBorder: CustomStyle.searchBox,
-                    focusedErrorBorder: CustomStyle.searchBox,
-                    errorBorder: CustomStyle.searchBox,
-                    suffixIcon: const Icon(
-                      Icons.search,
-                      size: 20,
-                      color: CustomColor.accentColor,
-                    ),
+              child: GestureDetector(
+                onTap: () => scaffoldKey.currentState!.setState(() {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SearchDepartment()));
+                }),
+                child: Container(
+                  alignment: Alignment.center,
+                  color: Colors.white,
+                  height: MediaQuery.of(context).size.height * 0.04,
+                  child: IgnorePointer(
+                    ignoring: true,
+                    child: TextFormField(
+                      style: CustomStyle.textStyle,
+                      controller: searchController,
+                      keyboardType: TextInputType.text,
+                      readOnly: true,
+                      /* validator: (String ?value) {
+                        if (value!.isEmpty) {
+                          return Strings.pleaseFillOutTheField;
+                        } else {
+                          return null;
+                        }
+                      }, */
+                      decoration: InputDecoration(
+                  /*                       hintText: Strings.searchResult, */
+                        contentPadding: const EdgeInsets.symmetric(
+                            vertical: 5.0, horizontal: 20.0),
+                  /*                       labelStyle: CustomStyle.textStyle,
+                        filled: true, */
+                        fillColor: Colors.white,
+                        hintStyle: CustomStyle.textStyle,
+                        focusedBorder: CustomStyle.searchBox,
+                        enabledBorder: CustomStyle.searchBox,
+                        focusedErrorBorder: CustomStyle.searchBox,
+                        errorBorder: CustomStyle.searchBox,
+                        suffixIcon: const Icon(
+                          Icons.search,
+                          size: 20,
+                          color: CustomColor.greyColor,
+                        ),
+                      ),
+                                  ),
                   ),
                 ),
               ),
@@ -356,8 +370,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
                 child: const Icon(
-                  Icons.drafts,
-                  color: CustomColor.accentColor,
+                  FontAwesomeIcons.envelopeOpenText,
+                  color: CustomColor.greyColor,
                 ),
               ),
               onTap: () {

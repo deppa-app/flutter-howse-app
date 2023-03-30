@@ -167,92 +167,90 @@ class _BillingState extends State<Billing> {
 }
 
 Text_1Billing(BuildContext context) {
-  return Expanded( //Al quitar el 'Expanded' se va la excepción.
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Stack(
-              children: const [
-                Icon(
-                  FontAwesomeIcons.circleDollarToSlot,
-                  color: CustomColor.brownColor2,
-                ),
-                //Icon(
-                //FontAwesomeIcons.eye,
-                //color: CustomColor.brownColor2,
-                //),
-              ],
-            ),
-            Text(
-              Strings.paid_views,
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              Strings.paid_views_value,
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.semilargelarge,
-                  fontWeight: FontWeight.w500),
-            )
-          ],
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Icon(
-              FontAwesomeIcons.houseCircleXmark,
-              color: CustomColor.brownColor2,
-            ),
-            Text(
-              Strings.views_used,
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              Strings.views_used_value,
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.semilargelarge,
-                  fontWeight: FontWeight.w500),
-            )
-          ],
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Icon(
-              FontAwesomeIcons.houseCircleCheck,
-              color: CustomColor.brownColor2,
-            ),
-            Text(
-              Strings.views_available,
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              Strings.views_available_value,
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.semilargelarge,
-                  fontWeight: FontWeight.w500),
-            )
-          ],
-        ),
-      ],
-    ),
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Stack(
+            children: const [
+              Icon(
+                FontAwesomeIcons.circleDollarToSlot,
+                color: CustomColor.brownColor2,
+              ),
+              //Icon(
+              //FontAwesomeIcons.eye,
+              //color: CustomColor.brownColor2,
+              //),
+            ],
+          ),
+          Text(
+            Strings.paid_views,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.smallTextSize,
+                fontWeight: FontWeight.w500),
+          ),
+          Text(
+            Strings.paid_views_value,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.semilargelarge,
+                fontWeight: FontWeight.w500),
+          )
+        ],
+      ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Icon(
+            FontAwesomeIcons.houseCircleXmark,
+            color: CustomColor.brownColor2,
+          ),
+          Text(
+            Strings.views_used,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.smallTextSize,
+                fontWeight: FontWeight.w500),
+          ),
+          Text(
+            Strings.views_used_value,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.semilargelarge,
+                fontWeight: FontWeight.w500),
+          )
+        ],
+      ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Icon(
+            FontAwesomeIcons.houseCircleCheck,
+            color: CustomColor.brownColor2,
+          ),
+          Text(
+            Strings.views_available,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.smallTextSize,
+                fontWeight: FontWeight.w500),
+          ),
+          Text(
+            Strings.views_available_value,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.semilargelarge,
+                fontWeight: FontWeight.w500),
+          )
+        ],
+      ),
+    ],
   );
 }
