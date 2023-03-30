@@ -11,7 +11,7 @@ import '../../../utils/strings.dart';
 import '../booking_pin.dart';
 
 class BookYourVisit extends StatefulWidget {
-  const BookYourVisit({Key ?key}) : super(key: key);
+  const BookYourVisit({Key? key}) : super(key: key);
 
   @override
   State<BookYourVisit> createState() => _book_your_visitState();
@@ -105,7 +105,7 @@ class _book_your_visitState extends State<BookYourVisit> {
               ),
 
               //CALENDAR
-              Calendar(),
+              const Calendar(),
               const SizedBox(
                 height: Dimensions.heightSize * 1,
               ),
@@ -126,15 +126,15 @@ class _book_your_visitState extends State<BookYourVisit> {
               ),
 
               //TIME
-              Time(),
+              const Time(),
               const SizedBox(
                 height: Dimensions.heightSize * 1,
               ),
               SecondaryButtonWidget(
                 title: "Reservar visita ahora",
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => BookingPin()));
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => BookingPin()));
                 },
               ),
             ],
@@ -178,7 +178,8 @@ text_1(BuildContext context) {
 
 text_2(BuildContext context) {
   return Padding(
-    padding: EdgeInsets.all(16.0), // Añade un relleno de 16.0 a todos los lados
+    padding: const EdgeInsets.all(
+        16.0), // Añade un relleno de 16.0 a todos los lados
     child: Container(
       width: 200,
       height: 125,
@@ -192,6 +193,9 @@ text_2(BuildContext context) {
       ),
       child: ListView(
         children: [
+          const SizedBox(
+            height: Dimensions.heightSize * 0.75,
+          ),
           Center(
             child: Text(
               Strings.department_details,
@@ -201,8 +205,10 @@ text_2(BuildContext context) {
                   fontWeight: FontWeight.w500),
             ),
           ),
-          Expanded(
-              child: Row(
+          const SizedBox(
+            height: Dimensions.heightSize * 0.25,
+          ),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -211,8 +217,17 @@ text_2(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   text_3(context, Strings.code, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_3(context, Strings.bathroom, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_3(context, Strings.parking, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_3(context, Strings.bedrooms, "value")
                 ],
               ),
@@ -221,12 +236,18 @@ text_2(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   text_3(context, Strings.services, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_3(context, Strings.square_meter, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_3(context, Strings.others, "value")
                 ],
               ),
             ],
-          )),
+          ),
         ],
       ),
     ),

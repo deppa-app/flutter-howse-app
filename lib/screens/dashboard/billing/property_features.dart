@@ -7,7 +7,7 @@ import '../../../utils/strings.dart';
 import '../schedule_visits/Carousel.dart';
 
 class PropertyFeatures extends StatelessWidget {
-  const PropertyFeatures({Key ?key}) : super(key: key);
+  const PropertyFeatures({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +53,7 @@ class PropertyFeatures extends StatelessWidget {
                           color: CustomColor.colorBlack,
                           fontSize: Dimensions.heightSize,
                           fontWeight: FontWeight.w500),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -102,6 +103,7 @@ class PropertyFeatures extends StatelessWidget {
                           color: CustomColor.colorBlack,
                           fontSize: 18,
                           fontWeight: FontWeight.w500),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -184,21 +186,54 @@ text_1propertyFeatures(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   text_2propertyFeatures(context, Strings.code1, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(context, Strings.bathroom1, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(context, Strings.parking1, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(context, Strings.bedrooms1, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(
                       context, Strings.environments, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(
                       context, Strings.common_expenses, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(
                       context, Strings.pets_allowed, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(context, Strings.total_area, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(context, Strings.usable_area, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(
                       context, Strings.number_of_floors, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(
                       context, Strings.apartment_per_floor, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(
                       context, Strings.number_of_floors1, "value")
                 ],
@@ -208,8 +243,17 @@ text_1propertyFeatures(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   text_2propertyFeatures(context, Strings.mts2, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(context, Strings.wineries, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(context, Strings.orientation, "value"),
+                  const SizedBox(
+                    height: Dimensions.heightSize * 0.25,
+                  ),
                   text_2propertyFeatures(context, Strings.services1, "value")
                 ],
               ),

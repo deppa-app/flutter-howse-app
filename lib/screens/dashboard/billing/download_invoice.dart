@@ -8,7 +8,7 @@ import 'detailed_service_price.dart';
 import 'legal_terms.dart';
 
 class DownloadInvoice extends StatelessWidget {
-  const DownloadInvoice({Key ?key}) : super(key: key);
+  const DownloadInvoice({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +54,7 @@ class DownloadInvoice extends StatelessWidget {
                           color: CustomColor.colorBlack,
                           fontSize: 18,
                           fontWeight: FontWeight.w500),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -76,12 +77,48 @@ class DownloadInvoice extends StatelessWidget {
                 const SizedBox(
                   height: Dimensions.heightSize * 1,
                 ),
-                /*  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
-                    color: CustomColor.whiteColor,
-                    child: Text(" ")),*/
-                Center(
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: Dimensions.heightSize * 3,
+                  color: CustomColor.brownColor2,
+                  child: ListView(
+                    children: [
+                      const SizedBox(
+                        height: Dimensions.heightSize * 0.75,
+                      ),
+                      GestureDetector(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text(
+                              "Revisar terminos legales ",
+                              style: TextStyle(
+                                  color: CustomColor.whiteColor,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w500,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: CustomColor.whiteColor),
+                              textAlign: TextAlign.center,
+                            ),
+                            Icon(
+                              FontAwesomeIcons.scaleBalanced,
+                              color: CustomColor.whiteColor,
+                              size: Dimensions.radius,
+                            ),
+                          ],
+                        ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Legalterms()),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+                /* Center(
                   child: SecondaryButtonWidget(
                     title: ("Revisar terminos legales "),
                     onTap: () {
@@ -89,7 +126,7 @@ class DownloadInvoice extends StatelessWidget {
                           builder: (context) => Legalterms()));
                     },
                   ),
-                ),
+                ),*/
                 const SizedBox(
                   height: Dimensions.heightSize * 2,
                 ),

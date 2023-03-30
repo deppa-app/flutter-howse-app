@@ -456,9 +456,9 @@ class Strings {
   static String minutes_reserved = " Minutos reservados ";
   static String busy_minutes = " Minutos ocupado ";
   static String number_of_visits = " Numero de visitas ";
-  static String number_of_minutes_booked = " XX Min ";
-  static String number_of_minutes_occupied = " XX Min ";
-  static String visitor_counter = " XX  ";
+  static String number_of_minutes_booked = " 30 Min ";
+  static String number_of_minutes_occupied = " 30 Min ";
+  static String visitor_counter = " 5  ";
 
   //download invoice
   static String detail_value_visit = "Valor visita";

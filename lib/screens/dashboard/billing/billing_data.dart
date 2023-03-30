@@ -9,7 +9,7 @@ import '../../../../widgets/widget.dart';
 import 'package:deppa_app/screens/screens.dart';
 
 class BillingData extends StatefulWidget {
-  const BillingData({Key ?key}) : super(key: key);
+  const BillingData({Key? key}) : super(key: key);
 
   @override
   State<BillingData> createState() => _BillingDataState();
@@ -94,6 +94,7 @@ class _BillingDataState extends State<BillingData> {
                         color: CustomColor.colorBlack,
                         fontSize: 18,
                         fontWeight: FontWeight.w500),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
@@ -160,7 +161,7 @@ text_1BillingData(BuildContext context) {
     padding: EdgeInsets.all(16.0), // Añade un relleno de 16.0 a todos los lados
     child: Container(
       width: 344,
-      height: 60,
+      height: 70,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: CustomColor.whiteColor,
