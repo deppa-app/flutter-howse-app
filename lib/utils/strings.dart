@@ -433,10 +433,10 @@ class Strings {
   static String paid_views = "Vistas Pagadas";
   static String paid_views_value = "";
   static String views_used = "Vistas Utilizadas";
-  static String views_used_value = "";
+  static String views_used_value = "0";
   static String views_available = "Vistas Disponibles";
-  static String views_available_value = "";
-  static String rental_location = "ubicacion del arriendo";
+  static String views_available_value = "0";
+  static String rental_location = "Arriendo Deoartamento Av.Providencia Norte";
   static String rent_payment = "dinero pagado";
 
   //Rental_history

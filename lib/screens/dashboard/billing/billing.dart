@@ -7,7 +7,7 @@ import '../../../utils/strings.dart';
 import 'billing_data.dart';
 
 class Billing extends StatefulWidget {
-  const Billing({Key ?key}) : super(key: key);
+  const Billing({Key? key}) : super(key: key);
 
   @override
   State<Billing> createState() => _BillingState();
@@ -167,7 +167,8 @@ class _BillingState extends State<Billing> {
 }
 
 Text_1Billing(BuildContext context) {
-  return Expanded( //Al quitar el 'Expanded' se va la excepción.
+  return Expanded(
+    //Al quitar el 'Expanded' se va la excepción.
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -188,17 +189,27 @@ Text_1Billing(BuildContext context) {
                 //),
               ],
             ),
+            const SizedBox(
+              height: Dimensions.heightSize * 0.5,
+            ),
             Text(
-              Strings.paid_views,
+              "Visitas",
               style: TextStyle(
                   color: CustomColor.colorBlack,
                   fontSize: Dimensions.smallTextSize,
                   fontWeight: FontWeight.w500),
             ),
             Text(
-              Strings.paid_views_value,
+              "Pagadas",
               style: TextStyle(
                   color: CustomColor.colorBlack,
+                  fontSize: Dimensions.smallTextSize,
+                  fontWeight: FontWeight.w500),
+            ),
+            Text(
+              Strings.views_available_value,
+              style: TextStyle(
+                  color: CustomColor.greenColor,
                   fontSize: Dimensions.semilargelarge,
                   fontWeight: FontWeight.w500),
             )
@@ -212,17 +223,27 @@ Text_1Billing(BuildContext context) {
               FontAwesomeIcons.houseCircleXmark,
               color: CustomColor.brownColor2,
             ),
+            const SizedBox(
+              height: Dimensions.heightSize * 0.5,
+            ),
             Text(
-              Strings.views_used,
+              "Visitas",
               style: TextStyle(
                   color: CustomColor.colorBlack,
                   fontSize: Dimensions.smallTextSize,
                   fontWeight: FontWeight.w500),
             ),
             Text(
-              Strings.views_used_value,
+              "Utilizadas",
               style: TextStyle(
                   color: CustomColor.colorBlack,
+                  fontSize: Dimensions.smallTextSize,
+                  fontWeight: FontWeight.w500),
+            ),
+            Text(
+              Strings.views_available_value,
+              style: TextStyle(
+                  color: CustomColor.greenColor,
                   fontSize: Dimensions.semilargelarge,
                   fontWeight: FontWeight.w500),
             )
@@ -236,8 +257,18 @@ Text_1Billing(BuildContext context) {
               FontAwesomeIcons.houseCircleCheck,
               color: CustomColor.brownColor2,
             ),
+            const SizedBox(
+              height: Dimensions.heightSize * 0.5,
+            ),
             Text(
-              Strings.views_available,
+              "Visitas",
+              style: TextStyle(
+                  color: CustomColor.colorBlack,
+                  fontSize: Dimensions.smallTextSize,
+                  fontWeight: FontWeight.w500),
+            ),
+            Text(
+              "Diponibles",
               style: TextStyle(
                   color: CustomColor.colorBlack,
                   fontSize: Dimensions.smallTextSize,
@@ -246,7 +277,7 @@ Text_1Billing(BuildContext context) {
             Text(
               Strings.views_available_value,
               style: TextStyle(
-                  color: CustomColor.colorBlack,
+                  color: CustomColor.greenColor,
                   fontSize: Dimensions.semilargelarge,
                   fontWeight: FontWeight.w500),
             )
