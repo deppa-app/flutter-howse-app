@@ -1,10 +1,7 @@
 // import 'dart:html';
-
-import 'package:deppa_app/search/search_delegate.dart';
 import 'package:flutter/material.dart';
-import 'package:deppa_app/screens/dashboard/functional_adult_screen.dart';
+
 import 'package:deppa_app/screens/dashboard/my_reservations.dart';
-import 'package:deppa_app/screens/dashboard/rental_history.dart';
 
 import 'package:deppa_app/utils/custom_color.dart';
 import 'package:deppa_app/utils/custom_style.dart';
@@ -17,16 +14,26 @@ import '../../widgets/buttons/filter_buttons/filter_button_widget.dart';
 import '../../widgets/widget.dart';
 import 'package:deppa_app/screens/screens.dart';
 
-
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key ?key, this.idProfile}) : super(key: key);
-  final int ?idProfile;
+  const HomeScreen(
+      {Key? key,
+      this.idProfile,
+      this.direction = '',
+      this.comuna = '',
+      this.changeMessage = false,
+      this.totalViews = 0})
+      : super(key: key);
+  final String direction;
+  final String comuna;
+  final bool changeMessage;
+  final int? idProfile;
+  final int totalViews;
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String ?currentLocation;
+  String? currentLocation;
   TextEditingController searchController = TextEditingController();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -59,45 +66,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.blue,
                       child: GestureDetector(
                         child: Image.asset(
-                          'assets/images/lorem-image.jpeg',
-                          height: MediaQuery.of(context).size.height * 0.6,
-                          width: MediaQuery.of(context).size.width,
+                          'assets/images/googlemapsimg.png',
+
                         ),
                         onTap: () => {},
                       ),
                     ),
-                    /*Positioned(
-                      top: MediaQuery.of(context).size.height * 0.12,
-                      right: 0,
-                      child: Column(
-                        children: [
-                          circularButtonWidget(context, const Plumbing()),
-                          const SizedBox(
-                            height: Dimensions.heightSize * 2,
-                          ),
-                          circularButtonWidget(context, const Locksmithment()),
-                          const SizedBox(
-                            height: Dimensions.heightSize * 2,
-                          ),
-                          circularButtonWidget(context, const Cleaning()),
-                          const SizedBox(
-                            height: Dimensions.heightSize * 2,
-                          ),
-                          circularButtonWidget(context, const Removals()),
-                          const SizedBox(
-                            height: Dimensions.heightSize * 2,
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    // TODO: revisar
-                    Positioned(
-                      bottom: 30,
-                      child: circularButtonWidget(context,  go(context)),
-                      ),*/
-
-                     const Positioned(
+                    const Positioned(
                         right: 0,
                         bottom: 30,
                         child: Padding(
@@ -105,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 left: Dimensions.marginSize,
                                 right: Dimensions.marginSize),
                             child: FilterPopUpButtonWidget())),
-                     const Positioned(
+                    const Positioned(
                         left: 0,
                         bottom: 30,
                         child: Padding(
@@ -113,20 +88,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 left: Dimensions.marginSize,
                                 right: Dimensions.marginSize),
                             child: MyReservations())),
-
                     _menuWidget(context),
                   ],
                 ),
                 const SizedBox(
                   height: Dimensions.heightSize,
                 ),
-                _bannerWidget(context),
+                BuildDetailsWidget(comuna: widget.comuna, direction: widget.direction),
                 const SizedBox(
                   height: Dimensions.heightSize * 1,
                 ),
-                _goToBooking(),
+                GoToBookingAction(changeMessage: widget.changeMessage),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                _goToBookYourVisit(),
+                const GoToBookYourVisitAction(),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.04)
               ],
             ),
@@ -273,7 +247,6 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             GestureDetector(
               child: Container(
-
                 height: Dimensions.buttonHeight,
                 width: Dimensions.buttonHeight,
                 decoration: BoxDecoration(
@@ -290,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 child: const Icon(
                   FontAwesomeIcons.bars,
-                  color:  CustomColor.greyColor,
+                  color: CustomColor.greyColor,
                 ),
               ),
               onTap: () {
@@ -307,7 +280,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Expanded(
               child: GestureDetector(
                 onTap: () => scaffoldKey.currentState!.setState(() {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => const SearchDepartment()));
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const SearchDepartment()));
                 }),
                 child: Container(
                   alignment: Alignment.center,
@@ -328,10 +302,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         }
                       }, */
                       decoration: InputDecoration(
-                  /*                       hintText: Strings.searchResult, */
+                        /*                       hintText: Strings.searchResult, */
                         contentPadding: const EdgeInsets.symmetric(
                             vertical: 5.0, horizontal: 20.0),
-                  /*                       labelStyle: CustomStyle.textStyle,
+                        /*                       labelStyle: CustomStyle.textStyle,
                         filled: true, */
                         fillColor: Colors.white,
                         hintStyle: CustomStyle.textStyle,
@@ -345,7 +319,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: CustomColor.greyColor,
                         ),
                       ),
-                                  ),
+                    ),
                   ),
                 ),
               ),
@@ -385,26 +359,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  _bannerWidget(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: MediaQuery.of(context).size.width * 0.05,
-        right: MediaQuery.of(context).size.width * 0.05,
-      ),
-      child: Container(
-          height: MediaQuery.of(context).size.height * 0.25,
-          decoration: BoxDecoration(
-            border: Border.all(color: CustomColor.primaryColor),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Image.asset(
-            'assets/images/hegga_logo_1a.png',
-            width: MediaQuery.of(context).size.width,
-            fit: BoxFit.fitWidth,
-          )),
-    );
-  }
-
   circularButtonWidget(BuildContext context, Widget page) {
     return Padding(
       padding: const EdgeInsets.only(
@@ -433,51 +387,6 @@ class _HomeScreenState extends State<HomeScreen> {
           color: CustomColor.whiteColor,
         ),
         onTap: () {},
-      ),
-    );
-  }
-}
-
-// ignore: camel_case_types
-class _goToBookYourVisit extends StatelessWidget {
-  const _goToBookYourVisit({
-    Key ?key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-          left: MediaQuery.of(context).size.width * 0.08,
-          right: MediaQuery.of(context).size.width * 0.08),
-      child: PrimaryButtonWidget(
-        title: Strings.scheduleAvisit,
-        onTap: () {
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const BookYourVisit()));
-        },
-      ),
-    );
-  }
-}
-
-class _goToBooking extends StatelessWidget {
-  const _goToBooking({
-    Key ?key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-          left: MediaQuery.of(context).size.width * 0.08,
-          right: MediaQuery.of(context).size.width * 0.08),
-      child: SecondaryButtonWidget(
-        title: Strings.visitNow,
-        onTap: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => const Booking()));
-        },
       ),
     );
   }

@@ -14,10 +14,19 @@
 
 
 
+
+
+
+
+
+
+
+
 export 'package:deppa_app/screens/dashboard/booking.dart';
 export 'package:deppa_app/widgets/buttons/back_buttons/back_button_general_widget.dart';
 export 'package:deppa_app/widgets/buttons/back_buttons/back_widget.dart';
 export 'package:deppa_app/widgets/buttons/general_buttons/circle_button_widget.dart';
+export 'package:deppa_app/widgets/buttons/general_buttons/green_outline_button_widget.dart';
 export 'package:deppa_app/widgets/buttons/general_buttons/primary_button_widget.dart';
 export 'package:deppa_app/widgets/buttons/general_buttons/secondary_button_widget.dart';
 export 'package:deppa_app/widgets/buttons/general_buttons/secondary_outline_button_widget.dart';
@@ -26,6 +35,9 @@ export 'package:deppa_app/widgets/buttons/increment_decrement_button_widget.dart
 export 'package:deppa_app/widgets/custom_text_form_field.dart';
 export 'package:deppa_app/widgets/drawer_header_widget.dart';
 export 'package:deppa_app/widgets/filter_chip_widget.dart';
+export 'package:deppa_app/widgets/home_screen/BuildDetailsWidget.dart';
+export 'package:deppa_app/widgets/home_screen/GoToBookingAction.dart';
+export 'package:deppa_app/widgets/home_screen/GoToBookYourVisitAction.dart';
 export 'package:deppa_app/widgets/list_data/list_data_fontawesome_widget.dart';
 export 'package:deppa_app/widgets/list_data/list_data_widget.dart';
 export 'package:deppa_app/widgets/list_tile_custom.dart';

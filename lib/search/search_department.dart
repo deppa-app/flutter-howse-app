@@ -1,3 +1,4 @@
+import 'package:deppa_app/screens/dashboard/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -13,6 +14,7 @@ class SearchDepartment extends StatefulWidget {
 
 class _SearchDepartmentState extends State<SearchDepartment> {
   bool _showLocation = false;
+final List<Map<String, String>> locations = [  {'comuna': 'Providencia', 'direction': 'Av Holanda'},  {'comuna': 'Las Condes', 'direction': 'Av Apoquindo 1000'},  {'comuna': 'Vitacura', 'direction': 'Luis Pasteur 6600'},];
 
   @override
   Widget build(BuildContext context) {
@@ -73,32 +75,55 @@ class _SearchDepartmentState extends State<SearchDepartment> {
                     ),
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height - (MediaQuery.of(context).size.height * .97),),
-                    Container( 
-                      child: _showLocation ?
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Container(
-                            color: Colors.grey[200],
-                            width: MediaQuery.of(context).size.width * 0.73,
-                            child:  Column(
-                              children:  const[
-                                _LocationListItem(comuna: 'Av. Providencia. Santiago', direction: 'Av Holanda 754 ', icon: FontAwesomeIcons.podcast, colorDirection: CustomColor.brownColor2,),
-                                _LocationListItem(comuna: 'Av. Providencia. Santiago', direction: 'Av Holanda 754', icon: FontAwesomeIcons.podcast, colorDirection: CustomColor.brownColor2),
-                                _LocationListItem(comuna: 'Av. Providencia. Santiago', direction: 'Av Holanda 754',icon: FontAwesomeIcons.podcast, colorDirection: CustomColor.brownColor2),
-                              ],
+                    Container(
+                      child: _showLocation
+                          ? ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Container(
+                                color: Colors.grey[200],
+                                width: MediaQuery.of(context).size.width * 0.73,
+                                child: Column(
+                                  children: locations
+                                      .asMap()
+                                      .map((index, location) => MapEntry(
+                                          index,
+                                          GestureDetector(
+                                            onTap: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) => HomeScreen(
+                                                    comuna: location['comuna']!,
+                                                    direction: location['direction']!,
+                                                    changeMessage: true,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                            child: _LocationListItem(
+                                              comuna: location['comuna']!,
+                                              direction: location['direction']!,
+                                              icon: FontAwesomeIcons.podcast,
+                                              colorDirection: CustomColor.brownColor2,
+                                            ),
+                                          )))
+                                      .values
+                                      .toList(),
+                                ),
+                              ),
+                            )
+                          : Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: MediaQuery.of(context).size.width * .1),
+                              child: Text(
+                                'Búsquedas recientes',
+                                style: TextStyle(
+                                    fontSize: Dimensions.semilarge,
+                                    fontWeight: FontWeight.w600),
+                              ),
                             ),
-                          ),
-                        ) : Container(
-                          padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .1),
-                          child: Text( 
-                            'Búsquedas recientes',
-                            style: TextStyle(
-                              fontSize: Dimensions.semilarge,
-                              fontWeight: FontWeight.w600
-                            ),
-                            ),
-                        )
-                      ),
+                    ),
+
                   SizedBox(height: MediaQuery.of(context).size.height - (MediaQuery.of(context).size.height * .98),),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.73,

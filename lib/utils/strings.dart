@@ -49,6 +49,8 @@ class Strings {
   static String percentage = '%';
   static String visitNow = 'Visitar ahora';
   static String scheduleAvisit = 'Programar visita';
+  static String interno = 'Interno, conserjería.';
+  static String persons = 'Personas';
 
   //select language
   static String languageText1 = 'SELECCION DE IDIOMA';
