@@ -12,7 +12,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../search/search_department.dart';
 import '../../widgets/buttons/filter_buttons/filter_button_widget.dart';
 import '../../widgets/widget.dart';
-import 'package:deppa_app/screens/screens.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen(
@@ -373,12 +373,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 top: Dimensions.heightSize),
             child: Container(
               height: MediaQuery.of(context).size.height * 0.06,
-              width: MediaQuery.of(context).size.width * .68,
+              width: MediaQuery.of(context).size.width * .70,
               decoration: BoxDecoration(
                 boxShadow: [
-                  BoxShadow(color: CustomColor.accentColor.withOpacity(0.3))
+                  BoxShadow(
+                    color: CustomColor.accentColor.withOpacity(0.3),
+                    spreadRadius: 1,
+                    blurRadius: 2,
+                    offset: Offset(0, 3)
+                    )
                 ],
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
               ),
               child: Row(

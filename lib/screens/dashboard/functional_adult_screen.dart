@@ -145,7 +145,7 @@ class _ImgBuild extends StatelessWidget {
       child: Column(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(15),
             child:  FadeInImage(
               width: 327,
               height: 207,
@@ -170,7 +170,7 @@ class _TitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 100),
+      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .12),
       child: Text(
         title,
         textAlign: TextAlign.center,
@@ -194,7 +194,7 @@ class _OverView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 110),
+      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .12) ,
       child: Text(
         overview,
         textAlign: TextAlign.start,

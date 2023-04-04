@@ -16,7 +16,7 @@ class PropertyFeatures extends StatelessWidget {
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: CustomColor.whiteColor,
+          color: Colors.white,
           child: Scrollbar(
             child: ListView(
               physics: const BouncingScrollPhysics(),
