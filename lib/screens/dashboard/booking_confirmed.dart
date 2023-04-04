@@ -1,3 +1,4 @@
+import 'package:deppa_app/screens/dashboard/schedule_visits/my_visits_history_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:deppa_app/screens/dashboard/home_screen.dart';
 
@@ -40,7 +41,8 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
               ),
               inputFieldWidget(context),
               SizedBox(
-                height: 200,
+                height: 286,
+                width: 360,
                 child: Image.asset('assets/images/tinck.png')
               ),
               const SizedBox(height: 21,),
@@ -48,18 +50,22 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
                Text(
                 "Ha realizado con éxito su solicitud",
                 style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: Dimensions.largeTextSize,
+                    color: CustomColor.colorBlack,
+                    fontSize: Dimensions.largeTextSize + 2,
                     fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
+              SizedBox(
+                height: 15,
+              ),
               GestureDetector(
-                child: const Text(
+                child: Text(
                   "ver detalle de visita",
                   style: TextStyle(
                       color: CustomColor.brownColor2,
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.underline,
+                      fontSize: Dimensions.defaultTextSize + 2
                       ),
                       textAlign:TextAlign.center,
                 ),
@@ -72,10 +78,10 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
                 height: 226,
               ),
               SecondaryButtonWidget(
-                title: "Volver al Home",
+                title: "Ir a mis reservas",
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>  HomeScreen()));
+                      builder: (context) =>  MyVisitsHistory()));
                 },
               ),
               const SizedBox(
@@ -89,33 +95,28 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
   }
 
   inputFieldWidget(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.only(
-          left: Dimensions.marginSize,
-          right: Dimensions.marginSize,
-        ),
-        child: Form(
-            key: formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                      left: Dimensions.marginSize,
-                      right: Dimensions.marginSize),
-                  child: Text(
-                    "¡Felicidades!",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: Dimensions.extraLargeTextSize * 1,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-                const SizedBox(
-                  height: Dimensions.heightSize * 2,
-                ),
-              ],
-            )));
+    return Form(
+        key: formKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: Dimensions.marginSize,
+                  right: Dimensions.marginSize),
+              child: Text(
+                "¡Felicidades!",
+                style: TextStyle(
+                    color: CustomColor.greenColor,
+                    fontSize: Dimensions.semilarge,
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            const SizedBox(
+              height: Dimensions.heightSize * 2,
+            ),
+          ],
+        ));
   }
 }

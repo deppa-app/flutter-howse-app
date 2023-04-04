@@ -39,6 +39,7 @@ class Strings {
   static String activateButton = ' Activar';
 
   //home_screeen
+  static String nearYourCurrentLocation = 'Cerca de tu ubicación actual';
   static String indicatorCO2 = 'CO';
   static String indicator2 = '2';
   static String unitPPM = 'ppm';
@@ -51,7 +52,10 @@ class Strings {
   static String scheduleAvisit = 'Programar visita';
   static String interno = 'Interno, conserjería.';
   static String persons = 'Personas';
-
+  
+  //Open the door
+  static String openTheDoor = 'Abrir puerta';
+  
   //select language
   static String languageText1 = 'SELECCION DE IDIOMA';
   static String btn1 = 'English';

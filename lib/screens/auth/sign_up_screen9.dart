@@ -133,9 +133,10 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                 ),
                 // const SizedBox(height: 0,),
 
-                const FaIcon(
+                FaIcon(
                   FontAwesomeIcons.ccVisa,
-                  size: 150,
+                  size: 200,
+                  color: Colors.grey[200],
                 ),
 
                 const Divider(
@@ -149,7 +150,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                   padding: const EdgeInsets.only(right: 200),
                   child: _hintData(Strings.titleNumberCard),
                 ),
-                _titleLabel(label: 'Número de tarjeta', paddingRight: 370,),
+                _titleLabel(label: 'Número de tarjeta', paddingRight: MediaQuery.of(context).size.width * .62),
                 TextFormFieldCard(
                     controller: numberCardController, text: Strings.numberCard),
 
@@ -159,7 +160,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                       child: Column(
                         children: [
                           _hintData(Strings.expiryDate),
-                          _titleLabel(label: 'Fecha de vencimiento', paddingRight: 80,),
+                          _titleLabel(label: 'Fecha de vencimiento', paddingRight: MediaQuery.of(context).size.width * .096,),
                           TextFormFieldExpirationDate(
                             text: Strings.monthYear,
                             controller: dateCardController,
@@ -177,7 +178,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                             padding: EdgeInsets.only(right: 120),
                             child: _hintData(Strings.cvv),
                           ),
-                          _titleLabel(label: 'CVV', paddingRight: 207,),
+                          _titleLabel(label: 'CVV', paddingRight: MediaQuery.of(context).size.width * .36,),
                           TextFormFieldCvv(
                             text: '123',
                             controller: securityCardController,
@@ -236,7 +237,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                             child: Text(
                               Strings.paymentMethodSignUp,
                               style: const TextStyle(
-                                  color: CustomColor.linkColor,
+                                  color: CustomColor.brownColor2,
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold),
                             ),

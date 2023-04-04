@@ -7,10 +7,13 @@ import '../../screens.dart';
 
 
 class MyVisitsHistory extends StatelessWidget {
-  const MyVisitsHistory({Key ?key}) : super(key: key);
+  
+  
+   const MyVisitsHistory({Key ?key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SizedBox spaceBetween = const SizedBox(height: Dimensions.heightSize);
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -21,33 +24,33 @@ class MyVisitsHistory extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
               children: [
-                BackButtonGeneralWidget(),
-                SizedBox(height: Dimensions.heightSize),
-                _principalString(),
-                SizedBox(height: Dimensions.heightSize),
+                const BackButtonGeneralWidget(),
+                const SizedBox(height: Dimensions.heightSize),
+                const _principalString(),
+                const SizedBox(height: Dimensions.heightSize),
                 GestureDetector(
-                  child: _HiredSection(),
+                  child: const _HiredSection(),
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => VisitDetailsScreen()));
+                        builder: (context) => VisitDetailsScreen(openDoor: false,)));
                   },
                 ),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
+                spaceBetween,
+                const _HiredSection(),
+                spaceBetween,
+                const _HiredSection(),
+                spaceBetween,
+                const _HiredSection(),
+                spaceBetween,
+                const _HiredSection(),
+                spaceBetween,
+                const _HiredSection(),
+                spaceBetween,
+                const _HiredSection(),
+                spaceBetween,
+                const _HiredSection(),
+                spaceBetween,
+                const _HiredSection(),
               ],
             )),
       ),

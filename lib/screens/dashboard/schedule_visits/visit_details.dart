@@ -5,7 +5,8 @@ import '../../../utils/utils.dart';
 import '../../../widgets/widget.dart';
 
 class VisitDetailsScreen extends StatelessWidget {
-  const VisitDetailsScreen({Key ?key}) : super(key: key);
+  const VisitDetailsScreen({Key ?key, required this.openDoor}) : super(key: key);
+  final bool openDoor ;
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +44,11 @@ class VisitDetailsScreen extends StatelessWidget {
              const SellerContactButtonWidget(
                 title: 'Contactate con el vendedor',
                 phoneNumber: '+569 86479870'),
-             const _buildDivider(),
+             const GreyDivider(),
              const _SecondaryString(title: 'Detalles de mi visita',),
             const SizedBox(height: Dimensions.heightSize * 1.5),
              const _buildDetailsSection(),
-             const _buildDivider(),
+             const GreyDivider(),
              const _SecondaryString(title: 'Direccion',),
             const SizedBox(height: Dimensions.heightSize * 1.5),
              const _buildAddresSection(),
@@ -56,9 +57,12 @@ class VisitDetailsScreen extends StatelessWidget {
             const SizedBox(height: Dimensions.heightSize * 1.5),
              const _seeTicket(),
             const SizedBox(height: Dimensions.heightSize * 1.5),
-            SecondaryButtonWidget(title: Strings.iWantToRent,),
+            openDoor ? SecondaryButtonWidget(title: Strings.openTheDoor,) :const SizedBox(height: Dimensions.heightSize * 1.5),
             const SizedBox(height: Dimensions.heightSize * 1.5),
-            SecondaryOutlineButtonWidget(title: Strings.donwloadProperty)
+
+            SecondaryOutlineButtonWidget(title: Strings.donwloadProperty),
+            const SizedBox(height: Dimensions.heightSize * 2),
+
           ],
         ),
       )),
@@ -165,21 +169,7 @@ class _buildAddresSection extends StatelessWidget {
   }
 }
 
-class _buildDivider extends StatelessWidget {
-  const _buildDivider({
-    Key ?key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.9,
-          child: const Divider(
-              height: 25, color: CustomColor.greyColor, thickness: 1)),
-    );
-  }
-}
 
 class _buildDetailsSection extends StatelessWidget {
   const _buildDetailsSection({

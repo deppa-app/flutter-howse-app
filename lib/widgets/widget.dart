@@ -22,6 +22,8 @@
 
 
 
+
+
 export 'package:deppa_app/screens/dashboard/booking.dart';
 export 'package:deppa_app/widgets/buttons/back_buttons/back_button_general_widget.dart';
 export 'package:deppa_app/widgets/buttons/back_buttons/back_widget.dart';
@@ -33,6 +35,8 @@ export 'package:deppa_app/widgets/buttons/general_buttons/secondary_outline_butt
 export 'package:deppa_app/widgets/buttons/general_buttons/seller_contact_button.dart';
 export 'package:deppa_app/widgets/buttons/increment_decrement_button_widget.dart';
 export 'package:deppa_app/widgets/custom_text_form_field.dart';
+export 'package:deppa_app/widgets/dividers/green_divider.dart';
+export 'package:deppa_app/widgets/dividers/grey_divider.dart';
 export 'package:deppa_app/widgets/drawer_header_widget.dart';
 export 'package:deppa_app/widgets/filter_chip_widget.dart';
 export 'package:deppa_app/widgets/home_screen/BuildDetailsWidget.dart';

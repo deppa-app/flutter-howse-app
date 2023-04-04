@@ -67,7 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: GestureDetector(
                         child: Image.asset(
                           'assets/images/googlemapsimg.png',
-
                         ),
                         onTap: () => {},
                       ),
@@ -94,7 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 const SizedBox(
                   height: Dimensions.heightSize,
                 ),
-                BuildDetailsWidget(comuna: widget.comuna, direction: widget.direction),
+                const GreenDivider(),
+                BuildDetailsWidget(
+                    comuna: widget.comuna, direction: widget.direction),
                 const SizedBox(
                   height: Dimensions.heightSize * 1,
                 ),
@@ -227,135 +228,197 @@ class _HomeScreenState extends State<HomeScreen> {
   }*/
 
   _menuWidget(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-          left: Dimensions.marginSize,
-          right: Dimensions.marginSize,
-          top: Dimensions.heightSize),
-      child: Container(
-        height: MediaQuery.of(context).size.height * 0.06,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(color: CustomColor.accentColor.withOpacity(0.3))
-          ],
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            GestureDetector(
-              child: Container(
-                height: Dimensions.buttonHeight,
-                width: Dimensions.buttonHeight,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(Dimensions.radius),
-                  boxShadow: const [
-                    BoxShadow(
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(
+              left: Dimensions.marginSize,
+              right: Dimensions.marginSize,
+              top: Dimensions.heightSize),
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.06,
+            width: MediaQuery.of(context).size.width* .89,
+            decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(color: CustomColor.accentColor.withOpacity(0.3))
+              ],
+              borderRadius: BorderRadius.circular(15),
+              color: Colors.white,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  child: Container(
+                    height: Dimensions.buttonHeight,
+                    width: Dimensions.buttonHeight,
+                    decoration: BoxDecoration(
                       color: Colors.white,
-                      spreadRadius: 0,
-                      blurRadius: 0.5,
-                      offset: Offset(0, 0), // changes position of shadow
+                      borderRadius: BorderRadius.circular(Dimensions.radius),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.white,
+                          spreadRadius: 0,
+                          blurRadius: 0.5,
+                          offset: Offset(0, 0), // changes position of shadow
+                        ),
+                      ],
                     ),
-                  ],
+                    child: const Icon(
+                      FontAwesomeIcons.bars,
+                      color: CustomColor.greyColor,
+                    ),
+                  ),
+                  onTap: () {
+                    if (scaffoldKey.currentState!.isDrawerOpen) {
+                      return scaffoldKey.currentState!.openEndDrawer();
+                    } else {
+                      return scaffoldKey.currentState!.openDrawer();
+                    }
+                  },
                 ),
-                child: const Icon(
-                  FontAwesomeIcons.bars,
-                  color: CustomColor.greyColor,
+                const SizedBox(
+                  width: Dimensions.widthSize,
                 ),
-              ),
-              onTap: () {
-                if (scaffoldKey.currentState!.isDrawerOpen) {
-                  return scaffoldKey.currentState!.openEndDrawer();
-                } else {
-                  return scaffoldKey.currentState!.openDrawer();
-                }
-              },
-            ),
-            const SizedBox(
-              width: Dimensions.widthSize,
-            ),
-            Expanded(
-              child: GestureDetector(
-                onTap: () => scaffoldKey.currentState!.setState(() {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const SearchDepartment()));
-                }),
-                child: Container(
-                  alignment: Alignment.center,
-                  color: Colors.white,
-                  height: MediaQuery.of(context).size.height * 0.04,
-                  child: IgnorePointer(
-                    ignoring: true,
-                    child: TextFormField(
-                      style: CustomStyle.textStyle,
-                      controller: searchController,
-                      keyboardType: TextInputType.text,
-                      readOnly: true,
-                      /* validator: (String ?value) {
-                        if (value!.isEmpty) {
-                          return Strings.pleaseFillOutTheField;
-                        } else {
-                          return null;
-                        }
-                      }, */
-                      decoration: InputDecoration(
-                        /*                       hintText: Strings.searchResult, */
-                        contentPadding: const EdgeInsets.symmetric(
-                            vertical: 5.0, horizontal: 20.0),
-                        /*                       labelStyle: CustomStyle.textStyle,
-                        filled: true, */
-                        fillColor: Colors.white,
-                        hintStyle: CustomStyle.textStyle,
-                        focusedBorder: CustomStyle.searchBox,
-                        enabledBorder: CustomStyle.searchBox,
-                        focusedErrorBorder: CustomStyle.searchBox,
-                        errorBorder: CustomStyle.searchBox,
-                        suffixIcon: const Icon(
-                          Icons.search,
-                          size: 20,
-                          color: CustomColor.greyColor,
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () => scaffoldKey.currentState!.setState(() {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const SearchDepartment()));
+                    }),
+                    child: Container(
+                      alignment: Alignment.center,
+                      color: Colors.white,
+                      height: MediaQuery.of(context).size.height * 0.04,
+                      child: IgnorePointer(
+                        ignoring: true,
+                        child: TextFormField(
+                          style: CustomStyle.textStyle,
+                          controller: searchController,
+                          keyboardType: TextInputType.text,
+                          readOnly: true,
+                          /* validator: (String ?value) {
+                            if (value!.isEmpty) {
+                              return Strings.pleaseFillOutTheField;
+                            } else {
+                              return null;
+                            }
+                          }, */
+                          decoration: InputDecoration(
+                            /*                       hintText: Strings.searchResult, */
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 5.0, horizontal: 20.0),
+                            /*                       labelStyle: CustomStyle.textStyle,
+                            filled: true, */
+                            fillColor: Colors.white,
+                            hintStyle: CustomStyle.textStyle,
+                            focusedBorder: CustomStyle.searchBox,
+                            enabledBorder: CustomStyle.searchBox,
+                            focusedErrorBorder: CustomStyle.searchBox,
+                            errorBorder: CustomStyle.searchBox,
+                            suffixIcon: const Icon(
+                              Icons.search,
+                              size: 20,
+                              color: CustomColor.greyColor,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(
-              width: Dimensions.widthSize,
-            ),
-            GestureDetector(
-              child: Container(
-                height: Dimensions.buttonHeight,
-                width: Dimensions.buttonHeight,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(Dimensions.radius),
-                  boxShadow: const [
-                    BoxShadow(
+                const SizedBox(
+                  width: Dimensions.widthSize,
+                ),
+                GestureDetector(
+                  child: Container(
+                    height: Dimensions.buttonHeight,
+                    width: Dimensions.buttonHeight,
+                    decoration: BoxDecoration(
                       color: Colors.white,
-                      spreadRadius: 0,
-                      blurRadius: 0.5,
-                      offset: Offset(0, 0), // changes position of shadow
+                      borderRadius: BorderRadius.circular(Dimensions.radius),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.white,
+                          spreadRadius: 0,
+                          blurRadius: 0.5,
+                          offset: Offset(0, 0), // changes position of shadow
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-                child: const Icon(
-                  FontAwesomeIcons.envelopeOpenText,
-                  color: CustomColor.greyColor,
-                ),
-              ),
-              onTap: () {
-                /*Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
-                    FilterScreen()));*/
-              },
-            )
-          ],
+                    child: const Icon(
+                      FontAwesomeIcons.envelopeOpenText,
+                      color: CustomColor.greyColor,
+                    ),
+                  ),
+                  onTap: () {
+                    /*Navigator.of(context).push(MaterialPageRoute(builder: (context) =>
+                        FilterScreen()));*/
+                  },
+                )
+              ],
+            ),
+          ),
         ),
-      ),
+        GestureDetector(
+          onTap: () => scaffoldKey.currentState!.setState(() {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const SearchDepartment()));
+                    }),
+          child: Padding(
+            padding: const EdgeInsets.only(
+                left: Dimensions.marginSize,
+                right: Dimensions.marginSize,
+                top: Dimensions.heightSize),
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.06,
+              width: MediaQuery.of(context).size.width * .68,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(color: CustomColor.accentColor.withOpacity(0.3))
+                ],
+                borderRadius: BorderRadius.circular(25),
+                color: Colors.white,
+              ),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width *.03),
+                    child: const Icon(FontAwesomeIcons.podcast, color: CustomColor.greenColor,),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height *.01),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          Strings.nearYourCurrentLocation,
+                          style: TextStyle(
+                            color: CustomColor.greenColor,
+                            fontWeight: FontWeight.w600,
+                            fontSize: Dimensions.defaultTextSize
+                            ),
+                          ),
+                          Text(
+                          widget.comuna == ''
+                              ? 'Av. Providencia'
+                              : widget.comuna,
+                          style: TextStyle(
+                            color: CustomColor.colorBlack,
+                            fontWeight: FontWeight.normal,
+                            fontSize: Dimensions.defaultTextSize
+                            ),
+                          )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 

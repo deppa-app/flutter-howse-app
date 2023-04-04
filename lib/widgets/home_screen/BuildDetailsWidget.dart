@@ -22,7 +22,7 @@ class BuildDetailsWidget extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(9),
           child: Container(
             padding: EdgeInsets.symmetric(
                 horizontal:
@@ -48,7 +48,8 @@ class BuildDetailsWidget extends StatelessWidget {
                         child: const Text(
                           'Arriendo de departamento a pasos del metro provincia',
                           style: TextStyle(
-                              fontWeight: FontWeight.w600),
+                              fontWeight: FontWeight.w500,
+                              ),
                         )),
                     const SizedBox(
                       height: 10,
@@ -73,11 +74,11 @@ class BuildDetailsWidget extends StatelessWidget {
                 Column(
                   children: [
                     Row(
-                      children: const[
+                      children: [
                         SizedBox(
-                          width: 25,
+                          width: MediaQuery.of(context).size.width *.11 ,
                         ),
-                        GreenOutlineButtonWidget(
+                        const GreenOutlineButtonWidget(
                           title: 'Próximos',
                         ),
                       ],
@@ -366,14 +367,14 @@ class _buildDetails extends StatelessWidget {
                         style: TextStyle(
                           fontSize: Dimensions.defaultTextSize,
                           fontWeight: FontWeight.normal,
-                          color: Colors.black,
+                          color: CustomColor.greyColor,
                         )),
                     Text(
                       Strings.persons,
                         style: TextStyle(
                           fontSize: Dimensions.defaultTextSize,
                           fontWeight: FontWeight.normal,
-                          color: Colors.black,
+                          color: CustomColor.greyColor,
                         )),
                       ],
                     ),
@@ -398,7 +399,7 @@ class _buildDetails extends StatelessWidget {
                         style: TextStyle(
                           fontSize: Dimensions.defaultTextSize,
                           fontWeight: FontWeight.normal,
-                          color: Colors.black,
+                          color: CustomColor.greenColor,
                         )
                         ),
                       ],

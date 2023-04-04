@@ -95,7 +95,7 @@ final List<Map<String, String>> locations = [  {'comuna': 'Providencia', 'direct
                                                   builder: (context) => HomeScreen(
                                                     comuna: location['comuna']!,
                                                     direction: location['direction']!,
-                                                    changeMessage: true,
+                                                    changeMessage: false,
                                                   ),
                                                 ),
                                               );
