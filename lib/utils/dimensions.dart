@@ -4,6 +4,7 @@ class Dimensions {
   static double extraSmallTextSize = 10.00;
   static double extraSmallTextSize2 = 10.00;
   static double largeTextSize = 16.00;
+  static double textSize18 = 18.00;
   static double extraLargeTextSize = 20.00;
   static double semilarge = 25.00;
   static double semilargelarge = 29.00;

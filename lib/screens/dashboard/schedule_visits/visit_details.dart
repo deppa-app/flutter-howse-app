@@ -178,29 +178,30 @@ class _buildDetailsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var iconClock = const Icon(FontAwesomeIcons.clock,
+                size: 70, color: CustomColor.greenColor);
+    var iconPersonCircleCheck = const Icon(FontAwesomeIcons.personCircleCheck,
+                size: 70, color: CustomColor.greenColor);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Column(
           children: [
-            Icon(FontAwesomeIcons.clock,
-                size: 70, color: CustomColor.greenColor),
+            iconClock,
             Text('40 minutos')
           ],
         ),
         SizedBox(width: MediaQuery.of(context).size.width *0.08),
         Column(
           children: [
-            Icon(FontAwesomeIcons.clock,
-                size: 70, color: CustomColor.greenColor),
+            iconClock,
             Text('40 minutos')
           ],
         ),
         SizedBox(width: MediaQuery.of(context).size.width *0.1),
         Column(
           children: [
-            Icon(FontAwesomeIcons.personCircleCheck,
-                size: 70, color: CustomColor.greenColor),
+            iconPersonCircleCheck,
             Text('2 visitas')
           ],
         )
