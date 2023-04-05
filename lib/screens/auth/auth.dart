@@ -1,12 +1,12 @@
 export 'package:deppa_app/screens/auth/pass_sign_up_screen.dart';
 export 'package:deppa_app/screens/auth/sign_in_screen.dart';
-export 'package:deppa_app/screens/auth/sign_up_screen1.dart';
-export 'package:deppa_app/screens/auth/sign_up_screen2.dart';
-export 'package:deppa_app/screens/auth/sign_up_screen3.dart';
-export 'package:deppa_app/screens/auth/sign_up_screen4.dart';
+export 'package:deppa_app/screens/auth/sign_up_basics.dart';
+export 'package:deppa_app/screens/auth/sign_up_phone.dart';
+export 'package:deppa_app/screens/auth/sign_up_validation_number.dart';
+export 'package:deppa_app/screens/auth/sign_up_validation_documentation.dart';
 export 'package:deppa_app/screens/auth/sign_up_screen5.dart';
 export 'package:deppa_app/screens/auth/sign_up_screen6.dart';
-export 'package:deppa_app/screens/auth/sign_up_screen7.dart';
+export 'package:deppa_app/screens/auth/sign_up_all_data.dart';
 export 'package:deppa_app/screens/auth/sign_up_screen8.dart';
 export 'package:deppa_app/screens/auth/sign_up_screen9.dart';
 export 'package:deppa_app/screens/auth/sign_up_screen10.dart';

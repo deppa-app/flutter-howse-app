@@ -156,6 +156,7 @@ class Strings {
   static String formPhoneNumberSignUp = 'Escribe tu teléfono';
   // sign_up_screen3
   static String newCode = 'Solicitar un nuevo código';
+  static String omitirValidation = 'Omitir por ahora';
   static String validateSignUp = 'Validar';
   static String recibeCode = '¿No recibiste el código?';
   static String confirmNumber = 'Confirma tu número de teléfono';
@@ -167,7 +168,7 @@ class Strings {
       '¿Instrucciones para tomar las fotografías?';
   static String documentsVerification = 'Verificación de documentos';
   static String thisProcess =
-      'Este proceso nos ayudara a verificar tu identidad';
+      'Este proceso nos ayudara a verificar tu identidad. Se exigirá al momento de que reserves o programes una visita.';
   static String uploadId = 'Sube tu cedula de identidad';
   // sign_up_screen5
   static String reversePhoto = 'Tomar foto reversa';

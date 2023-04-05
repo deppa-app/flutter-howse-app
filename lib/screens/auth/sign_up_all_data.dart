@@ -12,20 +12,20 @@ import 'package:deppa_app/widgets/widget.dart';
 
 enum AppState { male, female, none }
 
-class SignUpScreen7 extends StatefulWidget {
-  const SignUpScreen7(
-      {Key ?key, this.address, this.email, this.password, this.phone})
+class SignUpAllData extends StatefulWidget {
+  const SignUpAllData(
+      {Key ?key, /*this.address, this.email, this.password, this.phone*/})
       : super(key: key);
-  final String ?address;
+  /*final String ?address;
   final String ?email;
   final String ?password;
-  final String ?phone;
+  final String ?phone;*/
 
   @override
-  _SignUpScreen7State createState() => _SignUpScreen7State();
+  _SignUpAllDataState createState() => _SignUpAllDataState();
 }
 
-class _SignUpScreen7State extends State<SignUpScreen7> {
+class _SignUpAllDataState extends State<SignUpAllData> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   var _appState = AppState.none;
@@ -97,9 +97,9 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
           Map profile = {
             'data': {
               'name': firstNameController.text.trim(),
-              'email': widget.email!.trim(),
+              'email': '',//widget.email!.trim(),
               'birthday': dateFunction(bornController.text.trim()),
-              'address': widget.address!.trim(),
+              'address': '',//widget.address!.trim(),
               'numberPhone': phoneController.text.trim(),
               'rut': runController.text.trim(),
               'expirationDate':
@@ -122,8 +122,8 @@ class _SignUpScreen7State extends State<SignUpScreen7> {
               Map user = {
                 'data': {
                   'username': firstNameController.text,
-                  'password': widget.password,
-                  'publicToken': widget.password, //TODO: cambiar
+                  //'password': widget.password,
+                  //'publicToken': widget.password, //TODO: cambiar
                   'rut': runController.text,
                   'profile': {'id': data.id}
                 }

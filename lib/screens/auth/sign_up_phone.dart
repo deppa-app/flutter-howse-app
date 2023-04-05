@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:deppa_app/screens/auth/sign_up_screen3.dart';
+import 'package:deppa_app/screens/auth/sign_up_validation_number.dart';
 
 import 'package:deppa_app/utils/utils.dart';
 import '../../widgets/widget.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
-class SignUpScreen2 extends StatefulWidget {
-  const SignUpScreen2({Key ?key, this.address, this.email, this.password})
+class SignUpPhone extends StatefulWidget {
+  const SignUpPhone({Key ?key, this.address, this.email, this.password})
       : super(key: key);
   final String ?address;
   final String ?email;
   final String ?password;
 
   @override
-  _SignUpScreen2State createState() => _SignUpScreen2State();
+  _SignUpPhoneState createState() => _SignUpPhoneState();
 }
 
-class _SignUpScreen2State extends State<SignUpScreen2> {
+class _SignUpPhoneState extends State<SignUpPhone> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController phoneController = TextEditingController();
@@ -73,11 +73,11 @@ class _SignUpScreen2State extends State<SignUpScreen2> {
       onTap: () {
         if (formKey.currentState!.validate()) {
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => SignUpScreen3(
-                    address: widget.address!,
+              builder: (context) => SignUpValidationNumbre(
+                    /*address: widget.address!,
                     email: widget.email!,
                     password: widget.password!,
-                    phone: phoneController.text,
+                    phone: phoneController.text,*/
                   )));
         }
       },

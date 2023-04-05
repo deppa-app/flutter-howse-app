@@ -8,20 +8,22 @@ import 'package:deppa_app/utils/utils.dart';
 import 'package:deppa_app/widgets/widget.dart';
 import 'package:image_picker/image_picker.dart';
 
-class SignUpScreen4 extends StatefulWidget {
-  const SignUpScreen4(
-      {Key ?key, this.address, this.email, this.password, this.phone})
+import '../../presentation/pages/demo_page.dart';
+
+class SignUpValidationDocumentation extends StatefulWidget {
+  const SignUpValidationDocumentation(
+      {Key ?key, /*this.address, this.email, this.password, this.phone*/})
       : super(key: key);
-  final String ?address;
+  /*final String ?address;
   final String ?email;
   final String ?password;
-  final String ?phone;
+  final String ?phone;*/
 
   @override
-  _SignUpScreen4State createState() => _SignUpScreen4State();
+  _SignUpValidationDocumentationState createState() => _SignUpValidationDocumentationState();
 }
 
-class _SignUpScreen4State extends State<SignUpScreen4> {
+class _SignUpValidationDocumentationState extends State<SignUpValidationDocumentation> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   File ?photo;
@@ -53,11 +55,17 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
     return SafeArea(
       child: Scaffold(
         floatingActionButton: Padding(
-          padding: EdgeInsets.only(right: width * 0.37, bottom: 150),
+          padding: EdgeInsets.only(right: width * 0.38, bottom: 220),
           child: FloatingActionButton(
-            backgroundColor: Colors.deepPurpleAccent,
-            child: const FaIcon(FontAwesomeIcons.camera),
-            onPressed: () => pickImage(),
+            backgroundColor: Colors.brown,
+            child: const FaIcon(FontAwesomeIcons.camera, color: CustomColor.whiteColor,),
+            //onPressed: () => pickImage(),
+            onPressed: () {
+                Navigator.of(context).push(
+                MaterialPageRoute(
+                builder: (context) =>
+                const DemoPage()));
+            },
           ),
         ),
         body: Container(
@@ -68,7 +76,7 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: '', percent: 0.4),
+              const BackWidget(title: '', percent: 0.4),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
@@ -90,9 +98,13 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                       width: width * 0.7,
                       child: Image.file(photo!)),
               const SizedBox(
-                height: Dimensions.heightSize * 4,
+                height: Dimensions.heightSize * 9,
               ),
               validateButtonPadding(width, context),
+              const SizedBox(
+                height: Dimensions.heightSize * 2,
+              ),
+              _omitir(),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
@@ -130,9 +142,9 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
     return Text(
       Strings.frontPhoto,
       style: TextStyle(
-          color: Colors.grey,
+          color: Colors.black,
           fontSize: Dimensions.largeTextSize,
-          fontWeight: FontWeight.bold),
+          ),
       textAlign: TextAlign.start,
     );
   }
@@ -141,9 +153,9 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
     return Text(
       Strings.photoInstructions,
       style: TextStyle(
-          color: Colors.grey,
+          color: CustomColor.colorBlack,
           fontSize: Dimensions.largeTextSize,
-          fontWeight: FontWeight.bold),
+          ),
       textAlign: TextAlign.center,
     );
   }
@@ -158,16 +170,30 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
     );
   }
 
+  GestureDetector _omitir() {
+    return GestureDetector(
+        child: GestureDetector(
+      child: Text(
+        Strings.omitirValidation,
+        style: const TextStyle(
+            color: CustomColor.brownColor2,
+            decoration: TextDecoration.underline),
+        textAlign: TextAlign.center,
+      ),
+      // onTap: (value){},
+    ));
+  }
+
   SecondaryButtonWidget validateButton(BuildContext context) {
     return SecondaryButtonWidget(
       title: Strings.validateSignUp,
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => SignUpScreen5(
-                  address: widget.address!,
+                  /*address: widget.address!,
                   email: widget.email!,
                   password: widget.password!,
-                  phone: widget.phone!,
+                  phone: widget.phone!,*/
                 )));
       },
     );
@@ -209,9 +235,11 @@ class _SignUpScreen4State extends State<SignUpScreen4> {
                     Strings.thisProcess,
                     style: const TextStyle(
                       color: CustomColor.colorBlack,
-                      fontSize: 16,
+                      fontSize: 15,
                     ),
-                    textAlign: TextAlign.start,
+                    textAlign: TextAlign.center,
+                    textHeightBehavior: const TextHeightBehavior(leadingDistribution: TextLeadingDistribution.even),
+                    
                   ),
                 ),
                 Padding(

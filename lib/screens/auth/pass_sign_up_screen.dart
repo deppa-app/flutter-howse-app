@@ -118,7 +118,7 @@ class _PassSignUpScreenState extends State<PassSignUpScreen> {
                                       Navigator.of(context).push(
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                                   SignUpScreen1()));
+                                                   const SignUpBasics()));
                                     },
                                   ),
                                   const SizedBox(
