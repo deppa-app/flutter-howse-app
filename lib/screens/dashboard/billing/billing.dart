@@ -8,7 +8,7 @@ import '../../../utils/strings.dart';
 import 'billing_data.dart';
 
 class Billing extends StatefulWidget {
-  const Billing({Key ?key}) : super(key: key);
+  const Billing({Key? key}) : super(key: key);
 
   @override
   State<Billing> createState() => _BillingState();

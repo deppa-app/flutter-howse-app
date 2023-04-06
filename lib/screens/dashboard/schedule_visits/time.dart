@@ -3,7 +3,7 @@ import '../../../utils/custom_color.dart';
 import '../../../utils/dimensions.dart';
 
 class Time extends StatefulWidget {
-  const Time({Key ?key}) : super(key: key);
+  const Time({Key? key}) : super(key: key);
 
   @override
   State<Time> createState() => _TimeState();
@@ -40,9 +40,10 @@ class _TimeState extends State<Time> {
         height: 50,
         decoration: BoxDecoration(
           color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: CustomColor.greyColor,
-            width: 2.0,
+            width: 0.5,
           ),
         ),
         child: Align(

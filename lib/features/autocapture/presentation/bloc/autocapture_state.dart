@@ -24,6 +24,10 @@ class ErrorGettingFaceAndDocument extends AutocaptureState {
 class SuccessfullyFaceAndDocument extends AutocaptureState {
   final BiometricResult biometricResult;
   const SuccessfullyFaceAndDocument({required this.biometricResult});
+
+  BiometricResult getResults(){
+    return biometricResult;
+  }
 }
 
 class ErrorGettingSessionId extends AutocaptureState {}

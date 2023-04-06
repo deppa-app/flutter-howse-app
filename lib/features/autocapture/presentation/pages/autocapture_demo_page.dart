@@ -11,6 +11,8 @@ import 'package:deppa_app/features/autocapture/domain/usecases/capture_front.dar
 import 'package:deppa_app/features/autocapture/presentation/bloc/autocapture_bloc.dart';
 import 'package:deppa_app/features/liveness/domain/usecases/capture_liveness.dart';
 
+import '../../../../screens/auth/sign_up_all_data.dart';
+
 class AutocaptureDemoPage extends StatefulWidget {
   final String documentType;
   const AutocaptureDemoPage({Key? key, required this.documentType}) : super(key: key);
@@ -91,7 +93,7 @@ class _AutocaptureDemoPageState extends State<AutocaptureDemoPage> {
               height: 200,
               color: Colors.transparent,
               child: const Image(
-                image: AssetImage("assets/logo.png"),
+                image: AssetImage("assets/images/logo_orizon.png"),
               )),
           const SizedBox(
             height: 20,
@@ -125,6 +127,7 @@ class _AutocaptureDemoPageState extends State<AutocaptureDemoPage> {
         if (state is SuccessfullyFaceAndDocument) {
           LoadingDialog.hide(context);
           AlertHelper.showInfoDialogCallBack(context, "Felicitaciones el resultado  ha sido exitoso", () => {Navigator.pop(context)});
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpAllData()));
         }
       },
       child: Scaffold(

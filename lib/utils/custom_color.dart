@@ -1,16 +1,16 @@
 //import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class CustomColor {
-
   static const Color accentColor = Color(0xFF2C3066);
   static const Color blueColor = Color(0xFF2C3066);
   static const Color brownColor = Color.fromARGB(255, 191, 163, 91);
   static const Color brownColor2 = Color.fromARGB(255, 167, 104, 70);
   static const Color colorBlack = Color(0xFF313131);
   static const Color electricVioletColor = Color(0xFF7836FC);
-  static const Color greenColor = Color.fromARGB(255,77, 186, 109);
+  static const Color greenColor = Color.fromARGB(255, 77, 186, 109);
   static const Color greenLightColor = Color(0xFFD8EEDC);
   static const Color greyColor = Color(0xFF9E9E9E);
   static const Color greyColor2 = Color(0xFFEFEFEF);
@@ -23,7 +23,7 @@ class CustomColor {
   static const Color secondaryColor = Color(0xA76846);
   static const Color secondBlack = Color.fromARGB(185, 95, 94, 94);
   static const Color settingColor = Color(0xFFE0F1E4);
-  static const Color whiteColor = Color(0xFFf6f3ed);
+  static const Color whiteColor = Colors.white;
   static const Color whiteColor2 = Color.fromARGB(255, 248, 248, 248);
   static const Color yellowLightColor = Color(0xFFFDF5E6);
 

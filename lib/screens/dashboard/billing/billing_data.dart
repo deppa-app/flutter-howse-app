@@ -10,7 +10,7 @@ import '../../../../widgets/widget.dart';
 import 'package:deppa_app/screens/screens.dart';
 
 class BillingData extends StatefulWidget {
-  const BillingData({Key ?key}) : super(key: key);
+  const BillingData({Key? key}) : super(key: key);
 
   @override
   State<BillingData> createState() => _BillingDataState();
@@ -160,6 +160,7 @@ class _BillingDataState extends State<BillingData> {
     );
   }
 }
+
 
 class _buildDetails extends StatelessWidget {
   const _buildDetails({

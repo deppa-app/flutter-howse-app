@@ -7,14 +7,14 @@ import 'package:deppa_app/widgets/widget.dart';
 
 import '../../widgets/linear_percent_widget.dart';
 
-class SignUpScreen1 extends StatefulWidget {
-  const SignUpScreen1({Key ?key}) : super(key: key);
+class SignUpBasics extends StatefulWidget {
+  const SignUpBasics({Key ?key}) : super(key: key);
 
   @override
-  _SignUpScreen1State createState() => _SignUpScreen1State();
+  _SignUpBasicsState createState() => _SignUpBasicsState();
 }
 
-class _SignUpScreen1State extends State<SignUpScreen1> {
+class _SignUpBasicsState extends State<SignUpBasics> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController firstNameController = TextEditingController();
@@ -192,7 +192,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
         if (formKey.currentState!.validate()) {
           print(emailController.text);
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => SignUpScreen2(
+              builder: (context) => SignUpPhone(
                   address: addressController.text,
                   email: emailController.text,
                   password: confirmPasswordController.text)));
@@ -393,7 +393,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
         onTap: () {
           print(emailController.text);
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => SignUpScreen2(
+              builder: (context) => SignUpPhone(
                   address: addressController.text,
                   email: emailController.text,
                   password: confirmPasswordController.text)));
@@ -444,7 +444,7 @@ class _SignUpScreen1State extends State<SignUpScreen1> {
           ),
           onTap: () {
             Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const SignUpScreen1()));
+                MaterialPageRoute(builder: (context) => const SignUpBasics()));
           },
         )
       ],

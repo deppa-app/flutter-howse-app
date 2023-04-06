@@ -162,6 +162,7 @@ class Strings {
   static String formPhoneNumberSignUp = 'Escribe tu teléfono';
   // sign_up_screen3
   static String newCode = 'Solicitar un nuevo código';
+  static String omitirValidation = 'Omitir por ahora';
   static String validateSignUp = 'Validar';
   static String recibeCode = '¿No recibiste el código?';
   static String confirmNumber = 'Confirma tu número de teléfono';
@@ -173,7 +174,7 @@ class Strings {
       '¿Instrucciones para tomar las fotografías?';
   static String documentsVerification = 'Verificación de documentos';
   static String thisProcess =
-      'Este proceso nos ayudara a verificar tu identidad';
+      'Este proceso nos ayudara a verificar tu identidad. Se exigirá al momento de que reserves o programes una visita.';
   static String uploadId = 'Sube tu cedula de identidad';
   // sign_up_screen5
   static String reversePhoto = 'Tomar foto reversa';
@@ -439,10 +440,10 @@ class Strings {
   static String paid_views = "Vistas Pagadas";
   static String paid_views_value = "";
   static String views_used = "Vistas Utilizadas";
-  static String views_used_value = "";
+  static String views_used_value = "0";
   static String views_available = "Vistas Disponibles";
-  static String views_available_value = "";
-  static String rental_location = "ubicacion del arriendo";
+  static String views_available_value = "0";
+  static String rental_location = "Arriendo Deoartamento Av.Providencia Norte";
   static String rent_payment = "dinero pagado";
 
   //Rental_history
@@ -462,9 +463,9 @@ class Strings {
   static String minutes_reserved = " Minutos reservados ";
   static String busy_minutes = " Minutos ocupado ";
   static String number_of_visits = " Numero de visitas ";
-  static String number_of_minutes_booked = " XX Min ";
-  static String number_of_minutes_occupied = " XX Min ";
-  static String visitor_counter = " XX  ";
+  static String number_of_minutes_booked = " 30 Min ";
+  static String number_of_minutes_occupied = " 30 Min ";
+  static String visitor_counter = " 5  ";
 
   //download invoice
   static String detail_value_visit = "Valor visita";

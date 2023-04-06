@@ -11,12 +11,12 @@ import 'package:image_picker/image_picker.dart';
 
 class SignUpScreen5 extends StatefulWidget {
   const SignUpScreen5(
-      {Key ?key, this.address, this.email, this.password, this.phone})
+      {Key ?key, /*this.address, this.email, this.password, this.phone*/})
       : super(key: key);
-  final String ?address;
+  /*final String ?address;
   final String ?email;
   final String ?password;
-  final String ?phone;
+  final String ?phone;*/
 
   @override
   _SignUpScreen5State createState() => _SignUpScreen5State();
@@ -153,10 +153,10 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => SignUpScreen6(
-                  address: widget.address!,
+                  /*address: widget.address!,
                   email: widget.email!,
                   password: widget.password!,
-                  phone: widget.phone!,
+                  phone: widget.phone!,*/
                 )));
       },
     );

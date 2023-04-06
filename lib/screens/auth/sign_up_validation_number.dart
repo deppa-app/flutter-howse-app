@@ -4,19 +4,19 @@ import 'package:deppa_app/screens/auth/auth.dart';
 import 'package:deppa_app/utils/utils.dart';
 import 'package:deppa_app/widgets/widget.dart';
 
-class SignUpScreen3 extends StatefulWidget {
-  const SignUpScreen3(
-      {Key ?key, this.address, this.email, this.password, this.phone})
+class SignUpValidationNumbre extends StatefulWidget {
+  const SignUpValidationNumbre(
+      {Key ?key, /*this.address, this.email, this.password, this.phone*/})
       : super(key: key);
-  final String ?address;
+  /*final String ?address;
   final String ?email;
   final String ?password;
-  final String ?phone;
+  final String ?phone;*/
   @override
-  _SignUpScreen3State createState() => _SignUpScreen3State();
+  _SignUpValidationNumbreState createState() => _SignUpValidationNumbreState();
 }
 
-class _SignUpScreen3State extends State<SignUpScreen3> {
+class _SignUpValidationNumbreState extends State<SignUpValidationNumbre> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -24,10 +24,10 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
     super.initState();
   }
 
-  TextEditingController ?controller;
-  TextEditingController ?controller1;
-  TextEditingController ?controller2;
-  TextEditingController ?controller3;
+  TextEditingController controller = TextEditingController();
+  TextEditingController controller1 = TextEditingController();
+  TextEditingController controller2 = TextEditingController();
+  TextEditingController controller3 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
           physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
           children: [
-             BackWidget(
+             const BackWidget(
               title: '',
               percent: 0.3,
             ),
@@ -89,11 +89,11 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
       title: Strings.validateSignUp,
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => SignUpScreen4(
-                  address: widget.address!,
+            builder: (context) => SignUpValidationDocumentation(
+                  /*address: widget.address!,
                   email: widget.email!,
                   password: widget.password!,
-                  phone: widget.phone!,
+                  phone: widget.phone!,*/
                 )));
       },
     );
@@ -103,7 +103,7 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
     return Text(
       Strings.recibeCode,
       style: const TextStyle(
-          color: Colors.grey, fontSize: 14, fontWeight: FontWeight.bold),
+          color: CustomColor.colorBlack, fontSize: 14),
       textAlign: TextAlign.center,
     );
   }
@@ -114,8 +114,8 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
       child: Text(
         Strings.newCode,
         style: const TextStyle(
-            color: CustomColor.linkColor,
-            fontWeight: FontWeight.bold,
+            color: CustomColor.brownColor2,
+            //fontWeight: FontWeight.bold,
             decoration: TextDecoration.underline),
       ),
       // onTap: (value){},
@@ -169,24 +169,24 @@ class _SignUpScreen3State extends State<SignUpScreen3> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SquareTextFormField(controller: controller!),
+                    SquareTextFormField(controller: controller),
                     const SizedBox(
                       width: 30,
                     ),
                     SquareTextFormField(
-                      controller: controller1!,
-                    ),
-                    const SizedBox(
-                      width: 30,
-                    ),
-                    SquareTextFormField(
-                      controller: controller2!,
+                      controller: controller1,
                     ),
                     const SizedBox(
                       width: 30,
                     ),
                     SquareTextFormField(
-                      controller: controller3!,
+                      controller: controller2,
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    SquareTextFormField(
+                      controller: controller3,
                     ),
                   ],
                 ),

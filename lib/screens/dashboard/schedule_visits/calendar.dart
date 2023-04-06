@@ -3,7 +3,7 @@ import '../../../utils/custom_color.dart';
 import '../../../utils/dimensions.dart';
 
 class Calendar extends StatefulWidget {
-  const Calendar({Key ?key}) : super(key: key);
+  const Calendar({Key? key}) : super(key: key);
 
   @override
   State<Calendar> createState() => _CalendarState();
@@ -42,9 +42,10 @@ class _CalendarState extends State<Calendar> {
         height: 50,
         decoration: BoxDecoration(
           color: Colors.grey[300],
+          borderRadius: BorderRadius.circular(20),
           border: Border.all(
             color: CustomColor.greyColor,
-            width: 2.0,
+            width: 0.5,
           ),
         ),
         child: Align(
