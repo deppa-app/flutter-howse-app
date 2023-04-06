@@ -13,17 +13,18 @@ class PrimaryButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 50.0),
         height: Dimensions.buttonHeight,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             color: Colors.white,
-            border: Border.all(color: CustomColor.brownColor),
+            border: Border.all(color: CustomColor.brownColor2),
             borderRadius: BorderRadius.circular(Dimensions.radius)),
         child: Center(
           child: Text(
             title!,
             style: TextStyle(
-                color: CustomColor.brownColor,
+                color: CustomColor.brownColor2,
                 fontSize: Dimensions.largeTextSize,
                 fontWeight: FontWeight.bold),
           ),

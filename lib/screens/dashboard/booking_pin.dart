@@ -35,7 +35,7 @@ class _BookingPinState extends State<BookingPin> {
             physics: const BouncingScrollPhysics(),
             children: [
               // Se agrega un widget personalizado para el botón de regresar
-               BackButtonGeneralWidget(),
+               const BackButtonGeneralWidget(),
               const SizedBox(height: Dimensions.heightSize * 2),
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -43,7 +43,7 @@ class _BookingPinState extends State<BookingPin> {
                   vertical: Dimensions.heightSize * 2,
                 ),
                 child: Column(
-                  children:  [
+                  children:  const [
                     // Se agrega un widget personalizado para el texto principal
                     PrincipalString(),
                     // Se agrega un widget personalizado para el control del PIN

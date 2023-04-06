@@ -5,7 +5,8 @@ import '../../../utils/utils.dart';
 import '../../../widgets/widget.dart';
 
 class VisitDetailsScreen extends StatelessWidget {
-  const VisitDetailsScreen({Key ?key}) : super(key: key);
+  const VisitDetailsScreen({Key ?key, required this.openDoor}) : super(key: key);
+  final bool openDoor ;
 
   @override
   Widget build(BuildContext context) {
@@ -19,45 +20,49 @@ class VisitDetailsScreen extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
           children: [
-             BackButtonGeneralWidget(),
+             const BackButtonGeneralWidget(),
             const SizedBox(height: Dimensions.heightSize),
-             _principalString(),
-             _buildImage(
+             const _principalString(),
+             const _buildImage(
               price: '',
             ),
-             _PriceAndText(),
-             _DescriptionText(),
+             const _PriceAndText(),
+             const _DescriptionText(),
             Container(
                 padding: const EdgeInsets.symmetric(horizontal: 40),
-                child:  _buildDetails(
+                child:  const _buildDetails(
                   codigo: 123456,
                   toilet: 2,
                   parking: 2,
                   bedroom: 2,
                   squareMeter: 80,
                   servicios: 0,
-                  otros: 0, storage: 0,
+                  otros: 0, 
+                  storage: 0,
                 )),
             const SizedBox(height: Dimensions.heightSize),
-             SellerContactButtonWidget(
+             const SellerContactButtonWidget(
                 title: 'Contactate con el vendedor',
                 phoneNumber: '+569 86479870'),
-             _buildDivider(),
-             _SecondaryString(title: 'Detalles de mi visita',),
+             const GreyDivider(),
+             const _SecondaryString(title: 'Detalles de mi visita',),
             const SizedBox(height: Dimensions.heightSize * 1.5),
-             _buildDetailsSection(),
-             _buildDivider(),
-             _SecondaryString(title: 'Direccion',),
+             const _buildDetailsSection(),
+             const GreyDivider(),
+             const _SecondaryString(title: 'Direccion',),
             const SizedBox(height: Dimensions.heightSize * 1.5),
-             _buildAddresSection(),
+             const _buildAddresSection(),
             const SizedBox(height: Dimensions.heightSize * 1.5),
-             _buildTotalPrice(totalPrice: 12470,),
+             const _buildTotalPrice(totalPrice: 12470,),
             const SizedBox(height: Dimensions.heightSize * 1.5),
-             _seeTicket(),
+             const _seeTicket(),
             const SizedBox(height: Dimensions.heightSize * 1.5),
-            SecondaryButtonWidget(title: Strings.iWantToRent,),
+            openDoor ? SecondaryButtonWidget(title: Strings.openTheDoor,) :const SizedBox(height: Dimensions.heightSize * 1.5),
             const SizedBox(height: Dimensions.heightSize * 1.5),
-            SecondaryOutlineButtonWidget(title: Strings.donwloadProperty)
+
+            SecondaryOutlineButtonWidget(title: Strings.donwloadProperty),
+            const SizedBox(height: Dimensions.heightSize * 2),
+
           ],
         ),
       )),
@@ -164,21 +169,7 @@ class _buildAddresSection extends StatelessWidget {
   }
 }
 
-class _buildDivider extends StatelessWidget {
-  const _buildDivider({
-    Key ?key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: SizedBox(
-          width: MediaQuery.of(context).size.width * 0.9,
-          child: const Divider(
-              height: 25, color: CustomColor.greyColor, thickness: 1)),
-    );
-  }
-}
 
 class _buildDetailsSection extends StatelessWidget {
   const _buildDetailsSection({
@@ -187,29 +178,30 @@ class _buildDetailsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var iconClock = const Icon(FontAwesomeIcons.clock,
+                size: 70, color: CustomColor.greenColor);
+    var iconPersonCircleCheck = const Icon(FontAwesomeIcons.personCircleCheck,
+                size: 70, color: CustomColor.greenColor);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Column(
           children: [
-            Icon(FontAwesomeIcons.clock,
-                size: 70, color: CustomColor.greenColor),
+            iconClock,
             Text('40 minutos')
           ],
         ),
         SizedBox(width: MediaQuery.of(context).size.width *0.08),
         Column(
           children: [
-            Icon(FontAwesomeIcons.clock,
-                size: 70, color: CustomColor.greenColor),
+            iconClock,
             Text('40 minutos')
           ],
         ),
         SizedBox(width: MediaQuery.of(context).size.width *0.1),
         Column(
           children: [
-            Icon(FontAwesomeIcons.personCircleCheck,
-                size: 70, color: CustomColor.greenColor),
+            iconPersonCircleCheck,
             Text('2 visitas')
           ],
         )

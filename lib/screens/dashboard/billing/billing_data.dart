@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:deppa_app/screens/dashboard/billing/property_features.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../utils/custom_color.dart';
 import '../../../utils/dimensions.dart';
@@ -23,17 +24,13 @@ class _BillingDataState extends State<BillingData> {
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: CustomColor.whiteColor,
+          color: Colors.white,
           child: Scrollbar(
               child: ListView(
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              AppBar(
-                iconTheme: const IconThemeData(color: CustomColor.greenColor),
-                backgroundColor: CustomColor.whiteColor,
-                elevation: 0,
-              ),
+              const BackButtonGeneralWidget(),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
@@ -62,8 +59,8 @@ class _BillingDataState extends State<BillingData> {
               Center(
                 child: RichText(
                   text: TextSpan(
-                    style: const TextStyle(
-                        fontSize: Dimensions.radius,
+                    style: TextStyle(
+                        fontSize: Dimensions.defaultTextSize +1,
                         fontWeight: FontWeight.w500),
                     children: <TextSpan>[
                       TextSpan(
@@ -85,41 +82,49 @@ class _BillingDataState extends State<BillingData> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.08,
-                    right: MediaQuery.of(context).size.width * 0.08),
-                child: const Center(
-                  child: Text(
-                    "detalles de terminos legales 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
-                    style: TextStyle(
-                        color: CustomColor.colorBlack,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w500),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: Dimensions.heightSize * 0.1,
-              ),
-              text_1BillingData(context),
-              const Divider(),
-              const SizedBox(
-                height: Dimensions.heightSize * 0.1,
-              ),
-              const Center(
+                    left: MediaQuery.of(context).size.width * 0.12,
+                    right: MediaQuery.of(context).size.width * 0.12),
                 child: Text(
-                  "Detalles de mi visita ",
+                  "detalles de terminos legales 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
+                  textAlign: TextAlign.start,
                   style: TextStyle(
                       color: CustomColor.colorBlack,
-                      fontSize: Dimensions.radius,
-                      fontWeight: FontWeight.w600),
-                  textAlign: TextAlign.start,
+                      fontSize: Dimensions.defaultTextSize +1,
+                      fontWeight: FontWeight.normal),
                 ),
               ),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
-              text_3BillingData(context),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .12),
+                child: const _buildDetails(toilet: 4, bedroom: 6, storage: 1, parking: 1, squareMeter: 200, codigo: 2345,servicios: 'Conserjería',),
+              ),
+              const SizedBox(
+                height: Dimensions.heightSize * .5,
+              ),
+              const Divider(),
+              const SizedBox(
+                height: Dimensions.heightSize * 2,
+              ),
+              Column(
+                children: [
+                  Text(
+                    "Detalles de mi visita ",
+                    style: TextStyle(
+                        color: CustomColor.colorBlack,
+                        fontSize: Dimensions.textSize18  ,
+                        fontWeight: FontWeight.w600
+                        ),
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * .03),
+                  const _buildDetailsSection()
+                ],
+              ),
+              const SizedBox(
+                height: Dimensions.heightSize * 2,
+              ),
+              
               const Divider(),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
@@ -129,7 +134,7 @@ class _BillingDataState extends State<BillingData> {
                   title: "Descargar factura",
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => DownloadInvoice()));
+                        builder: (context) => const DownloadInvoice()));
                   },
                 ),
               ),
@@ -141,7 +146,7 @@ class _BillingDataState extends State<BillingData> {
                   title: "Desacargar propiedad ",
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => PropertyFeatures()));
+                        builder: (context) => const PropertyFeatures()));
                   },
                 ),
               ),
@@ -156,177 +161,291 @@ class _BillingDataState extends State<BillingData> {
   }
 }
 
-text_1BillingData(BuildContext context) {
-  return Padding(
-    padding: EdgeInsets.all(16.0), // Añade un relleno de 16.0 a todos los lados
-    child: Container(
-      width: 344,
-      height: 70,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: CustomColor.whiteColor,
-        border: Border.all(
-          style: BorderStyle.none,
-          color: CustomColor.greyColor,
-          width: 0.1,
-        ),
-      ),
-      child: ListView(
+
+class _buildDetails extends StatelessWidget {
+  const _buildDetails({
+    Key ?key,
+    required this.toilet,
+    required this.bedroom,
+    required this.storage,
+    required this.parking,
+    required this.squareMeter,
+    this.codigo,
+    this.servicios,
+    this.otros,
+  }) : super(key: key);
+  final int ?toilet;
+  final int ?codigo;
+  final int ?otros;
+  final String ?servicios;
+  final int ?bedroom;
+  final int ?storage;
+  final int ?parking;
+  final int ?squareMeter;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width - MediaQuery.of(context).size.width),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(
-            child: Text(
-              Strings.department_details,
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-          ),
-          Expanded(
-              child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          Row(
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  text_2BillingData(context, Strings.code, "value"),
-                  text_2BillingData(context, Strings.bathroom, "value"),
-                  text_2BillingData(context, Strings.parking, "value"),
-                  text_2BillingData(context, Strings.bedrooms, "value")
+                  Row(
+                    children: [
+                      const Icon(
+                        FontAwesomeIcons.circleCheck,
+                        color: CustomColor.brownColor2,
+                        size: 10,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                        height: 5,
+                      ),
+                      Text('${Strings.code} $codigo ',
+                          style: TextStyle(
+                            fontSize: Dimensions.defaultTextSize,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        FontAwesomeIcons.circleCheck,
+                        color: CustomColor.brownColor2,
+                        size: 10,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                        height: 5,
+                      ),
+                      Text('${Strings.bathroom}: $toilet',
+                          style: TextStyle(
+                            fontSize: Dimensions.defaultTextSize,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        FontAwesomeIcons.circleCheck,
+                        color: CustomColor.brownColor2,
+                        size: 10,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                        height: 5,
+                      ),
+                      Text('${Strings.parking}: $parking',
+                          style: TextStyle(
+                            fontSize: Dimensions.defaultTextSize,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        FontAwesomeIcons.circleCheck,
+                        color: CustomColor.brownColor2,
+                        size: 10,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                        height: 5,
+                      ),
+                      Text('${Strings.bedrooms}: $bedroom',
+                          style: TextStyle(
+                            fontSize: Dimensions.defaultTextSize,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                          )),
+                    ],
+                  ),
                 ],
+              ),
+              const SizedBox(
+                width: 25,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  text_2BillingData(context, Strings.services, "value"),
-                  text_2BillingData(context, Strings.square_meter, "value"),
-                  text_2BillingData(context, Strings.others, "value")
+                  Row(
+                    children: [
+                      const Icon(
+                        FontAwesomeIcons.circleCheck,
+                        color: CustomColor.brownColor2,
+                        size: 10,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                        height: 5,
+                      ),
+                      Text('${Strings.services} $servicios',
+                          style: TextStyle(
+                            fontSize: Dimensions.defaultTextSize,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        FontAwesomeIcons.circleCheck,
+                        color: CustomColor.brownColor2,
+                        size: 10,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                        height: 5,
+                      ),
+                      Text('${Strings.square_meter}: $squareMeter',
+                          style: TextStyle(
+                            fontSize: Dimensions.defaultTextSize,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                          )),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        FontAwesomeIcons.circleCheck,
+                        color: CustomColor.brownColor2,
+                        size: 10,
+                      ),
+                      const SizedBox(
+                        width: 5,
+                        height: 5,
+                      ),
+                      Text('${Strings.others}: $otros',
+                          style: TextStyle(
+                            fontSize: Dimensions.defaultTextSize,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.black,
+                          )),
+                    ],
+                  ),
+                  const SizedBox(height: 15),
                 ],
               ),
             ],
-          )),
+          ),
         ],
       ),
-    ),
-  );
+    );
+  }
 }
+class _buildDetailsSection extends StatelessWidget {
+  const _buildDetailsSection({
+    Key ?key,
+  }) : super(key: key);
 
-text_2BillingData(BuildContext context, String string, String value) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: [
-      const Icon(
-        FontAwesomeIcons.circleCheck,
-        color: CustomColor.brownColor2,
-        size: 7.82,
-      ),
-      Text(
-        string,
-        style: TextStyle(
-            color: CustomColor.colorBlack,
-            fontSize: Dimensions.smallTextSize,
-            fontWeight: FontWeight.bold),
-      ),
-      Text(
-        value,
-        style: TextStyle(
-            color: CustomColor.colorBlack,
-            fontSize: Dimensions.smallTextSize,
-            fontWeight: FontWeight.bold),
-      )
-    ],
-  );
-}
-
-text_3BillingData(BuildContext context) {
-  return Expanded(
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.start,
+  @override
+  Widget build(BuildContext context) {
+    var iconClock = const Icon(FontAwesomeIcons.clock,
+                size: 60, color: CustomColor.brownColor2);
+    var iconPersonCircleCheck = const Icon(FontAwesomeIcons.personCircleCheck,
+                size: 60, color: CustomColor.brownColor2);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Stack(
-              children: const [
-                Icon(
-                  FontAwesomeIcons.clock,
-                  size: 42,
-                  color: CustomColor.brownColor2,
+            iconClock,
+            const Text('Minutos \nreservados', textAlign: TextAlign.center,),
+            SizedBox(height: MediaQuery.of(context).size.height* .015,),
+            RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                        fontSize: Dimensions.defaultTextSize +1,
+                        fontWeight: FontWeight.w500),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: '30',
+                        style: TextStyle(
+                          color: CustomColor.greenColor,
+                          fontSize: Dimensions.semilargelarge - 1
+                          ),
+                      ),
+                      TextSpan(
+                        text: 'min',
+                        style: TextStyle(
+                          color: CustomColor.greenColor,
+                          fontSize: Dimensions.largeTextSize
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),
-            Text(
-              Strings.minutes_reserved,
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              Strings.number_of_minutes_booked,
-              style: TextStyle(
-                  color: CustomColor.greenColor,
-                  fontSize: Dimensions.semilargelarge,
-                  fontWeight: FontWeight.w500),
-            )
           ],
         ),
+        SizedBox(width: MediaQuery.of(context).size.width *0.15),
         Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Icon(
-              FontAwesomeIcons.clock,
-              size: 42,
-              color: CustomColor.brownColor2,
-            ),
-            Text(
-              Strings.busy_minutes,
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              Strings.number_of_minutes_occupied,
-              style: TextStyle(
-                  color: CustomColor.greenColor,
-                  fontSize: Dimensions.semilargelarge,
-                  fontWeight: FontWeight.w500),
-            )
+            iconClock,
+            const Text('Minutos \nocupados', textAlign: TextAlign.center),
+            SizedBox(height: MediaQuery.of(context).size.height* .015,),
+            RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                        fontSize: Dimensions.defaultTextSize +1,
+                        fontWeight: FontWeight.w500),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: '10',
+                        style: TextStyle(
+                          color: CustomColor.greenColor,
+                          fontSize: Dimensions.semilargelarge - 1
+                          ),
+                      ),
+                      TextSpan(
+                        text: 'min',
+                        style: TextStyle(
+                          color: CustomColor.greenColor,
+                          fontSize: Dimensions.largeTextSize
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
           ],
         ),
+        SizedBox(width: MediaQuery.of(context).size.width *0.15),
         Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Icon(
-              FontAwesomeIcons.personCircleCheck,
-              size: 42,
-              color: CustomColor.brownColor2,
-            ),
-            Text(
-              Strings.number_of_visits,
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              Strings.visitor_counter,
-              style: TextStyle(
-                  color: CustomColor.greenColor,
-                  fontSize: Dimensions.semilargelarge,
-                  fontWeight: FontWeight.w500),
-            )
+            iconPersonCircleCheck,
+            const Text('Números \nde visitas', textAlign: TextAlign.center),
+            SizedBox(height: MediaQuery.of(context).size.height* .015,),
+            RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                        fontSize: Dimensions.defaultTextSize +1,
+                        fontWeight: FontWeight.w500),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: '8',
+                        style: TextStyle(
+                          color: CustomColor.greenColor,
+                          fontSize: Dimensions.semilargelarge - 1
+                          ),
+                      ),
+                    ],
+                  ),
+                ),
           ],
-        ),
+        )
       ],
-    ),
-  );
+    );
+  }
 }

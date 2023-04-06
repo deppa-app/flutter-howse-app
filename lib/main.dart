@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TOC Demo',
       theme: ThemeData(primarySwatch: Colors.grey),
-      home: SplashScreen(),
+      home: const SplashScreen(),
     );
   }
 }
