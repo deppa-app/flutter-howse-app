@@ -24,7 +24,7 @@ final bool _isSearching = false;
           color: Colors.white,
           child: Column(
             children: [
-              if (!_isSearching)  BackButtonGeneralWidget(),
+              if (!_isSearching)  const BackButtonGeneralWidget(),
               const SizedBox(height: Dimensions.heightSize),
               if (_isSearching) buildSearchBar(),
               const SizedBox(height: Dimensions.heightSize),
@@ -34,11 +34,11 @@ final bool _isSearching = false;
                   shrinkWrap: true,
                   children: [
                       const SizedBox(height: Dimensions.heightSize),
-                      _PrincipalString(),
+                      const _PrincipalString(),
                       const SizedBox(height: Dimensions.heightSize),
                       buildSearchBar(),
                       const SizedBox(height: Dimensions.heightSize *2),
-                      CustomWidget(
+                      const CustomWidget(
                         imageUrl: 'assets/images/home-key.png',
                         title: 'Precios de arriendos en la RM siguen en\n alza sobre todo en 6 comunas y avisos\n en UF se triplican',
                         overview: 'Los precios de los arriendos en la región Metropolitana continúan mostrando alzas y en las comunas de Providencia, Vitacura y Peñalolén se registraron los mayores aumentos para departamentos',
@@ -145,7 +145,7 @@ class _ImgBuild extends StatelessWidget {
       child: Column(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(15),
             child:  FadeInImage(
               width: 327,
               height: 207,
@@ -170,7 +170,7 @@ class _TitleText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 100),
+      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .12),
       child: Text(
         title,
         textAlign: TextAlign.center,
@@ -194,7 +194,7 @@ class _OverView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 110),
+      padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .12) ,
       child: Text(
         overview,
         textAlign: TextAlign.start,

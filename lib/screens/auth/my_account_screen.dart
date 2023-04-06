@@ -11,7 +11,8 @@ class MyAccountScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final name = 'Elon Reeve\n Musk'.replaceAll('\n', ' ');
+    final name = 'Elon Reeve';
+    final lastName = 'Musk';
     final email = 'elon.musk@email.com';
 
     return  SafeArea(
@@ -24,24 +25,22 @@ class MyAccountScreen extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-               BackButtonGeneralWidget(),
+               const BackButtonGeneralWidget(),
               const SizedBox(height: Dimensions.heightSize),
               Column(
                 children:   [
-                   _principalString(),
+                   const _principalString(),
                   const SizedBox(height: Dimensions.heightSize * 4),
                   Container(
                     decoration: BoxDecoration(
-                                  color: Color.fromARGB(255, 240, 238, 238),
+                                  color: const Color.fromARGB(255, 240, 238, 238),
                                   borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(
-                                    color: Colors.black12,
-                                  ),
                                 ),
                     width: MediaQuery.of(context).size.width * 0.8,
-                    height: MediaQuery.of(context).size.height * 0.25,
+                    height: MediaQuery.of(context).size.height * 0.38,
                     child:  UserInfoSection(
-                      name: name, 
+                      name: name,
+                      lastName: lastName, 
                       email: email, 
                       avatarUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg/1200px-Elon_Musk_Royal_Society_%28crop2%29.jpg'
                       ),
@@ -92,10 +91,11 @@ class UserInfoSection extends StatelessWidget {
     Key ?key,
     @required this.name,
     @required this.email,
-    @required this.avatarUrl,
+    @required this.avatarUrl, this.lastName,
   }) : super(key: key);
 
   final String ?name;
+  final String ?lastName;
   final String ?email;
   final String ?avatarUrl;
 
@@ -103,15 +103,22 @@ class UserInfoSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(padding: EdgeInsets.only(top: 20)),
+        Padding(padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height - (MediaQuery.of(context).size.height) *0.98)),
 
         CircleAvatar(
           radius: 80,
           backgroundImage: NetworkImage(avatarUrl!),
         ),
         const SizedBox(height: Dimensions.heightSize),
-        Padding(padding: EdgeInsets.only(top: 10)),
+        Padding(padding: EdgeInsets.only(top: 8)),
 
+        Text(
+          lastName!,
+          style:  TextStyle(
+            fontWeight: FontWeight.w600,
+            fontSize: Dimensions.largeTextSize,
+          ),
+        ),
         Text(
           name!,
           style:  TextStyle(
@@ -119,7 +126,7 @@ class UserInfoSection extends StatelessWidget {
             fontSize: Dimensions.largeTextSize,
           ),
         ),
-        Padding(padding: EdgeInsets.only(top: 10)),
+        Padding(padding: EdgeInsets.only(top: 5)),
         Text(
           email!,
           style:  TextStyle(

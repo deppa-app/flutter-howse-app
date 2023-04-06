@@ -133,9 +133,10 @@ class _SignUpCardDataState extends State<SignUpCardData> {
                 ),
                 // const SizedBox(height: 0,),
 
-                const FaIcon(
+                FaIcon(
                   FontAwesomeIcons.ccVisa,
-                  size: 150,
+                  size: 200,
+                  color: Colors.grey[200],
                 ),
 
                 const Divider(
@@ -160,6 +161,7 @@ class _SignUpCardDataState extends State<SignUpCardData> {
                         children: [
                           _hintData(Strings.expiryDate),
                           const _titleLabel(label: 'Fecha de vencimiento', paddingRight: 60,),
+
                           TextFormFieldExpirationDate(
                             text: Strings.monthYear,
                             controller: dateCardController,
@@ -235,7 +237,7 @@ class _SignUpCardDataState extends State<SignUpCardData> {
                             child: Text(
                               Strings.paymentMethodSignUp,
                               style: const TextStyle(
-                                  color: CustomColor.linkColor,
+                                  color: CustomColor.brownColor2,
                                   fontSize: 12,
                                   fontWeight: FontWeight.bold),
                             ),

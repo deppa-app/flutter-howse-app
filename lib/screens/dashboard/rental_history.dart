@@ -1,3 +1,4 @@
+import 'package:deppa_app/widgets/buttons/back_buttons/back_button_general_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -21,16 +22,12 @@ class _Rental_HistoryState extends State<Rental_History> {
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: CustomColor.whiteColor,
+          color: Colors.white,
           child: ListView(
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              AppBar(
-                iconTheme: const IconThemeData(color: CustomColor.greenColor),
-                backgroundColor: CustomColor.whiteColor,
-                elevation: 0,
-              ),
+              BackButtonGeneralWidget(),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),

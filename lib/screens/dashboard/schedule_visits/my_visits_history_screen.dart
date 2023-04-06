@@ -5,12 +5,12 @@ import 'package:deppa_app/widgets/widget.dart';
 import '../../../utils/utils.dart';
 import '../../screens.dart';
 
-
 class MyVisitsHistory extends StatelessWidget {
-  const MyVisitsHistory({Key ?key}) : super(key: key);
+  const MyVisitsHistory({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SizedBox spaceBetween = const SizedBox(height: Dimensions.heightSize -10);
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -21,33 +21,50 @@ class MyVisitsHistory extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
               children: [
-                BackButtonGeneralWidget(),
-                SizedBox(height: Dimensions.heightSize),
-                _principalString(),
-                SizedBox(height: Dimensions.heightSize),
+                const BackButtonGeneralWidget(),
+                const SizedBox(height: Dimensions.heightSize),
+                const _principalString(),
+                const SizedBox(height: Dimensions.heightSize),
                 GestureDetector(
-                  child: _HiredSection(),
+                  child: Column(
+                    children: [
+                      const _HiredSection(),
+                      const GreyDivider(),
+                      spaceBetween,
+                      const _HiredSection(),
+                      const GreyDivider(),
+                      spaceBetween,
+                      const _HiredSection(),
+                      const GreyDivider(),
+                      spaceBetween,
+                      const _HiredSection(),
+                      const GreyDivider(),
+                      spaceBetween,
+                      const _HiredSection(),
+                      const GreyDivider(),
+                      spaceBetween,
+                      const _HiredSection(),
+                      const GreyDivider(),
+                      spaceBetween,
+                      const _HiredSection(),
+                      const GreyDivider(),
+                      spaceBetween,
+                      const _HiredSection(),
+                      const GreyDivider(),
+                      spaceBetween,
+                      const _HiredSection(),
+                      const GreyDivider(),
+                      spaceBetween,
+
+                    ],
+                  ),
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => VisitDetailsScreen()));
+                        builder: (context) => const VisitDetailsScreen(
+                              openDoor: true,
+                            )));
                   },
                 ),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
-                SizedBox(height: Dimensions.heightSize),
-                _HiredSection(),
               ],
             )),
       ),
@@ -57,7 +74,7 @@ class MyVisitsHistory extends StatelessWidget {
 
 class _principalString extends StatelessWidget {
   const _principalString({
-    Key ?key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -83,7 +100,7 @@ class _HiredSection extends StatelessWidget {
   final int squareMeter;
 
   const _HiredSection(
-      {Key ?key,
+      {Key? key,
       this.price = '385.000',
       this.toilet = 0,
       this.storage = 0,
@@ -110,10 +127,9 @@ class _HiredSection extends StatelessWidget {
                 storage: storage,
                 parking: parking,
                 squareMeter: squareMeter),
-            _buildDate(),
           ],
         ),
-        _buildLocation()
+        const _buildLocation()
       ],
     );
   }
@@ -121,7 +137,7 @@ class _HiredSection extends StatelessWidget {
 
 class _buildLocation extends StatelessWidget {
   const _buildLocation({
-    Key ?key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -150,9 +166,8 @@ class _buildLocation extends StatelessWidget {
           color: CustomColor.greyColor,
           size: 10,
         ),
-        const SizedBox(
-          width: 5,
-          height: 5,
+        SizedBox(
+          width: MediaQuery.of(context).size.width * .13,
         ),
         Text(
           '200 Rafael Sotomayor #23',
@@ -166,7 +181,7 @@ class _buildLocation extends StatelessWidget {
 
 class _buildDate extends StatelessWidget {
   const _buildDate({
-    Key ?key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -177,7 +192,7 @@ class _buildDate extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        Text('Fecha: 14/3/2023',
+        Text('14/3/2023',
             style: TextStyle(
               fontSize: Dimensions.extraSmallTextSize,
               fontWeight: FontWeight.w600,
@@ -190,7 +205,7 @@ class _buildDate extends StatelessWidget {
 
 class _buildDetails extends StatelessWidget {
   const _buildDetails({
-    Key ?key,
+    Key? key,
     required this.toilet,
     required this.bedroom,
     required this.storage,
@@ -198,11 +213,11 @@ class _buildDetails extends StatelessWidget {
     required this.squareMeter,
   }) : super(key: key);
 
-  final int ?toilet;
-  final int ?bedroom;
-  final int ?storage;
-  final int ?parking;
-  final int ?squareMeter;
+  final int? toilet;
+  final int? bedroom;
+  final int? storage;
+  final int? parking;
+  final int? squareMeter;
 
   @override
   Widget build(BuildContext context) {
@@ -212,12 +227,20 @@ class _buildDetails extends StatelessWidget {
         const SizedBox(
           height: 10,
         ),
-        Text(Strings.aparmentRentals,
-            style: TextStyle(
-              fontSize: Dimensions.smallTextSize,
-              fontWeight: FontWeight.w600,
-              color: CustomColor.colorBlack,
-            )),
+        Row(
+          children: [
+            Text(Strings.aparmentRentals,
+                style: TextStyle(
+                  fontSize: Dimensions.smallTextSize,
+                  fontWeight: FontWeight.w600,
+                  color: CustomColor.colorBlack,
+                )),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.2,
+            ),
+            const _buildDate(),
+          ],
+        ),
         const SizedBox(height: 6),
         Row(
           mainAxisSize: MainAxisSize.min,
@@ -340,7 +363,7 @@ class _buildDetails extends StatelessWidget {
 
 class _buildImageAndPrice extends StatelessWidget {
   const _buildImageAndPrice({
-    Key ?key,
+    Key? key,
     required this.price,
   }) : super(key: key);
 
@@ -369,7 +392,7 @@ class _buildImageAndPrice extends StatelessWidget {
 
 class _builPrice extends StatelessWidget {
   const _builPrice({
-    Key ?key,
+    Key? key,
     required this.price,
   }) : super(key: key);
 

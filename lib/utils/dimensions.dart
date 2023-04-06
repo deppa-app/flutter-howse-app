@@ -4,6 +4,7 @@ class Dimensions {
   static double extraSmallTextSize = 10.00;
   static double extraSmallTextSize2 = 10.00;
   static double largeTextSize = 16.00;
+  static double textSize18 = 18.00;
   static double extraLargeTextSize = 20.00;
   static double semilarge = 25.00;
   static double semilargelarge = 29.00;
@@ -13,7 +14,7 @@ class Dimensions {
   static const double marginSize = 20.00;
   static const double heightSize = 12.00;
   static const double widthSize = 10.00;
-  static const double radius = 15.00;
+  static const double radius = 100.00;
   static const double buttonHeight = 50.00;
   static const double topHeight = 120.00;
   static const double wide_carousel = 309.00;

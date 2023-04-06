@@ -1,3 +1,4 @@
+import 'package:deppa_app/widgets/buttons/back_buttons/back_button_general_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -21,16 +22,12 @@ class _BillingState extends State<Billing> {
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
-          color: CustomColor.whiteColor,
+          color: Colors.white,
           child: ListView(
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              AppBar(
-                iconTheme: const IconThemeData(color: CustomColor.greenColor),
-                backgroundColor: CustomColor.whiteColor,
-                elevation: 0,
-              ),
+              BackButtonGeneralWidget(),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
@@ -167,123 +164,90 @@ class _BillingState extends State<Billing> {
 }
 
 Text_1Billing(BuildContext context) {
-  return Expanded(
-    //Al quitar el 'Expanded' se va la excepción.
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Stack(
-              children: const [
-                Icon(
-                  FontAwesomeIcons.circleDollarToSlot,
-                  color: CustomColor.brownColor2,
-                ),
-                //Icon(
-                //FontAwesomeIcons.eye,
-                //color: CustomColor.brownColor2,
-                //),
-              ],
-            ),
-            const SizedBox(
-              height: Dimensions.heightSize * 0.5,
-            ),
-            Text(
-              "Visitas",
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              "Pagadas",
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              Strings.views_available_value,
-              style: TextStyle(
-                  color: CustomColor.greenColor,
-                  fontSize: Dimensions.semilargelarge,
-                  fontWeight: FontWeight.w500),
-            )
-          ],
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Icon(
-              FontAwesomeIcons.houseCircleXmark,
-              color: CustomColor.brownColor2,
-            ),
-            const SizedBox(
-              height: Dimensions.heightSize * 0.5,
-            ),
-            Text(
-              "Visitas",
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              "Utilizadas",
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              Strings.views_available_value,
-              style: TextStyle(
-                  color: CustomColor.greenColor,
-                  fontSize: Dimensions.semilargelarge,
-                  fontWeight: FontWeight.w500),
-            )
-          ],
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Icon(
-              FontAwesomeIcons.houseCircleCheck,
-              color: CustomColor.brownColor2,
-            ),
-            const SizedBox(
-              height: Dimensions.heightSize * 0.5,
-            ),
-            Text(
-              "Visitas",
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              "Diponibles",
-              style: TextStyle(
-                  color: CustomColor.colorBlack,
-                  fontSize: Dimensions.smallTextSize,
-                  fontWeight: FontWeight.w500),
-            ),
-            Text(
-              Strings.views_available_value,
-              style: TextStyle(
-                  color: CustomColor.greenColor,
-                  fontSize: Dimensions.semilargelarge,
-                  fontWeight: FontWeight.w500),
-            )
-          ],
-        ),
-      ],
-    ),
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Stack(
+            children: const [
+              Icon(
+                FontAwesomeIcons.circleDollarToSlot,
+                color: CustomColor.brownColor2,
+              ),
+              //Icon(
+              //FontAwesomeIcons.eye,
+              //color: CustomColor.brownColor2,
+              //),
+            ],
+          ),
+          Text(
+            Strings.paid_views,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.smallTextSize,
+                fontWeight: FontWeight.w500),
+          ),
+          Text(
+            Strings.paid_views_value,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.semilargelarge,
+                fontWeight: FontWeight.w500),
+          )
+        ],
+      ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Icon(
+            FontAwesomeIcons.houseCircleXmark,
+            color: CustomColor.brownColor2,
+          ),
+          Text(
+            Strings.views_used,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.smallTextSize,
+                fontWeight: FontWeight.w500),
+          ),
+          Text(
+            Strings.views_used_value,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.semilargelarge,
+                fontWeight: FontWeight.w500),
+          )
+        ],
+      ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Icon(
+            FontAwesomeIcons.houseCircleCheck,
+            color: CustomColor.brownColor2,
+          ),
+          Text(
+            Strings.views_available,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.smallTextSize,
+                fontWeight: FontWeight.w500),
+          ),
+          Text(
+            Strings.views_available_value,
+            style: TextStyle(
+                color: CustomColor.colorBlack,
+                fontSize: Dimensions.semilargelarge,
+                fontWeight: FontWeight.w500),
+          )
+        ],
+      ),
+    ],
   );
 }
