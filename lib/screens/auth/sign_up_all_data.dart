@@ -132,7 +132,7 @@ class _SignUpAllDataState extends State<SignUpAllData> {
             },
           );
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => SignUpScreen8()));
+              MaterialPageRoute(builder: (context) => const SignUpPaymentCard()));
         }
       },
     );

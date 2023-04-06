@@ -28,7 +28,9 @@ class TextFormFieldCard extends StatelessWidget {
           // TODO: Mejorar expresión regular
           
           RegExp regExp = RegExp(r'[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}');
-          bool match = regExp.hasMatch(value); 
+          //TODO:corregir validación de tarjeta
+          bool match= true;
+          //bool match = regExp.hasMatch(value); 
 
           if(match == false){
             return(Strings.useValidDate);

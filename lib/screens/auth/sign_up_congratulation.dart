@@ -4,14 +4,14 @@ import 'package:deppa_app/screens/auth/auth.dart';
 import 'package:deppa_app/utils/utils.dart';
 import 'package:deppa_app/widgets/widget.dart';
 
-class SignUpScreen10 extends StatefulWidget {
-  const SignUpScreen10({Key ?key}) : super(key: key);
+class SignUpCongratulation extends StatefulWidget {
+  const SignUpCongratulation({Key ?key}) : super(key: key);
 
   @override
-  _SignUpScreen10State createState() => _SignUpScreen10State();
+  _SignUpCongratulationState createState() => _SignUpCongratulationState();
 }
 
-class _SignUpScreen10State extends State<SignUpScreen10> {
+class _SignUpCongratulationState extends State<SignUpCongratulation> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -31,28 +31,26 @@ class _SignUpScreen10State extends State<SignUpScreen10> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(
-                title: '',
-                percent: 0,
-              ),
+              BackButtonGeneralWidget(),
               const SizedBox(
-                height: Dimensions.heightSize * 2,
+                height: Dimensions.heightSize * 5,
               ),
               inputFieldWidget(context),
-              Image(
-                image: const AssetImage('assets/images/lorem-image.jpeg'),
-                height: MediaQuery.of(context).size.height * 0.4,
-                width: MediaQuery.of(context).size.width * 0.4,
+              SizedBox(
+                height: 360,
+                child: Image.asset('assets/images/tinck.png')
               ),
+              const SizedBox(height: 21,),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
               Text(
                 "Haz finalizado el registro. Tu cuenta está en proceso de validación",
                 style: TextStyle(
-                    color: CustomColor.primaryColor,
+                    color: CustomColor.colorBlack,
                     fontSize: Dimensions.largeTextSize,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,
+                    ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: Dimensions.heightSize * 10),
@@ -62,7 +60,7 @@ class _SignUpScreen10State extends State<SignUpScreen10> {
                   right: MediaQuery.of(context).size.width * 0.08,
                 ),
                 child: SecondaryButtonWidget(
-                  title: "Entendido",
+                  title: "Entiendo",
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const SignInScreen()));
@@ -77,7 +75,7 @@ class _SignUpScreen10State extends State<SignUpScreen10> {
   }
 
   inputFieldWidget(BuildContext context) {
-    return Padding(
+    /*return Padding(
         padding: const EdgeInsets.only(
           left: Dimensions.marginSize,
           right: Dimensions.marginSize,
@@ -104,6 +102,25 @@ class _SignUpScreen10State extends State<SignUpScreen10> {
                   height: Dimensions.heightSize * 2,
                 ),
               ],
-            )));
+            )));*/
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: Dimensions.marginSize,
+        right: Dimensions.marginSize,
+      ),
+      child: Text("¡Felicidades!",
+      style: TextStyle(
+        fontSize: Dimensions.extraLargeTextSize * 1.5,
+        fontWeight: FontWeight.bold,
+        color: CustomColor.primaryColor
+      ),
+      textAlign: TextAlign.center
+        //style: TextStyle(
+        //color: CustomColor.primaryColor,
+        //fontSize: Dimensions.extraLargeTextSize * 1.5,
+        //fontWeight: FontWeight.bold),
+        //textAlign: TextAlign.center,
+      ),
+    );
   }
 }

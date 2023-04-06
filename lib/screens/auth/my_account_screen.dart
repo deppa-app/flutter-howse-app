@@ -51,7 +51,7 @@ class MyAccountScreen extends StatelessWidget {
                     onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>  BookingPin()));
+                        builder: (context) =>  const BookingPin()));
                   }
                   ),
                   const SizedBox(height: Dimensions.heightSize * 4),
@@ -71,7 +71,7 @@ class MyAccountScreen extends StatelessWidget {
                     onTap: () {
                     Navigator.of(context).pop();
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) =>  SignUpScreen9()));
+                        builder: (context) =>  const SignUpCardData()));
                   },
                   ),
                 ],

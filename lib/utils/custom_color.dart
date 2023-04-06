@@ -18,9 +18,9 @@ class CustomColor {
   static const Color keyboardBorderColor = Color(0xFFF8F8F8);
   static const Color linkColor = Color(0xFF0165FC);
   static const Color orangeColor = Color(0xFFFF8000);
-  static const Color primaryColor = Color(0x12B967);
+  static const Color primaryColor = Color(0xFF4DBA6D);
   static const Color redColor = Color(0xFFEB2721);
-  static const Color secondaryColor = Color(0xA76846);
+  static const Color secondaryColor = Color(0xFFA76846);
   static const Color secondBlack = Color.fromARGB(185, 95, 94, 94);
   static const Color settingColor = Color(0xFFE0F1E4);
   static const Color whiteColor = Colors.white;

@@ -69,7 +69,7 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(
+              const BackWidget(
                 title: '',
                 percent: 0.5,
               ),

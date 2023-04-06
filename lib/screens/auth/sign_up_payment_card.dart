@@ -5,14 +5,14 @@ import 'package:deppa_app/screens/auth/auth.dart';
 import 'package:deppa_app/utils/utils.dart';
 import 'package:deppa_app/widgets/widget.dart';
 
-class SignUpScreen8 extends StatefulWidget {
-  const SignUpScreen8({Key ?key}) : super(key: key);
+class SignUpPaymentCard extends StatefulWidget {
+  const SignUpPaymentCard({Key ?key}) : super(key: key);
 
   @override
-  _SignUpScreen8State createState() => _SignUpScreen8State();
+  _SignUpPaymentCardState createState() => _SignUpPaymentCardState();
 }
 
-class _SignUpScreen8State extends State<SignUpScreen8> {
+class _SignUpPaymentCardState extends State<SignUpPaymentCard> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -51,7 +51,7 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                 title: Strings.creditVisa,
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => SignUpScreen9()));
+                      builder: (context) => SignUpCardData()));
                 },
               ),
               ListTileCustom(
@@ -59,7 +59,7 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                 title: Strings.creditVisa,
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => SignUpScreen9()));
+                      builder: (context) => SignUpCardData()));
                 },
               ),
               SizedBox(
@@ -79,7 +79,7 @@ class _SignUpScreen8State extends State<SignUpScreen8> {
                 title: Strings.noCreditCard,
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => SignUpScreen9()));
+                      builder: (context) => SignUpCardData()));
                 },
               ),
             ],
