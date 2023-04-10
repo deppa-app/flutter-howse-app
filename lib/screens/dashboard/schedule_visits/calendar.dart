@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../utils/custom_color.dart';
-import '../../../utils/dimensions.dart';
+//import '../../../utils/dimensions.dart';
 
 class Calendar extends StatefulWidget {
   const Calendar({Key? key}) : super(key: key);
@@ -35,8 +35,7 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.all(16.0), // Añade un relleno de 16.0 a todos los lados
+      padding: const EdgeInsets.all(16.0), // Añade un relleno de 16.0 a todos los lados
       child: Container(
         width: 150,
         height: 50,

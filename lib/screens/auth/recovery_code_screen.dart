@@ -30,9 +30,7 @@ class _RecoveryCodeScreenState extends State<RecoveryCodeScreen> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                     BackWidget(
-                      title: "",
-                    ),
+                    const BackWidget(title: "", percent: 0,),
                     SingleChildScrollView(
                       child: Padding(
                         padding: EdgeInsets.only(
@@ -83,7 +81,7 @@ class _RecoveryCodeScreenState extends State<RecoveryCodeScreen> {
                                 onTap: () {
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) =>
-                                           SignInScreen()));
+                                           const SignInScreen()));
                                 },
                               ),
                             ),

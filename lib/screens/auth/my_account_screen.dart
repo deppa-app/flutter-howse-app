@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../utils/utils.dart';
 import '../../widgets/widget.dart';
-import '../dashboard/booking_pin.dart';
+//import '../dashboard/booking_pin.dart';
 import '../screens.dart';
 
 class MyAccountScreen extends StatelessWidget {
@@ -11,9 +11,9 @@ class MyAccountScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    final name = 'Elon Reeve';
-    final lastName = 'Musk';
-    final email = 'elon.musk@email.com';
+    const  name = 'Elon Reeve';
+    const  lastName = 'Musk';
+    const  email = 'elon.musk@email.com';
 
     return  SafeArea(
       child: Scaffold(
@@ -38,7 +38,7 @@ class MyAccountScreen extends StatelessWidget {
                                 ),
                     width: MediaQuery.of(context).size.width * 0.8,
                     height: MediaQuery.of(context).size.height * 0.38,
-                    child:  UserInfoSection(
+                    child:  const UserInfoSection(
                       name: name,
                       lastName: lastName, 
                       email: email, 
@@ -110,7 +110,7 @@ class UserInfoSection extends StatelessWidget {
           backgroundImage: NetworkImage(avatarUrl!),
         ),
         const SizedBox(height: Dimensions.heightSize),
-        Padding(padding: EdgeInsets.only(top: 8)),
+        const Padding(padding: EdgeInsets.only(top: 8)),
 
         Text(
           lastName!,
@@ -126,7 +126,7 @@ class UserInfoSection extends StatelessWidget {
             fontSize: Dimensions.largeTextSize,
           ),
         ),
-        Padding(padding: EdgeInsets.only(top: 5)),
+        const Padding(padding: EdgeInsets.only(top: 5)),
         Text(
           email!,
           style:  TextStyle(

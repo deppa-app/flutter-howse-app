@@ -61,7 +61,7 @@ class _SignUpAllDataState extends State<SignUpAllData> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(
+              const BackWidget(
                 title: '',
                 percent: 0.7,
               ),

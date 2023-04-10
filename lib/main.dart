@@ -1,13 +1,24 @@
 import 'package:deppa_app/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'features/autocapture/presentation/bloc/autocapture_bloc.dart';
 
 void main() {
-  runApp(MultiBlocProvider(providers: [
-    BlocProvider(create: (_) => AutocaptureBloc()),
-  ], child: const MyApp()));
+  
+  WidgetsFlutterBinding.ensureInitialized(); 
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]) .then((_) { 
+    runApp(
+      MultiBlocProvider(
+        providers:[
+          BlocProvider(create: (_) => AutocaptureBloc()),
+        ],
+        child: const MyApp(),
+      )
+      ); 
+    }
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'TOC Demo',
+      title: 'Deppa App',
       theme: ThemeData(primarySwatch: Colors.grey),
       home: const SplashScreen(),
     );

@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:deppa_app/models/user.dart';
 import 'package:deppa_app/screens/auth/auth.dart';
-import 'package:deppa_app/services/user.dart';
+//import 'package:deppa_app/services/user.dart';
 
 import 'package:deppa_app/utils/utils.dart';
 import 'package:deppa_app/widgets/widget.dart';
@@ -190,7 +190,7 @@ class _SignInScreenState extends State<SignInScreen> {
           // ),
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>  HomeScreen()));
+                      builder: (context) =>  const HomeScreen()));
             /* if (formKey.currentState.validate()) {
               futureUser =
                   validateUser(emailController.text, passwordController.text);
@@ -289,7 +289,7 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) =>  TermsAndConditions()));
+                builder: (context) =>  const TermsAndConditions()));
           },
         )
       ],

@@ -19,13 +19,13 @@ class ChangePasswordScreen extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               shrinkWrap: true,
               children: [
-              BackButtonGeneralWidget(),
+              const BackButtonGeneralWidget(),
               const SizedBox(height: Dimensions.heightSize),
               Column(
                 children: [
-                   _PrincipalString(),
+                  const _PrincipalString(),
                   const SizedBox(height: Dimensions.heightSize * 1.5),
-                   _SecondaryString(),
+                  const _SecondaryString(),
                   const SizedBox(height: 38),
                   _PasswordTextField(hint: Strings.currentPasswordEsp,),
                   const SizedBox(height: 38),

@@ -1,6 +1,6 @@
 import 'package:deppa_app/widgets/buttons/back_buttons/back_button_general_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+//import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../utils/custom_color.dart';
@@ -27,7 +27,7 @@ class _Rental_HistoryState extends State<Rental_History> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackButtonGeneralWidget(),
+              const BackButtonGeneralWidget(),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),

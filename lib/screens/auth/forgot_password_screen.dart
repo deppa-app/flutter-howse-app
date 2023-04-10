@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:deppa_app/screens/auth/auth.dart';
+//import 'package:deppa_app/screens/auth/auth.dart';
 import 'package:deppa_app/screens/auth/recovery_code_screen.dart';
 import 'package:deppa_app/utils/utils.dart';
 
@@ -34,9 +34,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                     BackWidget(
-                      title: "",
-                    ),
+                    const BackWidget(title: "", percent: 0,),
                     SingleChildScrollView(
                       child: Padding(
                         padding: EdgeInsets.only(
@@ -122,7 +120,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                                 onTap: () {
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) =>
-                                           RecoveryCodeScreen()));
+                                           const RecoveryCodeScreen()));
                                 },
                               ),
                             ),

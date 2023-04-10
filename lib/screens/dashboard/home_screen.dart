@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: Colors.white,
         key: scaffoldKey,
-        drawer: SideBar(),
+        drawer: const SideBar(),
         body: SizedBox(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
@@ -380,7 +380,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: CustomColor.accentColor.withOpacity(0.3),
                     spreadRadius: 1,
                     blurRadius: 2,
-                    offset: Offset(0, 3)
+                    offset: const Offset(0, 3)
                     )
                 ],
                 borderRadius: BorderRadius.circular(20),

@@ -41,7 +41,7 @@ class _SignUpPhoneState extends State<SignUpPhone> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: "", percent: 0.2),
+              const BackWidget(title: "", percent: 0.2),
               SizedBox(height: height * 0.02),
               inputFieldWidget(context),
               SizedBox(height: height * 0.35),
@@ -73,7 +73,7 @@ class _SignUpPhoneState extends State<SignUpPhone> {
       onTap: () {
         if (formKey.currentState!.validate()) {
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => SignUpValidationNumbre(
+              builder: (context) => const SignUpValidationNumbre(
                     /*address: widget.address!,
                     email: widget.email!,
                     password: widget.password!,

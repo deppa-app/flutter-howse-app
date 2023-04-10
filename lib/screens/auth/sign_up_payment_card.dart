@@ -32,7 +32,7 @@ class _SignUpPaymentCardState extends State<SignUpPaymentCard> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(
+              const BackWidget(
                 title: '',
                 percent: 0.8,
               ),
@@ -51,7 +51,7 @@ class _SignUpPaymentCardState extends State<SignUpPaymentCard> {
                 title: Strings.creditVisa,
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => SignUpCardData()));
+                      builder: (context) => const SignUpCardData()));
                 },
               ),
               ListTileCustom(
@@ -59,7 +59,7 @@ class _SignUpPaymentCardState extends State<SignUpPaymentCard> {
                 title: Strings.creditVisa,
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => SignUpCardData()));
+                      builder: (context) => const SignUpCardData()));
                 },
               ),
               SizedBox(
@@ -79,7 +79,7 @@ class _SignUpPaymentCardState extends State<SignUpPaymentCard> {
                 title: Strings.noCreditCard,
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => SignUpCardData()));
+                      builder: (context) => const SignUpCardData()));
                 },
               ),
             ],

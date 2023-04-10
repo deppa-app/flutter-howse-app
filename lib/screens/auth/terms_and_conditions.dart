@@ -31,7 +31,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: "Atrás"),
+              const BackWidget(title: "Atrás", percent: 0,),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),

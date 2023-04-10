@@ -105,9 +105,9 @@ class CustomWidget extends StatelessWidget {
     return Column(
       children: [
         _ImgBuild(imageUrl: imageUrl!),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         _TitleText(title: title!),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         _OverView(overview: overview!),
       ],
     );

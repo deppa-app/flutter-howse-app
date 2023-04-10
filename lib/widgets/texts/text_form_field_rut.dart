@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:deppa_app/utils/custom_style.dart';
-import 'package:deppa_app/utils/strings.dart';
+//import 'package:deppa_app/utils/strings.dart';
 
 class TextFormFieldRut extends StatelessWidget {
   const TextFormFieldRut({ 

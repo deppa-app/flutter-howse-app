@@ -35,7 +35,7 @@ class _MoreInfoState extends State<MoreInfo> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: ""),
+              const BackWidget(title: "", percent: 0,),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
               Text(

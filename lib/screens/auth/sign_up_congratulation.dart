@@ -31,7 +31,7 @@ class _SignUpCongratulationState extends State<SignUpCongratulation> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackButtonGeneralWidget(),
+              const BackButtonGeneralWidget(),
               const SizedBox(
                 height: Dimensions.heightSize * 5,
               ),

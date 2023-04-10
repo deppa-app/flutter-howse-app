@@ -89,7 +89,7 @@ class _SignUpValidationNumbreState extends State<SignUpValidationNumbre> {
       title: Strings.validateSignUp,
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => SignUpValidationDocumentation(
+            builder: (context) => const SignUpValidationDocumentation(
                   /*address: widget.address!,
                   email: widget.email!,
                   password: widget.password!,

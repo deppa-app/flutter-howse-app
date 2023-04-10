@@ -29,10 +29,10 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: height * 0.03,),
+              SizedBox(height: height * 0.08,),
               SizedBox(
               width: double.infinity,
-              height: 600,
+              height: height*0.6,
               child: Swiper(
                 itemCount: totalPages,
                 layout: SwiperLayout.DEFAULT,
@@ -60,16 +60,16 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                 child: Text(
                                   oi.title!,
                                   style: TextStyle(
-                                      color: CustomColor.primaryColor,
+                                      color: CustomColor.secondaryColor,
                                       fontSize:
                                           Dimensions.extraLargeTextSize *
                                               1.5,
                                       fontWeight: FontWeight.bold),
-                                  textAlign: TextAlign.justify,
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                               const SizedBox(
-                                height: Dimensions.heightSize * 2,
+                                height: Dimensions.heightSize * 3,
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(
@@ -78,23 +78,22 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                 child: Text(
                                   oi.subTitle!,
                                   style: TextStyle(
-                                    color: CustomColor.primaryColor,
+                                    color: CustomColor.colorBlack,
                                     fontSize: Dimensions.largeTextSize,
                                   ),
-                                  textAlign: TextAlign.justify,
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(
-                                  top: 40.00,
+                                  top: Dimensions.heightSize * 4,
                                   left: Dimensions.marginSize,
                                   right: Dimensions.marginSize,
                                 ),
                                 child: Align(
                                   alignment: Alignment.topCenter,
                                   child: Image.asset(
-                                    'assets/images/lorem-image.png',
-                                    fit: BoxFit.fill,
+                                    oi.image!,
                                   ),
                                 ),
                               ),
@@ -117,7 +116,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                                 return Padding(
                                                   padding:
                                                       const EdgeInsets.only(
-                                                          right: 10.0),
+                                                          right: 20.0),
                                                   child: Text(
                                                     ("o").toString(),
                                                     style: TextStyle(
@@ -158,7 +157,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
             
                   
             
-            Text(Strings.haveAccount, style: const TextStyle(fontSize: 14, color: CustomColor.primaryColor)),
+            Text(Strings.haveAccount, style: const TextStyle(fontSize: 14, color: CustomColor.secondaryColor)),
             
             SizedBox(height: height * 0.04),
 

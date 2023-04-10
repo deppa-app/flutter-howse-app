@@ -34,7 +34,7 @@ class _BookingState extends State<Booking> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackButtonGeneralWidget(),
+              const BackButtonGeneralWidget(),
               SizedBox(
                 height: Dimensions.heightSize * 8,
                 child: Image.asset('assets/images/logo_orizon.png'),

@@ -5,10 +5,10 @@ import 'package:deppa_app/utils/dimensions.dart';
 import '../../linear_percent_widget.dart';
 
 class BackWidget extends StatefulWidget {
-  final String ?title;
-  final double ?percent;
+  final String title;
+  final double percent;
 
-  const BackWidget({Key ?key, this.title, this.percent}) : super(key: key);
+  const BackWidget({Key ?key, required this.title, required this.percent}) : super(key: key);
 
   @override
   _BackWidgetState createState() => _BackWidgetState();
@@ -26,8 +26,8 @@ class _BackWidgetState extends State<BackWidget> {
           GestureDetector(
             child: const Icon(
               Icons.arrow_back_ios_new_outlined,
-              color: CustomColor.greenColor,
-              size: 20,
+              color: CustomColor.primaryColor,
+              size: 25,
             ),
             onTap: () {
               Navigator.of(context).pop();
@@ -37,7 +37,7 @@ class _BackWidgetState extends State<BackWidget> {
             width: Dimensions.widthSize * 1,
           ),
           Text(
-            widget.title!,
+            widget.title,
             style: TextStyle(
                 fontSize: Dimensions.extraLargeTextSize,
                 fontWeight: FontWeight.bold,
@@ -45,8 +45,8 @@ class _BackWidgetState extends State<BackWidget> {
             textAlign: TextAlign.center,
           ),
           widget.percent != 0
-              ? LinearPercentWidget(percent: widget.percent!)
-              : Text('')
+              ? LinearPercentWidget(percent: widget.percent)
+              : const Text('')
         ],
       ),
     );

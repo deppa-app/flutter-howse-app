@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deppa_app/screens/dashboard/home_screen.dart';
 import 'package:deppa_app/utils/dimensions.dart';
-import 'package:deppa_app/utils/strings.dart';
+//import 'package:deppa_app/utils/strings.dart';
 import '../../utils/custom_color.dart';
 import 'package:deppa_app/widgets/widget.dart';
 class BookingDetails extends StatefulWidget {
@@ -33,7 +33,7 @@ class _BookingDetailsState extends State<BookingDetails> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-               BackButtonGeneralWidget(),
+              const BackButtonGeneralWidget(),
               const SizedBox(height: Dimensions.heightSize * 2,),
               inputFieldWidget(context),
               Text(
@@ -55,14 +55,14 @@ class _BookingDetailsState extends State<BookingDetails> {
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>  HomeScreen()));
+                      builder: (context) =>  const HomeScreen()));
                 },
               ),
               SecondaryButtonWidget(
                   title: "Volver al Home",
                     onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(builder:
-                    (context) =>  HomeScreen()));
+                    (context) =>  const HomeScreen()));
                   },
                 ),
               const SizedBox(height: Dimensions.heightSize * 2,),

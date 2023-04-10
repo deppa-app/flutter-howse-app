@@ -27,7 +27,7 @@ class _BillingState extends State<Billing> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackButtonGeneralWidget(),
+              const BackButtonGeneralWidget(),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),

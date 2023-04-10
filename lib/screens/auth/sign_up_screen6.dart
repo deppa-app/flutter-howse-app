@@ -69,10 +69,7 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(
-                title: '',
-                percent: 0.6,
-              ),
+              const BackWidget(title: '',percent: 0.6,),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
@@ -152,7 +149,7 @@ class _SignUpScreen6State extends State<SignUpScreen6> {
       title: Strings.validateSignUp,
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => SignUpAllData(
+            builder: (context) => const SignUpAllData(
                   /*address: widget.address!,
                   email: widget.email!,
                   password: widget.password!,

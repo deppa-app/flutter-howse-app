@@ -5,7 +5,7 @@ import 'package:deppa_app/screens/auth/auth.dart';
 import 'package:deppa_app/utils/utils.dart';
 import 'package:deppa_app/widgets/widget.dart';
 
-import '../../widgets/linear_percent_widget.dart';
+//import '../../widgets/linear_percent_widget.dart';
 
 class SignUpBasics extends StatefulWidget {
   const SignUpBasics({Key ?key}) : super(key: key);
@@ -17,10 +17,7 @@ class SignUpBasics extends StatefulWidget {
 class _SignUpBasicsState extends State<SignUpBasics> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  TextEditingController firstNameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
   TextEditingController addressController = TextEditingController();
-  TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPasswordController = TextEditingController();
@@ -31,11 +28,6 @@ class _SignUpBasicsState extends State<SignUpBasics> {
   bool checkedValue3 = false;
   bool checkedValue4 = false;
 
-  String selectedCounty = 'United States';
-  //Country _selected;
-
-  List<String> genderList = ['Male', 'Female', 'Others'];
-  String ?selectedGender;
 
   callBack(bool value, bool value2, bool value3, bool value4) {
     checkedValue1 = value;
@@ -47,8 +39,6 @@ class _SignUpBasicsState extends State<SignUpBasics> {
   @override
   void initState() {
     super.initState();
-
-    selectedGender = genderList[0].toString();
   }
 
   @override
@@ -68,7 +58,7 @@ class _SignUpBasicsState extends State<SignUpBasics> {
             shrinkWrap: true,
             children: [
               barIconRow(),
-              const SizedBox(height: Dimensions.heightSize * 1),
+              const SizedBox(height: Dimensions.heightSize * 3),
               basicInfoPadding(width),
               textInfoPadding(height, width),
               inputColumn(width, context, height),
@@ -125,11 +115,8 @@ class _SignUpBasicsState extends State<SignUpBasics> {
   Row barIconRow() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        BackWidget(
-          title: "",
-          percent: 0.1,
-        )
+      children: const [
+        BackWidget(title: "",percent: 0.15,)
       ],
     );
   }
@@ -142,7 +129,7 @@ class _SignUpBasicsState extends State<SignUpBasics> {
           fontSize: 25,
           height: 1.3,
           fontWeight: FontWeight.bold),
-      textAlign: TextAlign.start,
+      textAlign: TextAlign.center,
     );
   }
 
@@ -329,7 +316,7 @@ class _SignUpBasicsState extends State<SignUpBasics> {
               child: SizedBox(
                 height: 30.00,
                 child: CheckboxListTile(
-                  activeColor: Colors.white,
+                  activeColor: CustomColor.greyColorCheck,
                   checkColor: CustomColor.greenColor,
                   title: const Text(
                     "Un caracter especial",
@@ -346,32 +333,6 @@ class _SignUpBasicsState extends State<SignUpBasics> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 0.0,
-                left: 30.00,
-                right: 30.00,
-              ),
-              child: SizedBox(
-                height: 30.00,
-                child: CheckboxListTile(
-                  activeColor: Colors.white,
-                  checkColor: CustomColor.greenColor,
-                  title: const Text(
-                    "Entre 8 y 15 caracteres",
-                    style: TextStyle(
-                      color: CustomColor.colorBlack,
-                      fontSize: 12.00,
-                    ),
-                    textAlign: TextAlign.justify,
-                  ),
-                  value: checkedValue4,
-                  onChanged: (_) {},
-                  controlAffinity:
-                      ListTileControlAffinity.leading, //  <-- leading Checkbox
-                ),
-              ),
-            )
           ],
         );
       },
