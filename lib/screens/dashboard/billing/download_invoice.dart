@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../../../../widgets/widget.dart';
+//import '../../../../widgets/widget.dart';
 import '../../../utils/custom_color.dart';
 import '../../../utils/dimensions.dart';
 import '../../../utils/strings.dart';
@@ -154,7 +154,7 @@ class DownloadInvoice extends StatelessWidget {
 
 text_1Invoice(BuildContext context) {
   return Padding(
-    padding: EdgeInsets.all(16.0), // Añade un relleno de 16.0 a todos los lados
+    padding: const EdgeInsets.all(16.0), // Añade un relleno de 16.0 a todos los lados
     child: Container(
       width: 344,
       height: 60,

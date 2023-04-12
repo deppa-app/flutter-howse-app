@@ -5,14 +5,14 @@ import 'package:deppa_app/screens/auth/auth.dart';
 import 'package:deppa_app/utils/utils.dart';
 import 'package:deppa_app/widgets/widget.dart';
 
-class SignUpScreen9 extends StatefulWidget {
-  const SignUpScreen9({Key ?key}) : super(key: key);
+class SignUpCardData extends StatefulWidget {
+  const SignUpCardData({Key ?key}) : super(key: key);
 
   @override
-  _SignUpScreen9State createState() => _SignUpScreen9State();
+  _SignUpCardDataState createState() => _SignUpCardDataState();
 }
 
-class _SignUpScreen9State extends State<SignUpScreen9> {
+class _SignUpCardDataState extends State<SignUpCardData> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController numberCardController = TextEditingController();
@@ -36,7 +36,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(title: '', percent: 1.0),
+              const BackWidget(title: '', percent: 100.0),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
@@ -70,7 +70,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
       onTap: () {
         if (formKey.currentState!.validate()) {
           Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => SignUpScreen10()));
+              MaterialPageRoute(builder: (context) => const SignUpCongratulation()));
         }
       },
     );
@@ -150,7 +150,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                   padding: const EdgeInsets.only(right: 200),
                   child: _hintData(Strings.titleNumberCard),
                 ),
-                _titleLabel(label: 'Número de tarjeta', paddingRight: MediaQuery.of(context).size.width * .62),
+                const _titleLabel(label: 'Número de tarjeta', paddingRight: 280,),
                 TextFormFieldCard(
                     controller: numberCardController, text: Strings.numberCard),
 
@@ -160,7 +160,8 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                       child: Column(
                         children: [
                           _hintData(Strings.expiryDate),
-                          _titleLabel(label: 'Fecha de vencimiento', paddingRight: MediaQuery.of(context).size.width * .096,),
+                          const _titleLabel(label: 'Fecha de vencimiento', paddingRight: 60,),
+
                           TextFormFieldExpirationDate(
                             text: Strings.monthYear,
                             controller: dateCardController,
@@ -174,11 +175,8 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                     Expanded(
                       child: Column(
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(right: 120),
-                            child: _hintData(Strings.cvv),
-                          ),
-                          _titleLabel(label: 'CVV', paddingRight: MediaQuery.of(context).size.width * .36,),
+                          _hintData(Strings.cvv),
+                          const _titleLabel(label: 'CVV', paddingRight: 150,),
                           TextFormFieldCvv(
                             text: '123',
                             controller: securityCardController,
@@ -186,6 +184,7 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                         ],
                       ),
                     ),
+                    
                   ],
                 ),
 
@@ -205,7 +204,8 @@ class _SignUpScreen9State extends State<SignUpScreen9> {
                     ),
                     Positioned(
                       top: 5,
-                      left: 15,
+                      left: 5,
+                      width: 800,
                       child: Text(
                         Strings.confirmEmailCard,
                         textAlign: TextAlign.start,
@@ -269,7 +269,7 @@ class _titleLabel extends StatelessWidget {
   final String label;
   final double paddingRight;
   const _titleLabel({
-    Key ?key, this.label = '', this.paddingRight = 0.0,
+    Key ?key, required this.label, required this.paddingRight,
   }) : super(key: key);
 
   @override

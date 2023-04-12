@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deppa_app/utils/checkbox_validate.dart';
 import 'package:deppa_app/utils/custom_style.dart';
-import 'package:deppa_app/utils/strings.dart';
+//import 'package:deppa_app/utils/strings.dart';
 
 class TextFormFieldPassword extends StatelessWidget {
   const TextFormFieldPassword({

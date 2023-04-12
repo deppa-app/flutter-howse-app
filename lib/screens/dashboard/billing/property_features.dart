@@ -88,7 +88,7 @@ class PropertyFeatures extends StatelessWidget {
                 const SizedBox(
                   height: Dimensions.heightSize * 1,
                 ),
-                Carousel(),
+                const Carousel(),
                 const SizedBox(
                   height: Dimensions.heightSize * 1,
                 ),
@@ -161,7 +161,7 @@ class PropertyFeatures extends StatelessWidget {
 
 text_1propertyFeatures(BuildContext context) {
   return Padding(
-    padding: EdgeInsets.all(16.0), // Añade un relleno de 16.0 a todos los lados
+    padding: const EdgeInsets.all(16.0), // Añade un relleno de 16.0 a todos los lados
     child: Container(
       width: 328,
       height: 200,

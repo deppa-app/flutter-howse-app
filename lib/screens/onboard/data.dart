@@ -13,17 +13,17 @@ class OnBoardingItems {
     const fi = <OnBoardingItem>[
       OnBoardingItem(
         title: Strings.title1,
-        image: 'assets/images/onboard/1.png',
+        image: 'assets/images/onboard/distancia.png',
         subTitle: Strings.subTitle1,
       ),
       OnBoardingItem(
         title: Strings.title2,
-        image: 'assets/images/onboard/2.png',
+        image: 'assets/images/onboard/face.png',
         subTitle: Strings.subTitle2,
       ),
       OnBoardingItem(
         title: Strings.title3,
-        image: 'assets/images/onboard/3.png',
+        image: 'assets/images/onboard/escape.png',
         subTitle: Strings.subTitle3,
       ),
     ];

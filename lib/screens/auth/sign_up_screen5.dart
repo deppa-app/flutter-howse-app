@@ -69,7 +69,7 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              BackWidget(
+              const BackWidget(
                 title: '',
                 percent: 0.5,
               ),
@@ -152,7 +152,7 @@ class _SignUpScreen5State extends State<SignUpScreen5> {
       title: Strings.validateSignUp,
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => SignUpScreen6(
+            builder: (context) => const SignUpScreen6(
                   /*address: widget.address!,
                   email: widget.email!,
                   password: widget.password!,

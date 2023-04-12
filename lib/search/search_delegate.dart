@@ -25,7 +25,7 @@ class VisitSearchDelegate extends SearchDelegate{
   @override
   Widget? buildLeading(BuildContext context) {
     // TODO: implement buildLeading
-    return SizedBox.shrink();
+    return const SizedBox.shrink();
   }
 
 
@@ -40,12 +40,12 @@ class VisitSearchDelegate extends SearchDelegate{
             children: [
               Container(
                 height: kToolbarHeight,
-                child: BackButtonGeneralWidget(),
+                child: const BackButtonGeneralWidget(),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Buscar',
                     border: OutlineInputBorder(),
                   ),
@@ -76,7 +76,7 @@ class VisitSearchDelegate extends SearchDelegate{
   @override
   Widget buildResults(BuildContext context) {
     // TODO: implement buildResults
-    return Text('data');
+    return const Text('data');
   }
 
   @override

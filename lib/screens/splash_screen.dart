@@ -1,4 +1,3 @@
-import 'package:deppa_app/utils/custom_color.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:deppa_app/screens/onboard/on_board_screen.dart';
@@ -11,7 +10,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  final List<Color> colors = <Color>[Colors.red, Colors.blue, Colors.amber];
 
   @override
   void initState() {
@@ -28,10 +26,9 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: Image.asset(
-          'assets/images/deppa.png',
-          fit: BoxFit.fitWidth,
-          height: 200,
-          width: 300,
+          'assets/images/onboard/deppa_logo.png',
+          height: MediaQuery.of(context).size.height * 0.5,
+          width: MediaQuery.of(context).size.width * 0.5,
         ),
       ),
     );

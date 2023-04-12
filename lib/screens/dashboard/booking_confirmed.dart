@@ -1,9 +1,9 @@
 import 'package:deppa_app/screens/dashboard/schedule_visits/my_visits_history_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:deppa_app/screens/dashboard/home_screen.dart';
+//import 'package:deppa_app/screens/dashboard/home_screen.dart';
 
 import 'package:deppa_app/utils/dimensions.dart';
-import 'package:deppa_app/utils/strings.dart';
+//import 'package:deppa_app/utils/strings.dart';
 import '../../utils/custom_color.dart';
 import '../../widgets/widget.dart';
 import 'booking_details.dart';
@@ -35,7 +35,7 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-               BackButtonGeneralWidget(),
+               const BackButtonGeneralWidget(),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
@@ -55,9 +55,7 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
                     fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
-                height: 15,
-              ),
+              const SizedBox(height: 15,),
               GestureDetector(
                 child: Text(
                   "ver detalle de visita",
@@ -71,7 +69,7 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
                 ),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>  BookingDetails()));
+                      builder: (context) =>  const BookingDetails()));
                 },
               ),
               const SizedBox(
@@ -81,7 +79,7 @@ class _BookingConfirmedState extends State<BookingConfirmed> {
                 title: "Ir a mis reservas",
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>  MyVisitsHistory()));
+                      builder: (context) =>  const MyVisitsHistory()));
                 },
               ),
               const SizedBox(

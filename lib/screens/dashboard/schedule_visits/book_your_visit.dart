@@ -1,3 +1,4 @@
+import 'package:deppa_app/widgets/buttons/back_buttons/back_button_general_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:deppa_app/screens/dashboard/schedule_visits/Carousel.dart';
@@ -18,9 +19,9 @@ class BookYourVisit extends StatefulWidget {
 }
 
 class _book_your_visitState extends State<BookYourVisit> {
-  Calendar calendar = new Calendar();
-  Time time = new Time();
-  Carousel carousel = new Carousel();
+  Calendar calendar = const Calendar();
+  Time time =  const Time();
+  Carousel carousel =  const Carousel();
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +35,7 @@ class _book_your_visitState extends State<BookYourVisit> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              AppBar(
-                iconTheme: const IconThemeData(color: CustomColor.greenColor),
-                backgroundColor: CustomColor.whiteColor,
-                elevation: 0,
-              ),
+              const BackButtonGeneralWidget(),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
@@ -51,7 +48,7 @@ class _book_your_visitState extends State<BookYourVisit> {
               ),
 
               //CAROUSEL
-              Carousel(),
+              const Carousel(),
 
               const SizedBox(
                 height: Dimensions.heightSize * 0.2,
@@ -59,9 +56,9 @@ class _book_your_visitState extends State<BookYourVisit> {
               Center(
                 child: Text(
                   Strings.monthlyRent,
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: CustomColor.colorBlack,
-                      fontSize: Dimensions.radius,
+                      fontSize: Dimensions.defaultTextSize,
                       fontWeight: FontWeight.w600),
                   textAlign: TextAlign.start,
                 ),
@@ -73,9 +70,9 @@ class _book_your_visitState extends State<BookYourVisit> {
               Center(
                 child: Text(
                   Strings.distance,
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: CustomColor.colorBlack,
-                      fontSize: Dimensions.radius,
+                      fontSize: Dimensions.defaultTextSize,
                       fontWeight: FontWeight.w600),
                   textAlign: TextAlign.start,
                 ),
@@ -88,14 +85,14 @@ class _book_your_visitState extends State<BookYourVisit> {
               const SizedBox(
                 height: Dimensions.heightSize * 1,
               ),
-              const Padding(
-                padding: EdgeInsets.only(
+               Padding(
+                padding: const EdgeInsets.only(
                     left: Dimensions.marginSize, right: Dimensions.marginSize),
                 child: Text(
                   "Seleccione dia de la visita",
                   style: TextStyle(
                       color: CustomColor.colorBlack,
-                      fontSize: Dimensions.radius,
+                      fontSize: Dimensions.defaultTextSize,
                       fontWeight: FontWeight.w600),
                   textAlign: TextAlign.start,
                 ),
@@ -109,14 +106,14 @@ class _book_your_visitState extends State<BookYourVisit> {
               const SizedBox(
                 height: Dimensions.heightSize * 1,
               ),
-              const Padding(
-                padding: EdgeInsets.only(
+              Padding(
+                padding: const EdgeInsets.only(
                     left: Dimensions.marginSize, right: Dimensions.marginSize),
                 child: Text(
                   "Seleccione hora de la visita",
                   style: TextStyle(
                       color: CustomColor.colorBlack,
-                      fontSize: Dimensions.radius,
+                      fontSize: Dimensions.defaultTextSize,
                       fontWeight: FontWeight.w600),
                   textAlign: TextAlign.start,
                 ),
@@ -134,7 +131,7 @@ class _book_your_visitState extends State<BookYourVisit> {
                 title: "Reservar visita ahora",
                 onTap: () {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => BookingPin()));
+                      MaterialPageRoute(builder: (context) => const BookingPin()));
                 },
               ),
             ],

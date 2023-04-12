@@ -188,21 +188,21 @@ class _buildDetailsSection extends StatelessWidget {
         Column(
           children: [
             iconClock,
-            Text('40 minutos')
+            const Text('40 minutos')
           ],
         ),
         SizedBox(width: MediaQuery.of(context).size.width *0.08),
         Column(
           children: [
             iconClock,
-            Text('40 minutos')
+            const Text('40 minutos')
           ],
         ),
         SizedBox(width: MediaQuery.of(context).size.width *0.1),
         Column(
           children: [
             iconPersonCircleCheck,
-            Text('2 visitas')
+            const Text('2 visitas')
           ],
         )
       ],
@@ -261,9 +261,9 @@ class _buildImage extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(8),
           child: FadeInImage(
-            placeholder: AssetImage('assets/images/no-image.jpg'),
+            placeholder: const AssetImage('assets/images/no-image.jpg'),
             fit: BoxFit.cover,
-            image: AssetImage('assets/images/casita.png'),
+            image: const AssetImage('assets/images/casita.png'),
             width: MediaQuery.of(context).size.width *.9,
             height: 250,
           ),

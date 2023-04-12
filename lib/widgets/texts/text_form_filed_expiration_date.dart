@@ -27,9 +27,11 @@ class TextFormFieldExpirationDate extends StatelessWidget {
           // TODO: Mejorar expresión regular
           
           RegExp regExp = RegExp(r'^[0-3][1-9]\/[0-1][0-9]$');
-          bool match = regExp.hasMatch(value); 
+          //TODO:corregir validación de tarjeta
+          bool match= true;
+          //bool match = regExp.hasMatch(value); 
 
-          if(!match){
+          if(match == false){
             return(Strings.useValidDate);
           }
 

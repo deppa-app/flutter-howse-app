@@ -63,16 +63,16 @@ List<QudsPopupMenuBase> getMenuItems() {
           const SizedBox(
             height: 15,
           ),
-           _SwitchButtonWidget(),
-           _buildParameter(
+           const _SwitchButtonWidget(),
+           const _buildParameter(
             icon: FontAwesomeIcons.bed,
             title: 'Dormitorio',
           ),
-           _buildParameter(
+          const _buildParameter(
             icon: FontAwesomeIcons.toilet,
             title: 'Baños',
           ),
-           _buildParameter(
+          const _buildParameter(
             icon: FontAwesomeIcons.house,
             title: 'Mts²',
           ),
@@ -95,13 +95,13 @@ List<QudsPopupMenuBase> getMenuItems() {
               ],
             ),
           ),
-           _buildRageSliderWidget(),
+          const _buildRageSliderWidget(),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 34),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5.0),
             ),
-            child:  ApplyButtonWidget(title: 'Aplicar'),
+            child:  const ApplyButtonWidget(title: 'Aplicar'),
           )
         ],
       ),
@@ -137,7 +137,9 @@ class _buildRageSliderWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 34),
       child: Column(
-        children: [RangeSliderWidget(), Text('380.000 - 600.000')],
+        children:const [
+          RangeSliderWidget(), Text('380.000 - 600.000')
+        ],
       ),
     );
   }
@@ -170,7 +172,7 @@ class _buildParameter extends StatelessWidget {
                   style: TextStyle(
                       fontSize: Dimensions.extraSmallTextSize2,
                       fontWeight: FontWeight.normal))),
-           IncrementDecrementButtonWidget()
+          const IncrementDecrementButtonWidget()
         ],
       ),
     );

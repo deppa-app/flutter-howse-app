@@ -180,7 +180,12 @@ class _SignUpValidationDocumentationState extends State<SignUpValidationDocument
             decoration: TextDecoration.underline),
         textAlign: TextAlign.center,
       ),
-      // onTap: (value){},
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => const SignUpAllData(
+                  
+                )));
+      },
     ));
   }
 
@@ -189,11 +194,8 @@ class _SignUpValidationDocumentationState extends State<SignUpValidationDocument
       title: Strings.validateSignUp,
       onTap: () {
         Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => SignUpScreen5(
-                  /*address: widget.address!,
-                  email: widget.email!,
-                  password: widget.password!,
-                  phone: widget.phone!,*/
+            builder: (context) => const SignUpScreen5(
+                  
                 )));
       },
     );

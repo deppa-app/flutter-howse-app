@@ -62,18 +62,14 @@ class Strings {
   static String btn2 = 'Español';
 
   //onBoard screen
-  static const String title1 = 'Hola -1';
-  static const String title2 = 'Hola -2';
-  static const String title3 = 'Hola -3';
-  static const String title4 = 'Hola -4';
+  static const String title1 = '¡A cualquier hora!';
+  static const String title2 = '¡Sin ejecutivos!';
+  static const String title3 = '¡Con tu celular!';
+  //static const String title4 = 'Hola -4';
   static const String subTitle1 =
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s';
-  static const String subTitle2 =
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s';
-  static const String subTitle3 =
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s';
-  static const String subTitle4 =
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s';
+      'Disfruta de la libertad de poder visitar y conocer el departamento que quieras, a la hora y día que desees.';
+  static const String subTitle2 ='Sin necesidad de coordinar con un ejecutivo que te haga la orden de visita. Tú mismo la generas al Reservar con tu identificación de identidad.';  
+  static const String subTitle3 = 'Y cuando estés a menos de 2 metros de la puerta, haz click en el botón "Abrir Puerta" de tu celular para entrar a la propiedad.';
   static String skip = 'Skip';
   static String getStarted = 'Get Started';
 

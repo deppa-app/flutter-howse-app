@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../utils/custom_color.dart';
-import '../../../utils/dimensions.dart';
+//import '../../../utils/dimensions.dart';
 
 class Time extends StatefulWidget {
   const Time({Key? key}) : super(key: key);
