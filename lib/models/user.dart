@@ -1,5 +1,4 @@
 import 'package:deppa_app/models/profile.dart';
-
 class User {
   const User({
     this.data,
@@ -13,10 +12,11 @@ class User {
     return User(data: dataList);
   }
 }
-
 class DataUser {
   final int ?id;
-  final String ?userName;
+  final String ?token;
+  final String ?username;
+  final String email;
   final String ?password;
   final String ?publicToken;
   final String ?rut;
@@ -25,8 +25,10 @@ class DataUser {
   //final DataProfile profile;
 
   DataUser({
+    this.token,
     this.id,
-    this.userName,
+    this.username,
+    required this.email,
     this.password,
     this.publicToken,
     //this.createdAt,
@@ -34,22 +36,21 @@ class DataUser {
     this.rut,
     //this.profile
   });
+  factory DataUser.fromJson(Map<String, dynamic> json) {
 
-  factory DataUser.fromJson(Map<String, dynamic> parsedJson) {
-    var data = parsedJson["data"];
-    var firstElement = data[0];
     return DataUser(
-        id: firstElement['id'],
-        userName: firstElement["username"],
-        password: firstElement['password'],
-        publicToken: firstElement["publicToken"],
-        rut: firstElement['rut']);
+      token: json['jwt'],
+      id: json['user']['id'],
+      username: json['user']['username'],
+      email: json['user']['email'],
+      /* password: json['user']['password'], */
+      );
   }
 }
-
 class ModelUser {
   final int ?id;
-  final String ?userName;
+  final String ?username;
+  final String ?email;
   final String ?password;
   final String ?publicToken;
   final String ?rut;
@@ -57,9 +58,10 @@ class ModelUser {
   final DateTime ?updatedAt;
   final DataProfile ?profile;
 
-  ModelUser(
+  ModelUser( 
       {this.id,
-      this.userName,
+      this.username,
+      this.email,
       this.password,
       this.publicToken,
       this.createdAt,
