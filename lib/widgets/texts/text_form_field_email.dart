@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:deppa_app/utils/custom_style.dart';
-//import 'package:deppa_app/utils/strings.dart';
+
+import '../../utils/strings.dart';
 
 class TextFormFieldEmail extends StatelessWidget {
   const TextFormFieldEmail({ 
@@ -23,19 +24,20 @@ class TextFormFieldEmail extends StatelessWidget {
       controller: controller,
       validator: (String? value) {
         
-        // if (value.isEmpty) {
-        //   return (Strings.fillOutField);
-        // } else {
-        //   // TODO: Mejorar expresión regular
-        //   RegExp regExp = RegExp(r'[a-zA-Z\._\-0-9]+@[a-z0-9\-]+\.[a-z]+');
-        //   bool match = regExp.hasMatch(value); 
+         if (value!.isEmpty) {
+           return (Strings.fillOutField);
+         } else {
+           // TODO: Mejorar expresión regular
+           RegExp regExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+           
+           bool match = regExp.hasMatch(value); 
 
-        //   if(!match){
-        //     return(Strings.pleaseUseValidEmail);
-        //   }
+           if(!match){
+             return(Strings.pleaseUseValidEmail);
+           }
 
-        //   return null;
-        // }
+           return null;
+         }
       },
       decoration: CustomStyle.decorationTextFormField(text)
       

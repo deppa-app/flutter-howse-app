@@ -1,3 +1,4 @@
+import 'package:deppa_app/screens/auth/sign_up_basics.dart';
 import 'package:deppa_app/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
       title: 'Deppa App',
       theme: ThemeData(primarySwatch: Colors.grey),
       home: const SplashScreen(),
+      //home: const SignUpBasics(),
     );
   }
 }

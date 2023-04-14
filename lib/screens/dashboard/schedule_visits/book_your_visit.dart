@@ -236,7 +236,7 @@ text_2(BuildContext context) {
                   const SizedBox(
                     height: Dimensions.heightSize * 0.25,
                   ),
-                  text_3(context, Strings.square_meter, "value"),
+                  text_3(context, Strings.square_meter2, "value"),
                   const SizedBox(
                     height: Dimensions.heightSize * 0.25,
                   ),

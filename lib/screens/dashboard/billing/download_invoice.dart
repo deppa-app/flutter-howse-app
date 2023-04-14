@@ -189,7 +189,7 @@ text_1Invoice(BuildContext context) {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   text_2Invoice(context, Strings.services, "value"),
-                  text_2Invoice(context, Strings.square_meter, "value"),
+                  text_2Invoice(context, Strings.square_meter2, "value"),
                   text_2Invoice(context, Strings.others, "value")
                 ],
               ),

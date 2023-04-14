@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:deppa_app/utils/checkbox_validate.dart';
 import 'package:deppa_app/utils/custom_style.dart';
-//import 'package:deppa_app/utils/strings.dart';
+
+import '../../utils/strings.dart';
+
 
 class TextFormFieldPassword extends StatelessWidget {
   const TextFormFieldPassword({
@@ -36,25 +40,26 @@ class TextFormFieldPassword extends StatelessWidget {
       style: CustomStyle.textStyle,
       controller: controller,
       validator: (String? value) {
-        // if (value.isEmpty) {
-        //   return (Strings.fillOutField);
-        // } else if (controller != null && controller2 == null){
-        //   // TODO: Mejorar expresión regular
+        if (value!.isEmpty) {
+          return (Strings.fillOutField);
+        } else if (controller != null && controller2 == null){
+          
+          // TODO: Mejorar expresión regular
 
-        //   RegExp regExp = RegExp(r'[a-zA-Z0-9@._\-¡!]{8,15}');
-        //   bool match = regExp.hasMatch(value);
+          RegExp regExp = RegExp(r'[a-zA-Z0-9@._\-¡!]{8,15}');
+          bool match = regExp.hasMatch(value);
 
-        //   if(!match){
-        //     return(Strings.passwordsNotMatch);
-        //   }
+          if(!match){
+            return(Strings.passwordsNotMatch);
+          }
 
-        // }else if(controller2 != null) {
-        //   if(controller.text != controller2.text){
+        }else if(controller2 != null) {
+          if(controller!.text != controller2!.text || controller2!.text != controller!.text){
 
-        //       return (Strings.passwordsNotMatch);
+              return (Strings.passwordsNotMatch);
 
-        //     }
-        // }
+            }
+        }
         return null;
       },
       decoration: CustomStyle.decorationTextFormField(text!, suffixIcon),
@@ -63,7 +68,8 @@ class TextFormFieldPassword extends StatelessWidget {
               validateUppercase(controller!.text),
               validateLowercase(controller!.text),
               validateCharacter(controller!.text),
-              validateLenght(controller!.text))
+              //validateLenght(controller!.text)
+            )
           : (String value) {
               return;
             },

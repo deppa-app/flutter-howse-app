@@ -79,14 +79,15 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                                   oi.subTitle!,
                                   style: TextStyle(
                                     color: CustomColor.colorBlack,
-                                    fontSize: Dimensions.largeTextSize,
+                                    fontSize: Dimensions.textSize18,
+                                    height: 2, 
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(
-                                  top: Dimensions.heightSize * 4,
+                                  top: Dimensions.heightSize * 3,
                                   left: Dimensions.marginSize,
                                   right: Dimensions.marginSize,
                                 ),
@@ -154,13 +155,6 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
             paddingButtons(context),
 
             SizedBox(height: height * 0.03),
-            
-                  
-            
-            Text(Strings.haveAccount, style: const TextStyle(fontSize: 14, color: CustomColor.secondaryColor)),
-            
-            SizedBox(height: height * 0.04),
-
             ]
             
           ),

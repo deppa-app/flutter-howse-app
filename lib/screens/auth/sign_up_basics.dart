@@ -26,14 +26,13 @@ class _SignUpBasicsState extends State<SignUpBasics> {
   bool checkedValue1 = false;
   bool checkedValue2 = false;
   bool checkedValue3 = false;
-  bool checkedValue4 = false;
 
 
-  callBack(bool value, bool value2, bool value3, bool value4) {
+
+  callBack(bool value, bool value2, bool value3) {
     checkedValue1 = value;
     checkedValue2 = value2;
     checkedValue3 = value3;
-    checkedValue4 = value4;
   }
 
   @override
@@ -57,14 +56,44 @@ class _SignUpBasicsState extends State<SignUpBasics> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              barIconRow(),
-              const SizedBox(height: Dimensions.heightSize * 3),
-              basicInfoPadding(width),
-              textInfoPadding(height, width),
-              inputColumn(width, context, height),
+
+              const BackWidget(title: "",percent: 0.15,),
+              
               SizedBox(height: height * 0.05),
+
+              basicInfoPadding(width),
+
+              textInfoPadding(height, width),
+
+              ////Input - subtítulo de requerimiento de contraseña - checkbox
+              Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: width * 0.12, right: width * 0.12),
+                    child: inputFieldWidget(context),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: height * 0.02, right: width * 0.15),
+                    child: Text(
+                      Strings.passwordContain,
+                      style: TextStyle(
+                          fontSize: Dimensions.largeTextSize,
+                          color: CustomColor.colorBlack,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: width * 0.09,
+                    ),
+                    child: termsCheckBoxWidget(context),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: height * 0.05),
+
               nextButtonPadding(width, context),
-              const SizedBox(height: Dimensions.heightSize * 2),
             ],
           ),
         ),
@@ -72,19 +101,7 @@ class _SignUpBasicsState extends State<SignUpBasics> {
     );
   }
 
-  Padding nextButtonPadding(double width, BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: width * 0.08,
-        right: width * 0.08,
-      ),
-      child: Align(
-        alignment: Alignment.topCenter,
-        child: nextButton(context),
-      ),
-    );
-  }
-
+//Titulo de la pantalla
   Padding basicInfoPadding(double width) {
     return Padding(
       padding: EdgeInsets.only(
@@ -93,11 +110,21 @@ class _SignUpBasicsState extends State<SignUpBasics> {
       ),
       child: Align(
         alignment: Alignment.topCenter,
-        child: textBasicInfoAccount(),
+        child: Text(
+          Strings.basicInfoAccount,
+          style: TextStyle(
+            color: CustomColor.colorBlack,
+            fontSize: Dimensions.semilarge,
+            height: 1.3,
+            fontWeight: FontWeight.w600
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
 
+//Texto/subtitulo de página
   Padding textInfoPadding(double height, double width) {
     return Padding(
       padding: EdgeInsets.only(
@@ -107,229 +134,155 @@ class _SignUpBasicsState extends State<SignUpBasics> {
       ),
       child: Align(
         alignment: Alignment.topCenter,
-        child: textInfoAccount(),
+        child: Text(
+          Strings.infoAccount,
+          style: TextStyle(
+            color: CustomColor.colorBlack,
+            fontSize: Dimensions.largeTextSize,
+            height: 2.0,
+          ),
+          textAlign: TextAlign.start,
+        ),
       ),
     );
   }
 
-  Row barIconRow() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: const [
-        BackWidget(title: "",percent: 0.15,)
-      ],
-    );
-  }
-
-  Text textBasicInfoAccount() {
-    return Text(
-      Strings.basicInfoAccount,
-      style: const TextStyle(
-          color: CustomColor.colorBlack,
-          fontSize: 25,
-          height: 1.3,
-          fontWeight: FontWeight.bold),
-      textAlign: TextAlign.center,
-    );
-  }
-
-  Text textInfoAccount() {
-    return Text(
-      Strings.infoAccount,
-      style: const TextStyle(
-        color: CustomColor.colorBlack,
-        fontSize: 16,
-        height: 2.0,
-      ),
-      textAlign: TextAlign.start,
-    );
-  }
-
-  Column inputColumn(double width, BuildContext context, double height) {
-    return Column(
-      children: [
-        Container(
-          padding: EdgeInsets.only(left: width * 0.12, right: width * 0.12),
-          child: inputFieldWidget(context),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: height * 0.02, right: width * 0.15),
-          child: Text(
-            Strings.passwordContain,
-            style: const TextStyle(
-                fontSize: 16,
-                color: CustomColor.colorBlack,
-                fontWeight: FontWeight.bold),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-            left: width * 0.09,
-          ),
-          child: termsCheckBoxWidget(context),
-        ),
-      ],
-    );
-  }
-
-  SecondaryButtonWidget nextButton(BuildContext context) {
-    return SecondaryButtonWidget(
-      title: "Siguiente",
-      onTap: () {
-        if (formKey.currentState!.validate()) {
-          print(emailController.text);
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => SignUpPhone(
-                  address: addressController.text,
-                  email: emailController.text,
-                  password: confirmPasswordController.text)));
-        }
-      },
-    );
-  }
-
-  headingWidget(BuildContext context) {
-    return Image.asset('assets/images/sign_in.png');
-  }
-
+//Inputs de datos: dirección, correo y contraseña
   inputFieldWidget(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
     return Form(
         key: formKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // TODO: Revisar Exepción Incorrect use of ParentDataWidget
-
-            const SizedBox(
-              height: 30,
-            ),
-
+            // TODO: Realizar validaciones a los inputs
+            SizedBox(height: height* 0.04),
             Align(
                 alignment: Alignment.topCenter,
                 child: CustomTextFormField(
-                  text: "Escribe tu direccion",
+                  text: Strings.addressInput,
                   controller: addressController,
-                )),
-
-            const SizedBox(
-              height: 30,
-            ),
-
+                )
+              ),
+            SizedBox(height: height* 0.04),
             Align(
                 alignment: Alignment.topCenter,
                 child: TextFormFieldEmail(
-                  text: "Escribe tu correo",
+                  text: Strings.emailInput,
                   controller: emailController,
-                )),
-
-            const SizedBox(
-              height: 30,
-            ),
-
+                )
+              ),
+            SizedBox(height: height* 0.04),
             Align(
               alignment: Alignment.topCenter,
               child: TextFormFieldPassword(
-                  text: "Escribe tu contraseña",
+                  text: Strings.passInput,
                   controller: passwordController,
+                  controller2: passwordController,
                   callBack: callBack),
             ),
-
-            const SizedBox(
-              height: 30,
-            ),
-
+            SizedBox(height: height* 0.04),
             Align(
                 alignment: Alignment.topCenter,
                 child: TextFormFieldPassword(
-                    text: "Confirma tu contraseña",
+                    text: Strings.confirmPassInput,
                     controller: confirmPasswordController,
-                    controller2: passwordController)),
+                    controller2: passwordController
+                  )
+              ),
 
-            const SizedBox(height: Dimensions.heightSize),
+            SizedBox(height: height* 0.03),
           ],
         ));
   }
 
+//checkbox de validación de contraseña
   termsCheckBoxWidget(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return StatefulBuilder(
       builder: (BuildContext context, StateSetter setState) {
         return Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(
-                left: 30.00,
-                right: 30.00,
+              padding: EdgeInsets.only(
+                left: width * 0.1,
               ),
               child: SizedBox(
-                height: 30.00,
+                height: height * 0.03,
                 child: CheckboxListTile(
-                  activeColor: Colors.white,
-                  checkColor: CustomColor.greenColor,
-                  title: const Text(
-                    "Una mayuscula",
+                  activeColor: CustomColor.greyColorCheck,
+                  checkColor: CustomColor.primaryColor,
+                  title: Text(
+                    Strings.oneUpper,
                     style: TextStyle(
                       color: CustomColor.colorBlack,
-                      fontSize: 12.00,
+                      fontSize: Dimensions.smallTextSize,
                     ),
                     textAlign: TextAlign.justify,
                   ),
-                  value: checkedValue1, //checkedValue1,
-                  onChanged: (_) {},
-                  controlAffinity:
-                      ListTileControlAffinity.leading, //  <-- leading Checkbox
+                  value: checkedValue1,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      checkedValue1 = value!;
+                    });
+                  },
+                  controlAffinity: ListTileControlAffinity.leading, //  <-- leading Checkbox
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                top: 0.0,
-                left: 30.00,
-                right: 30.00,
+              padding: EdgeInsets.only(
+                left: width * 0.1,
               ),
               child: SizedBox(
-                height: 30.00,
+                height: height * 0.03,
                 child: CheckboxListTile(
-                  activeColor: Colors.white,
-                  checkColor: CustomColor.greenColor,
-                  title: const Text(
-                    "Una minuscula",
+                  activeColor: CustomColor.greyColorCheck,
+                  checkColor: CustomColor.primaryColor,
+                  title: Text(
+                    Strings.oneNumber,
                     style: TextStyle(
                       color: CustomColor.colorBlack,
-                      fontSize: 12.00,
+                      fontSize: Dimensions.smallTextSize,
                     ),
                     textAlign: TextAlign.justify,
                   ),
                   value: checkedValue2,
-                  selected: false,
-                  onChanged: (_) {},
+                  onChanged: (bool? value) {
+                    setState(() {
+                      checkedValue2 = value!;
+                    });
+                  },
                   controlAffinity:
                       ListTileControlAffinity.leading, //  <-- leading Checkbox
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(
-                top: 0.0,
-                left: 30.00,
-                right: 30.00,
+              padding: EdgeInsets.only(
+                left: width * 0.1,
               ),
               child: SizedBox(
-                height: 30.00,
+                height: height * 0.03,
                 child: CheckboxListTile(
                   activeColor: CustomColor.greyColorCheck,
-                  checkColor: CustomColor.greenColor,
-                  title: const Text(
-                    "Un caracter especial",
+                  checkColor: CustomColor.primaryColor,
+                  title: Text(
+                    Strings.oneSpecialCaracter,
                     style: TextStyle(
                       color: CustomColor.colorBlack,
-                      fontSize: 12.00,
+                      fontSize: Dimensions.smallTextSize,
                     ),
                     textAlign: TextAlign.justify,
                   ),
                   value: checkedValue3,
-                  onChanged: (_) {},
-                  controlAffinity:
-                      ListTileControlAffinity.leading, //  <-- leading Checkbox
+                  onChanged: (bool? value) {
+                    setState(() {
+                      checkedValue3 = value!;
+                    });
+                  },
+                  controlAffinity: ListTileControlAffinity.leading, //  <-- leading Checkbox
                 ),
               ),
             ),
@@ -339,76 +292,45 @@ class _SignUpBasicsState extends State<SignUpBasics> {
     );
   }
 
-  buttonWidget(BuildContext context) {
+//Función para controlar el color de los checkbox
+  Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return CustomColor.primaryColor;
+      }
+      return CustomColor.greyColorCheck;
+    }
+
+//Botón de siguiente
+  Padding nextButtonPadding(double width, BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 30.00,
-        left: Dimensions.marginSize,
-        right: Dimensions.marginSize,
+      padding: EdgeInsets.only(
+        left: width * 0.08,
+        right: width * 0.08,
       ),
-      child: CircleButtonWidget(
-        icon: const Icon(
-          Icons.arrow_forward,
-          color: CustomColor.primaryColor,
-        ),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: SecondaryButtonWidget(
+        title: Strings.nextSignUp,
         onTap: () {
-          print(emailController.text);
+          print(formKey.currentState!.validate());
+          if (formKey.currentState!.validate()) {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => SignUpPhone(
-                  address: addressController.text,
+                  /*address: addressController.text,
                   email: emailController.text,
-                  password: confirmPasswordController.text)));
+                  password: confirmPasswordController.text*/)
+                )
+              );
+          }
         },
+       ),
       ),
     );
   }
 
-  orSignUpWidget(BuildContext context) {
-    return Column(
-      children: [
-        const Text('Or'),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleButtonWidget(
-              icon: Image.asset('assets/images/icon/facebook.png'),
-              onTap: () {},
-            ),
-            const SizedBox(
-              width: Dimensions.widthSize,
-            ),
-            CircleButtonWidget(
-              icon: Image.asset('assets/images/icon/google.png'),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-
-  ifYouDontHaveAccountWidget(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          Strings.ifYouHaveNoAccount,
-          style: CustomStyle.textStyle,
-        ),
-        GestureDetector(
-          child: Text(
-            Strings.signUp.toUpperCase(),
-            style: const TextStyle(
-                color: CustomColor.primaryColor,
-                fontWeight: FontWeight.bold,
-                decoration: TextDecoration.underline),
-          ),
-          onTap: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const SignUpBasics()));
-          },
-        )
-      ],
-    );
-  }
 }

@@ -31,7 +31,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
             physics: const BouncingScrollPhysics(),
             shrinkWrap: true,
             children: [
-              const BackWidget(title: "Atrás", percent: 0,),
+              const BackWidget(title: "", percent: 0,),
               const SizedBox(
                 height: Dimensions.heightSize * 2,
               ),
@@ -59,11 +59,11 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
                       left: Dimensions.marginSize,
                       right: Dimensions.marginSize),
                   child: Text(
-                    "Términos legales",
+                    Strings.legalTerms,
                     style: TextStyle(
-                        color: CustomColor.colorBlack,
-                        fontSize: Dimensions.extraLargeTextSize * 1.5,
-                        fontWeight: FontWeight.bold),
+                        color: CustomColor.primaryColor,
+                        fontSize: Dimensions.semilarge,
+                        fontWeight: FontWeight.w600),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -74,29 +74,42 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
                   padding: EdgeInsets.only(
                       left: MediaQuery.of(context).size.width * 0.03,
                       right: MediaQuery.of(context).size.width * 0.03),
-                  child: const Text(
-                    'Lreom ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+                  child: Text(
+                    Strings.termsFirstText,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 16, height: 2, color: CustomColor.colorBlack),
+                        fontSize: Dimensions.textSize18,  
+                        height: 2, 
+                        color: CustomColor.colorBlack),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(50),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset('assets/images/lorem-image.png'),
+                  padding: const EdgeInsets.only(
+                    top: Dimensions.heightSize * 4,
+                    left: Dimensions.marginSize,
+                    right: Dimensions.marginSize,
                   ),
+                  child:Align(
+                      alignment: Alignment.topCenter,
+                      child: Image.asset(
+                      'assets/images/onboard/seguridad.png',
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: Dimensions.heightSize * 4,
                 ),
                 Padding(
                   padding: EdgeInsets.only(
                       left: MediaQuery.of(context).size.width * 0.03,
                       right: MediaQuery.of(context).size.width * 0.03),
-                  child: const Text(
-                    'Lreom ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+                  child:  Text(
+                    Strings.termsSecondText,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 16, height: 2, color: CustomColor.colorBlack),
+                        fontSize: Dimensions.textSize18, 
+                        height: 2, 
+                        color: CustomColor.colorBlack),
                   ),
                 ),
               ],

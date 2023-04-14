@@ -29,11 +29,11 @@ class CustomTextFormField extends StatelessWidget {
       style: CustomStyle.textStyle,
       controller: controller,
       validator: (String? value) {
-        // if (value.isEmpty) {
-        //   return Strings.fillOutField;
-        // } else {
-        //   return null;
-        // }
+        if (value!.isEmpty) {
+          return Strings.fillOutField;
+        } else {
+          return null;
+        }
       },
       decoration: CustomStyle.decorationTextFormField(text, suffixIcon, prefixIcon)
       

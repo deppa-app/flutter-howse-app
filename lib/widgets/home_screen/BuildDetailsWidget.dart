@@ -250,7 +250,7 @@ class _buildDetails extends StatelessWidget {
                       width: 5,
                       height: 5,
                     ),
-                    Text('${Strings.square_meter}: $squareMeter',
+                    Text('${Strings.square_meter2}: $squareMeter',
                         style: TextStyle(
                           fontSize: Dimensions.defaultTextSize,
                           fontWeight: FontWeight.normal,

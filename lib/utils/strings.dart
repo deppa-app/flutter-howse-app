@@ -83,6 +83,13 @@ class Strings {
 
   //sign in screen
   // TODO: revisar textos en español
+  static String oneUpper = 'Una mayúscula';
+  static String oneNumber = 'Un número';
+  static String oneSpecialCaracter = 'Un carácter';
+  static String addressInput = 'Escribe tu direccion';
+  static String emailInput = 'Escribe tu email';
+  static String passInput = 'Escribe tu contraseña';
+  static String confirmPassInput = 'Confirma tu contraseña';
   static String basicInfoAccount = 'Informacion básica para crear tu cuenta';
   static String infoAccount = 'Ingresa tu información para crear tu cuenta.';
   static String passwordContain = 'La contraseña debe incluir:';
@@ -92,12 +99,12 @@ class Strings {
   static String pleaseFillOutTheField = 'Please Fill Out The Field';
   static String fillOutField = 'Por favor rellene el campo';
   static String useValidRut = 'Por favor ingrese un rut valido';
-  static String pleaseUseValidEmail = 'Please use a valid email';
+  static String pleaseUseValidEmail = 'Ingrese un email válido';
   static String useValidEmail = 'Por favor ingrese un correo valido';
   static String useValidPhone = 'Por favor ingrese un télefono valido';
   static String useValidDate = 'Por favor ingrese una fecha valida';
   static String invalidCvv = 'CVV invalido';
-  static String passwordsNotMatch = 'Passwords do not match';
+  static String passwordsNotMatch = 'Las contraseñas no coinciden';
   static String noCoinciden = 'Las contraseñas no coinciden';
   static String or = 'or';
   static String signUp = 'Sign Up';
@@ -411,8 +418,6 @@ class Strings {
   static String cancel = 'Cancel';
   static String level = 'Level';
 
-  //  myCourse screen
-  static String myCourse = 'My Course';
 
   //reservation
 
@@ -421,13 +426,12 @@ class Strings {
   static String monthlyRent = 'Valor arriendo mensual:';
   static String visitValue = 'Valor de la visita';
   static String distance = 'Estas a ';
-  static String department_details = 'aqui van los detalles del departamento';
+  static String department_details = 'aquí van los detalles del departamento';
   static String code = "Código:";
   static String bathroom = "Baños";
   static String parking = "Estacionamiento";
   static String bedrooms = "Dormitorios";
   static String services = "Servicios:";
-  static String square_meter = "Mts2";
   static String square_meter2 = "mts²";
   static String others = "Otros";
 
@@ -439,7 +443,7 @@ class Strings {
   static String views_used_value = "0";
   static String views_available = "Vistas Disponibles";
   static String views_available_value = "0";
-  static String rental_location = "Arriendo Deoartamento Av.Providencia Norte";
+  static String rental_location = "Arriendo Departamento Av.Providencia Norte";
   static String rent_payment = "dinero pagado";
 
   //Rental_history
@@ -450,7 +454,7 @@ class Strings {
   static String date = "xx/xx/xxxx";
   static String time = "xx:xx";
   static String lease_status = "estado de arriendo";
-  static String rental_location1 = "ubicacion de arriendo";
+  static String rental_location1 = "ubicación de arriendo";
 
   //billing data
 
@@ -458,9 +462,9 @@ class Strings {
   static String billing_price = " cantidad en pesos ";
   static String minutes_reserved = " Minutos reservados ";
   static String busy_minutes = " Minutos ocupado ";
-  static String number_of_visits = " Numero de visitas ";
-  static String number_of_minutes_booked = " 30 Min ";
-  static String number_of_minutes_occupied = " 30 Min ";
+  static String number_of_visits = " Número de visitas ";
+  static String number_of_minutes_booked = " 30 min ";
+  static String number_of_minutes_occupied = " 30 min ";
   static String visitor_counter = " 5  ";
 
   //download invoice
@@ -478,21 +482,26 @@ class Strings {
 
   //property features
   static String monthly_rental_value = "xx,xx";
-  static String code1 = "Codigo: ";
+  static String code1 = "Código: ";
   static String bathroom1 = "Baños: ";
   static String parking1 = "Estacionamientos: ";
   static String bedrooms1 = "Dormitorios: ";
   static String environments = "Ambientes: ";
-  static String common_expenses = "Gastos omunes: ";
+  static String common_expenses = "Gastos comunes: ";
   static String pets_allowed = "Admiten mascotas: ";
   static String total_area = "Superficie total: ";
-  static String usable_area = "Superficie util: ";
-  static String number_of_floors = "Numero de pisos: ";
+  static String usable_area = "Superficie útil: ";
+  static String number_of_floors = "Número de pisos: ";
   static String apartment_per_floor = "Departamento por piso: ";
   static String number_of_floors1 = "Cantidad de pisos: ";
   static String mts2 = "Mts2: ";
   static String wineries = "Bodegas: ";
   static String orientation = "Orientación: ";
   static String services1 = "Servicios: ";
-  static String property_location = "Ubicacion de la propiedad ";
+  static String property_location = "Ubicación de la propiedad ";
+
+  //Términos legales
+  static String legalTerms = "Términos legales ";
+  static String termsFirstText = "Lreom ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
+  static String termsSecondText = "Lreom ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua";
 }
