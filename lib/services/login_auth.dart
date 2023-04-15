@@ -5,7 +5,7 @@ import '../models/user.dart';
 Future<DataUser?> authenticate(String email, String password) async {
 
   final response = await http.post(
-    Uri.parse('http://192.168.1.86:1337/api/auth/local'),
+    Uri.parse('https://1044-190-22-228-119.ngrok-free.app/api/auth/local'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
