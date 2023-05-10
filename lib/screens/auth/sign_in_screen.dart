@@ -1,4 +1,6 @@
 //import 'package:flutter/cupertino.dart';
+import 'dart:io';
+import 'package:deppa_app/services/login_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:deppa_app/models/user.dart';
 import 'package:deppa_app/screens/auth/auth.dart';
@@ -14,7 +16,7 @@ import 'forgot_password_screen.dart';
 //import 'package:deppa_app/auth/forgot_password_screen.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key ?key}) : super(key: key);
+  const SignInScreen({Key? key}) : super(key: key);
 
   @override
   _SignInScreenState createState() => _SignInScreenState();
@@ -28,9 +30,9 @@ class _SignInScreenState extends State<SignInScreen> {
 
   bool checkedValue = false;
   bool _toggleVisibility = true;
-
-  Future<DataUser> ?futureUser;
-  int ?id;
+  bool isError = false;
+  late Future<DataUser?> futureUser;
+  int? id;
 
   @override
   Widget build(BuildContext context) {
@@ -132,6 +134,15 @@ class _SignInScreenState extends State<SignInScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: width * 0.04),
+              isError
+                  ? Padding(
+                      padding: EdgeInsets.only( left: MediaQuery.of(context).size.width * .001, bottom:5 ),
+                      child: const Text(
+                        "Email o contraseña incorrectos",
+                        style: TextStyle(color: Colors.red),
+                      ),
+                    )
+                  : Container(),
               CustomTextFormField(
                   controller: emailController, text: Strings.emailLogin),
               SizedBox(height: height * 0.08),
@@ -189,39 +200,47 @@ class _SignInScreenState extends State<SignInScreen> {
           //   color: CustomColor.whiteColor,
           // ),
           onTap: () {
-            Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>  const HomeScreen()));
-            /* if (formKey.currentState.validate()) {
-              futureUser =
-                  validateUser(emailController.text, passwordController.text);
-
-              futureUser.then((data) {
-                try {
-                  id = data.id;
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => HomeScreen(
-                            idProfile: id,
-                          )));
-                } catch (e) {
-                  showDialog<String>(
-                    context: context,
-                    builder: (BuildContext context) => AlertDialog(
-                      title: const Text('Contraseña O Correo Incorrecto'),
-                      actions: <Widget>[
-                        TextButton(
-                          onPressed: () => Navigator.pop(context, 'Cancel'),
-                          child: const Text('Cancel'),
-                        ),
-                        TextButton(
-                          onPressed: () => Navigator.pop(context, 'OK'),
-                          child: const Text('OK'),
-                        ),
-                      ],
-                    ),
-                  );
-                }
-              });
-            } */
+            //final authService = Provider.of<AuthService>(context, listen: false);
+            setState(() {
+              if (formKey.currentState!.validate()) {
+                futureUser = authenticate(emailController.text.trim(),
+                    passwordController.text.trim());
+                futureUser.then((DataUser? user) {
+                  setState(() {
+                    isError = false;
+                    if (user != null) {
+                      id = user.id;
+                      print("Id usuario: $id");
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => HomeScreen(
+                                idProfile: id,
+                              )));
+                    } else {
+                      isError = true;
+                      print('Contraseña o email incorrecto');
+                    }
+                  });
+                }).catchError((error) {
+                  setState(() {
+                    isError = true;
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text('Error de autenticación'),
+                            content: Text(
+                                'El email o la contraseña son incorrectos'),
+                            actions: <Widget>[
+                              TextButton(
+                                  onPressed: () => Navigator.of(context).pop(),
+                                  child: Text('Cerrar'))
+                            ],
+                          );
+                        });
+                  });
+                });
+              }
+            });
           }),
     );
   }
@@ -289,26 +308,24 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) =>  const TermsAndConditions()));
+                builder: (context) => const TermsAndConditions()));
           },
         )
       ],
     );
   }
 
-  /*_titleData(String title) {
+  FutureBuilder<DataUser?> buildFutureBuilder() {
+    return FutureBuilder<DataUser?>(
+        future: futureUser,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return Text(snapshot.data!.email);
+          } else if (snapshot.hasError) {
+            return Text('${snapshot.error}');
+          }
 
-    final height = MediaQuery.of(context).size.height;
-
-    return Padding(
-      padding: EdgeInsets.only(
-        bottom: height * 0.005,
-        top: height * 0.1,
-      ),
-      child: Text(
-        title,
-        style: const TextStyle(color: Colors.black),
-      ),
-    );
-  }*/
+          return const CircularProgressIndicator();
+        });
+  }
 }

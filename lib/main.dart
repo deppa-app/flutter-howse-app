@@ -1,25 +1,23 @@
 import 'package:deppa_app/screens/auth/sign_up_basics.dart';
 import 'package:deppa_app/screens/splash_screen.dart';
+import 'package:deppa_app/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'features/autocapture/presentation/bloc/autocapture_bloc.dart';
-
+import 'package:provider/provider.dart';
 void main() {
-  
-  WidgetsFlutterBinding.ensureInitialized(); 
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]) .then((_) { 
-    runApp(
-      MultiBlocProvider(
-        providers:[
-          BlocProvider(create: (_) => AutocaptureBloc()),
-        ],
-        child: const MyApp(),
-      )
-      ); 
-    }
-  );
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(MultiBlocProvider(
+      providers: [
+        //ChangeNotifierProvider( create: (_) => AuthService() ),
+        BlocProvider(create: (_) => AutocaptureBloc()),
+      ],
+      child: const MyApp(),
+    ));
+  });
 }
 
 class MyApp extends StatelessWidget {
