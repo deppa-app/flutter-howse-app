@@ -8,8 +8,8 @@ xmlns:tools="http://schemas.android.com/tools"
 
    <application
    tools:replace="android:label"
-        android:label="toc_flutter_demo"
-        android:icon="@mipmap/ic_launcher">
+        android:label="deppa"
+        android:icon="@mipmap/deppa_logo">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -30,10 +30,10 @@ xmlns:tools="http://schemas.android.com/tools"
                  screen fades out. A splash screen is useful to avoid any visual
                  gap between the end of Android's launch screen and the painting of
                  Flutter's first frame. -->
-            <meta-data
+            <!--meta-data
               android:name="io.flutter.embedding.android.SplashScreenDrawable"
               android:resource="@drawable/launch_background"
-              />
+              /-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
