@@ -34,6 +34,8 @@ dependencies:
   pin_keyboard: ^1.1.0
   dartx: ^0.5.0
   http: ^0.13.5
+  #mailer2: ^1.2.5
+  mailer: ^6.0.1
   #flutter_secure_storage: ^8.0.0
 
   # The following adds the Cupertino Icons font to your application.

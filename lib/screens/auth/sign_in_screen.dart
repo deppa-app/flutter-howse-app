@@ -1,5 +1,6 @@
 //import 'package:flutter/cupertino.dart';
 import 'dart:io';
+import 'package:deppa_app/services/forgot_password.dart';
 import 'package:deppa_app/services/login_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:deppa_app/models/user.dart';
@@ -181,6 +182,7 @@ class _SignInScreenState extends State<SignInScreen> {
         style: CustomStyle.textStyle,
       ),
       onTap: () {
+        
         Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => const ForgotPasswordScreen()));
         //             ()));

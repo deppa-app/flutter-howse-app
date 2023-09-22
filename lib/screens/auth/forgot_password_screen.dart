@@ -6,6 +6,8 @@ import 'package:deppa_app/utils/utils.dart';
 
 import 'package:deppa_app/widgets/widget.dart';
 
+import '../../services/forgot_password.dart';
+
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({Key ?key}) : super(key: key);
 
@@ -118,6 +120,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                               child: SecondaryButtonWidget(
                                 title: Strings.recoverPasswordText,
                                 onTap: () {
+                                  //sendMail();
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) =>
                                            const RecoveryCodeScreen()));
