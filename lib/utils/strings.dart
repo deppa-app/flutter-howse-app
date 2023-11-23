@@ -8,6 +8,7 @@ class Strings {
   static String lenguageBtn2 = 'Español';
 
 // sign_in_screen
+  static String fraseLogin= '“Busca, visita y arrienda con libertad y 100% online”';
   static String emailText =
       'Email'; // variable compartida (forgot_password_screen TEXTO EMAIL)
   static String emailLogin = 'Escriba su email';
@@ -85,7 +86,7 @@ class Strings {
   // TODO: revisar textos en español
   static String oneUpper = 'Una mayúscula';
   static String oneNumber = 'Un número';
-  static String oneSpecialCaracter = 'Un carácter';
+  static String oneSpecialCaracter = 'Un carácter especial';
   static String addressInput = 'Escribe tu direccion';
   static String emailInput = 'Escribe tu email';
   static String passInput = 'Escribe tu contraseña';
@@ -120,7 +121,6 @@ class Strings {
   //sign up screen
   static String back = 'Back';
   static String firstName = 'First Name';
-  static String lastName = 'Last Name';
   static String phoneNumber = 'Phone Number';
   static String phoneNumberEs = 'Número de teléfono';
   static String gender = 'Gender';
@@ -131,8 +131,8 @@ class Strings {
   static String demoEmail = 'email@gmail.com';
   static String demoName = 'Josef Milian';
   static String demoFirstName = 'Josef';
-  static String firstNameEs = 'Nombre';
-  static String demoLastName = 'Milian';
+  static String firstNameEs = 'Nombres';
+  static String lastName = 'Apellidos';
   static String demoRut = '12.345.678-9';
   static String demoPhoneNumber = '9-1234-5678';
   static String demoUsername = 'jmilian';
@@ -158,15 +158,16 @@ class Strings {
       'Al continuar, declaro haber leído los y aceptado';
   static String termsSignUp = 'Términos y condiciones';
   // sign_up_screen2
-  static String nextSignUp = 'Siguiente';
+  static String nextSignUp = 'Guardar';
   static String titleSignUp2 = 'Número de telefono celular';
   static String phoneNumberSignUp =
       'Ingresar tu número telefónico para validar tu dispositivo';
   static String formPhoneNumberSignUp = 'Escribe tu teléfono';
+  static String countryPhone= 'Busca tu país';
   // sign_up_screen3
   static String newCode = 'Solicitar un nuevo código';
   static String omitirValidation = 'Omitir por ahora';
-  static String validateSignUp = 'Validar';
+  static String validateSignUp = 'Continuar';
   static String recibeCode = '¿No recibiste el código?';
   static String confirmNumber = 'Confirma tu número de teléfono';
   static String fourDigitCode =
@@ -177,7 +178,7 @@ class Strings {
       '¿Instrucciones para tomar las fotografías?';
   static String documentsVerification = 'Verificación de documentos';
   static String thisProcess =
-      'Este proceso nos ayudara a verificar tu identidad. Se exigirá al momento de que reserves o programes una visita.';
+      'Este proceso nos ayudará a verificar tu identidad. Se exigirá al momento de que reserves o programes una visita.';
   static String uploadId = 'Sube tu cedula de identidad';
   // sign_up_screen5
   static String reversePhoto = 'Tomar foto reversa';
@@ -277,6 +278,10 @@ class Strings {
 
   //funtionalAdult Screen
   static String blog = 'Blog';
+
+   //Phone number screen Screen
+  static String error = 'Error';
+  static String errorMessage = 'No se pudo enviar el código solicitado al número de teléfono indicado, verifique e intente nuevamente';
 
   //visits Screen
   static String aparmentRentals = 'Arriendo de departamento';

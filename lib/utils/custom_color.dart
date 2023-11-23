@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class CustomColor {
   static const Color accentColor = Color(0xFF2C3066);
   static const Color blueColor = Color(0xFF2C3066);
-  static const Color brownColor = Color.fromARGB(255, 191, 163, 91);
+  static const Color brownColor = Color(0xFFA76846);
   static const Color brownColor2 = Color.fromARGB(255, 167, 104, 70);
   static const Color colorBlack = Color(0xFF313131);
   static const Color electricVioletColor = Color(0xFF7836FC);

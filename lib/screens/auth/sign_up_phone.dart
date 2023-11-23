@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+
+import 'package:intl_phone_field/intl_phone_field.dart';
+
+
 import 'package:deppa_app/screens/auth/sign_up_validation_number.dart';
 
 import 'package:deppa_app/utils/utils.dart';
+import '../../services/sms_validate.dart';
 import '../../widgets/widget.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
+
+String area = '56';
 
 class SignUpPhone extends StatefulWidget {
   const SignUpPhone({Key ?key, this.address, this.email, this.password})
@@ -20,6 +26,10 @@ class _SignUpPhoneState extends State<SignUpPhone> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController phoneController = TextEditingController();
+  
+
+
+
 
   @override
   void initState() {
@@ -28,9 +38,17 @@ class _SignUpPhoneState extends State<SignUpPhone> {
 
   @override
   Widget build(BuildContext context) {
+    print('Datos Recibidos de Pantalla: SignUpBasics');
+    print('Email:  ${widget.email}');
+    print('Contraseña: ${widget.password}');
+    print('Dirección: ${widget.address}');
+    
+
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
 
+
+//Pantalla general
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -54,36 +72,7 @@ class _SignUpPhoneState extends State<SignUpPhone> {
     );
   }
 
-  Padding nextButtonPadding(double width, BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: width * 0.08,
-        right: width * 0.08,
-      ),
-      child: Align(
-        alignment: Alignment.topCenter,
-        child: _nextButton(context),
-      ),
-    );
-  }
-
-  SecondaryButtonWidget _nextButton(BuildContext context) {
-    return SecondaryButtonWidget(
-      title: Strings.nextSignUp,
-      onTap: () {
-        if (formKey.currentState!.validate()) {
-          Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => const SignUpValidationNumbre(
-                    /*address: widget.address!,
-                    email: widget.email!,
-                    password: widget.password!,
-                    phone: phoneController.text,*/
-                  )));
-        }
-      },
-    );
-  }
-
+//Componente de registro de número celular
   inputFieldWidget(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
@@ -98,6 +87,7 @@ class _SignUpPhoneState extends State<SignUpPhone> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                //Título de la pantalla
                 Padding(
                   padding: EdgeInsets.only(
                     left: width * 0.1,
@@ -115,6 +105,7 @@ class _SignUpPhoneState extends State<SignUpPhone> {
                     ),
                   ),
                 ),
+                //Texto de Indicaciones
                 Padding(
                   padding: EdgeInsets.only(
                     top: height * 0.05,
@@ -136,6 +127,7 @@ class _SignUpPhoneState extends State<SignUpPhone> {
                 SizedBox(
                   height: height * 0.02,
                 ),
+                //Imput de número de teléfono
                 Row(
                   children: [
                     Expanded(
@@ -156,6 +148,14 @@ class _SignUpPhoneState extends State<SignUpPhone> {
                                 ),
                                 initialCountryCode: 'CL',
                                 controller: phoneController,
+                                onChanged: (phone) {
+                                    print(phone.completeNumber);
+                                },
+                                onCountryChanged: (country) {
+                                  print('Country changed to: ' + country.dialCode);
+                                  area = country.dialCode;
+                                },
+                                
                               ),
                             ),
                           ),
@@ -168,6 +168,69 @@ class _SignUpPhoneState extends State<SignUpPhone> {
                   ],
                 )
               ],
-            )));
+            )
+      )
+    );
+  }
+
+
+
+  //Componente Botón de Siguiente
+  Padding nextButtonPadding(double width, BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: width * 0.08,
+        right: width * 0.08,
+      ),
+      child: Align(
+        alignment: Alignment.topCenter,
+        child: SecondaryButtonWidget(
+          title: Strings.nextSignUp,
+          onTap: () async{
+            if (formKey.currentState!.validate()) {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => SignUpValidationNumbre(
+                        address: widget.address!,
+                        email: widget.email!,
+                        password: widget.password!,
+                        phone: '+'+area+phoneController.text,
+                      )
+                  )
+                );
+              /*if(await sendCode(phoneController.text, area) == 200){
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => SignUpValidationNumbre(
+                        address: widget.address!,
+                        email: widget.email!,
+                        password: widget.password!,
+                        phone: '+'+area+phoneController.text,
+                      )
+                  )
+                );
+              }else{
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text(Strings.error),
+                      content: Text(Strings.errorMessage),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text(Strings.returnBtn),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              }*/
+              
+            }
+          },
+        )
+      ),
+    );
   }
 }

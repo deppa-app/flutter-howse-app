@@ -1,4 +1,4 @@
-import 'package:deppa_app/models/profile.dart';
+
 class User {
   const User({
     this.data,
@@ -12,60 +12,44 @@ class User {
     return User(data: dataList);
   }
 }
+//Mapeo de respuesta
 class DataUser {
-  final int ?id;
-  final String ?token;
-  final String ?username;
-  final String email;
-  final String ?password;
-  final String ?publicToken;
-  final String ?rut;
-  //final DateTime createdAt;
-  //final DateTime updatedAt;
-  //final DataProfile profile;
+  String token;
+  int id;
+  String username;
+  String email;
+  String provider;
+  bool confirmed;
+  bool blocked;
+  String publicToken;
+  DateTime createdAt;
+  DateTime updatedAt;
 
   DataUser({
-    this.token,
-    this.id,
-    this.username,
+    required this.token,
+    required this.id,
+    required this.username,
     required this.email,
-    this.password,
-    this.publicToken,
-    //this.createdAt,
-    //this.updatedAt,
-    this.rut,
-    //this.profile
+    required this.provider,
+    required this.confirmed,
+    required this.blocked,
+    required this.publicToken,
+    required this.createdAt,
+    required this.updatedAt,
   });
+  
   factory DataUser.fromJson(Map<String, dynamic> json) {
-
     return DataUser(
       token: json['jwt'],
       id: json['user']['id'],
       username: json['user']['username'],
       email: json['user']['email'],
-      /* password: json['user']['password'], */
-      );
+      provider: json['user']['provider'],
+      confirmed: json['user']['confirmed'],
+      blocked: json['user']['blocked'],
+      publicToken: json['user']['publicToken'],
+      createdAt: DateTime.parse(json['user']['createdAt']),
+      updatedAt: DateTime.parse(json['user']['updatedAt']),
+    );
   }
-}
-class ModelUser {
-  final int ?id;
-  final String ?username;
-  final String ?email;
-  final String ?password;
-  final String ?publicToken;
-  final String ?rut;
-  final DateTime ?createdAt;
-  final DateTime ?updatedAt;
-  final DataProfile ?profile;
-
-  ModelUser( 
-      {this.id,
-      this.username,
-      this.email,
-      this.password,
-      this.publicToken,
-      this.createdAt,
-      this.updatedAt,
-      this.rut,
-      this.profile});
 }

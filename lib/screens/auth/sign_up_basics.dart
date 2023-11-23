@@ -155,7 +155,6 @@ class _SignUpBasicsState extends State<SignUpBasics> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // TODO: Realizar validaciones a los inputs
             SizedBox(height: height* 0.04),
             Align(
                 alignment: Alignment.topCenter,
@@ -227,7 +226,7 @@ class _SignUpBasicsState extends State<SignUpBasics> {
                       checkedValue1 = value!;
                     });
                   },
-                  controlAffinity: ListTileControlAffinity.leading, //  <-- leading Checkbox
+                  controlAffinity: ListTileControlAffinity.leading, 
                 ),
               ),
             ),
@@ -255,7 +254,7 @@ class _SignUpBasicsState extends State<SignUpBasics> {
                     });
                   },
                   controlAffinity:
-                      ListTileControlAffinity.leading, //  <-- leading Checkbox
+                      ListTileControlAffinity.leading,
                 ),
               ),
             ),
@@ -282,7 +281,7 @@ class _SignUpBasicsState extends State<SignUpBasics> {
                       checkedValue3 = value!;
                     });
                   },
-                  controlAffinity: ListTileControlAffinity.leading, //  <-- leading Checkbox
+                  controlAffinity: ListTileControlAffinity.leading, 
                 ),
               ),
             ),
@@ -321,9 +320,10 @@ class _SignUpBasicsState extends State<SignUpBasics> {
           if (formKey.currentState!.validate()) {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => SignUpPhone(
-                  /*address: addressController.text,
+                  address: addressController.text,
                   email: emailController.text,
-                  password: confirmPasswordController.text*/)
+                  password: confirmPasswordController.text
+                  )
                 )
               );
           }

@@ -21,13 +21,14 @@ class HomeScreen extends StatefulWidget {
       this.direction = '',
       this.comuna = '',
       this.changeMessage = false,
-      this.totalViews = 0})
+      this.totalViews = 0, this.tokenSession})
       : super(key: key);
   final String direction;
   final String comuna;
   final bool changeMessage;
   final int? idProfile;
   final int totalViews;
+  final String? tokenSession;
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }

@@ -133,72 +133,63 @@ class ModelProfile {
   }
 }
 
+//Modelo de Perfil para registro en creación de cuenta
 class ValidateProfile {
-  final int ?id;
-  final String ?name;
-  final String ?lastName;
-  final String ?email;
-  final String ?birthday;
-  final String ?gender;
-  final String ?identificationNumber;
-  final String ?numberPhone;
-  final int ?pin;
-  final int ?numberPhoneValidation;
-  final int ?identificationNumberValidation;
-  final bool ?emailValidation;
-  final bool ?paymentValidation;
-  final String ?rut;
-  final String ?address;
-  final String ?createdAt;
-  final String ?updatedAt;
-  final String ?publishedAt;
-  final String ?avatar;
-  final String ?expirationDate;
-  final String ?emisionDate;
+  final int id;
+  final String name;
+  final String lastName;
+  final String identificationNumber;
+  final String email;
+  final String numberPhone;
+  final String? pin;
+  final String gender;
+  final String expirationDate;
+  final String emisionDate;
+  final DateTime birthdate;
+  final int? numberPhoneValidation;
+  final int? identificationNumberValidation;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime publishedAt;
 
-  ValidateProfile(
-      {this.numberPhone,
-      this.pin,
-      this.numberPhoneValidation,
-      this.identificationNumberValidation,
-      this.emailValidation,
-      this.paymentValidation,
-      this.rut,
-      this.address,
-      this.id,
-      this.name,
-      this.lastName,
-      this.email,
-      this.birthday,
-      this.gender,
-      this.identificationNumber,
-      this.createdAt,
-      this.updatedAt,
-      this.publishedAt,
-      this.avatar,
-      this.expirationDate,
-      this.emisionDate});
+  ValidateProfile({
+    required this.id,
+    required this.name,
+    required this.lastName,
+    required this.identificationNumber,
+    required this.email,
+    required this.numberPhone,
+    this.pin,
+    required this.gender,
+    required this.expirationDate,
+    required this.emisionDate,
+    required this.birthdate,
+    this.numberPhoneValidation,
+    this.identificationNumberValidation,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.publishedAt,
+  });
 
   factory ValidateProfile.fromJson(Map<String, dynamic> parsedJson) {
-    var data = parsedJson["data"];
     return ValidateProfile(
-      id: data['id'],
-      numberPhone: data['numberPhone'],
-      pin: data['pin'],
-      expirationDate: data['expirationDate'],
-      emisionDate: data['emisionDate'],
-      numberPhoneValidation: data['numberPhoneValidation'],
-      identificationNumberValidation: data['identificationNumberValidation'],
-      emailValidation: data['emailValidation'],
-      paymentValidation: data['paymentValidation'],
-      rut: data['rut'],
-      address: data['address'],
-      name: data['name'],
-      lastName: data['lastName'],
-      email: data['email'],
-      birthday: data['birthday'],
-      gender: data['gender'],
-      identificationNumber: data['identificationNumber'],
+      id: parsedJson['id'],
+      name: parsedJson['attributes']['name'],
+      lastName: parsedJson['attributes']['lastName'],
+      identificationNumber: parsedJson['attributes']['identificationNumber'],
+      email: parsedJson['attributes']['email'],
+      numberPhone: parsedJson['attributes']['numberPhone'],
+      pin: parsedJson['attributes']['pin'],
+      gender: parsedJson['attributes']['gender'],
+      expirationDate: parsedJson['attributes']['experationDate'],
+      emisionDate: parsedJson['attributes']['emisionDate'],
+      birthdate: DateTime.parse(parsedJson['attributes']['birthdate']),
+      numberPhoneValidation: parsedJson['attributes']['numberPhoneValidation'],
+      identificationNumberValidation: parsedJson['attributes']['indentificationNumberValidation'],
+      createdAt: DateTime.parse(parsedJson['attributes']['createdAt']),
+      updatedAt: DateTime.parse(parsedJson['attributes']['updatedAt']),
+      publishedAt: DateTime.parse(parsedJson['attributes']['publishedAt']),
     );
   }
 }
+

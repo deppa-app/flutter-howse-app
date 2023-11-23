@@ -19,6 +19,7 @@ class CaptureFront {
     String tocToken = '';
     try {
       tocToken = await PluginToc.capturaFront(documentType, sessionId);
+      
     } catch (e) {
       debugPrint(e.toString());
     }

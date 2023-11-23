@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 
 import 'package:http/http.dart' as http;
 
-Future<DataProfile> getOneProfile(int idProfile) async {
+/*Future<DataProfile> getOneProfile(int idProfile) async {
   final urlAPI =
       'https://enteleqqia.hegga.cl/api/profiles/$idProfile?populate=*';
   final response = await http.get(Uri.parse(urlAPI));
@@ -14,10 +14,13 @@ Future<DataProfile> getOneProfile(int idProfile) async {
     String response = await rootBundle.loadString('mocks/categories.json');
     return DataProfile.fromJson(jsonDecode(response));
   }
-}
+}*/
 
 Future<ValidateProfile> saveProfile(String profile) async {
-  const urlAPI = 'https://enteleqqia.hegga.cl/api/profiles';
+  print("Datos de perfil a registrar");
+  print(profile);
+  //TODO: Actualizar ruta a variable de entorno
+  const urlAPI = 'https://orca-app-fq37g.ondigitalocean.app/api/profiles';
   final response = await http.post(Uri.parse(urlAPI),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
@@ -31,7 +34,7 @@ Future<ValidateProfile> saveProfile(String profile) async {
   }
 }
 
-Future<ValidateProfile> updateProfile(String user, int idProfile) async {
+/*Future<ValidateProfile> updateProfile(String user, int idProfile) async {
   final urlAPI = 'https://enteleqqia.hegga.cl/api/profiles/$idProfile';
   final response = await http.put(Uri.parse(urlAPI),
       headers: <String, String>{
@@ -44,7 +47,7 @@ Future<ValidateProfile> updateProfile(String user, int idProfile) async {
     String response = await rootBundle.loadString('mocks/categories.json');
     return ValidateProfile.fromJson(jsonDecode(response));
   }
-}
+}*/
 
 // Future<ClassProfile> changePassword(int id, String password) async {
 //   //  final String passwordHashed = BCrypt.hashpw(
