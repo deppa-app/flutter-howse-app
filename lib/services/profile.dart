@@ -16,21 +16,32 @@ import 'package:http/http.dart' as http;
   }
 }*/
 
-Future<ValidateProfile> saveProfile(String profile) async {
-  print("Datos de perfil a registrar");
-  print(profile);
-  //TODO: Actualizar ruta a variable de entorno
-  const urlAPI = 'https://orca-app-fq37g.ondigitalocean.app/api/profiles';
-  final response = await http.post(Uri.parse(urlAPI),
+Future<ValidateProfile?> saveProfile(String profile) async {
+  try {
+    print("Datos de perfil a registrar");
+    print(profile);
+    
+    // TODO: Actualizar ruta a variable de entorno
+    const urlAPI = 'https://orca-app-fq37g.ondigitalocean.app/api/profiles';
+    
+    final response = await http.post(
+      Uri.parse(urlAPI),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: profile);
-  if (response.statusCode == 200) {
-    return ValidateProfile.fromJson(jsonDecode(response.body));
-  } else {
-    String response = await rootBundle.loadString('mocks/categories.json');
-    return ValidateProfile.fromJson(jsonDecode(response));
+      body: profile,
+    );
+    
+    if (response.statusCode == 200) {
+      return ValidateProfile.fromJson(jsonDecode(response.body));
+    } else {
+      String response = await rootBundle.loadString('mocks/categories.json');
+      return ValidateProfile.fromJson(jsonDecode(response));
+    }
+  } catch (e) {
+
+    print('Error al guardar el perfil: $e');
+    return null;
   }
 }
 

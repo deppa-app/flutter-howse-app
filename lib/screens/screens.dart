@@ -1,25 +1,11 @@
-// import 'dart:html';
+
 export 'package:deppa_app/screens/dashboard/billing/download_invoice.dart';
 
 export 'package:deppa_app/screens/dashboard/booking_pin.dart';
 
 export 'package:deppa_app/screens/dashboard/billing/billing_data.dart';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import 'dart:html';
-export 'package:deppa_app/screens/auth/auth.dart';
+export 'package:deppa_app/screens/auth/index.dart';
 export 'package:deppa_app/screens/auth/change_password.dart';
 export 'package:deppa_app/screens/auth/my_account_screen.dart';
 export 'package:deppa_app/screens/auth/sign_in_screen.dart';

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:deppa_app/models/user.dart';
-import 'package:deppa_app/screens/auth/auth.dart';
+import 'package:deppa_app/screens/auth/index.dart';
 
 
 import 'package:deppa_app/utils/utils.dart';
@@ -240,8 +240,8 @@ class _SignInScreenState extends State<SignInScreen> {
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: Text('Error de autenticación'),
-                            content: Text(
+                            title: const Text('Error de autenticación'),
+                            content: const Text(
                                 'El email o la contraseña son incorrectos'),
                             actions: <Widget>[
                               TextButton(
@@ -252,14 +252,6 @@ class _SignInScreenState extends State<SignInScreen> {
                         });
                 });
               }
-
-
-            /*Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (context) => HomeScreen(
-                                idProfile: id,
-                              )));*/
-            //final authService = Provider.of<AuthService>(context, listen: false);
-          
           }),
     );
   }

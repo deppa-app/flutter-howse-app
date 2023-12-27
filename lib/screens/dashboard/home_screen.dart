@@ -9,7 +9,9 @@ import 'package:deppa_app/utils/dimensions.dart';
 import 'package:deppa_app/utils/strings.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../models/property.dart';
 import '../../search/search_department.dart';
+import '../../services/properties.dart';
 import '../../widgets/buttons/filter_buttons/filter_button_widget.dart';
 import '../../widgets/widget.dart';
 
@@ -21,7 +23,8 @@ class HomeScreen extends StatefulWidget {
       this.direction = '',
       this.comuna = '',
       this.changeMessage = false,
-      this.totalViews = 0, this.tokenSession})
+      this.totalViews = 0, 
+      this.tokenSession})
       : super(key: key);
   final String direction;
   final String comuna;
@@ -29,6 +32,7 @@ class HomeScreen extends StatefulWidget {
   final int? idProfile;
   final int totalViews;
   final String? tokenSession;
+  
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -36,19 +40,31 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   String? currentLocation;
   TextEditingController searchController = TextEditingController();
+  late Future<PropertyList?> properties;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-
-    //_determinePosition();
-    currentLocation = '';
-    //getUserLocation();
+    print(widget.tokenSession);
+    properties = getProperties(widget.tokenSession!)
+    .then(((PropertyList? properties){
+      
+  print("imprimiendo desde el home");
+  for (var property in properties!.data) {
+    print('Property ID: ${property.id}');
+    print('Cod: ${property.attributes.cod}');
+    print('Direction: ${property.attributes.direction}');
+    print('---');
+  }
+    }))
+    ; 
+    
   }
 
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -69,7 +85,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Image.asset(
                           'assets/images/googlemapsimg.png',
                         ),
-                        onTap: () => {},
+                        onTap: () => {
+          
+                        },
                       ),
                     ),
                     const Positioned(
@@ -95,6 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: Dimensions.heightSize,
                 ),
                 const GreenDivider(),
+                
                 BuildDetailsWidget(
                     comuna: widget.comuna, direction: widget.direction),
                 const SizedBox(

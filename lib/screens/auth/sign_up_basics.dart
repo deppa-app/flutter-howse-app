@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:deppa_app/screens/auth/auth.dart';
+import 'package:deppa_app/screens/auth/index.dart';
 
 //import 'package:percent_indicator/percent_indicator.dart';
 import 'package:deppa_app/utils/utils.dart';

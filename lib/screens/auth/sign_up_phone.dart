@@ -6,7 +6,7 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:deppa_app/screens/auth/sign_up_validation_number.dart';
 
 import 'package:deppa_app/utils/utils.dart';
-import '../../services/sms_validate.dart';
+//import '../../services/sms_validate.dart';
 import '../../widgets/widget.dart';
 
 String area = '56';

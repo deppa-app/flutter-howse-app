@@ -135,16 +135,16 @@ class _SignUpValidationDocumentationState extends State<SignUpValidationDocument
                   height: Dimensions.heightSize * 2,
                 ),
                 //Subtitulo antes del enumerado
-                Padding(
-                  padding: const
+                const Padding(
+                  padding: 
                       EdgeInsets.only(
                         left: Dimensions.marginSize,
                         right: Dimensions.marginSize
                       ),
-                  child: const Text(
+                  child:  Text(
                     'Instrucciones para la verificación de documentos: ',
                     //Strings.documentsVerification,
-                    style: const TextStyle(
+                    style:  TextStyle(
                         color: CustomColor.colorBlack,
                         fontSize: 15,
                         height: 1.2,
@@ -156,16 +156,16 @@ class _SignUpValidationDocumentationState extends State<SignUpValidationDocument
                   height: Dimensions.heightSize * 2,
                 ),
                 //Texto antes del enumerado
-                Padding(
-                  padding: const
+                const Padding(
+                  padding: 
                       EdgeInsets.only(
                         left: Dimensions.marginSize,
                         right: Dimensions.marginSize
                       ),
-                  child: const Text(
+                  child:  Text(
                     'Utilizaremos reconocimiento facial y reconocimiento de tu cédula de identidad para agilizar el proceso.',
                     //Strings.documentsVerification,
-                    style: const TextStyle(
+                    style:  TextStyle(
                         color: CustomColor.colorBlack,
                         fontSize: 15, 
                         height: 1.2,
@@ -177,16 +177,16 @@ class _SignUpValidationDocumentationState extends State<SignUpValidationDocument
                   height: Dimensions.heightSize * 2,
                 ),
                 //Texto enumerado
-                Padding(
-                  padding: const
+                const Padding(
+                  padding: 
                       EdgeInsets.only(
                         left: Dimensions.marginSize,
                         right: Dimensions.marginSize
                       ),
-                  child: const Text(
+                  child:  Text(
                     '1. Debes tener a mano tu cédula de identidad para completar la verificación. \n2. Asegúrate de que ambas imágenes sean claras y legibles. \n3. Nuestro sistema verificará tu identidad automáticamente. \n4. Si la verificación es exitosa, podrás continuar con tu reserva o programación de visita. \n5. En caso de que la verificación no sea exitosa, recibirás instrucciones adicionales.',
                     //Strings.documentsVerification,
-                    style: const TextStyle(
+                    style:  TextStyle(
                         color: CustomColor.colorBlack,
                         fontSize: 15,
                         height: 1.2,

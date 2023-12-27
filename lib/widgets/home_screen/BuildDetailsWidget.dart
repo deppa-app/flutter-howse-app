@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 //import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,129 +20,147 @@ class BuildDetailsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(9),
-          child: Container(
-            padding: EdgeInsets.symmetric(
-                horizontal:
-                    MediaQuery.of(context).size.width * 0.025,
-                vertical: MediaQuery.of(context).size.width * .025),
-            width: MediaQuery.of(context).size.width * 10,
-            height: MediaQuery.of(context).size.height * .34,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: CustomColor.whiteColor2,
-              border: Border.all(
-                  color: CustomColor.greyColor, 
-                  width: 1),
-            ),
-            child: Row(
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                        width:
-                            MediaQuery.of(context).size.width * .5,
-                        child: const Text(
-                          'Arriendo de departamento a pasos del metro provincia',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
+    return Container(
+      padding: const EdgeInsets.only(top: 10.0),
+      height: 360,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Flexible(
+            child: CarouselSlider(
+              options: CarouselOptions(
+                    height: 310.0, // Altura del carrusel
+                    enlargeCenterPage: true,
+                    autoPlay: false, // Iniciar la reproducción automática
+                    aspectRatio: 16 / 20,
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enableInfiniteScroll: true,
+                    viewportFraction: 1.0,
+                  ),
+                  items: [
+                    Container(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                           Padding(
+                            padding: const EdgeInsets.only(
+                            bottom: 5.0,
+                            right: 8.0,
+                            left: 10.0
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: CustomColor.whiteColor2,
+                                border: Border.all(
+                                    color: CustomColor.greyColor, 
+                                    width: 1),
                               ),
-                        )),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    _buildDetails(
-                      toilet: 2,
-                      codigo: 123456,
-                      parking: 2,
-                      bedroom: 2,
-                      squareMeter: 80,
-                      servicios: 'Lavandería, Patio',
-                      otros:
-                          'La conserjería funciona las 24 horas, el edificio dispone de piscina, portón automático.',
-                      storage: 0,
-                      totalViews: 12,
-                      comuna: comuna == ''
-                          ? 'Av. Providencia'
-                          : comuna,
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width *.11 ,
-                        ),
-                        const GreenOutlineButtonWidget(
-                          title: 'Próximos',
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    FadeInImage(
-                      placeholder:
-                          const AssetImage('assets/images/no-image.jpg'),
-                      fit: BoxFit.cover,
-                      image: const AssetImage('assets/images/casita.png'),
-                      width:
-                          MediaQuery.of(context).size.width * .35,
-                      height:
-                          MediaQuery.of(context).size.height * .18,
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      '\$480.000',
-                      style: TextStyle(
-                          color: CustomColor.brownColor2,
-                          fontWeight: FontWeight.w600,
-                          fontSize: Dimensions.defaultTextSize + 1),
-                    ),
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Row(
-                      children: [
-                        const Icon(
-                          FontAwesomeIcons.personWalkingArrowRight,
-                          size: 14,
-                          color: CustomColor.greyColor,
-                        ),
-                        const SizedBox(
-                          width: 8,
-                        ),
-                        Container(
-                          width: 100,
-                          child: Text(
-                            direction == '' ? '200 Rafael Soto Mayor': direction,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                color: CustomColor.greyColor,
-                                fontWeight: FontWeight.normal,
-                                fontSize:
-                                    Dimensions.defaultTextSize ),
-                          ),
-                        ),
-                        const SizedBox(width: 28,)
-                      ],
+                              padding: EdgeInsets.symmetric(
+                                horizontal: MediaQuery.of(context).size.width * 0.025,
+                                vertical:   MediaQuery.of(context).size.width * .025
+                              ),
+                              width: MediaQuery.of(context).size.width * 10,
+                              height: MediaQuery.of(context).size.height * .34,
+                              ///////////////////
+                              child: Row(
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      SizedBox(
+                                        width: MediaQuery.of(context).size.width * .5,
+                                        child: const Text(
+                                          'Arriendo de departamento a pasos del metro provincia.......',
+                                          style: TextStyle(fontWeight: FontWeight.w500,),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      _buildDetails(
+                                        toilet: 2,
+                                        codigo: 123456,
+                                        parking: 2,
+                                        bedroom: 2,
+                                        squareMeter: 80,
+                                        servicios: 'Lavandería, Patio',
+                                        otros:
+                                            'La conserjería funciona las 24 horas, el edificio dispone de piscina, portón automático.',
+                                        storage: 0,
+                                        totalViews: 12,
+                                        comuna: comuna == ''
+                                            ? 'Av. Providencia'
+                                            : comuna,
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          SizedBox(width: MediaQuery.of(context).size.width *.11 ,),
+                                          const GreenOutlineButtonWidget(
+                                            title: 'Próximos',
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(height: 12,),
+                                      FadeInImage(
+                                        placeholder:const AssetImage('assets/images/no-image.jpg'),
+                                        fit: BoxFit.cover,
+                                        image: const AssetImage('assets/images/casita.png'),
+                                        width:MediaQuery.of(context).size.width * .35,
+                                        height:MediaQuery.of(context).size.height * .18,
+                                      ),
+                                      const SizedBox(height: 5,),
+                                      Text(
+                                        '\$480.000',
+                                        style: TextStyle(
+                                            color: CustomColor.brownColor2,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: Dimensions.defaultTextSize + 1),
+                                      ),
+                                      const SizedBox(height: 15,),
+                                      Row(
+                                        children: [
+                                          const Icon(
+                                            FontAwesomeIcons.personWalkingArrowRight,
+                                            size: 14,
+                                            color: CustomColor.greyColor,
+                                          ),
+                                          const SizedBox(width: 8,),
+                                          Container(
+                                            width: 100,
+                                            child: Text(
+                                              direction == '' ? '200 Rafael Soto Mayor': direction,
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                color: CustomColor.greyColor,
+                                                fontWeight: FontWeight.normal,
+                                                fontSize:Dimensions.defaultTextSize 
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 28,)
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ), 
+                        ],
+                      ),
                     )
-                  ],
-                ),
-              ],
+                  ]
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

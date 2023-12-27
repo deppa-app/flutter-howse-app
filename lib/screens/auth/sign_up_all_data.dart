@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
-import 'package:deppa_app/screens/auth/auth.dart';
+import 'package:deppa_app/screens/auth/index.dart';
 import 'package:deppa_app/services/profile.dart';
 import 'package:deppa_app/services/user.dart';
 import 'package:deppa_app/utils/utils.dart';
@@ -36,7 +36,7 @@ class _SignUpAllDataState extends State<SignUpAllData> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   var _appState = AppState.none;
-  bool _toggleVisibility = false;
+  //bool _toggleVisibility = false;
   String ?gender;
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
@@ -148,7 +148,7 @@ class _SignUpAllDataState extends State<SignUpAllData> {
                   'user_iduser': userIdUser
                 }
               };
-              Future<ValidateProfile> newProfile = saveProfile(jsonEncode(profile));
+              Future<ValidateProfile?> newProfile = saveProfile(jsonEncode(profile));
               newProfile.then((data) {
                 print(data);
                 Navigator.of(context).push(

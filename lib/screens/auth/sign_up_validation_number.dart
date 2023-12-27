@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:deppa_app/screens/auth/auth.dart';
+import 'package:deppa_app/screens/auth/index.dart';
 import 'package:deppa_app/utils/utils.dart';
 import 'package:deppa_app/widgets/widget.dart';
 import 'package:flutter/services.dart';
 
-import '../../services/sms_validate.dart';
+//import '../../services/sms_validate.dart';
 
 class SignUpValidationNumbre extends StatefulWidget {
   const SignUpValidationNumbre(

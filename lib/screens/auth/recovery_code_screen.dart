@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:deppa_app/screens/auth/auth.dart';
+import 'package:deppa_app/screens/auth/index.dart';
 import 'package:deppa_app/utils/utils.dart';
 
 import 'package:deppa_app/widgets/widget.dart';
