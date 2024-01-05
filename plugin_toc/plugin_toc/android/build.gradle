@@ -1,0 +1,56 @@
+group 'cl.toc.plugin_toc'
+version '1.0'
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.24.18"
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "http://maven.toc.ai/artifactory/labs-release"
+            credentials {
+                username = "default"
+                password = "rMmXfdfb8PExmsWJ"
+            }
+        }
+           
+
+    }
+}
+
+apply plugin: 'com.android.library'
+
+
+
+android {
+    compileSdkVersion 30
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*'
+    }
+
+}
+dependencies {
+     implementation 'cl.toc.LivenessAndroidx:sdk:1.14.0'
+     implementation 'cl.toc.AutoCapturex:sdk:1.14.1'
+}

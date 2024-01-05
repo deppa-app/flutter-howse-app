@@ -369,7 +369,7 @@ packages:
   plugin_toc:
     dependency: "direct main"
     description:
-      path: "../plugin_toc"
+      path: "plugin_toc/plugin_toc"
       relative: true
     source: path
     version: "0.0.1"
