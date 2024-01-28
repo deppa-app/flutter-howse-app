@@ -11,12 +11,10 @@ class BuildDetailsWidget extends StatelessWidget {
     Key? key,
     required this.direction,
     required this.comuna,
-
   }) : super(key: key);
 
   final String direction;
   final String comuna;
-
 
   @override
   Widget build(BuildContext context) {
@@ -30,133 +28,430 @@ class BuildDetailsWidget extends StatelessWidget {
           Flexible(
             child: CarouselSlider(
               options: CarouselOptions(
-                    height: 310.0, // Altura del carrusel
-                    enlargeCenterPage: true,
-                    autoPlay: false, // Iniciar la reproducción automática
-                    aspectRatio: 16 / 20,
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    enableInfiniteScroll: true,
-                    viewportFraction: 1.0,
-                  ),
-                  items: [
-                    Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                           Padding(
-                            padding: const EdgeInsets.only(
-                            bottom: 5.0,
-                            right: 8.0,
-                            left: 10.0
-                            ),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: CustomColor.whiteColor2,
-                                border: Border.all(
-                                    color: CustomColor.greyColor, 
-                                    width: 1),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                horizontal: MediaQuery.of(context).size.width * 0.025,
-                                vertical:   MediaQuery.of(context).size.width * .025
-                              ),
-                              width: MediaQuery.of(context).size.width * 10,
-                              height: MediaQuery.of(context).size.height * .34,
-                              ///////////////////
-                              child: Row(
+                height: 310.0, // Altura del carrusel
+                enlargeCenterPage: true,
+                autoPlay: false, // Iniciar la reproducción automática
+                aspectRatio: 16 / 20,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                viewportFraction: 1.0,
+              ),
+              items: [
+                Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            bottom: 5.0, right: 8.0, left: 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: CustomColor.whiteColor2,
+                            border: Border.all(
+                                color: CustomColor.greyColor, width: 1),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  MediaQuery.of(context).size.width * 0.025,
+                              vertical:
+                                  MediaQuery.of(context).size.width * .025),
+                          width: MediaQuery.of(context).size.width * 10,
+                          height: MediaQuery.of(context).size.height * .34,
+                          ///////////////////
+                          child: Row(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        width: MediaQuery.of(context).size.width * .5,
-                                        child: const Text(
-                                          'Arriendo de departamento a pasos del metro provincia.......',
-                                          style: TextStyle(fontWeight: FontWeight.w500,),
-                                        ),
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * .5,
+                                    child: const Text(
+                                      'Arriendo de departamento a pasos del metro provincia...',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
                                       ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      _buildDetails(
-                                        toilet: 2,
-                                        codigo: 123456,
-                                        parking: 2,
-                                        bedroom: 2,
-                                        squareMeter: 80,
-                                        servicios: 'Lavandería, Patio',
-                                        otros:
-                                            'La conserjería funciona las 24 horas, el edificio dispone de piscina, portón automático.',
-                                        storage: 0,
-                                        totalViews: 12,
-                                        comuna: comuna == ''
-                                            ? 'Av. Providencia'
-                                            : comuna,
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                  Column(
-                                    children: [
-                                      Row(
-                                        children: [
-                                          SizedBox(width: MediaQuery.of(context).size.width *.11 ,),
-                                          const GreenOutlineButtonWidget(
-                                            title: 'Próximos',
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 12,),
-                                      FadeInImage(
-                                        placeholder:const AssetImage('assets/images/no-image.jpg'),
-                                        fit: BoxFit.cover,
-                                        image: const AssetImage('assets/images/casita.png'),
-                                        width:MediaQuery.of(context).size.width * .35,
-                                        height:MediaQuery.of(context).size.height * .18,
-                                      ),
-                                      const SizedBox(height: 5,),
-                                      Text(
-                                        '\$480.000',
-                                        style: TextStyle(
-                                            color: CustomColor.brownColor2,
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: Dimensions.defaultTextSize + 1),
-                                      ),
-                                      const SizedBox(height: 15,),
-                                      Row(
-                                        children: [
-                                          const Icon(
-                                            FontAwesomeIcons.personWalkingArrowRight,
-                                            size: 14,
-                                            color: CustomColor.greyColor,
-                                          ),
-                                          const SizedBox(width: 8,),
-                                          Container(
-                                            width: 100,
-                                            child: Text(
-                                              direction == '' ? '200 Rafael Soto Mayor': direction,
-                                              maxLines: 2,
-                                              overflow: TextOverflow.ellipsis,
-                                              style: TextStyle(
-                                                color: CustomColor.greyColor,
-                                                fontWeight: FontWeight.normal,
-                                                fontSize:Dimensions.defaultTextSize 
-                                              ),
-                                            ),
-                                          ),
-                                          const SizedBox(width: 28,)
-                                        ],
-                                      )
-                                    ],
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  _buildDetails(
+                                    toilet: 2,
+                                    codigo: 123456,
+                                    parking: 2,
+                                    bedroom: 2,
+                                    squareMeter: 80,
+                                    servicios: 'Lavandería, Patio',
+                                    otros:
+                                        'La conserjería funciona las 24 horas, el edificio dispone de piscina, portón automático.',
+                                    storage: 0,
+                                    totalViews: 12,
+                                    comuna: comuna == ''
+                                        ? 'Av. Providencia'
+                                        : comuna,
                                   ),
                                 ],
                               ),
-                            ),
-                          ), 
-                        ],
+                              Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                .11,
+                                      ),
+                                      const GreenOutlineButtonWidget(
+                                        title: 'Próximos',
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+                                  FadeInImage(
+                                    placeholder: const AssetImage(
+                                        'assets/images/no-image.jpg'),
+                                    fit: BoxFit.cover,
+                                    image: const AssetImage(
+                                        'assets/images/casita.png'),
+                                    width:
+                                        MediaQuery.of(context).size.width * .35,
+                                    height: MediaQuery.of(context).size.height *
+                                        .18,
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    '\$580.000',
+                                    style: TextStyle(
+                                        color: CustomColor.brownColor2,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize:
+                                            Dimensions.defaultTextSize + 1),
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        FontAwesomeIcons
+                                            .personWalkingArrowRight,
+                                        size: 14,
+                                        color: CustomColor.greyColor,
+                                      ),
+                                      const SizedBox(
+                                        width: 8,
+                                      ),
+                                      Container(
+                                        width: 100,
+                                        child: Text(
+                                          direction == ''
+                                              ? '200 Rafael Soto Mayor'
+                                              : direction,
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              color: CustomColor.greyColor,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize:
+                                                  Dimensions.defaultTextSize),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 28,
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                    )
-                  ]
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            bottom: 5.0, right: 8.0, left: 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: CustomColor.whiteColor2,
+                            border: Border.all(
+                                color: CustomColor.greyColor, width: 1),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  MediaQuery.of(context).size.width * 0.025,
+                              vertical:
+                                  MediaQuery.of(context).size.width * .025),
+                          width: MediaQuery.of(context).size.width * 10,
+                          height: MediaQuery.of(context).size.height * .34,
+                          child: Row(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * .5,
+                                    child: const Text(
+                                      'Arriendo departamento a pasos del mall portal la Dehesa...',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  _buildDetails(
+                                    toilet: 2,
+                                    codigo: 123456,
+                                    parking: 3,
+                                    bedroom: 3,
+                                    squareMeter: 100,
+                                    servicios: 'Lavandería, Patio',
+                                    otros:
+                                        'La conserjería funciona las 24 horas, el edificio dispone de piscina, portón automático.',
+                                    storage: 0,
+                                    totalViews: 12,
+                                    comuna:
+                                        comuna == '' ? 'Av. La Dehesa' : comuna,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                .11,
+                                      ),
+                                      const GreenOutlineButtonWidget(
+                                        title: 'Próximos',
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+                                  FadeInImage(
+                                    placeholder: const AssetImage(
+                                        'assets/images/no-image.jpg'),
+                                    fit: BoxFit.cover,
+                                    image: const AssetImage(
+                                        'assets/images/casita.png'),
+                                    width:
+                                        MediaQuery.of(context).size.width * .35,
+                                    height: MediaQuery.of(context).size.height *
+                                        .18,
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    '\$480.000',
+                                    style: TextStyle(
+                                        color: CustomColor.brownColor2,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize:
+                                            Dimensions.defaultTextSize + 1),
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        FontAwesomeIcons
+                                            .personWalkingArrowRight,
+                                        size: 14,
+                                        color: CustomColor.greyColor,
+                                      ),
+                                      const SizedBox(
+                                        width: 8,
+                                      ),
+                                      Container(
+                                        width: 100,
+                                        child: Text(
+                                          direction == ''
+                                              ? '200 Rafael Soto Mayor'
+                                              : direction,
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              color: CustomColor.greyColor,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize:
+                                                  Dimensions.defaultTextSize),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 28,
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            bottom: 5.0, right: 8.0, left: 10.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: CustomColor.whiteColor2,
+                            border: Border.all(
+                                color: CustomColor.greyColor, width: 1),
+                          ),
+                          padding: EdgeInsets.symmetric(
+                              horizontal:
+                                  MediaQuery.of(context).size.width * 0.025,
+                              vertical:
+                                  MediaQuery.of(context).size.width * .025),
+                          width: MediaQuery.of(context).size.width * 10,
+                          height: MediaQuery.of(context).size.height * .34,
+                          child: Row(
+                            children: [
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width:
+                                        MediaQuery.of(context).size.width * .5,
+                                    child: const Text(
+                                      'Arriendo departamento en Lo Barnechea...',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
+                                  _buildDetails(
+                                    toilet: 2,
+                                    codigo: 123456,
+                                    parking: 2,
+                                    bedroom: 3,
+                                    squareMeter: 90,
+                                    servicios: 'Patio',
+                                    otros:
+                                        'La conserjería funciona las 24 horas, el edificio dispone de piscina, portón automático.',
+                                    storage: 0,
+                                    totalViews: 12,
+                                    comuna: comuna == ''
+                                        ? 'Del candil 600 Lo Barnechea'
+                                        : comuna,
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                .11,
+                                      ),
+                                      const GreenOutlineButtonWidget(
+                                        title: 'Próximos',
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 12,
+                                  ),
+                                  FadeInImage(
+                                    placeholder: const AssetImage(
+                                        'assets/images/no-image.jpg'),
+                                    fit: BoxFit.cover,
+                                    image: const AssetImage(
+                                        'assets/images/casita.png'),
+                                    width:
+                                        MediaQuery.of(context).size.width * .35,
+                                    height: MediaQuery.of(context).size.height *
+                                        .18,
+                                  ),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    '\$600.000',
+                                    style: TextStyle(
+                                        color: CustomColor.brownColor2,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize:
+                                            Dimensions.defaultTextSize + 1),
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Icon(
+                                        FontAwesomeIcons
+                                            .personWalkingArrowRight,
+                                        size: 14,
+                                        color: CustomColor.greyColor,
+                                      ),
+                                      const SizedBox(
+                                        width: 8,
+                                      ),
+                                      Container(
+                                        width: 100,
+                                        child: Text(
+                                          direction == ''
+                                              ? '200 Rafael Soto Mayor'
+                                              : direction,
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                              color: CustomColor.greyColor,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize:
+                                                  Dimensions.defaultTextSize),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 28,
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -164,7 +459,6 @@ class BuildDetailsWidget extends StatelessWidget {
     );
   }
 }
-
 
 class _buildDetails extends StatelessWidget {
   const _buildDetails({
@@ -370,8 +664,7 @@ class _buildDetails extends StatelessWidget {
                   height: 15,
                 ),
                 Row(
-                      children: [
-                        
+                  children: [
                     const Icon(
                       FontAwesomeIcons.eye,
                       color: CustomColor.greenColor,
@@ -381,29 +674,26 @@ class _buildDetails extends StatelessWidget {
                       width: 5,
                       height: 5,
                     ),
-                    Text(
-                      '$totalViews ',
+                    Text('$totalViews ',
                         style: TextStyle(
                           fontSize: Dimensions.defaultTextSize,
                           fontWeight: FontWeight.normal,
                           color: CustomColor.greyColor,
                         )),
-                    Text(
-                      Strings.persons,
+                    Text(Strings.persons,
                         style: TextStyle(
                           fontSize: Dimensions.defaultTextSize,
                           fontWeight: FontWeight.normal,
                           color: CustomColor.greyColor,
                         )),
-                      ],
-                    ),
-                    const SizedBox(
-                      width: 5,
-                      height: 5,
-                    ),
+                  ],
+                ),
+                const SizedBox(
+                  width: 5,
+                  height: 5,
+                ),
                 Row(
-                      children: [
-                        
+                  children: [
                     const Icon(
                       FontAwesomeIcons.podcast,
                       color: CustomColor.greenColor,
@@ -413,16 +703,14 @@ class _buildDetails extends StatelessWidget {
                       width: 5,
                       height: 5,
                     ),
-                    Text(
-                      '${comuna} ',
+                    Text('${comuna} ',
                         style: TextStyle(
                           fontSize: Dimensions.defaultTextSize,
                           fontWeight: FontWeight.normal,
                           color: CustomColor.greenColor,
-                        )
-                        ),
-                      ],
-                    )
+                        )),
+                  ],
+                )
               ],
             ),
           ],
